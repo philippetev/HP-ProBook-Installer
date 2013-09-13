@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>11C22</string>
+	<string>11A494</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>AppleHDAHALPlugIn</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.1.3f7, Copyright Apple Inc. 2005-2011</string>
+	<string>2.1.1f11, Copyright Apple Inc. 2005-2011</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.apple.audio.AppleHDAHALPlugIn</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,25 +19,25 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.3</string>
+	<string>2.1.1</string>
 	<key>CFBundleSignature</key>
 	<string>aaud</string>
 	<key>CFBundleVersion</key>
-	<string>2.1.3f7</string>
+	<string>2.1.1f11</string>
 	<key>DTCompiler</key>
 	<string></string>
 	<key>DTPlatformBuild</key>
-	<string>11C22</string>
+	<string></string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>11C22</string>
+	<string>11A494</string>
 	<key>DTSDKName</key>
 	<string></string>
 	<key>DTXcode</key>
 	<string>0410</string>
 	<key>DTXcodeBuild</key>
-	<string>11C22</string>
+	<string></string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2005-2011 Apple Inc. All rights reserved.</string>
 </dict>

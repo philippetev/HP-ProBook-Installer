@@ -1,9 +1,17 @@
 #!/bin/bash
 kextdir="$DSTVOLUME/System/Library/Extensions"
-# patching IO80211Family.kext
+# patching IO80211Family.kext.
 ath21="$kextdir/IO80211Family.kext/Contents/PlugIns/AirPortAtheros21.kext/Contents/Info.plist"
 ath9388="$kextdir/IO80211Family.kext/Contents/PlugIns/AirPortAtheros9388.kext/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Remove ':IOKitPersonalities:Atheros Wireless LAN PCI:IONameMatch:0'" "$ath21"
 /usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:Atheros Wireless LAN PCI:IONameMatch:1' string 'pci168c,2a'" "$ath9388"
-# rebuilding the kext cache
+# removing some obsolete kexts.
+for oldkext in "AppleACPIPS2Nub.kext" "ApplePS2Controller.kext" "AppleACPIBatteryManager.kext"
+do
+   if [ -e  "$kextdir/$oldkext" ]
+   then
+      rm -rf "$kextdir/$oldkext"
+   fi
+done
+# rebuilding the kext cache.
 touch "$kextdir"

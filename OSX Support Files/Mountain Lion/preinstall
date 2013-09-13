@@ -1,5 +1,5 @@
 #!/bin/bash
-# removing old kexts, if exist. If there are no old kext, the vanilla kexts will be removed
+# removing old kexts, if exist. If there are no old kext, the vanilla versions of these kexts will be removed.
 kextdir="$DSTVOLUME/System/Library/Extensions"
 for delkext in "ACPIPoller.kext" "ACPISensors.kext" "AppleHDA.kext" "AppleIntelCPUPowerManagement.kext" "AppleIntelSNBGraphicsFB.kext" "AppleSmartBatteryManager.kext" "FakeSMC.kext" "HSSDBlockStorage.kext" "IntelCPUMonitor.kext" "JMB38X.kext" "PXHCD.kext" "RadeonX.kext" "VoodooPS2Controller.kext"
 do

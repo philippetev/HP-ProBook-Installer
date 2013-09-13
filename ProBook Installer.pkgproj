@@ -13304,7 +13304,7 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>com.MadMax.pkg.i3-2310M</string>
+				<string>com.MadMax.pkg.i3-2330M</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
@@ -54930,7 +54930,7 @@ After their installation, you may find them in a folder on your desktop called "
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>HP ProBook Installer 6b5</string>
+						<string>HP ProBook Installer 6b6</string>
 					</dict>
 				</array>
 			</dict>
