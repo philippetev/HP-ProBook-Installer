@@ -1,0 +1,8 @@
+#!/bin/bash
+/usr/libexec/plistbuddy -c 'Print :askForPasswordDelay' "$HOME/Library/Preferences/com.apple.screensaver.plist"
+if [ $? == 0 ]
+then
+	/usr/libexec/plistbuddy -c 'Set :askForPasswordDelay 300' "$HOME/Library/Preferences/com.apple.screensaver.plist"
+else
+	/usr/libexec/plistbuddy -c 'Add :askForPasswordDelay real 300' "$HOME/Library/Preferences/com.apple.screensaver.plist"
+fi
