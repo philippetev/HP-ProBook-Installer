@@ -1,4 +1,11 @@
-Patched DSDT detected! Now you should do the following:
+If you see this warning message, that means you're trying to do any of the following:
+
+1. You're trying to patch already patched DSDT with the main model-specific patch.
+2. You're trying to patch your vanilla DSDT, but you haven't selected the main model-specific patch.
+
+Please, run the ProBook Installer again and select correct DSDT options.
+
+If you want to make yourself a new patched DSDT, you should do the following:
 
 1. Remove your current DSDT.aml.
 2. Only for 4x40s models with Sandy Bridge CPU installed: copy Mini-SSDT-IMEI.aml from your desktop to /Extra and name it ssdt-1.aml, if you already have existing ssdt.aml or ssdt.aml, if you don't have such.

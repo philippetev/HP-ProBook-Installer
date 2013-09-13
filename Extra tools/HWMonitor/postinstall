@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ ! -r "$HOME/Desktop/Tools" ];
 then
-mkdir "$HOME/Desktop/Tools"
-chown "$USER" "$HOME/Desktop/Tools"
+	mkdir "$HOME/Desktop/Tools"
+	chown "$USER" "$HOME/Desktop/Tools"
 fi
-unzip "$DSTVOLUME/tmp/apps/HWMonitor.zip" -d "$DSTVOLUME/tmp/apps/"
-cp -Rf "$DSTVOLUME/tmp/apps/HWMonitor.app" "$HOME/Desktop/Tools/"
+unzip "${3}/tmp/apps/HWMonitor.zip" -d "${3}/tmp/apps/"
+cp -Rf "${3}/tmp/apps/HWMonitor.app" "$HOME/Desktop/Tools/"
 chown -R "$USER" "$HOME/Desktop/Tools/HWMonitor.app"

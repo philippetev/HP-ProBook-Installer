@@ -1,7 +1,7 @@
 #!/bin/bash
 RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
 BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
-kextdir="$DSTVOLUME/System/Library/Extensions"
+kextdir="${3}/System/Library/Extensions"
 RTCpatched=`md5 -q $kextdir/AppleRTC.kext/Contents/MacOS/AppleRTC`
 # patching AppleRTC.kext for 4x40s
 if [ "$RTCpatched" == "43d7bd19be683cfb8dae1826da40ab24" ]

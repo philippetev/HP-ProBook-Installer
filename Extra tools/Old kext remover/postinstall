@@ -1,6 +1,6 @@
 #!/bin/bash
 #removing some obsolete kexts you may have.
-kextdir="$DSTVOLUME/System/Library/Extensions"
+kextdir="${3}/System/Library/Extensions"
 for delkext in "SleepEnabler.kext" \
 	"NullCPUPowerManagement.kext" \
 	"JMicronATAInjector.kext" \

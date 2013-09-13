@@ -1,0 +1,7 @@
+#!/bin/bash
+week=CDFGHJKLMNPQRTVWXY12345678
+chars=ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890
+week_letter=`echo ${week:$(($RANDOM%${#week})):1}`
+random_chars=`echo ${chars:$(($RANDOM%${#chars})):1}${chars:$(($RANDOM%${#chars})):1}${chars:$(($RANDOM%${#chars})):1}`
+serial="C02G"$week_letter$random_chars"DV7P"
+/usr/libexec/PlistBuddy -c "Set :SMserial $serial" ${3}/Extra/smbios.plist

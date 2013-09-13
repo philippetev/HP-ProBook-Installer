@@ -3,13 +3,15 @@ cd /tmp/tempDSDT
 ioreg -c AppleACPIPlatformExpert -k 'ACPI Tables' -d 1 -rw0 | egrep 'ACPI Tables' | sed -e 's/.*"DSDT"=<//g' -e 's/>,.*//g' | xxd -r -p > ./dsdt_extract.aml
 ./iaslpbi -d ./dsdt_extract.aml
 sleep 1
-case `cat ./dsdt_extract.dsl | grep 'If (CondRefOf (FPED))'` in
-	"") cp ./warning.txt "$HOME/Desktop/DSDT Warning.txt"
-		cp ./Mini-SSDT-DualLink.aml "$HOME/Desktop/"
-		cp ./Mini-SSDT-IMEI.aml "$HOME/Desktop/"
-		;;
-	*)	cp ./dsdt_extract.dsl ./dsdt_patch.dsl
-		for patch in "4x30s.txt" \
+VanillaCheck=`cat ./dsdt_extract.dsl | grep 'If (CondRefOf (FPED))'`
+if [ "$VanillaCheck" == "" -a -f ./4x*.txt ] || [ "$VanillaCheck" != "" -a ! -f ./4x*.txt ]
+then
+	cp ./warning.txt "$HOME/Desktop/DSDT Warning.txt"
+	cp ./Mini-SSDT-DualLink.aml "$HOME/Desktop/"
+	cp ./Mini-SSDT-IMEI.aml "$HOME/Desktop/"
+else
+	cp ./dsdt_extract.dsl ./dsdt_patch.dsl
+	for patch in "4x30s.txt" \
 		"4x40s_IvyBridge.txt" \
 		"4x40s_SandyBridge.txt" \
 		"03a_HDMI.txt" \
@@ -18,15 +20,13 @@ case `cat ./dsdt_extract.dsl | grep 'If (CondRefOf (FPED))'` in
 		"04b_FanQuiet.txt" \
 		"04c_FanSpeed.txt" \
 		"08_AR9285.txt"
-		do
-			if [ -f $patch ]
-			then
-				./patchmatic ./dsdt_patch.dsl ./$patch ./dsdt_patch.dsl
-			fi
-		done
-		./iaslpbi -p DSDT ./dsdt_patch.dsl
-		cp ./DSDT.aml /Extra/DSDT.aml
-		;;
-	
-esac
+	do
+		if [ -f $patch ]
+		then
+			./patchmatic ./dsdt_patch.dsl ./$patch ./dsdt_patch.dsl
+		fi
+	done
+	./iaslpbi -p DSDT ./dsdt_patch.dsl
+	cp ./DSDT.aml /Extra/DSDT.aml
+fi
 rm -rf /tmp/tempDSDT

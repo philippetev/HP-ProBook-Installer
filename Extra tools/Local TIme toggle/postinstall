@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ ! -r "$HOME/Desktop/Tools" ];
 then
-mkdir "$HOME/Desktop/Tools"
-chown "$USER" "$HOME/Desktop/Tools"
+	mkdir "$HOME/Desktop/Tools"
+	chown "$USER" "$HOME/Desktop/Tools"
 fi
-unzip "$DSTVOLUME/tmp/apps/Localtime-Toggle.pkg.zip" -d "$DSTVOLUME/tmp/apps/"
-cp -f "$DSTVOLUME/tmp/apps/Localtime-Toggle.pkg" "$HOME/Desktop/Tools/"
+unzip "${3}/tmp/apps/Localtime-Toggle.pkg.zip" -d "${3}/tmp/apps/"
+cp -f "${3}/tmp/apps/Localtime-Toggle.pkg" "$HOME/Desktop/Tools/"
 chown "$USER" "$HOME/Desktop/Tools/Localtime-Toggle.pkg"

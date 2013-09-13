@@ -10,7 +10,7 @@ then
 	VenIDhex=`printf '%x\n' $VenID`
 	ProdID=`/usr/libexec/PlistBuddy -c "Print :$1:DisplayProductID" /tmp/display.plist`
 	ProdIDhex=`printf '%x\n' $ProdID`
-	GenDir="$DSTVOLUME/System/Library/Displays/Overrides/DisplayVendorID-$VenIDhex"
+	GenDir="${3}/System/Library/Displays/Overrides/DisplayVendorID-$VenIDhex"
 	GenFile="DisplayProductID-$ProdIDhex"
 	if [ "$RegName" == "AppleBacklightDisplay" -o "$DisplayFlags" == "`echo AAgAAA== | base64 -D`" ]
 	then

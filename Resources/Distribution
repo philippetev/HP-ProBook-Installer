@@ -225,7 +225,7 @@
     </choice>
     <choice id="installer_choice_6" title="INSTALLER_CHOICE_6_TITLE" description="INSTALLER_CHOICE_6_DESCRIPTION"/>
     <choice id="installer_choice_7" start_selected="false" title="INSTALLER_CHOICE_7_TITLE" description="INSTALLER_CHOICE_7_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.Chimera"/>
+        <pkg-ref id="com.MadMax.pkg.Chameleon"/>
     </choice>
     <choice id="installer_choice_8_1" start_enabled="installer_choice_8_1_requirement(false,true)" start_selected="false" title="INSTALLER_CHOICE_8_1_TITLE" description="INSTALLER_CHOICE_8_1_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.AHCIPatch"/>
@@ -308,7 +308,7 @@
     <pkg-ref id="com.MadMax.pkg.SleepImageRestore" version="1.0" auth="Root" installKBytes="0">#Sleep_Image_restore.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part3.HDMI.stock" version="1.0" auth="Root" installKBytes="1">#Part3.HDMI.stock.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.LocalTimeToggle" version="1.0" auth="Root" installKBytes="2">#Extra_LocalTimeToggle.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.QuartzDebug" version="1.0" auth="Root" installKBytes="3183">#Extra_QuartzDebug.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.QuartzDebug" version="1.0" auth="Root" installKBytes="1798">#Extra_QuartzDebug.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.AHCI3rdParty" version="1.0" auth="Root" installKBytes="12">#AHCI3rdParty.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.1" version="1.0" auth="Root" installKBytes="5879">#10.7_10.7.1.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SleepImageFix" version="1.0" auth="Root" installKBytes="0">#Sleep_image_fix.pkg</pkg-ref>
@@ -344,7 +344,7 @@
     <pkg-ref id="com.MadMax.pkg.ML10.8" version="1.0" auth="Root" installKBytes="3015">#10.8.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.KextWizard" version="1.0" auth="Root" installKBytes="474">#Extra_KextWizard.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7.ib.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Chimera" version="2.0.1" auth="Root" installKBytes="4670">#Chimera.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Chameleon" version="2.2" auth="Root" installKBytes="4693">#Chameleon.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.5" version="1.0" auth="Root" installKBytes="5303">#10.7.5.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.OldKextRemover" version="1.0" auth="Root" installKBytes="0">#Extra_OldKextRemover.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.2" version="1.0" auth="Root" installKBytes="5888">#10.7.2.pkg</pkg-ref>
@@ -360,7 +360,7 @@
     <pkg-ref id="com.MadMax.pkg.SetBrightness25" version="1.0" auth="Root" installKBytes="14">#SetBrightness25.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="1212">#Extra_TrimEnabler.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i5.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i5.sb.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ShowAllFIles" version="1.0" auth="Root" installKBytes="55">#Extra_ShowAllFIles.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ShowAllFIles" version="1.0" auth="Root" installKBytes="18">#Extra_ShowAllFIles.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="789">#Extra_HWMonitor.pkg</pkg-ref>
     <!--+==========================+
         |    JavaScript Scripts    |
@@ -469,8 +469,9 @@
 	function DSDTSelected()
 	{
 		return (choices.installer_choice_4_1.selected 
-			&amp;&amp; choices.installer_choice_4_2.selected 
-			&amp;&amp; choices.installer_choice_4_3.selected);
+			|| choices.installer_choice_4_2.selected 
+			|| choices.installer_choice_4_3.selected
+			|| choices.installer_choice_4_4.selected);
 	}
 	
 	function SysDefSelected()

@@ -4,7 +4,7 @@
 # Modified for all ML versions (so far) support by philip_petev, tonymacx86.com v6
 RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
 BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
-kextdir="$DSTVOLUME/System/Library/Extensions"
+kextdir="${3}/System/Library/Extensions"
 AHCIBlockStorage="$kextdir/IOAHCIFamily.kext/Contents/PlugIns/IOAHCIBlockStorage.kext/Contents/MacOS/IOAHCIBlockStorage"
 PatchThatKext () {
 if [ ! -e "$BackupDir" ]
