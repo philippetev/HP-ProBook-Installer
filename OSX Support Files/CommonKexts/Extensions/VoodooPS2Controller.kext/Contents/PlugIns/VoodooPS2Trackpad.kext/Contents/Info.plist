@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>VoodooPS2Trackpad</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.8.5, Copyright Apple Computer, Inc. 2002-2003, mackerintel 2008, RehabMan 2012-2013</string>
+	<string>1.8.7, Copyright Apple Computer, Inc. 2002-2003, mackerintel 2008, RehabMan 2012-2013</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.rehabman.voodoo.driver.PS2Trackpad</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.8.5</string>
+	<string>1.8.7</string>
 	<key>DTCompiler</key>
 	<string></string>
 	<key>DTPlatformBuild</key>
@@ -75,6 +75,8 @@
 					<string>ProBook</string>
 					<key>17F0</key>
 					<string>ProBook</string>
+					<key>17F3</key>
+					<string>ProBook</string>
 					<key>17F6</key>
 					<string>ProBook</string>
 					<key>ProBook</key>
@@ -121,6 +123,8 @@
 					<key>179C</key>
 					<string>ProBook</string>
 					<key>17F0</key>
+					<string>ProBook</string>
+					<key>17F3</key>
 					<string>ProBook</string>
 					<key>17F6</key>
 					<string>ProBook</string>
@@ -375,6 +379,8 @@
 					<string>ProBook</string>
 					<key>17F0</key>
 					<string>ProBook</string>
+					<key>17F3</key>
+					<string>ProBook</string>
 					<key>17F6</key>
 					<string>ProBook</string>
 					<key>ProBook</key>
@@ -401,7 +407,7 @@
 		<key>com.apple.kpi.mach</key>
 		<string>9.0.0</string>
 		<key>org.rehabman.voodoo.driver.PS2Controller</key>
-		<string>1.8.5</string>
+		<string>1.8.7</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Console</string>

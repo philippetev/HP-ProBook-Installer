@@ -1,5 +1,5 @@
 #!/bin/bash
-# HP ProBook 4x30s EDID generator by Philip Petev v6.3
+# HP ProBook 4x30s EDID generator by Philip Petev v6.31
 GenEDID () {
 /usr/libexec/PlistBuddy -c "Print :$1" /tmp/display.plist
 if [ $? -eq 0 ]
@@ -18,7 +18,7 @@ then
 		then
 			mkdir "$GenDir"
 		fi
-		/usr/libexec/PlistBuddy -c "Add :DisplayProductName string 'ProBook 4x30s'" "$GenDir/$GenFile"
+		/usr/libexec/PlistBuddy -c "Add :DisplayProductName string 'HP ProBook'" "$GenDir/$GenFile"
 		/usr/libexec/PlistBuddy -c "Add :test array" "$GenDir/$GenFile"
 		/usr/libexec/PlistBuddy -c "Merge /tmp/display.plist :test" "$GenDir/$GenFile"
 		/usr/libexec/PlistBuddy -c "Copy :test:$1:DisplayProductID :DisplayProductID" "$GenDir/$GenFile"
