@@ -1,2 +1,0 @@
-#!/bin/bash
-./Backup.sh ./list_4x30ml "${3}"

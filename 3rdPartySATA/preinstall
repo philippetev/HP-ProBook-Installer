@@ -1,14 +1,2 @@
 #!/bin/bash
-RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
-BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
-kextdir="${3}/System/Library/Extensions"
-# removing the old kext.
-if [ -e "$kextdir/AHCI_3rdParty_SATA.kext" ]
-then
-  if [ ! -e "$BackupDir" ]
-  then
-	mkdir -p "$BackupDir"
-  fi
-  cp -Rf "$kextdir/AHCI_3rdParty_SATA.kext" "$BackupDir"
-  rm -rf "$kextdir/AHCI_3rdParty_SATA.kext"
-fi
+./Backup.sh ./list_3rdSATA "${3}"

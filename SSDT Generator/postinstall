@@ -1,16 +1,5 @@
 #!/bin/bash
-RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
-BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
-CurrentSSDT="${3}/Extra/SSDT.aml"
+./Backup.sh ./list_SSDT "${3}"
 ./ssdtPRGen.sh
-if [ -e "$CurrentSSDT" ]
-then
-	if [ ! -e "$BackupDir" ]
-	then
-		mkdir -p "$BackupDir"
-	fi
-	cp -f "$CurrentSSDT" "$BackupDir"
-	rm -f "$CurrentSSDT"
-fi
-cp -f "./SSDT_PR.aml" "$CurrentSSDT"
-chown "$USER" "$CurrentSSDT"
+cp -f "./SSDT_PR.aml" "${3}/Extra/SSDT.aml"
+chown "$USER" "${3}/Extra/SSDT.aml"

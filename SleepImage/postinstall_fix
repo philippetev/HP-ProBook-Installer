@@ -1,6 +1,8 @@
 #!/bin/bash
 pmset -a hibernatemode 0
 if [ -f /private/var/vm/sleepimage ]; then
-   rm /private/var/vm/sleepimage
+    rm /private/var/vm/sleepimage
 fi
-mkdir /private/var/vm/sleepimage
+if [ ! -d /private/var/vm/sleepimage ]; then
+    mkdir /private/var/vm/sleepimage
+fi

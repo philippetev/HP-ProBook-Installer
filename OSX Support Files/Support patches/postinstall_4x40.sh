@@ -1,0 +1,20 @@
+#!/bin/bash
+set -x
+unzip ./hdafiles.zip -d .
+osxver=`/usr/libexec/PlistBuddy -c 'Print ProductVersion' "${3}"/System/Library/CoreServices/SystemVersion.plist`
+case $osxver in
+10.8.2|10.8.3|10.8.4)	echo "OS X Mountain Lion $osxver detected."
+						./KextPatch.sh ./list_4x40ml "${3}"
+						cp ./boot_plists/boot_ml.plist "${3}"/Extra/org.chameleon.Boot.plist
+						;;
+10.9)	echo "OS X Mavericks $osxver detected."
+		./KextPatch.sh ./list_4x40ml "${3}"
+		cp ./boot_plists/boot_ml.plist "${3}"/Extra/org.chameleon.Boot.plist
+		;;
+*)	echo "Unknown or unsupported OS X version, aborting."
+	;;
+esac
+# disabling Software Update schedule.
+softwareupdate --schedule off
+# triggering kext cache rebuilding
+/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
