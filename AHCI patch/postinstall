@@ -1,43 +1,5 @@
 #!/bin/bash
-# Based on the original AHCI patch for OS X Mountain Lion copyright (c) 2012 B.C. <bcc24x7@gmail.com> (bcc9 at insanely-mac.com).
-# Modified for HP ProBook Installer v5 by RehabMan, tonymacx86.com
-# Modified for all ML versions (so far) support by philip_petev, tonymacx86.com v6
-RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
-BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
-kextdir="${3}/System/Library/Extensions"
-AHCIBlockStorage="$kextdir/IOAHCIFamily.kext/Contents/PlugIns/IOAHCIBlockStorage.kext/Contents/MacOS/IOAHCIBlockStorage"
-PatchThatKext () {
-if [ ! -e "$BackupDir" ]
-then
-	mkdir -p "$BackupDir"
-fi
-cp -Rf "$kextdir/IOAHCIFamily.kext" "$BackupDir"
-case $1 in
-10.8)	/usr/bin/perl -pi -e 's|\xeb\x4c\x00\x00\xea\x03|\xeb\x4c\x00\x00\xe8\x01|g' "$AHCIBlockStorage"
-		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\xa5\x90\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' "$AHCIBlockStorage"
-		;;
-10.8.1)	/usr/bin/perl -pi -e 's|\xbb\x4b\x00\x00\xeb\x03|\xbb\x4b\x00\x00\xe8\x01|g' "$AHCIBlockStorage"
-		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\xb2\x91\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' "$AHCIBlockStorage"
-		;;
-10.8.2)	/usr/bin/perl -pi -e 's|\x8b\x4a\x00\x00\xeb\x03|\x8b\x4a\x00\x00\xe8\x01|g' "$AHCIBlockStorage"
-		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\x72\x92\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' "$AHCIBlockStorage"
-		;;
-10.8.3)	/usr/bin/perl -pi -e 's|\xcb\x57\x00\x00\xee\x03|\xcb\x57\x00\x00\xea\x01|g' "$AHCIBlockStorage"
-		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\x72\x94\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' "$AHCIBlockStorage"
-		;;
-esac
+osxver=`/usr/libexec/PlistBuddy -c "Print ProductVersion" "${3}/System/Library/CoreServices/SystemVersion.plist"`
+perl ./patch-ahci-mlion.pl -s "${3}/System/Library/Extensions/" -o $osxver
+# triggering kext cache rebuilding
 /usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
-}
-case `md5 -q "$AHCIBlockStorage"` in
-"ff7a9115779fa5923950cbdc6ffb273d"|"4d265ac3f471b0ef0578d5dbb1eafadb")	PatchThatKext 10.8
-																		;;
-"03d3a46c6d713b00980bc9be453755ff"|"14a91423c7e7160643475e9ca55666bf")	PatchThatKext 10.8.1
-																		;;
-"85390d06d5aad08b471cf9b7cd69aff4"|"ad93e1f62ae975e29d229645e11d1420")	PatchThatKext 10.8.2
-																		;;
-"8bbf5f3928d55dc9ec8017b37a6748f8"|"3fee322ea19ebf8493ef001c46358f5a")	PatchThatKext 10.8.3
-																		;;
-*)	echo "Unknown kext or the kext is already patched!"
-	exit
-	;;
-esac

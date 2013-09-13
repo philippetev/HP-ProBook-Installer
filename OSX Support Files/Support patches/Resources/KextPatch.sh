@@ -1,7 +1,6 @@
 #!/bin/bash
 set -x
 kextdir="$2/System/Library/Extensions"
-osxver=`/usr/libexec/PlistBuddy -c "Print ProductVersion" "$2/System/Library/CoreServices/SystemVersion.plist"`
 HDAbinary="$kextdir/AppleHDA.kext/Contents/MacOS/AppleHDA"
 HDAplist="$kextdir/AppleHDA.kext/Contents/PlugIns/AppleHDAHardwareConfigDriver.kext/Contents/Info.plist"
 AICPMbin="$kextdir/AppleIntelCPUPowerManagement.kext/Contents/MacOS/AppleIntelCPUPowerManagement"
@@ -13,21 +12,21 @@ patch=`echo $vanilla | awk -F '<=>' '{print $3}'`
 case $patch in
 aicpm)	perl ./AICPMPatch.pl "$AICPMbin" --patch
 		;;
-hda3l)	perl ./patch-hda.pl 'IDT 76d1' -s "$kextdir" -o $osxver
+hda3l)	perl ./patch-hda.pl 'IDT 76d1' -s "$kextdir"
 		rm -f "$kextdir/AppleHDA.kext/Contents/Resources/*.xml"
 		install -m 644 -o root -g wheel ./Lion/*.xml "$kextdir/AppleHDA.kext/Contents/Resources"
 		/usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:HDAConfigDefault'" "$HDAplist"
 		/usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:PostConstructionInitialization'" "$HDAplist"
 		/usr/libexec/plistbuddy -c "Merge ./4x30s.plist ':IOKitPersonalities:HDA Hardware Config Resource'" "$HDAplist"
 		;;
-hda3m)	perl ./patch-hda.pl 'IDT 76d1' -s "$kextdir" -o $osxver
+hda3m)	perl ./patch-hda.pl 'IDT 76d1' -s "$kextdir"
 		rm -f "$kextdir/AppleHDA.kext/Contents/Resources/*.zlib"
 		install -m 644 -o root -g wheel ./ML/*.zlib "$kextdir/AppleHDA.kext/Contents/Resources"
 		/usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:HDAConfigDefault'" "$HDAplist"
 		/usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:PostConstructionInitialization'" "$HDAplist"
 		/usr/libexec/plistbuddy -c "Merge ./4x30s.plist ':IOKitPersonalities:HDA Hardware Config Resource'" "$HDAplist"
 		;;
-hda4m)	perl ./patch-hda.pl 'IDT 76d9' -s "$kextdir" -o $osxver
+hda4m)	perl ./patch-hda.pl 'IDT 76d9' -s "$kextdir"
 		rm -f "$kextdir/AppleHDA.kext/Contents/Resources/*.zlib"
 		install -m 644 -o root -g wheel ./ML/*.zlib "$kextdir/AppleHDA.kext/Contents/Resources"
 		/usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:HDAConfigDefault'" "$HDAplist"

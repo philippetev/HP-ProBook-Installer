@@ -1,5 +1,0 @@
-#!/bin/bash
-osxver=`/usr/libexec/PlistBuddy -c "Print ProductVersion" "${3}/System/Library/CoreServices/SystemVersion.plist"`
-perl ./patch-ahci-mlion.pl -s "${3}/System/Library/Extensions/" -o $osxver
-# triggering kext cache rebuilding
-/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
