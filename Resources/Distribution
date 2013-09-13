@@ -337,7 +337,7 @@
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Ivy.10.8.2" version="1.0" auth="Root" installKBytes="5308">#Ivy.10.8.2.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.AHCIPatch" version="1.0" auth="Root" installKBytes="0">#AHCI.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.CommonKexts" version="1.0" auth="Root" installKBytes="2503">#CommonKexts.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.CommonKexts" version="1.0" auth="Root" installKBytes="2504">#CommonKexts.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.EDIDgenerator" version="6.3" auth="Root" installKBytes="0">#EDID_generator.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part3.HDMI.1080" version="1.0" auth="Root" installKBytes="1">#Part3.HDMI.1080.pkg</pkg-ref>

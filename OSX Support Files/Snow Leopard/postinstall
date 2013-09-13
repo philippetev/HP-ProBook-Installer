@@ -2,15 +2,12 @@
 RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
 BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
-ath21="$kextdir/IO80211Family.kext/Contents/PlugIns/AirPortAtheros21.kext/Contents/Info.plist"
-ath9388="$kextdir/IO80211Family.kext/Contents/PlugIns/AirPortAtheros9388.kext/Contents/Info.plist"
-IsNotPatched=`/usr/libexec/PlistBuddy -c "Print ':IOKitPersonalities:Atheros Wireless LAN PCI:IONameMatch:0'" "$ath21"`
-# patching IO80211Family.kext.
-if [ "$IsNotPatched" == "pci168c,2a" ]
+ARTL8169="$kextdir/IONetworkingFamily.kext/Contents/PlugIns/AppleRTL8169Ethernet.kext"
+# removing AppleRTL8169Ethernet.kext in favor of RealtekRTL8111.kext
+if [ -e "$ARTL8169" ]
 then
-	cp -Rf "$kextdir/IO80211Family.kext" "$BackupDir"
-	/usr/libexec/PlistBuddy -c "Remove ':IOKitPersonalities:Atheros Wireless LAN PCI:IONameMatch:0'" "$ath21"
-	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:Atheros Wireless LAN PCI:IONameMatch:1' string 'pci168c,2a'" "$ath9388"
+	cp -Rf "$kextdir/IONetworkingFamily.kext" "$BackupDir"
+	rm -Rf "$ARTL8169"
 fi
 # disabling Software Update schedule.
 softwareupdate --schedule off
