@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<installer-script authoringTool="Packages" authoringToolVersion="1.1.1" authoringToolBuild="2B71" minSpecVersion="1.0">
+    <options customize="always"/>
+    <volume-check script="volume_check()"/>
+    <!--+==========================+
+        |       Presentation       |
+        +==========================+-->
+    <title>DISTRIBUTION_TITLE</title>
+    <background file="background" scaling="tofit" alignment="center"/>
+    <welcome file="welcome.rtf"/>
+    <readme file="readme.rtf"/>
+    <license file="license.txt"/>
+    <!--+==========================+
+        |         Installer        |
+        +==========================+-->
+    <choices-outline>
+        <line choice="installer_choice_1"/>
+        <line choice="installer_choice_2">
+            <line choice="installer_choice_2_1">
+                <line choice="installer_choice_2_1_1"/>
+            </line>
+            <line choice="installer_choice_2_2">
+                <line choice="installer_choice_2_2_1"/>
+                <line choice="installer_choice_2_2_2"/>
+                <line choice="installer_choice_2_2_3"/>
+                <line choice="installer_choice_2_2_4"/>
+                <line choice="installer_choice_2_2_5"/>
+            </line>
+            <line choice="installer_choice_2_3">
+                <line choice="installer_choice_2_3_1"/>
+                <line choice="installer_choice_2_3_2"/>
+                <line choice="installer_choice_2_3_3"/>
+            </line>
+        </line>
+        <line choice="installer_choice_3">
+            <line choice="installer_choice_3_1">
+                <line choice="installer_choice_3_1_1"/>
+                <line choice="installer_choice_3_1_2"/>
+                <line choice="installer_choice_3_1_3"/>
+                <line choice="installer_choice_3_1_4"/>
+            </line>
+            <line choice="installer_choice_3_2">
+                <line choice="installer_choice_3_2_1"/>
+            </line>
+            <line choice="installer_choice_3_3">
+                <line choice="installer_choice_3_3_1"/>
+                <line choice="installer_choice_3_3_2"/>
+                <line choice="installer_choice_3_3_3"/>
+                <line choice="installer_choice_3_3_4"/>
+            </line>
+            <line choice="installer_choice_3_4">
+                <line choice="installer_choice_3_4_1"/>
+            </line>
+            <line choice="installer_choice_3_5">
+                <line choice="installer_choice_3_5_1"/>
+                <line choice="installer_choice_3_5_2"/>
+                <line choice="installer_choice_3_5_3"/>
+            </line>
+            <line choice="installer_choice_3_6">
+                <line choice="installer_choice_3_6_1"/>
+            </line>
+            <line choice="installer_choice_3_7">
+                <line choice="installer_choice_3_7_1"/>
+                <line choice="installer_choice_3_7_2"/>
+                <line choice="installer_choice_3_7_3"/>
+            </line>
+            <line choice="installer_choice_3_8">
+                <line choice="installer_choice_3_8_1"/>
+            </line>
+            <line choice="installer_choice_3_9">
+                <line choice="installer_choice_3_9_1"/>
+                <line choice="installer_choice_3_9_2"/>
+                <line choice="installer_choice_3_9_3"/>
+            </line>
+            <line choice="installer_choice_3_10">
+                <line choice="installer_choice_3_10_1"/>
+            </line>
+            <line choice="installer_choice_3_11">
+                <line choice="installer_choice_3_11_1"/>
+                <line choice="installer_choice_3_11_2"/>
+                <line choice="installer_choice_3_11_3"/>
+            </line>
+            <line choice="installer_choice_3_12">
+                <line choice="installer_choice_3_12_1"/>
+            </line>
+        </line>
+        <line choice="installer_choice_4">
+            <line choice="installer_choice_4_1">
+                <line choice="installer_choice_4_1_1"/>
+                <line choice="installer_choice_4_1_2"/>
+                <line choice="installer_choice_4_1_3"/>
+                <line choice="installer_choice_4_1_4"/>
+            </line>
+            <line choice="installer_choice_4_2">
+                <line choice="installer_choice_4_2_1"/>
+                <line choice="installer_choice_4_2_2"/>
+                <line choice="installer_choice_4_2_3"/>
+                <line choice="installer_choice_4_2_4"/>
+                <line choice="installer_choice_4_2_5"/>
+            </line>
+            <line choice="installer_choice_4_3">
+                <line choice="installer_choice_4_3_1"/>
+                <line choice="installer_choice_4_3_2"/>
+                <line choice="installer_choice_4_3_3"/>
+                <line choice="installer_choice_4_3_4"/>
+                <line choice="installer_choice_4_3_5"/>
+                <line choice="installer_choice_4_3_6"/>
+                <line choice="installer_choice_4_3_7"/>
+                <line choice="installer_choice_4_3_8"/>
+                <line choice="installer_choice_4_3_9"/>
+                <line choice="installer_choice_4_3_10"/>
+            </line>
+        </line>
+        <line choice="installer_choice_5">
+            <line choice="installer_choice_5_1"/>
+            <line choice="installer_choice_5_2"/>
+            <line choice="installer_choice_5_3"/>
+        </line>
+        <line choice="installer_choice_6"/>
+        <line choice="installer_choice_7"/>
+        <line choice="installer_choice_8"/>
+        <line choice="installer_choice_9">
+            <line choice="installer_choice_9_1"/>
+            <line choice="installer_choice_9_2"/>
+            <line choice="installer_choice_9_3"/>
+            <line choice="installer_choice_9_4"/>
+            <line choice="installer_choice_9_5">
+                <line choice="installer_choice_9_5_1"/>
+                <line choice="installer_choice_9_5_2"/>
+            </line>
+        </line>
+        <line choice="installer_choice_10">
+            <line choice="installer_choice_10_1"/>
+            <line choice="installer_choice_10_2">
+                <line choice="installer_choice_10_2_1"/>
+                <line choice="installer_choice_10_2_2"/>
+            </line>
+            <line choice="installer_choice_10_3">
+                <line choice="installer_choice_10_3_1"/>
+                <line choice="installer_choice_10_3_2"/>
+                <line choice="installer_choice_10_3_3"/>
+                <line choice="installer_choice_10_3_4"/>
+            </line>
+        </line>
+        <line choice="installer_choice_11">
+            <line choice="installer_choice_11_1"/>
+            <line choice="installer_choice_11_2"/>
+            <line choice="installer_choice_11_3"/>
+            <line choice="installer_choice_11_4"/>
+            <line choice="installer_choice_11_5"/>
+            <line choice="installer_choice_11_6"/>
+            <line choice="installer_choice_11_7"/>
+            <line choice="installer_choice_11_8"/>
+        </line>
+        <line choice="installer_choice_12"/>
+    </choices-outline>
+    <choice id="installer_choice_1" start_visible="false" start_selected="false" selected="ReqCheck()" title="0.preinstall" description="">
+        <pkg-ref id="com.MadMax.pkg.0.preinstall"/>
+    </choice>
+    <choice id="installer_choice_2_1_1" start_selected="false" title="INSTALLER_CHOICE_2_1_1_TITLE" description="INSTALLER_CHOICE_2_1_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.SL10.6.8"/>
+    </choice>
+    <choice id="installer_choice_2_1" title="INSTALLER_CHOICE_2_1_TITLE" description="INSTALLER_CHOICE_2_1_DESCRIPTION"/>
+    <choice id="installer_choice_2_2_1" start_selected="false" title="INSTALLER_CHOICE_2_2_1_TITLE" description="INSTALLER_CHOICE_2_2_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.Lion10.7.1"/>
+    </choice>
+    <choice id="installer_choice_2_2_2" start_selected="false" title="INSTALLER_CHOICE_2_2_2_TITLE" description="INSTALLER_CHOICE_2_2_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.Lion10.7.2"/>
+    </choice>
+    <choice id="installer_choice_2_2_3" start_selected="false" title="INSTALLER_CHOICE_2_2_3_TITLE" description="INSTALLER_CHOICE_2_2_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.Lion10.7.3"/>
+    </choice>
+    <choice id="installer_choice_2_2_4" start_selected="false" title="INSTALLER_CHOICE_2_2_4_TITLE" description="INSTALLER_CHOICE_2_2_4_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.Lion10.7.4"/>
+    </choice>
+    <choice id="installer_choice_2_2_5" start_selected="false" title="INSTALLER_CHOICE_2_2_5_TITLE" description="INSTALLER_CHOICE_2_2_5_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.Lion10.7.5"/>
+    </choice>
+    <choice id="installer_choice_2_2" title="INSTALLER_CHOICE_2_2_TITLE" description="INSTALLER_CHOICE_2_2_DESCRIPTION"/>
+    <choice id="installer_choice_2_3_1" start_selected="false" title="INSTALLER_CHOICE_2_3_1_TITLE" description="INSTALLER_CHOICE_2_3_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.ML10.8"/>
+    </choice>
+    <choice id="installer_choice_2_3_2" start_selected="false" title="INSTALLER_CHOICE_2_3_2_TITLE" description="INSTALLER_CHOICE_2_3_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.ML10.8.1"/>
+    </choice>
+    <choice id="installer_choice_2_3_3" start_selected="false" title="INSTALLER_CHOICE_2_3_3_TITLE" description="INSTALLER_CHOICE_2_3_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.ML10.8.2"/>
+    </choice>
+    <choice id="installer_choice_2_3" title="INSTALLER_CHOICE_2_3_TITLE" description="INSTALLER_CHOICE_2_3_DESCRIPTION"/>
+    <choice id="installer_choice_2" title="INSTALLER_CHOICE_2_TITLE" description="INSTALLER_CHOICE_2_DESCRIPTION"/>
+    <choice id="installer_choice_3_1_1" start_selected="false" title="INSTALLER_CHOICE_3_1_1_TITLE" description="INSTALLER_CHOICE_3_1_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F20"/>
+    </choice>
+    <choice id="installer_choice_3_1_2" start_selected="false" title="INSTALLER_CHOICE_3_1_2_TITLE" description="INSTALLER_CHOICE_3_1_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F09"/>
+    </choice>
+    <choice id="installer_choice_3_1_3" start_selected="false" title="INSTALLER_CHOICE_3_1_3_TITLE" description="INSTALLER_CHOICE_3_1_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F07"/>
+    </choice>
+    <choice id="installer_choice_3_1_4" start_selected="false" title="INSTALLER_CHOICE_3_1_4_TITLE" description="INSTALLER_CHOICE_3_1_4_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F0A"/>
+    </choice>
+    <choice id="installer_choice_3_1" title="INSTALLER_CHOICE_3_1_TITLE" description="INSTALLER_CHOICE_3_1_DESCRIPTION"/>
+    <choice id="installer_choice_3_2_1" start_selected="false" title="INSTALLER_CHOICE_3_2_1_TITLE" description="INSTALLER_CHOICE_3_2_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F20.newfan"/>
+    </choice>
+    <choice id="installer_choice_3_2" title="INSTALLER_CHOICE_3_2_TITLE" description="INSTALLER_CHOICE_3_2_DESCRIPTION"/>
+    <choice id="installer_choice_3_3_1" start_selected="false" title="INSTALLER_CHOICE_3_3_1_TITLE" description="INSTALLER_CHOICE_3_3_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.HD3K.F20"/>
+    </choice>
+    <choice id="installer_choice_3_3_2" start_selected="false" title="INSTALLER_CHOICE_3_3_2_TITLE" description="INSTALLER_CHOICE_3_3_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.HD3K.F09"/>
+    </choice>
+    <choice id="installer_choice_3_3_3" start_selected="false" title="INSTALLER_CHOICE_3_3_3_TITLE" description="INSTALLER_CHOICE_3_3_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.HD3K.F07"/>
+    </choice>
+    <choice id="installer_choice_3_3_4" start_selected="false" title="INSTALLER_CHOICE_3_3_4_TITLE" description="INSTALLER_CHOICE_3_3_4_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.HD3K.F0A"/>
+    </choice>
+    <choice id="installer_choice_3_3" title="INSTALLER_CHOICE_3_3_TITLE" description="INSTALLER_CHOICE_3_3_DESCRIPTION"/>
+    <choice id="installer_choice_3_4_1" start_selected="false" title="INSTALLER_CHOICE_3_4_1_TITLE" description="INSTALLER_CHOICE_3_4_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.HD3K.F20.newfan"/>
+    </choice>
+    <choice id="installer_choice_3_4" title="INSTALLER_CHOICE_3_4_TITLE" description="INSTALLER_CHOICE_3_4_DESCRIPTION"/>
+    <choice id="installer_choice_3_5_1" start_selected="false" title="INSTALLER_CHOICE_3_5_1_TITLE" description="INSTALLER_CHOICE_3_5_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F20"/>
+    </choice>
+    <choice id="installer_choice_3_5_2" start_selected="false" title="INSTALLER_CHOICE_3_5_2_TITLE" description="INSTALLER_CHOICE_3_5_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F09"/>
+    </choice>
+    <choice id="installer_choice_3_5_3" start_selected="false" title="INSTALLER_CHOICE_3_5_3_TITLE" description="INSTALLER_CHOICE_3_5_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F0A"/>
+    </choice>
+    <choice id="installer_choice_3_5" title="INSTALLER_CHOICE_3_5_TITLE" description="INSTALLER_CHOICE_3_5_DESCRIPTION"/>
+    <choice id="installer_choice_3_6_1" start_selected="false" title="INSTALLER_CHOICE_3_6_1_TITLE" description="INSTALLER_CHOICE_3_6_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F20.newfan"/>
+    </choice>
+    <choice id="installer_choice_3_6" title="INSTALLER_CHOICE_3_6_TITLE" description="INSTALLER_CHOICE_3_6_DESCRIPTION"/>
+    <choice id="installer_choice_3_7_1" start_selected="false" title="INSTALLER_CHOICE_3_7_1_TITLE" description="INSTALLER_CHOICE_3_7_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.Radeon.F20"/>
+    </choice>
+    <choice id="installer_choice_3_7_2" start_selected="false" title="INSTALLER_CHOICE_3_7_2_TITLE" description="INSTALLER_CHOICE_3_7_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.Radeon.F09"/>
+    </choice>
+    <choice id="installer_choice_3_7_3" start_selected="false" title="INSTALLER_CHOICE_3_7_3_TITLE" description="INSTALLER_CHOICE_3_7_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.Radeon.F0A"/>
+    </choice>
+    <choice id="installer_choice_3_7" title="INSTALLER_CHOICE_3_7_TITLE" description="INSTALLER_CHOICE_3_7_DESCRIPTION"/>
+    <choice id="installer_choice_3_8_1" start_selected="false" title="INSTALLER_CHOICE_3_8_1_TITLE" description="INSTALLER_CHOICE_3_8_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.Radeon.F20.newfan"/>
+    </choice>
+    <choice id="installer_choice_3_8" title="INSTALLER_CHOICE_3_8_TITLE" description="INSTALLER_CHOICE_3_8_DESCRIPTION"/>
+    <choice id="installer_choice_3_9_1" start_selected="false" title="INSTALLER_CHOICE_3_9_1_TITLE" description="INSTALLER_CHOICE_3_9_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.4730.F20"/>
+    </choice>
+    <choice id="installer_choice_3_9_2" start_selected="false" title="INSTALLER_CHOICE_3_9_2_TITLE" description="INSTALLER_CHOICE_3_9_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.4730.F09"/>
+    </choice>
+    <choice id="installer_choice_3_9_3" start_selected="false" title="INSTALLER_CHOICE_3_9_3_TITLE" description="INSTALLER_CHOICE_3_9_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.4730.F0A"/>
+    </choice>
+    <choice id="installer_choice_3_9" title="INSTALLER_CHOICE_3_9_TITLE" description="INSTALLER_CHOICE_3_9_DESCRIPTION"/>
+    <choice id="installer_choice_3_10_1" start_selected="false" title="INSTALLER_CHOICE_3_10_1_TITLE" description="INSTALLER_CHOICE_3_10_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.DSDT.4730.F20.newfan"/>
+    </choice>
+    <choice id="installer_choice_3_10" title="INSTALLER_CHOICE_3_10_TITLE" description="INSTALLER_CHOICE_3_10_DESCRIPTION"/>
+    <choice id="installer_choice_3_11_1" start_selected="false" title="INSTALLER_CHOICE_3_11_1_TITLE" description="INSTALLER_CHOICE_3_11_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.4730.F20"/>
+    </choice>
+    <choice id="installer_choice_3_11_2" start_selected="false" title="INSTALLER_CHOICE_3_11_2_TITLE" description="INSTALLER_CHOICE_3_11_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.4730.F09"/>
+    </choice>
+    <choice id="installer_choice_3_11_3" start_selected="false" title="INSTALLER_CHOICE_3_11_3_TITLE" description="INSTALLER_CHOICE_3_11_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.4730.F0A"/>
+    </choice>
+    <choice id="installer_choice_3_11" title="INSTALLER_CHOICE_3_11_TITLE" description="INSTALLER_CHOICE_3_11_DESCRIPTION"/>
+    <choice id="installer_choice_3_12_1" start_selected="false" title="INSTALLER_CHOICE_3_12_1_TITLE" description="INSTALLER_CHOICE_3_12_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.1080.4730.F20.newfan"/>
+    </choice>
+    <choice id="installer_choice_3_12" title="INSTALLER_CHOICE_3_12_TITLE" description="INSTALLER_CHOICE_3_12_DESCRIPTION"/>
+    <choice id="installer_choice_3" title="INSTALLER_CHOICE_3_TITLE" description="INSTALLER_CHOICE_3_DESCRIPTION"/>
+    <choice id="installer_choice_4_1_1" start_selected="false" title="INSTALLER_CHOICE_4_1_1_TITLE" description="INSTALLER_CHOICE_4_1_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i3-2310M"/>
+    </choice>
+    <choice id="installer_choice_4_1_2" start_selected="false" title="INSTALLER_CHOICE_4_1_2_TITLE" description="INSTALLER_CHOICE_4_1_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i3-2330M"/>
+    </choice>
+    <choice id="installer_choice_4_1_3" start_selected="false" title="INSTALLER_CHOICE_4_1_3_TITLE" description="INSTALLER_CHOICE_4_1_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i3-2350M"/>
+    </choice>
+    <choice id="installer_choice_4_1_4" start_selected="false" title="INSTALLER_CHOICE_4_1_4_TITLE" description="INSTALLER_CHOICE_4_1_4_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i3-2370M"/>
+    </choice>
+    <choice id="installer_choice_4_1" title="INSTALLER_CHOICE_4_1_TITLE" description="INSTALLER_CHOICE_4_1_DESCRIPTION"/>
+    <choice id="installer_choice_4_2_1" start_selected="false" title="INSTALLER_CHOICE_4_2_1_TITLE" description="INSTALLER_CHOICE_4_2_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i5-2410M"/>
+    </choice>
+    <choice id="installer_choice_4_2_2" start_selected="false" title="INSTALLER_CHOICE_4_2_2_TITLE" description="INSTALLER_CHOICE_4_2_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i5-2430M"/>
+    </choice>
+    <choice id="installer_choice_4_2_3" start_selected="false" title="INSTALLER_CHOICE_4_2_3_TITLE" description="INSTALLER_CHOICE_4_2_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i5-2450M"/>
+    </choice>
+    <choice id="installer_choice_4_2_4" start_selected="false" title="INSTALLER_CHOICE_4_2_4_TITLE" description="INSTALLER_CHOICE_4_2_4_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i5-2520M"/>
+    </choice>
+    <choice id="installer_choice_4_2_5" start_selected="false" title="INSTALLER_CHOICE_4_2_5_TITLE" description="INSTALLER_CHOICE_4_2_5_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i5-2540M"/>
+    </choice>
+    <choice id="installer_choice_4_2" title="INSTALLER_CHOICE_4_2_TITLE" description="INSTALLER_CHOICE_4_2_DESCRIPTION"/>
+    <choice id="installer_choice_4_3_1" start_selected="false" title="INSTALLER_CHOICE_4_3_1_TITLE" description="INSTALLER_CHOICE_4_3_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2620M"/>
+    </choice>
+    <choice id="installer_choice_4_3_2" start_selected="false" title="INSTALLER_CHOICE_4_3_2_TITLE" description="INSTALLER_CHOICE_4_3_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2630QM"/>
+    </choice>
+    <choice id="installer_choice_4_3_3" start_selected="false" title="INSTALLER_CHOICE_4_3_3_TITLE" description="INSTALLER_CHOICE_4_3_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2640M"/>
+    </choice>
+    <choice id="installer_choice_4_3_4" start_selected="false" title="INSTALLER_CHOICE_4_3_4_TITLE" description="INSTALLER_CHOICE_4_3_4_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2670QM"/>
+    </choice>
+    <choice id="installer_choice_4_3_5" start_selected="false" title="INSTALLER_CHOICE_4_3_5_TITLE" description="INSTALLER_CHOICE_4_3_5_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2720QM"/>
+    </choice>
+    <choice id="installer_choice_4_3_6" start_selected="false" title="INSTALLER_CHOICE_4_3_6_TITLE" description="INSTALLER_CHOICE_4_3_6_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2760QM"/>
+    </choice>
+    <choice id="installer_choice_4_3_7" start_selected="false" title="INSTALLER_CHOICE_4_3_7_TITLE" description="INSTALLER_CHOICE_4_3_7_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2820QM"/>
+    </choice>
+    <choice id="installer_choice_4_3_8" start_selected="false" title="INSTALLER_CHOICE_4_3_8_TITLE" description="INSTALLER_CHOICE_4_3_8_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2860QM"/>
+    </choice>
+    <choice id="installer_choice_4_3_9" start_selected="false" title="INSTALLER_CHOICE_4_3_9_TITLE" description="INSTALLER_CHOICE_4_3_9_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2920QM"/>
+    </choice>
+    <choice id="installer_choice_4_3_10" start_selected="false" title="INSTALLER_CHOICE_4_3_10_TITLE" description="INSTALLER_CHOICE_4_3_10_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.i7-2960QM"/>
+    </choice>
+    <choice id="installer_choice_4_3" title="INSTALLER_CHOICE_4_3_TITLE" description="INSTALLER_CHOICE_4_3_DESCRIPTION"/>
+    <choice id="installer_choice_4" title="INSTALLER_CHOICE_4_TITLE" description="INSTALLER_CHOICE_4_DESCRIPTION"/>
+    <choice id="installer_choice_5_1" start_selected="false" title="INSTALLER_CHOICE_5_1_TITLE" description="INSTALLER_CHOICE_5_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.MacBookPro8.1"/>
+    </choice>
+    <choice id="installer_choice_5_2" start_selected="false" title="INSTALLER_CHOICE_5_2_TITLE" description="INSTALLER_CHOICE_5_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.MacBookPro8.2"/>
+    </choice>
+    <choice id="installer_choice_5_3" start_selected="false" title="INSTALLER_CHOICE_5_3_TITLE" description="INSTALLER_CHOICE_5_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.MacBookPro8.3"/>
+    </choice>
+    <choice id="installer_choice_5" title="INSTALLER_CHOICE_5_TITLE" description="INSTALLER_CHOICE_5_DESCRIPTION"/>
+    <choice id="installer_choice_6" start_selected="false" title="INSTALLER_CHOICE_6_TITLE" description="INSTALLER_CHOICE_6_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.Chimera"/>
+    </choice>
+    <choice id="installer_choice_7" start_selected="false" title="INSTALLER_CHOICE_7_TITLE" description="INSTALLER_CHOICE_7_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.EthernetKext"/>
+    </choice>
+    <choice id="installer_choice_8" start_selected="false" title="INSTALLER_CHOICE_8_TITLE" description="INSTALLER_CHOICE_8_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.BluetoothKext"/>
+    </choice>
+    <choice id="installer_choice_9_1" start_enabled="installer_choice_9_1_requirement(false,true)" start_selected="false" title="INSTALLER_CHOICE_9_1_TITLE" description="INSTALLER_CHOICE_9_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.AHCIPatch"/>
+    </choice>
+    <choice id="installer_choice_9_2" start_selected="false" title="INSTALLER_CHOICE_9_2_TITLE" description="INSTALLER_CHOICE_9_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.AHCI3rdParty"/>
+    </choice>
+    <choice id="installer_choice_9_3" start_selected="false" title="INSTALLER_CHOICE_9_3_TITLE" description="INSTALLER_CHOICE_9_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.SMCPing"/>
+    </choice>
+    <choice id="installer_choice_9_4" start_selected="false" title="INSTALLER_CHOICE_9_4_TITLE" description="INSTALLER_CHOICE_9_4_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.EDIDgenerator"/>
+    </choice>
+    <choice id="installer_choice_9_5_1" start_selected="false" title="INSTALLER_CHOICE_9_5_1_TITLE" description="INSTALLER_CHOICE_9_5_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.FnCombosEnable"/>
+    </choice>
+    <choice id="installer_choice_9_5_2" start_selected="false" title="INSTALLER_CHOICE_9_5_2_TITLE" description="INSTALLER_CHOICE_9_5_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.FnCombosDisable"/>
+    </choice>
+    <choice id="installer_choice_9_5" title="INSTALLER_CHOICE_9_5_TITLE" description="INSTALLER_CHOICE_9_5_DESCRIPTION"/>
+    <choice id="installer_choice_9" title="INSTALLER_CHOICE_9_TITLE" description="INSTALLER_CHOICE_9_DESCRIPTION"/>
+    <choice id="installer_choice_10_1" start_selected="false" title="INSTALLER_CHOICE_10_1_TITLE" description="INSTALLER_CHOICE_10_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.ColorProfiles"/>
+    </choice>
+    <choice id="installer_choice_10_2_1" start_selected="false" title="INSTALLER_CHOICE_10_2_1_TITLE" description="INSTALLER_CHOICE_10_2_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.SleepImageFix"/>
+    </choice>
+    <choice id="installer_choice_10_2_2" start_selected="false" title="INSTALLER_CHOICE_10_2_2_TITLE" description="INSTALLER_CHOICE_10_2_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.SleepImageRestore"/>
+    </choice>
+    <choice id="installer_choice_10_2" title="INSTALLER_CHOICE_10_2_TITLE" description="INSTALLER_CHOICE_10_2_DESCRIPTION"/>
+    <choice id="installer_choice_10_3_1" start_selected="false" title="INSTALLER_CHOICE_10_3_1_TITLE" description="INSTALLER_CHOICE_10_3_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.SetBrightness25"/>
+    </choice>
+    <choice id="installer_choice_10_3_2" start_selected="false" title="INSTALLER_CHOICE_10_3_2_TITLE" description="INSTALLER_CHOICE_10_3_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.SetBrightness50"/>
+    </choice>
+    <choice id="installer_choice_10_3_3" start_selected="false" title="INSTALLER_CHOICE_10_3_3_TITLE" description="INSTALLER_CHOICE_10_3_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.SetBrightness75"/>
+    </choice>
+    <choice id="installer_choice_10_3_4" start_selected="false" title="INSTALLER_CHOICE_10_3_4_TITLE" description="INSTALLER_CHOICE_10_3_4_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.SetBrightness100"/>
+    </choice>
+    <choice id="installer_choice_10_3" title="INSTALLER_CHOICE_10_3_TITLE" description="INSTALLER_CHOICE_10_3_DESCRIPTION"/>
+    <choice id="installer_choice_10" title="INSTALLER_CHOICE_10_TITLE" description="INSTALLER_CHOICE_10_DESCRIPTION"/>
+    <choice id="installer_choice_11_1" start_selected="false" title="INSTALLER_CHOICE_11_1_TITLE" description="INSTALLER_CHOICE_11_1_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.OldKextRemover"/>
+    </choice>
+    <choice id="installer_choice_11_2" start_selected="false" title="INSTALLER_CHOICE_11_2_TITLE" description="INSTALLER_CHOICE_11_2_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.ChameleonWizard"/>
+    </choice>
+    <choice id="installer_choice_11_3" start_selected="false" title="INSTALLER_CHOICE_11_3_TITLE" description="INSTALLER_CHOICE_11_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.KextWizard"/>
+    </choice>
+    <choice id="installer_choice_11_4" start_selected="false" title="INSTALLER_CHOICE_11_4_TITLE" description="INSTALLER_CHOICE_11_4_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.HWMonitor"/>
+    </choice>
+    <choice id="installer_choice_11_5" start_selected="false" title="INSTALLER_CHOICE_11_5_TITLE" description="INSTALLER_CHOICE_11_5_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.LocalTimeToggle"/>
+    </choice>
+    <choice id="installer_choice_11_6" start_selected="false" title="INSTALLER_CHOICE_11_6_TITLE" description="INSTALLER_CHOICE_11_6_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.ShowAllFIles"/>
+    </choice>
+    <choice id="installer_choice_11_7" start_selected="false" title="INSTALLER_CHOICE_11_7_TITLE" description="INSTALLER_CHOICE_11_7_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.QuartzDebug"/>
+    </choice>
+    <choice id="installer_choice_11_8" start_selected="false" title="INSTALLER_CHOICE_11_8_TITLE" description="INSTALLER_CHOICE_11_8_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.TrimEnabler"/>
+    </choice>
+    <choice id="installer_choice_11" title="INSTALLER_CHOICE_11_TITLE" description="INSTALLER_CHOICE_11_DESCRIPTION"/>
+    <choice id="installer_choice_12" start_visible="false" start_selected="false" selected="ReqCheck()" title="0.postinstall" description="">
+        <pkg-ref id="com.MadMax.pkg.0.postinstall"/>
+    </choice>
+    <!--+==========================+
+        |    Package References    |
+        +==========================+-->
+    <pkg-ref id="com.MadMax.pkg.MacBookPro8.2" version="1.0" auth="Root" installKBytes="475">#MacBookPro8.2.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F09" version="1.0" auth="Root" installKBytes="138">#DSDT.Radeon.F09.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2540M" version="1.0" auth="Root" installKBytes="1">#i5-2540M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F0A" version="1.0" auth="Root" installKBytes="139">#1080.Radeon.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SleepImageRestore" version="1.0" auth="Root" installKBytes="0">#Sleep_Image_restore.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.LocalTimeToggle" version="1.0" auth="Root" installKBytes="2">#Extra_LocalTimeToggle.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.QuartzDebug" version="1.0" auth="Root" installKBytes="3183">#Extra_QuartzDebug.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2960QM" version="1.0" auth="Root" installKBytes="1">#i7-2960QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.AHCI3rdParty" version="1.0" auth="Root" installKBytes="11">#AHCI3rdParty.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.1" version="1.0" auth="Root" installKBytes="8305">#10.7_10.7.1.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SleepImageFix" version="1.0" auth="Root" installKBytes="0">#Sleep_image_fix.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F20" version="1.0" auth="Root" installKBytes="141">#1080.HD3K.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.3" version="1.0" auth="Root" installKBytes="8331">#10.7.3.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8.1" version="1.0" auth="Root" installKBytes="6253">#10.8.1.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F20" version="1.0" auth="Root" installKBytes="141">#DSDT.Radeon.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2640M" version="1.0" auth="Root" installKBytes="1">#i7-2640M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.4730.F0A" version="1.0" auth="Root" installKBytes="139">#1080.4730.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F20.newfan" version="1.0" auth="Root" installKBytes="142">#1080.HD3K.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SetBrightness50" version="1.0" auth="Root" installKBytes="15">#SetBrightness50.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.4" version="1.0" auth="Root" installKBytes="7603">#10.7.4.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SMCPing" version="1.0" auth="Root" installKBytes="15">#SMCPing.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2670QM" version="1.0" auth="Root" installKBytes="1">#i7-2670QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F20" version="1.0" auth="Root" installKBytes="141">#DSDT.HD3K.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i3-2350M" version="1.0" auth="Root" installKBytes="0">#i3-2350M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F20" version="1.0" auth="Root" installKBytes="141">#DSDT.4730.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F0A" version="1.0" auth="Root" installKBytes="139">#DSDT.HD3K.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.4730.F09" version="1.0" auth="Root" installKBytes="138">#1080.4730.F09.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.BluetoothKext" version="1.0" auth="Root" installKBytes="280">#Bluetooth_kext.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2620M" version="1.0" auth="Root" installKBytes="1">#i7-2620M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8.2" version="1.0" auth="Root" installKBytes="5434">#10.8.2.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2630QM" version="1.0" auth="Root" installKBytes="1">#i7-2630QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SetBrightness100" version="1.0" auth="Root" installKBytes="15">#SetBrightness100.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F09" version="1.0" auth="Root" installKBytes="138">#1080.Radeon.F09.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2760QM" version="1.0" auth="Root" installKBytes="1">#i7-2760QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SL10.6.8" version="1.0" auth="Root" installKBytes="27935">#10.6.8.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1309">#Extra_ChameleonWizard.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F07" version="1.0" auth="Root" installKBytes="138">#1080.HD3K.F07.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SetBrightness75" version="1.0" auth="Root" installKBytes="15">#SetBrightness75.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F20" version="1.0" auth="Root" installKBytes="141">#1080.Radeon.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.FnCombosEnable" version="1.0" auth="Root" installKBytes="0">#FnCombosEnable.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F07" version="1.0" auth="Root" installKBytes="138">#DSDT.HD3K.F07.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2410M" version="1.0" auth="Root" installKBytes="1">#i5-2410M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2450M" version="1.0" auth="Root" installKBytes="1">#i5-2450M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.AHCIPatch" version="1.0" auth="Root" installKBytes="0">#AHCI.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.MacBookPro8.1" version="1.0" auth="Root" installKBytes="476">#MacBookPro8.1.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.FnCombosDisable" version="1.0" auth="Root" installKBytes="0">#FnCombosDisable.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2520M" version="1.0" auth="Root" installKBytes="1">#i5-2520M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.EDIDgenerator" version="6.1" auth="Root" installKBytes="0">#EDID_generator.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F20.newfan" version="1.0" auth="Root" installKBytes="142">#DSDT.Radeon.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i3-2330M" version="1.0" auth="Root" installKBytes="0">#i3-2330M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8" version="1.0" auth="Root" installKBytes="6253">#10.8.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i3-2370M" version="1.0" auth="Root" installKBytes="0">#i3-2370M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2720QM" version="1.0" auth="Root" installKBytes="1">#i7-2720QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F0A" version="1.0" auth="Root" installKBytes="139">#1080.HD3K.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.KextWizard" version="1.0" auth="Root" installKBytes="474">#Extra_KextWizard.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.4730.F20.newfan" version="1.0" auth="Root" installKBytes="142">#1080.4730.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2820QM" version="1.0" auth="Root" installKBytes="1">#i7-2820QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2430M" version="1.0" auth="Root" installKBytes="1">#i5-2430M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Chimera" version="1.11.1" auth="Root" installKBytes="2138">#Chimera.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2860QM" version="1.0" auth="Root" installKBytes="1">#i7-2860QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.5" version="1.0" auth="Root" installKBytes="7730">#10.7.5.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ColorProfiles" version="1.0" auth="Root" installKBytes="72">#ColorProfiles.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.2" version="1.0" auth="Root" installKBytes="8315">#10.7.2.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.OldKextRemover" version="1.0" auth="Root" installKBytes="0">#Extra_OldKextRemover.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i3-2310M" version="1.0" auth="Root" installKBytes="0">#i3-2310M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.4730.F20" version="1.0" auth="Root" installKBytes="141">#1080.4730.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F20.newfan" version="1.0" auth="Root" installKBytes="142">#DSDT.HD3K.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.0.preinstall" version="1.0" auth="Root" installKBytes="0">#0.preinstall.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.MacBookPro8.3" version="1.0" auth="Root" installKBytes="475">#MacBookPro8.3.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F20.newfan" version="1.0" auth="Root" installKBytes="142">#1080.Radeon.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F20.newfan" version="1.0" auth="Root" installKBytes="142">#DSDT.4730.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F09" version="1.0" auth="Root" installKBytes="138">#DSDT.4730.F09.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.0.postinstall" version="1.0" auth="Root" installKBytes="0">#0.postinstall.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SetBrightness25" version="1.0" auth="Root" installKBytes="15">#SetBrightness25.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2920QM" version="1.0" auth="Root" installKBytes="1">#i7-2920QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F09" version="1.0" auth="Root" installKBytes="138">#1080.HD3K.F09.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="1936">#Extra_TrimEnabler.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.EthernetKext" version="0.0.90" auth="Root" installKBytes="648">#Ethernet_kext.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F0A" version="1.0" auth="Root" installKBytes="139">#DSDT.Radeon.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F0A" version="1.0" auth="Root" installKBytes="139">#DSDT.4730.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="253">#Extra_HWMonitor.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ShowAllFIles" version="1.0" auth="Root" installKBytes="179">#Extra_ShowAllFIles.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F09" version="1.0" auth="Root" installKBytes="138">#DSDT.HD3K.F09.pkg</pkg-ref>
+    <!--+==========================+
+        |    JavaScript Scripts    |
+        +==========================+-->
+    <script>
+
+	const __IC_FLAT_DISTRIBUTION__=true;
+	const IC_DISK_TYPE_DESTINATION=0;
+	const IC_DISK_TYPE_STARTUP_DISK=1;
+	const IC_OS_DISTRIBUTION_TYPE_ANY=0;
+	const IC_OS_DISTRIBUTION_TYPE_CLIENT=1;
+	const IC_OS_DISTRIBUTION_TYPE_SERVER=2;
+
+	function IC_CheckOS(inDiskType,inMustBeInstalled,inMinimumVersion,inDistributionType)
+	{
+		var tOSVersion=undefined;
+		
+		/* Check Minimum Version */
+		
+		if (inDiskType==IC_DISK_TYPE_DESTINATION)
+		{
+			if (my.target.systemVersion!=undefined)
+			{
+				tOSVersion=my.target.systemVersion.ProductVersion;
+			}
+			
+			/* Check if no OS is installed on the potential target */
+			
+			if (tOSVersion==undefined)
+			{
+				return (inMustBeInstalled==false);
+			}
+		}
+		else
+		{
+			tOSVersion=system.version.ProductVersion;
+		}
+		
+		if (system.compareVersions(tOSVersion,inMinimumVersion)==-1)
+		{
+			return false;
+		}
+		
+		/* Check Distribution Type */
+		
+		if (inDistributionType!=IC_OS_DISTRIBUTION_TYPE_ANY)
+		{
+			var tIsServer;
+			
+			if (inDiskType==IC_DISK_TYPE_DESTINATION)
+			{
+				tIsServer=system.files.fileExistsAtPath(my.target.mountpoint+'/System/Library/CoreServices/ServerVersion.plist');
+			}
+			else
+			{
+				tIsServer=system.files.fileExistsAtPath('/System/Library/CoreServices/ServerVersion.plist');
+			}
+			
+			if (inDistributionType==IC_OS_DISTRIBUTION_TYPE_CLIENT &amp;&amp; tIsServer==true)
+			{
+				return false;
+			}
+			
+			if (inDistributionType==IC_OS_DISTRIBUTION_TYPE_SERVER &amp;&amp; tIsServer==false)
+			{
+				return false;
+			}
+		}
+		
+		return true;
+	}
+
+	function volume_check()
+	{
+		var tResult;
+
+		tResult=IC_CheckOS(IC_DISK_TYPE_DESTINATION,true,'10.6.8',IC_OS_DISTRIBUTION_TYPE_ANY);
+
+		if (tResult==false)
+		{
+			my.result.message = system.localizedString('REQUIREMENT_FAILED_MESSAGE_VOLUME_CHECK_1');
+			my.result.type = 'Fatal';
+		}
+
+		return tResult;
+	}
+	
+	function ReqCheck()
+	{
+		var tSelect;
+		tSelect=(choices.installer_choice_2.selected 
+			|| choices.installer_choice_3.selected 
+			|| choices.installer_choice_4.selected 
+			|| choices.installer_choice_5.selected 
+			|| choices.installer_choice_6.selected 
+			|| choices.installer_choice_7.selected 
+			|| choices.installer_choice_8.selected 
+			|| choices.installer_choice_9.selected 
+			|| choices.installer_choice_10.selected 
+			|| choices.installer_choice_11.selected);
+		return (tSelect); 
+	}
+
+	function installer_choice_9_1_requirement(inCheckVisibilityOnly,inShowFailedToolTip)
+	{
+		var tResult;
+
+		tResult=IC_CheckOS(IC_DISK_TYPE_DESTINATION,true,'10.8',IC_OS_DISTRIBUTION_TYPE_ANY);
+
+		if (tResult==false)
+		{
+			if (inCheckVisibilityOnly==true)
+			{
+				tResult=true;
+			}
+			else
+			{
+				if (inShowFailedToolTip==true)
+				{
+					choices.installer_choice_9_1.tooltip=system.localizedString('INSTALLER_CHOICE_9_1_REQUIREMENT_FAILED_1');
+				}
+			}
+		}
+
+		return tResult;
+	}
+
+    </script>
+</installer-script>

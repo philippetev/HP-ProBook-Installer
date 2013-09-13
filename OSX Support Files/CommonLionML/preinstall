@@ -3,9 +3,16 @@ RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
 BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
 # removing the old kexts.
-for delkext in "AppleHDA.kext" \
-	"AppleIntelCPUPowerManagement.kext" \
-	"AppleIntelSNBGraphicsFB.kext" \
+for delkext in "ACPIPoller.kext" \
+	"ACPISensors.kext" \
+	"AppleSmartBatteryManager.kext" \
+	"FakeSMC.kext" \
+	"HSSDBlockStorage.kext" \
+	"IntelCPUMonitor.kext" \
+	"JMB38X.kext" \
+	"PXHCD.kext" \
+	"RadeonX.kext" \
+	"VoodooPS2Controller.kext" \
 	"AppleACPIPS2Nub.kext" \
 	"ApplePS2Controller.kext" \
 	"AppleACPIBatteryManager.kext"
@@ -13,9 +20,9 @@ do
    if [ -e "$kextdir/$delkext" ]
    then
    	 if [ ! -e "$BackupDir" ]
-	 then
-		mkdir -p "$BackupDir"
-	 fi
+   	 then
+   		mkdir -p "$BackupDir"
+   	 fi
 	 cp -Rf "$kextdir/$delkext" "$BackupDir"
 	 rm -rf "$kextdir/$delkext"
    fi

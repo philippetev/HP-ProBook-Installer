@@ -3,19 +3,9 @@ RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
 BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
 # removing the old kexts.
-for delkext in "ACPIPoller.kext" \
-	"ACPISensors.kext" \
-	"AppleHDA.kext" \
+for delkext in "AppleHDA.kext" \
 	"AppleIntelCPUPowerManagement.kext" \
 	"AppleIntelSNBGraphicsFB.kext" \
-	"AppleSmartBatteryManager.kext" \
-	"FakeSMC.kext" \
-	"HSSDBlockStorage.kext" \
-	"IntelCPUMonitor.kext" \
-	"JMB38X.kext" \
-	"PXHCD.kext" \
-	"RadeonX.kext" \
-	"VoodooPS2Controller.kext" \
 	"AppleACPIPS2Nub.kext" \
 	"ApplePS2Controller.kext" \
 	"AppleACPIBatteryManager.kext"
