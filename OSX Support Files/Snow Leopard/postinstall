@@ -12,5 +12,7 @@ then
 	/usr/libexec/PlistBuddy -c "Remove ':IOKitPersonalities:Atheros Wireless LAN PCI:IONameMatch:0'" "$ath21"
 	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:Atheros Wireless LAN PCI:IONameMatch:1' string 'pci168c,2a'" "$ath9388"
 fi
+# disabling Software Update schedule.
+softwareupdate --schedule off
 # triggering kext cache rebuilding
 /usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist

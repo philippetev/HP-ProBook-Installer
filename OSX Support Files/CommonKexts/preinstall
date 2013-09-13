@@ -10,7 +10,11 @@ for delkext in "ACPIPoller.kext" \
 	"JMB38X.kext" \
 	"PXHCD.kext" \
 	"RealtekRTL81xx.kext" \
-	"VoodooPS2Controller.kext"
+	"VoodooPS2Controller.kext" \
+	"FakeSMC.kext" \
+	"ACPISensors.kext" \
+	"IntelCPUMonitor.kext" \
+	"RadeonX.kext"
 do
    if [ -e "$kextdir/$delkext" ]
    then
