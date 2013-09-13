@@ -5,5 +5,5 @@ ath21="$kextdir/IO80211Family.kext/Contents/PlugIns/AirPortAtheros21.kext/Conten
 ath9388="$kextdir/IO80211Family.kext/Contents/PlugIns/AirPortAtheros9388.kext/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Remove ':IOKitPersonalities:Atheros Wireless LAN PCI:IONameMatch:0'" "$ath21"
 /usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:Atheros Wireless LAN PCI:IONameMatch:1' string 'pci168c,2a'" "$ath9388"
-# rebuilding the kext cache.
-touch "$kextdir"
+# triggering kext cache rebuilding
+/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist

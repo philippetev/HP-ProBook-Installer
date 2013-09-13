@@ -16,12 +16,10 @@
 	<string>I/O Kit Driver for USB XHCI Controllers</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0.11</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.11</string>
+	<string>1.0.10</string>
 	<key>DTCompiler</key>
 	<string></string>
 	<key>DTPlatformBuild</key>
@@ -46,8 +44,6 @@
 			<string>PXHCD</string>
 			<key>IOPCIClassMatch</key>
 			<string>0x0c033000</string>
-			<key>IOPCIPrimaryMatch</key>
-			<string>0x01941033</string>
 			<key>IOProviderClass</key>
 			<string>IOPCIDevice</string>
 			<key>IOUserClientClass</key>

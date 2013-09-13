@@ -1,5 +1,5 @@
 #!/bin/bash
-RightNowIs=`date "+%Y-%m-%d %H-%M"`
+RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
 BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
 # removing the old kext.

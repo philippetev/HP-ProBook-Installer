@@ -1,0 +1,4 @@
+#!/bin/bash
+PBIplist="/tmp/PBI.plist"
+/usr/libexec/PlistBuddy -c "Add :CurrentDateTime string `date '+%Y-%m-%d %H-%M'`" "$PBIplist"
+/usr/libexec/PlistBuddy -c "Add :KextCacheRebuild string 'no'" "$PBIplist"

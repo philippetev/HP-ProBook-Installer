@@ -1,0 +1,9 @@
+#!/bin/bash
+# rebilding the kext cache, if triggered
+RebuildOn=`/usr/libexec/PlistBuddy -c "Print :KextCacheRebuild" /tmp/PBI.plist`
+if [ "$RebuildOn" == "yes" ]
+then
+	touch "$DSTVOLUME/System/Library/Extensions"
+fi
+# deleting PBI.plist
+rm -rf /tmp/PBI.plist

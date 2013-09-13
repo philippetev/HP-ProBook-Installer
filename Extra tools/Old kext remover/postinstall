@@ -1,10 +1,22 @@
 #!/bin/bash
 #removing some obsolete kexts you may have.
 kextdir="$DSTVOLUME/System/Library/Extensions"
-for delkext in "SleepEnabler.kext" "NullCPUPowerManagement.kext" "JMicronATAInjector.kext" "JMicron36xSATA.kext" "JMicron36xATA.kext" "EvOreboot.kext" "Atherosx.kext" "ATAPortInjector.kext" "AppleHDADisabler.kext" "AHCIPortInjector.kext" "VoodooBattery.kext"
+for delkext in "SleepEnabler.kext" \
+	"NullCPUPowerManagement.kext" \
+	"JMicronATAInjector.kext" \
+	"JMicron36xSATA.kext" \
+	"JMicron36xATA.kext" \
+	"EvOreboot.kext" \
+	"Atherosx.kext" \
+	"ATAPortInjector.kext" \
+	"AppleHDADisabler.kext" \
+	"AHCIPortInjector.kext" \
+	"VoodooBattery.kext"
 do
    if [ -e  "$kextdir/$delkext" ]
    then
       rm -rf "$kextdir/$delkext"
    fi
 done
+# triggering kext cache rebuilding
+/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist

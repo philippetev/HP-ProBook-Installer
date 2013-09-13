@@ -2,7 +2,7 @@
 kextdir="$DSTVOLUME/System/Library/Extensions"
 # patching IO80211Family.kext.
 /usr/libexec/PlistBuddy -c "Delete :OSBundleRequired" "$kextdir/IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext/Contents/Info.plist"
-# rebuilding the kext cache.
-touch "$kextdir"
 # disabling Software Update schedule.
 softwareupdate --schedule off
+# triggering kext cache rebuilding
+/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
