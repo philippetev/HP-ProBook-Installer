@@ -23,7 +23,7 @@ Supported models:\
 \b0 :\
 \
 
-\b Version 6.0 ( November 16th 2012):
+\b Version 6.0 ( December 21th 2012):
 \b0 \
 - Added support for OS X Mountain Lion 10.8.2 and OS X Lion 10.7.5.\
 - The current keyboard kexts are replaced by the latest 
@@ -42,7 +42,7 @@ Supported models:\
 \b0  in all OS X options and an additional NF DSDT options are added. 
 \b HWMonitor
 \b0  is updated with a version, modified by RehabMan).\
-- The Bluetooth kext option is updated with universal kext, compatible with all OS X versions in the Installer, and all other copies are removed from all OS X options.\
+- The Bluetooth kext option is updated with universal kext, compatible with all OS X versions, supported by the Installer.\
 - 
 \b IO80211Family.kext
 \b0  is removed from the Installer and replaced by a patch in every OS specific option, which performs the patch in-place.\
@@ -55,6 +55,9 @@ Supported models:\
 - Added the 
 \b AHCI 3rd party kext
 \b0  from MacMan.\
+- Added brand new EDID Generator.\
+- A backup functionality is added for all kext-related options. When any of these options is being installed, a backup folder will be created of your desktop and all your current kexts will be copied in this folder, before the Installer have deleted them.\
+- The old DSDTs (pre F.20) are removed from the Installer and available as a separate download for those, who need them.\
 - Other small fixes.\
 \
 
