@@ -1,6 +1,14 @@
 #!/bin/bash
+RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
+BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
+AtherosPlist="IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext/Contents/Info.plist"
+IsNotPatched=`/usr/libexec/PlistBuddy -c "Print :OSBundleRequired" "$kextdir/$AtherosPlist"`
 # patching IO80211Family.kext.
-/usr/libexec/PlistBuddy -c "Delete :OSBundleRequired" "$kextdir/IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext/Contents/Info.plist"
+if [ "$IsNotPatched" == "Network-Root" ]
+then
+	cp -Rf "$kextdir/IO80211Family.kext" "$BackupDir"
+	/usr/libexec/PlistBuddy -c "Delete :OSBundleRequired" "$kextdir/$AtherosPlist"
+fi
 # triggering kext cache rebuilding
 /usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist

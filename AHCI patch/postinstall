@@ -1,64 +1,38 @@
 #!/bin/bash
-#
-# Patch IOAHCIBlockStorage to delay its start by 200ms.  This delay avoids
-# a timing bug which can otherwise cause the AHCI identify command to fail.
-# This bug manifests itself as a "Still waiting for root device" error at boot
-# time under OSX 10.8.
-#
-# Copyright (c) 2012 B.C. <bcc24x7@gmail.com> (bcc9 at insanely-mac.com).
-# 10.8 and 10.8.2 support by bcc9 at insanely-mac.com
-# 10.8.1 support by z0rglub at insanely-mac.com
+# Based on the original AHCI patch for OS X Mountain Lion copyright (c) 2012 B.C. <bcc24x7@gmail.com> (bcc9 at insanely-mac.com).
 # Modified for HP ProBook Installer v5 by RehabMan, tonymacx86.com
-# Modified for all ML versions (so far) support by philip_petev, tonymacx86.com v5
-
-# (rehabman) DSTVOLUME is destination volume for Mac OS PKG Installer
+# Modified for all ML versions (so far) support by philip_petev, tonymacx86.com v6
+RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
+BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
-cd "$kextdir/IOAHCIFamily.kext/Contents/PlugIns/IOAHCIBlockStorage.kext/Contents/MacOS"
-case `/usr/libexec/PlistBuddy -c 'Print :ProductBuildVersion' "$DSTVOLUME/System/Library/CoreServices/SystemVersion.plist"` in
-	12A269) #10.8
-	if [ "`md5 -q IOAHCIBlockStorage`" == "ff7a9115779fa5923950cbdc6ffb273d" -o ! -f IOAHCIBlockStorage.hpinst.orig ]; then
-	    # (rehabman) using *.hpinst.orig to avoid conflicts with Trim Enabler/TRIM patch
-	    mv -f IOAHCIBlockStorage IOAHCIBlockStorage.hpinst.orig
-	    cp IOAHCIBlockStorage.hpinst.orig IOAHCIBlockStorage
-	    #patch relocation table for our patch point - kprintf() -> IOSleep()
-	    /usr/bin/perl -pi -e 's|\xeb\x4c\x00\x00\xea\x03|\xeb\x4c\x00\x00\xe8\x01|g' IOAHCIBlockStorage
-	    #Make unconditional call to IOSleep(200) at beginning of kext
-	    /usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\xa5\x90\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' IOAHCIBlockStorage
-	    /usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
-	fi
-	;;
-	12B19) #10.8.1
-	# condition 1: IOAHCIBlockStorage is vanilla
-	# condition 2: There is no existing IOAHCIBlockStorage.hpinst.orig
-	# condition 3: The TRIM Enabler has been applied on the vanilla file before this patch
-	if [ "`md5 -q IOAHCIBlockStorage`" == "03d3a46c6d713b00980bc9be453755ff" ] || [ ! -f IOAHCIBlockStorage.hpinst.orig ] || [ -f IOAHCIBlockStorage.old -a "`md5 -q IOAHCIBlockStorage.old`" == "03d3a46c6d713b00980bc9be453755ff" -a "`md5 -q IOAHCIBlockStorage`" == "14a91423c7e7160643475e9ca55666bf" ]; then
-	    # (rehabman) using *.hpinst.orig to avoid conflicts with Trim Enabler/TRIM patch
-	    mv -f IOAHCIBlockStorage IOAHCIBlockStorage.hpinst.orig
-	    cp IOAHCIBlockStorage.hpinst.orig IOAHCIBlockStorage
-		#patch relocation table for our patch point - kprintf() -> IOSleep()
-		/usr/bin/perl -pi -e 's|\xbb\x4b\x00\x00\xeb\x03|\xbb\x4b\x00\x00\xe8\x01|g' IOAHCIBlockStorage
-		#Make unconditional call to IOSleep(200) at beginning of kext
-		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\xb2\x91\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' IOAHCIBlockStorage
-	    /usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
-	fi
-	;;
-	12C54) #10.8.2
-	# condition 1: IOAHCIBlockStorage is vanilla
-	# condition 2: There is no existing IOAHCIBlockStorage.hpinst.orig
-	# condition 3: The TRIM Enabler has been applied on the vanilla file before this patch
-	if [ "`md5 -q IOAHCIBlockStorage`" == "85390d06d5aad08b471cf9b7cd69aff4" ] || [ ! -f IOAHCIBlockStorage.hpinst.orig ] || [ -f IOAHCIBlockStorage.old -a "`md5 -q IOAHCIBlockStorage.old`" == "85390d06d5aad08b471cf9b7cd69aff4" -a "`md5 -q IOAHCIBlockStorage`" == "ad93e1f62ae975e29d229645e11d1420" ]; then
-	    # (rehabman) using *.hpinst.orig to avoid conflicts with Trim Enabler/TRIM patch
-	    mv -f IOAHCIBlockStorage IOAHCIBlockStorage.hpinst.orig
-	    cp IOAHCIBlockStorage.hpinst.orig IOAHCIBlockStorage
-		#patch relocation table for our patch point - kprintf() -> IOSleep()
-		/usr/bin/perl -pi -e 's|\x8b\x4a\x00\x00\xeb\x03|\x8b\x4a\x00\x00\xe8\x01|g' IOAHCIBlockStorage
-		#Make unconditional call to IOSleep(200) at beginning of kext
-		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\x72\x92\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' IOAHCIBlockStorage
-	    /usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
-	fi
-	;;
-	*)
-	echo "Unknown OSX version!"
-	exit 0
+AHCIBlockStorage="$kextdir/IOAHCIFamily.kext/Contents/PlugIns/IOAHCIBlockStorage.kext/Contents/MacOS/IOAHCIBlockStorage"
+PatchThatKext () {
+if [ ! -e "$BackupDir" ]
+then
+	mkdir -p "$BackupDir"
+fi
+cp -Rf "$kextdir/IOAHCIFamily.kext" "$BackupDir"
+case $1 in
+10.8)	/usr/bin/perl -pi -e 's|\xeb\x4c\x00\x00\xea\x03|\xeb\x4c\x00\x00\xe8\x01|g' "$AHCIBlockStorage"
+		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\xa5\x90\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' "$AHCIBlockStorage"
+		;;
+10.8.1)	/usr/bin/perl -pi -e 's|\xbb\x4b\x00\x00\xeb\x03|\xbb\x4b\x00\x00\xe8\x01|g' "$AHCIBlockStorage"
+		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\xb2\x91\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' "$AHCIBlockStorage"
+		;;
+10.8.2)	/usr/bin/perl -pi -e 's|\x8b\x4a\x00\x00\xeb\x03|\x8b\x4a\x00\x00\xe8\x01|g' "$AHCIBlockStorage"
+		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\x72\x92\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' "$AHCIBlockStorage"
+		;;
+esac
+/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
+}
+case `md5 -q "$AHCIBlockStorage"` in
+"ff7a9115779fa5923950cbdc6ffb273d"|"4d265ac3f471b0ef0578d5dbb1eafadb")	PatchThatKext 10.8
+																		;;
+"03d3a46c6d713b00980bc9be453755ff"|"14a91423c7e7160643475e9ca55666bf")	PatchThatKext 10.8.1
+																		;;
+"85390d06d5aad08b471cf9b7cd69aff4"|"ad93e1f62ae975e29d229645e11d1420")	PatchThatKext 10.8.2
+																		;;
+*)	echo "Unknown kext or the kext is already patched!"
+	exit
 	;;
 esac

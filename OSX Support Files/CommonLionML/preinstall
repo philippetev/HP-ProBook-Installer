@@ -12,10 +12,7 @@ for delkext in "ACPIPoller.kext" \
 	"JMB38X.kext" \
 	"PXHCD.kext" \
 	"RadeonX.kext" \
-	"VoodooPS2Controller.kext" \
-	"AppleACPIPS2Nub.kext" \
-	"ApplePS2Controller.kext" \
-	"AppleACPIBatteryManager.kext"
+	"VoodooPS2Controller.kext"
 do
    if [ -e "$kextdir/$delkext" ]
    then

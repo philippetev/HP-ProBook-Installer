@@ -50573,6 +50573,25 @@
 				<key>VERSION</key>
 				<integer>2</integer>
 			</dict>
+			<key>PACKAGE_SCRIPTS</key>
+			<dict>
+				<key>POSTINSTALL_PATH</key>
+				<dict>
+					<key>PATH</key>
+					<string>OSX Support Files/CommonLionML/postinstall</string>
+					<key>PATH_TYPE</key>
+					<integer>1</integer>
+				</dict>
+				<key>PREINSTALL_PATH</key>
+				<dict>
+					<key>PATH</key>
+					<string>OSX Support Files/CommonLionML/preinstall</string>
+					<key>PATH_TYPE</key>
+					<integer>1</integer>
+				</dict>
+				<key>RESOURCES</key>
+				<array/>
+			</dict>
 			<key>PACKAGE_SETTINGS</key>
 			<dict>
 				<key>AUTHENTICATION</key>
@@ -54991,7 +55010,7 @@ After their installation, you may find them in a folder on your desktop called "
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>HP ProBook Installer 6b9</string>
+						<string>HP ProBook Installer 6b10</string>
 					</dict>
 				</array>
 			</dict>

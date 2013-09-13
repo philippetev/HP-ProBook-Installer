@@ -155,7 +155,7 @@
         </line>
         <line choice="installer_choice_13"/>
     </choices-outline>
-    <choice id="installer_choice_1" start_enabled="false" selected="PrePostSelected()" start_selected="false" title="0.preinstall" description="">
+    <choice id="installer_choice_1" start_visible="false" start_selected="false" selected="PrePostSelected()" title="0.preinstall" description="">
         <pkg-ref id="com.MadMax.pkg.0.preinstall"/>
     </choice>
     <choice id="installer_choice_2_1_1" start_selected="false" title="INSTALLER_CHOICE_2_1_1_TITLE" description="INSTALLER_CHOICE_2_1_1_DESCRIPTION">
@@ -189,7 +189,7 @@
     </choice>
     <choice id="installer_choice_2_3" title="INSTALLER_CHOICE_2_3_TITLE" description="INSTALLER_CHOICE_2_3_DESCRIPTION"/>
     <choice id="installer_choice_2" title="INSTALLER_CHOICE_2_TITLE" description="INSTALLER_CHOICE_2_DESCRIPTION"/>
-    <choice id="installer_choice_3" start_enabled="false" selected="CommonSelected()" start_selected="false" title="INSTALLER_CHOICE_3_TITLE" description="INSTALLER_CHOICE_3_DESCRIPTION">
+    <choice id="installer_choice_3" start_visible="false" start_selected="false" selected="CommonSelected()" title="INSTALLER_CHOICE_3_TITLE" description="INSTALLER_CHOICE_3_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.Common.LionML"/>
     </choice>
     <choice id="installer_choice_4_1_1" start_selected="false" title="INSTALLER_CHOICE_4_1_1_TITLE" description="INSTALLER_CHOICE_4_1_1_DESCRIPTION">
@@ -432,7 +432,7 @@
         <pkg-ref id="com.MadMax.pkg.TrimEnabler"/>
     </choice>
     <choice id="installer_choice_12" title="INSTALLER_CHOICE_12_TITLE" description="INSTALLER_CHOICE_12_DESCRIPTION"/>
-    <choice id="installer_choice_13" start_enabled="false" selected="PrePostSelected()" start_selected="false" title="0.postinstall" description="">
+    <choice id="installer_choice_13" start_visible="false" start_selected="false" selected="PrePostSelected()" title="0.postinstall" description="">
         <pkg-ref id="com.MadMax.pkg.0.postinstall"/>
     </choice>
     <!--+==========================+

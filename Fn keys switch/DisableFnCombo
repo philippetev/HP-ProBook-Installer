@@ -9,7 +9,7 @@ then
 	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map' array" "$KBplist"
 	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:0' string ';Items must be strings in the form of scanfrom=scanto'" "$KBplist"
 	/usr/libexec/PlistBuddy -c "Set ':IOKitPersonalities:ApplePS2Keyboard:SleepPressTime' 0" "$KBplist"
-	touch "$kextdir"
+	/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
 else
 	echo "No patch is required!"
 fi	
