@@ -5,6 +5,7 @@ kextdir="$DSTVOLUME/System/Library/Extensions"
 # removing the old kexts.
 for delkext in "AppleHDA.kext" \
 	"AppleIntelCPUPowerManagement.kext" \
+	"AppleIntelFramebufferCapri.kext" \
 	"AppleACPIPS2Nub.kext" \
 	"ApplePS2Controller.kext" \
 	"AppleACPIBatteryManager.kext"

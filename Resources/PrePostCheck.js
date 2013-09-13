@@ -9,7 +9,8 @@ function PrePostSelected()
 		|| choices.installer_choice_7.selected 
 		|| choices.installer_choice_8.selected 
 		|| choices.installer_choice_9.selected 
-		|| choices.installer_choice_10.selected);
+		|| choices.installer_choice_10.selected 
+		|| choices.installer_choice_11.selected);
 	return (tSelect); 
 }
 	
