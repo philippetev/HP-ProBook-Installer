@@ -32,12 +32,14 @@
                     <line choice="installer_choice_2_1_3_2"/>
                     <line choice="installer_choice_2_1_3_3"/>
                     <line choice="installer_choice_2_1_3_4"/>
+                    <line choice="installer_choice_2_1_3_5"/>
                 </line>
             </line>
             <line choice="installer_choice_2_2">
                 <line choice="installer_choice_2_2_1">
                     <line choice="installer_choice_2_2_1_1"/>
                     <line choice="installer_choice_2_2_1_2"/>
+                    <line choice="installer_choice_2_2_1_3"/>
                 </line>
             </line>
         </line>
@@ -142,6 +144,9 @@
     <choice id="installer_choice_2_1_3_4" start_selected="false" title="INSTALLER_CHOICE_2_1_3_4_TITLE" description="INSTALLER_CHOICE_2_1_3_4_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.ML10.8.3"/>
     </choice>
+    <choice id="installer_choice_2_1_3_5" start_selected="false" title="INSTALLER_CHOICE_2_1_3_5_TITLE" description="INSTALLER_CHOICE_2_1_3_5_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.ML10.8.4"/>
+    </choice>
     <choice id="installer_choice_2_1_3" title="INSTALLER_CHOICE_2_1_3_TITLE" description="INSTALLER_CHOICE_2_1_3_DESCRIPTION"/>
     <choice id="installer_choice_2_1" title="INSTALLER_CHOICE_2_1_TITLE" description=""/>
     <choice id="installer_choice_2_2_1_1" start_selected="false" title="INSTALLER_CHOICE_2_2_1_1_TITLE" description="INSTALLER_CHOICE_2_2_1_1_DESCRIPTION">
@@ -149,6 +154,9 @@
     </choice>
     <choice id="installer_choice_2_2_1_2" start_selected="false" title="INSTALLER_CHOICE_2_2_1_2_TITLE" description="INSTALLER_CHOICE_2_2_1_2_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.Ivy.10.8.3"/>
+    </choice>
+    <choice id="installer_choice_2_2_1_3" start_selected="false" title="INSTALLER_CHOICE_2_2_1_3_TITLE" description="INSTALLER_CHOICE_2_2_1_3_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.Ivy.10.8.4"/>
     </choice>
     <choice id="installer_choice_2_2_1" title="INSTALLER_CHOICE_2_2_1_TITLE" description="INSTALLER_CHOICE_2_2_1_DESCRIPTION"/>
     <choice id="installer_choice_2_2" title="INSTALLER_CHOICE_2_2_TITLE" description=""/>
@@ -304,8 +312,9 @@
     <pkg-ref id="com.MadMax.pkg.AHCI3rdParty" version="1.0" auth="Root" installKBytes="12">#AHCI3rdParty.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.1" version="1.0" auth="Root" installKBytes="5879">#10.7_10.7.1.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SleepImageFix" version="1.0" auth="Root" installKBytes="0">#Sleep_image_fix.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8.4" version="1.0" auth="Root" installKBytes="2744">#10.8.4.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.3" version="1.0" auth="Root" installKBytes="5905">#10.7.3.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ML10.8.1" version="1.0" auth="Root" installKBytes="3826">#10.8.1.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8.1" version="1.0" auth="Root" installKBytes="3015">#10.8.1.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness50" version="1.0" auth="Root" installKBytes="14">#SetBrightness50.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Ivy.10.8.3" version="1.0" auth="Root" installKBytes="3264">#Ivy.10.8.3.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.4" version="1.0" auth="Root" installKBytes="5177">#10.7.4.pkg</pkg-ref>
@@ -320,6 +329,7 @@
     <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1596">#Extra_ChameleonWizard.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness75" version="1.0" auth="Root" installKBytes="14">#SetBrightness75.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SL10.6.8" version="1.0" auth="Root" installKBytes="5264">#10.6.8.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Ivy.10.8.4" version="1.0" auth="Root" installKBytes="3252">#Ivy.10.8.4.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.logos" version="1.0" auth="Root" installKBytes="710">#SysDef.logos.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Opt.Atheros" version="1.0" auth="Root" installKBytes="1">#Opt.Atheros.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="312">#Extra_HWMonitor_SL.pkg</pkg-ref>
@@ -331,7 +341,7 @@
     <pkg-ref id="com.MadMax.pkg.EDIDgenerator" version="6.3" auth="Root" installKBytes="0">#EDID_generator.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part3.HDMI.1080" version="1.0" auth="Root" installKBytes="1">#Part3.HDMI.1080.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ML10.8" version="1.0" auth="Root" installKBytes="3826">#10.8.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8" version="1.0" auth="Root" installKBytes="3015">#10.8.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.KextWizard" version="1.0" auth="Root" installKBytes="474">#Extra_KextWizard.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Chimera" version="2.0.1" auth="Root" installKBytes="4670">#Chimera.pkg</pkg-ref>
