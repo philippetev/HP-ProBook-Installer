@@ -311,17 +311,17 @@
     <pkg-ref id="com.MadMax.pkg.Lion10.7.3" version="1.0" auth="Root" installKBytes="5905">#10.7.3.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ML10.8.1" version="1.0" auth="Root" installKBytes="3826">#10.8.1.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness50" version="1.0" auth="Root" installKBytes="14">#SetBrightness50.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Ivy.10.8.3" version="1.0" auth="Root" installKBytes="2965">#Ivy.10.8.3.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Ivy.10.8.3" version="1.0" auth="Root" installKBytes="3264">#Ivy.10.8.3.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.4" version="1.0" auth="Root" installKBytes="5177">#10.7.4.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SMCPing" version="1.0" auth="Root" installKBytes="15">#SMCPing.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.quiet" version="1.0" auth="Root" installKBytes="5">#Part2.fan.quiet.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Part1.4x30s" version="1.0" auth="Root" installKBytes="20">#Part1.4x30s.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Part1.4x30s" version="1.0" auth="Root" installKBytes="21">#Part1.4x30s.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i5.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i5.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.speed" version="1.0" auth="Root" installKBytes="1">#Part2.fan.speed.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ML10.8.2" version="1.0" auth="Root" installKBytes="3008">#10.8.2.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness100" version="1.0" auth="Root" installKBytes="14">#SetBrightness100.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.BlinkScreen" version="1.0" auth="Root" installKBytes="10">#BlinkScreen.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1081">#Extra_ChameleonWizard.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1596">#Extra_ChameleonWizard.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness75" version="1.0" auth="Root" installKBytes="14">#SetBrightness75.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SL10.6.8" version="1.0" auth="Root" installKBytes="5264">#10.6.8.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.logos" version="1.0" auth="Root" installKBytes="710">#SysDef.logos.pkg</pkg-ref>
@@ -329,9 +329,9 @@
     <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="312">#Extra_HWMonitor_SL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ML10.8.3" version="1.0" auth="Root" installKBytes="2744">#10.8.3.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.ib.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Ivy.10.8.2" version="1.0" auth="Root" installKBytes="5008">#Ivy.10.8.2.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Ivy.10.8.2" version="1.0" auth="Root" installKBytes="5308">#Ivy.10.8.2.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.AHCIPatch" version="1.0" auth="Root" installKBytes="0">#AHCI.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.CommonKexts" version="1.0" auth="Root" installKBytes="2502">#CommonKexts.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.CommonKexts" version="1.0" auth="Root" installKBytes="2503">#CommonKexts.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.EDIDgenerator" version="6.3" auth="Root" installKBytes="0">#EDID_generator.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part3.HDMI.1080" version="1.0" auth="Root" installKBytes="1">#Part3.HDMI.1080.pkg</pkg-ref>
@@ -342,13 +342,13 @@
     <pkg-ref id="com.MadMax.pkg.Lion10.7.5" version="1.0" auth="Root" installKBytes="5303">#10.7.5.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.OldKextRemover" version="1.0" auth="Root" installKBytes="0">#Extra_OldKextRemover.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.2" version="1.0" auth="Root" installKBytes="5888">#10.7.2.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.ib" version="1.0" auth="Root" installKBytes="20">#Part1.4x40s.ib.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.ib" version="1.0" auth="Root" installKBytes="21">#Part1.4x40s.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SSDTGenerator" version="1.0" auth="Root" installKBytes="0">#SSDTGenerator.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ColorProfiles" version="1.0" auth="Root" installKBytes="91">#ColorProfiles.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.std" version="1.0" auth="Root" installKBytes="2">#Part2.fan.std.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.0.preinstall" version="1.0" auth="Root" installKBytes="0">#0.preinstall.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Patcher" version="1.0" auth="Root" installKBytes="1068">#Patcher.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="21">#Part1.4x40s.sb.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="22">#Part1.4x40s.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.MaciASL.Lion" version="1.0" auth="Root" installKBytes="3812">#Extra_MaciASL_Lion.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.MaciASL" version="1.0" auth="Root" installKBytes="3759">#Extra_MaciASL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.0.postinstall" version="1.0" auth="Root" installKBytes="0">#0.postinstall.pkg</pkg-ref>

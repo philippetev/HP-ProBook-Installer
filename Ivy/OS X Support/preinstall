@@ -6,7 +6,8 @@ ChamPlist="$DSTVOLUME/Extra/org.chameleon.Boot.plist"
 # removing the old kexts.
 for delkext in "AppleHDA.kext" \
 	"AppleIntelCPUPowerManagement.kext" \
-	"AppleIntelFramebufferCapri.kext"
+	"AppleIntelFramebufferCapri.kext" \
+	"AppleIntelSNBGraphicsFB.kext"
 do
    if [ -e "$kextdir/$delkext" ]
    then
