@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ -f /Extra/DSDT.aml ]	
+then
+	echo "Patched DSDT detected! Remove it, reboot your laptop, run the ProBook Installer and select the DSDT options again!" > "$HOME/Desktop/DSDT Warning.txt"
+else
+	cd /tmp/tempDSDT
+	ioreg -c AppleACPIPlatformExpert -k 'ACPI Tables' -d 1 -rw0 | egrep 'ACPI Tables' | sed -e 's/.*"DSDT"=<//g' -e 's/>,.*//g' | xxd -r -p > ./dsdt_extract.aml
+	./iaslpbi -d ./dsdt_extract.aml
+	cp ./dsdt_extract.dsl ./dsdt_patch.dsl
+	for currentpatch in ./*.txt
+	do
+		./patchmatic ./dsdt_patch.dsl $currentpatch ./dsdt_patch.dsl
+	done
+	./iaslpbi -p DSDT.aml ./dsdt_patch.dsl
+	cp ./DSDT.aml /Extra/DSDT.aml
+	rm -rf /tmp/tempDSDT
+fi

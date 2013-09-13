@@ -10,9 +10,6 @@ then
 	cp -Rf "$kextdir/IO80211Family.kext" "$BackupDir"
 	/usr/libexec/PlistBuddy -c "Delete :OSBundleRequired" "$kextdir/$AtherosPlist"
 fi
-# removing AppleUSBXHCI.kext
-cp -Rf "$kextdir/IOUSBFamily.kext" "$BackupDir"
-rm -rf "$kextdir/IOUSBFamily.kext/Contents/PlugIns/AppleUSBXHCI.kext"
 # disabling Software Update schedule.
 softwareupdate --schedule off
 # triggering kext cache rebuilding
