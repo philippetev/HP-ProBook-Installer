@@ -1,0 +1,14 @@
+#!/bin/bash
+RightNowIs=`/usr/libexec/PlistBuddy -c "Print :CurrentDateTime" /tmp/PBI.plist`
+BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
+SmbiosPlist="$DSTVOLUME/Extra/smbios.plist"
+# backing up any old smbios.plist, if exists
+if [ -f "$SmbiosPlist" ]
+then
+	if [ ! -e "$BackupDir" ]
+	then
+		mkdir -p "$BackupDir"
+	fi
+ 	cp "$SmbiosPlist" "$BackupDir"
+ 	rm -rf "$SmbiosPlist"
+fi
