@@ -1,17 +1,33 @@
 #!/bin/bash
-if [ -f /Extra/DSDT.aml ]	
-then
-	echo "Patched DSDT detected! Remove it, reboot your laptop, run the ProBook Installer and select the DSDT options again!" > "$HOME/Desktop/DSDT Warning.txt"
-else
-	cd /tmp/tempDSDT
-	ioreg -c AppleACPIPlatformExpert -k 'ACPI Tables' -d 1 -rw0 | egrep 'ACPI Tables' | sed -e 's/.*"DSDT"=<//g' -e 's/>,.*//g' | xxd -r -p > ./dsdt_extract.aml
-	./iaslpbi -d ./dsdt_extract.aml
-	cp ./dsdt_extract.dsl ./dsdt_patch.dsl
-	for currentpatch in ./*.txt
-	do
-		./patchmatic ./dsdt_patch.dsl $currentpatch ./dsdt_patch.dsl
-	done
-	./iaslpbi -p DSDT.aml ./dsdt_patch.dsl
-	cp ./DSDT.aml /Extra/DSDT.aml
-	rm -rf /tmp/tempDSDT
-fi
+cd /tmp/tempDSDT
+ioreg -c AppleACPIPlatformExpert -k 'ACPI Tables' -d 1 -rw0 | egrep 'ACPI Tables' | sed -e 's/.*"DSDT"=<//g' -e 's/>,.*//g' | xxd -r -p > ./dsdt_extract.aml
+./iaslpbi -d ./dsdt_extract.aml
+sleep 1
+case `cat ./dsdt_extract.dsl | grep 'If (CondRefOf (FPED))'` in
+	"") cp ./warning.txt "$HOME/Desktop/DSDT Warning.txt"
+		cp ./Mini-SSDT-DualLink.aml "$HOME/Desktop/"
+		cp ./Mini-SSDT-IMEI.aml "$HOME/Desktop/"
+		;;
+	*)	cp ./dsdt_extract.dsl ./dsdt_patch.dsl
+		for patch in "4x30s.txt" \
+		"4x40s_IvyBridge.txt" \
+		"4x40s_SandyBridge.txt" \
+		"03a_HDMI.txt" \
+		"03b_1080p+HDMI.txt" \
+		"04a_FanPatch.txt" \
+		"04b_FanQuiet.txt" \
+		"04c_FanSpeed.txt" \
+		"08_AR9285.txt" \
+		"09_USB3_4x40s_Meize.txt"
+		do
+			if [ -f $patch ]
+			then
+				./patchmatic ./dsdt_patch.dsl ./$patch ./dsdt_patch.dsl
+			fi
+		done
+		./iaslpbi -p DSDT ./dsdt_patch.dsl
+		cp ./DSDT.aml /Extra/DSDT.aml
+		;;
+	
+esac
+rm -rf /tmp/tempDSDT

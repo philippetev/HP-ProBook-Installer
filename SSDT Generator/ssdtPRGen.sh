@@ -3,7 +3,7 @@
 # Script (ssdtPRGen.sh) to create ssdt-pr.dsl for Apple Power Management Support.
 #
 # Version 0.9 - Copyright (c) 2012 by RevoGirl <RevoGirl@rocketmail.com>
-# Version 5.8 - Copyright (c) 2013 by Pike <PikeRAlpha@yahoo.com>
+# Version 6.0 - Copyright (c) 2013 by Pike <PikeRAlpha@yahoo.com>
 # Modified for HP ProBook Installer by Philip Petev
 #
 # Updates:
@@ -65,6 +65,8 @@
 #			- Bug fix, overriding the cpu type displayed the wrong name (Jeroen, March 2013)
 #			- Automatic detection of CPU scopes added (Pike, March 2013)
 #			- Show warnings for Sandy Bridge systems as well (Jeroen, March 2013)
+#			- New Intel Haswell processors added (Jeroen, April 2013)
+#			- Improved Processor declaration detection (Jeroen/Pike, April 2013)
 #
 # Contributors:
 #			- Thanks to Dave, toleda and Francis for their help (bug fixes and other improvements).
@@ -114,12 +116,12 @@
 let gIvyWorkAround=1
 
 #
-# Asks for your confirmation to copy SSDT_PR.aml to /Extra/SSDT.aml (example)
+# Asks for your confirmation to copy ssdt_pr.aml to /Extra/ssdt.aml (example)
 #
 let gAutoCopy=0
 
 #
-# This is the target location that SSDT.aml will be copied to.
+# This is the target location that ssdt.aml will be copied to.
 #
 # Note: Do no change this - will be updated automatically for Clover/RevoBoot!
 #
@@ -128,17 +130,17 @@ gDestinationPath="/Extra/"
 #
 # This is the filename used for the copy process
 #
-gDestinationFile="SSDT.aml"
+gDestinationFile="ssdt.aml"
 
 #
-# A value of 1 will make this script call iasl (compiles SSDT_PR.dsl)
+# A value of 1 will make this script call iasl (compiles ssdt_pr.dsl)
 #
 # Note: Will be set to 0 when we failed to locate a copy of iasl!
 #
 let gCallIasl=1
 
 #
-# A value of 1 will make this script open SSDT_PR.dsl in the editor of your choice. 
+# A value of 1 will make this script open ssdt_pr.dsl in the editor of your choice.
 #
 let gCallOpen=0
 
@@ -158,10 +160,15 @@ let gBaseFrequency=1600
 gProcLabel="CPU"
 
 #
+# This is the default (ACPI 1.0 compliant) processor scope (verified by _getProcessorScope).
+#
+gScope="\_PR_"
+
+#
 # Other global variables.
 #
 
-gScriptVersion=5.8
+gScriptVersion=6.0
 
 gRevision='0x0000'${gScriptVersion:0:1}${gScriptVersion:2:1}'00'
 
@@ -170,7 +177,7 @@ gRevision='0x0000'${gScriptVersion:0:1}${gScriptVersion:2:1}'00'
 #
 
 gPath=.
-gSsdtID="SSDT_PR"
+gSsdtID="ssdt_pr"
 gSsdtPR="${gPath}/${gSsdtID}.dsl"
 
 let gDesktopCPU=1
@@ -203,6 +210,7 @@ let TARGET_CPU_ERROR=4
 let PROCESSOR_NUMBER_ERROR=5
 let PROCESSOR_LABEL_LENGTH_ERROR=6
 let PROCESSOR_NAMES_ERROR=7
+let PROCESSOR_DECLARATION_ERROR=8
 
 #
 # Processor Number, Max TDP, Low Frequency Mode, Clock Speed, Max Turbo Frequency, Cores, Threads
@@ -234,7 +242,7 @@ gDesktopSandyBridgeCPUList=(
 # i7 Desktop Extreme Series
 i7-3970X,150,0,3500,4000,6,12
 i7-3960X,130,0,3300,3900,6,12
-i7-3930X,130,0,3200,3800,6,12
+i7-3930K,130,0,3200,3800,6,12
 i7-3820,130,0,3600,3800,4,8
 # i7 Desktop series
 i7-2600S,65,1600,2800,3800,4,8
@@ -443,6 +451,10 @@ gServerHaswellCPUList=(
 )
 
 gDesktopHaswellCPUList=(
+# Socket 2011 (Premium Power)
+i7-4960K,130,0,3600,4000,6,12
+i7-4930K,130,0,3400,3900,6,12
+i5-4820K,130,0,3700,3900,4,8
 # Socket 1150 (Standard Power)
 i7-4770K,84,00,3500,3900,4,8
 i7-4770,84,0,3400,3900,4,8
@@ -462,6 +474,9 @@ i5-4430S,65,0,2700,3200,4,4
 )
 
 gMobileHaswellCPUList=(
+i7-4930MX,57,0,3000,3900,4,8
+i7-4900MQ,47,0,2800,3800,4,8
+i7-4800MQ,47,0,2700,3700,4,8
 )
 
 #--------------------------------------------------------------------------------
@@ -600,7 +615,7 @@ function _printScopeStart()
         let extraF=($maxTurboFrequency+1)
         let maxTDP=($gTdp*1000)
         let extraR=($maxTurboFrequency/100)+1
-        echo '            /* Workaround for Ivy Bridge PM bug */'                       >> $gSsdtPR
+        echo "            /* Workaround for the Ivy Bridge PM 'bug' */"                 >> $gSsdtPR
       printf "            Package (0x06) { 0x%04X, 0x%06X, 0x0A, 0x0A, 0x%02X00, 0x%02X00 },\n" $extraF $maxTDP $extraR $extraR >> $gSsdtPR
     fi
 }
@@ -972,7 +987,6 @@ function _getModelName()
     # Grab 'compatible' property from ioreg (stripped with sed / RegEX magic).
     #
     echo `ioreg -p IODeviceTree -d 2 -k compatible | grep compatible | sed -e 's/ *["=<>]//g' -e 's/compatible//'`
-#   echo "iMac13,2"
 }
 
 #--------------------------------------------------------------------------------
@@ -1011,7 +1025,7 @@ function _updateProcessorNames()
     if [[ $1 -gt ${#gProcessorNames[@]} ]]; then
         echo -e "\nWarning: Target CPU has $gLogicalCPUs logical cores, the running system only ${#gProcessorNames[@]}"
         echo    "         Now using '$label' to extent the current range to $gLogicalCPUs..."
-        echo -e "         You may want to check/verify the generated DSDT_PR.dsl\n"
+        echo -e "         You may want to check/verify the generated $gSsdtID.dsl\n"
     fi
 
     let currentCPU=0
@@ -1033,25 +1047,19 @@ function _updateProcessorNames()
 
 #--------------------------------------------------------------------------------
 
-function _getScope()
+function _getProcessorScope()
 {
-    let procNameFound=0
-    local names=($(ioreg -p IOACPIPlane -d 3 | sed -e 's/<.*>//g' -e 's/.*o //g'))
+    if [[ $(ioreg -c AppleACPIPlatformExpert -rd1 | egrep -o 'DSDT"=<[0-9a-f]+5b830b') ]]; then
+        printf 'Processor Declaration(s) Found in DSDT'
+    fi
 
-    for name in ${names[@]}
-    do
-        if [[ $name == "_SB" && $procNameFound -eq 0 ]]; then
-#           echo 'Using: Scope (\_SB.'${gProcessorNames[0]}') etc.'
-            gScope="\_SB"
-            return
-        fi
-
-        if [[ "${name:0:3}" == ${gProcessorNames[0]:0:3} ]]; then
-#           echo 'Using: Scope (\_PR.'${gProcessorNames[0]}') etc.'
-            gScope="\_PR"
-            let procNameFound=1
-        fi
-    done
+    if [[ $(ioreg -c AppleACPIPlatformExpert -rd1 | egrep -o 'DSDT"=<[0-9a-f]+5f50525f') ]];
+        then
+            gScope="\_PR_"
+            echo ' (ACPI 1.0 compliant)'
+        else
+            gScope="\_SB_"
+    fi
 }
 
 #--------------------------------------------------------------------------------
@@ -1347,14 +1355,14 @@ set -x
 function _initSandyBridgeSetup()
 {
 	case $boardID in
-		Mac-942B59F58194171B)
+		Mac-942B5BF58194151B)
 			gSystemType=1
 			gMacModelIdentifier="iMac12,1"
 			gACST_CPU0=13   # C1, C3 and C6
 			gACST_CPU1=7    # C1, C2 and C3
 			;;
 
-		Mac-942B5BF58194151B)
+		Mac-942B59F58194171B)
 			gSystemType=1
 			gMacModelIdentifier="iMac12,2"
 			gACST_CPU0=13   # C1, C3 and C6
@@ -1519,6 +1527,9 @@ function _exitWithError()
         7) echo -e "\nError: Processor label not found... exiting\n" 1>&2
            exit 7
            ;;
+        8) echo -e "\nError: Processor Declaration not found... exiting\n" 1>&2
+           exit 8
+           ;;
         *) exit 1
            ;;
     esac
@@ -1606,7 +1617,7 @@ function main()
 
     _getBoardID
     _getProcessorNames
-    _getScope
+    _getProcessorScope
 
     local modelID=$(_getModelName)
     local cpu_type=$(_getCPUtype)
@@ -1851,12 +1862,12 @@ _findIasl
 
 if (($gCallIasl)); then
     #
-    # Compile SSDT.dsl
+    # Compile ssdt.dsl
     #
     "$iasl" $gSsdtPR
 
     #
-    # Copy SSDT_PR.aml to /Extra/SSDT.aml (example)
+    # Copy ssdt_pr.aml to /Extra/ssdt.aml (example)
     #
     if (($gAutoCopy)); then
         if [ -f ${gPath}/${gSsdtID}.aml ]; then

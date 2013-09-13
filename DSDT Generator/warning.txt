@@ -1,0 +1,16 @@
+Patched DSDT detected! Now you should do the following:
+
+1. Remove your current DSDT.aml.
+2. Only for 4x40s models with Sandy Bridge CPU installed: copy Mini-SSDT-IMEI.aml from your desktop to /Extra and name it ssdt-1.aml, if you already have existing ssdt.aml or ssdt.aml, if you don't have such.
+3. Reboot your laptop.
+4. Run the ProBook Installer and select your DSDT options again.
+
+Note: for those of you with ProBook 47x0s (1600x900) or with ProBook 45x0s with 1080p screen mod, you won't be able to boot your system without DSDT.aml!
+Instead, you should do the following:
+
+1. Remove your current DSDT.aml.
+2.1 If you already have an /Extra/SSDT.aml installed (eg. you already ran the Probook Installer previously), copy Mini-SSDT-DualLink.aml from your desktop to /Extra/ssdt-1.aml.
+2.2 If you don't have an /Extra/SSDT.aml installed (eg. fresh install or ??? or you're doing this with Unibeast installer), copy Mini-SSDT-DualLink.aml from your desktop to /Extra/ssdt.aml.
+3. Only for 4x40s models with Sandy Bridge CPU installed: copy Mini-SSDT-IMEI.aml from your desktop to /Extra and name it ssdt-2.aml, if you have followed step 2.1 and ssdt-1.aml, if you have followed step 2.2.
+4. Reboot your laptop.
+5. Run the ProBook Installer and select your DSDT options again.
