@@ -5,14 +5,16 @@
 	<key>SMbiosvendor</key>
 	<string>Apple Inc.</string>
 	<key>SMbiosversion</key>
-	<string>MBP92.88Z.00D3.B06.1205101904</string>
+	<string>MBP81.88Z.0047.B27.1201241646</string>
 	<key>SMboardproduct</key>
-	<string>Mac-6F01561E16C75D06</string>
+	<string>Mac-94245B3640C91C81</string>
 	<key>SMfamily</key>
 	<string>MacBook Pro</string>
 	<key>SMproductname</key>
-	<string>MacBookPro9,2</string>
+	<string>MacBookPro8,1</string>
 	<key>SMserial</key>
-	<string>G82HX222DTY3</string>
+	<string>G82F5951DH2L</string>
+	<key>SMsystemversion</key>
+	<string>1.0</string>
 </dict>
 </plist>

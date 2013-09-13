@@ -13,6 +13,8 @@
 	<key>SMproductname</key>
 	<string>MacBookPro9,1</string>
 	<key>SMserial</key>
-	<string>G82HCE1EDV33</string>
+	<string>G82H5CE4DV35</string>
+	<key>SMsystemversion</key>
+	<string>1.0</string>
 </dict>
 </plist>

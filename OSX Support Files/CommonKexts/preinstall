@@ -8,13 +8,18 @@ for delkext in "ACPIPoller.kext" \
 	"HSSDBlockStorage.kext" \
 	"IOath3kfrmwr.kext" \
 	"JMB38X.kext" \
-	"PXHCD.kext" \
-	"RealtekRTL81xx.kext" \
 	"VoodooPS2Controller.kext" \
 	"FakeSMC.kext" \
+	"RealtekRTL8111.kext" \
+	"GenericUSBXHCI.kext" \
 	"ACPISensors.kext" \
 	"IntelCPUMonitor.kext" \
-	"RadeonX.kext"
+	"RadeonX.kext" \
+	"RealtekRTL81xx.kext" \
+	"PXHCD.kext" \
+	"AppleACPIPS2Nub.kext" \
+	"ApplePS2Controller.kext" \
+	"AppleACPIBatteryManager.kext"
 do
    if [ -e "$kextdir/$delkext" ]
    then

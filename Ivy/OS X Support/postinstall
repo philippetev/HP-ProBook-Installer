@@ -4,15 +4,20 @@ BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
 AtherosPlist="IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext/Contents/Info.plist"
 IsNotPatched=`/usr/libexec/PlistBuddy -c "Print :OSBundleRequired" "$kextdir/$AtherosPlist"`
+RTCpatched=`md5 -q $kextdir/AppleRTC.kext/Contents/MacOS/AppleRTC`
 # patching IO80211Family.kext.
 if [ "$IsNotPatched" == "Network-Root" ]
 then
 	cp -Rf "$kextdir/IO80211Family.kext" "$BackupDir"
 	/usr/libexec/PlistBuddy -c "Delete :OSBundleRequired" "$kextdir/$AtherosPlist"
 fi
+# patching AppleRTC.kext for 4x40s
+if [ "$RTCpatched" == "43d7bd19be683cfb8dae1826da40ab24" ]
+then
+	cp -Rf "$kextdir/AppleRTC.kext" "$BackupDir"
+	perl -pi -e 's|\x75\x30\x89\xd8|\xeb\x30\x89\xd8|' "$kextdir/AppleRTC.kext/Contents/MacOS/AppleRTC"
+fi
 # disabling Software Update schedule.
 softwareupdate --schedule off
 # triggering kext cache rebuilding
 /usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
-# triggering Ivy Bridge install
-/usr/libexec/PlistBuddy -c "Set :IvyInstall yes" /tmp/PBI.plist

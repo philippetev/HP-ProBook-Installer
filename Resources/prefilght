@@ -6,4 +6,3 @@ then
 fi
 /usr/libexec/PlistBuddy -c "Add :CurrentDateTime string `date '+%Y-%m-%d %H-%M'`" "$PBIplist"
 /usr/libexec/PlistBuddy -c "Add :KextCacheRebuild string 'no'" "$PBIplist"
-/usr/libexec/PlistBuddy -c "Add :IvyInstall string 'no'" "$PBIplist"

@@ -59,7 +59,6 @@
             </line>
             <line choice="installer_choice_4_4">
                 <line choice="installer_choice_4_4_1"/>
-                <line choice="installer_choice_4_4_2"/>
             </line>
             <line choice="installer_choice_4_5"/>
         </line>
@@ -71,6 +70,7 @@
             <line choice="installer_choice_6_4"/>
             <line choice="installer_choice_6_5"/>
             <line choice="installer_choice_6_6"/>
+            <line choice="installer_choice_6_7"/>
         </line>
         <line choice="installer_choice_7"/>
         <line choice="installer_choice_8">
@@ -147,7 +147,7 @@
         <pkg-ref id="com.MadMax.pkg.Ivy.10.8.2"/>
     </choice>
     <choice id="installer_choice_2_2_1_2" start_selected="false" title="INSTALLER_CHOICE_2_2_1_2_TITLE" description="INSTALLER_CHOICE_2_2_1_2_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.Ivy.10.8.2"/>
+        <pkg-ref id="com.MadMax.pkg.Ivy.10.8.3"/>
     </choice>
     <choice id="installer_choice_2_2_1" title="INSTALLER_CHOICE_2_2_1_TITLE" description="INSTALLER_CHOICE_2_2_1_DESCRIPTION"/>
     <choice id="installer_choice_2_2" title="INSTALLER_CHOICE_2_2_TITLE" description=""/>
@@ -185,9 +185,6 @@
     <choice id="installer_choice_4_4_1" start_selected="false" title="INSTALLER_CHOICE_4_4_1_TITLE" description="INSTALLER_CHOICE_4_4_1_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.Opt.Atheros"/>
     </choice>
-    <choice id="installer_choice_4_4_2" start_selected="false" title="INSTALLER_CHOICE_4_4_2_TITLE" description="INSTALLER_CHOICE_4_4_2_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.Opt.USB3"/>
-    </choice>
     <choice id="installer_choice_4_4" title="INSTALLER_CHOICE_4_4_TITLE" description="INSTALLER_CHOICE_4_4_DESCRIPTION"/>
     <choice id="installer_choice_4_5" start_visible="false" start_selected="false" selected="DSDTSelected()" title="INSTALLER_CHOICE_4_5_TITLE" description="INSTALLER_CHOICE_4_5_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.Patcher"/>
@@ -197,22 +194,25 @@
         <pkg-ref id="com.MadMax.pkg.SSDTGenerator"/>
     </choice>
     <choice id="installer_choice_6_1" start_selected="false" title="INSTALLER_CHOICE_6_1_TITLE" description="INSTALLER_CHOICE_6_1_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.MacBookPro8.1"/>
+        <pkg-ref id="com.MadMax.pkg.SysDef.i5.sb"/>
     </choice>
     <choice id="installer_choice_6_2" start_selected="false" title="INSTALLER_CHOICE_6_2_TITLE" description="INSTALLER_CHOICE_6_2_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.MacBookPro8.2"/>
+        <pkg-ref id="com.MadMax.pkg.SysDef.i7.sb"/>
     </choice>
     <choice id="installer_choice_6_3" start_selected="false" title="INSTALLER_CHOICE_6_3_TITLE" description="INSTALLER_CHOICE_6_3_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.MacBookPro8.3"/>
+        <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.sb"/>
     </choice>
     <choice id="installer_choice_6_4" start_selected="false" title="INSTALLER_CHOICE_6_4_TITLE" description="INSTALLER_CHOICE_6_4_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.MacBookPro9.1"/>
+        <pkg-ref id="com.MadMax.pkg.SysDef.i5.ib"/>
     </choice>
     <choice id="installer_choice_6_5" start_selected="false" title="INSTALLER_CHOICE_6_5_TITLE" description="INSTALLER_CHOICE_6_5_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.MacBookPro9.2"/>
+        <pkg-ref id="com.MadMax.pkg.SysDef.i7.ib"/>
     </choice>
     <choice id="installer_choice_6_6" start_selected="false" title="INSTALLER_CHOICE_6_6_TITLE" description="INSTALLER_CHOICE_6_6_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.MacBookPro10.1"/>
+        <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.ib"/>
+    </choice>
+    <choice id="installer_choice_6_7" start_visible="false" start_selected="false" selected="SysDefSelected()" title="INSTALLER_CHOICE_6_7_TITLE" description="INSTALLER_CHOICE_6_7_DESCRIPTION">
+        <pkg-ref id="com.MadMax.pkg.SysDef.logos"/>
     </choice>
     <choice id="installer_choice_6" title="INSTALLER_CHOICE_6_TITLE" description="INSTALLER_CHOICE_6_DESCRIPTION"/>
     <choice id="installer_choice_7" start_selected="false" title="INSTALLER_CHOICE_7_TITLE" description="INSTALLER_CHOICE_7_DESCRIPTION">
@@ -292,6 +292,7 @@
     <!--+==========================+
         |    Package References    |
         +==========================+-->
+    <pkg-ref id="com.MadMax.pkg.SysDef.i7.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i7.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SleepImageRestore" version="1.0" auth="Root" installKBytes="0">#Sleep_Image_restore.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part3.HDMI.stock" version="1.0" auth="Root" installKBytes="1">#Part3.HDMI.stock.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.LocalTimeToggle" version="1.0" auth="Root" installKBytes="2">#Extra_LocalTimeToggle.pkg</pkg-ref>
@@ -299,36 +300,36 @@
     <pkg-ref id="com.MadMax.pkg.AHCI3rdParty" version="1.0" auth="Root" installKBytes="12">#AHCI3rdParty.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.1" version="1.0" auth="Root" installKBytes="5891">#10.7_10.7.1.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SleepImageFix" version="1.0" auth="Root" installKBytes="0">#Sleep_image_fix.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Opt.USB3" version="1.0" auth="Root" installKBytes="7">#Opt.USB3.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.3" version="1.0" auth="Root" installKBytes="5917">#10.7.3.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ML10.8.1" version="1.0" auth="Root" installKBytes="3838">#10.8.1.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness50" version="1.0" auth="Root" installKBytes="14">#SetBrightness50.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Ivy.10.8.2" version="1.0" auth="Root" installKBytes="2977">#Ivy.10.8.3.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Ivy.10.8.3" version="1.0" auth="Root" installKBytes="2977">#Ivy.10.8.3.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.4" version="1.0" auth="Root" installKBytes="5190">#10.7.4.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SMCPing" version="1.0" auth="Root" installKBytes="15">#SMCPing.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.quiet" version="1.0" auth="Root" installKBytes="5">#Part2.fan.quiet.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part1.4x30s" version="1.0" auth="Root" installKBytes="20">#Part1.4x30s.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SysDef.i5.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i5.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.speed" version="1.0" auth="Root" installKBytes="1">#Part2.fan.speed.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ML10.8.2" version="1.0" auth="Root" installKBytes="3020">#10.8.2.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness100" version="1.0" auth="Root" installKBytes="14">#SetBrightness100.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1081">#Extra_ChameleonWizard.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness75" version="1.0" auth="Root" installKBytes="14">#SetBrightness75.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SL10.6.8" version="1.0" auth="Root" installKBytes="5277">#10.6.8.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MacBookPro10.1" version="1.0" auth="Root" installKBytes="711">#MacBookPro10.1.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SysDef.logos" version="1.0" auth="Root" installKBytes="710">#SysDef.logos.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Opt.Atheros" version="1.0" auth="Root" installKBytes="1">#Opt.Atheros.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="312">#Extra_HWMonitor_SL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ML10.8.3" version="1.0" auth="Root" installKBytes="2756">#10.8.3.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Ivy.10.8.2" version="1.0" auth="Root" installKBytes="5021">#Ivy.10.8.2.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.AHCIPatch" version="1.0" auth="Root" installKBytes="0">#AHCI.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MacBookPro8.1" version="1.0" auth="Root" installKBytes="711">#MacBookPro8.1.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MacBookPro9.1" version="1.0" auth="Root" installKBytes="711">#MacBookPro9.1.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.CommonKexts" version="1.0" auth="Root" installKBytes="3417">#CommonKexts.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.CommonKexts" version="1.0" auth="Root" installKBytes="2760">#CommonKexts.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.EDIDgenerator" version="6.3" auth="Root" installKBytes="0">#EDID_generator.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ML10.8" version="1.0" auth="Root" installKBytes="3838">#10.8.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part3.HDMI.1080" version="1.0" auth="Root" installKBytes="1">#Part3.HDMI.1080.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8" version="1.0" auth="Root" installKBytes="3838">#10.8.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.KextWizard" version="1.0" auth="Root" installKBytes="474">#Extra_KextWizard.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SysDef.i7.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Chimera" version="2.0.1" auth="Root" installKBytes="2213">#Chimera.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MacBookPro9.2" version="1.0" auth="Root" installKBytes="711">#MacBookPro9.2.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.5" version="1.0" auth="Root" installKBytes="5316">#10.7.5.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.OldKextRemover" version="1.0" auth="Root" installKBytes="0">#Extra_OldKextRemover.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Lion10.7.2" version="1.0" auth="Root" installKBytes="5901">#10.7.2.pkg</pkg-ref>
@@ -337,16 +338,15 @@
     <pkg-ref id="com.MadMax.pkg.ColorProfiles" version="1.0" auth="Root" installKBytes="91">#ColorProfiles.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.std" version="1.0" auth="Root" installKBytes="2">#Part2.fan.std.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.0.preinstall" version="1.0" auth="Root" installKBytes="0">#0.preinstall.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MacBookPro8.3" version="1.0" auth="Root" installKBytes="711">#MacBookPro8.3.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="21">#Part1.4x40s.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Patcher" version="1.0" auth="Root" installKBytes="1068">#Patcher.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="21">#Part1.4x40s.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.MaciASL" version="1.0" auth="Root" installKBytes="3759">#Extra_MaciASL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.0.postinstall" version="1.0" auth="Root" installKBytes="0">#0.postinstall.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness25" version="1.0" auth="Root" installKBytes="14">#SetBrightness25.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="1212">#Extra_TrimEnabler.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SysDef.i5.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i5.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ShowAllFIles" version="1.0" auth="Root" installKBytes="55">#Extra_ShowAllFIles.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="323">#Extra_HWMonitor.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MacBookPro8.2" version="1.0" auth="Root" installKBytes="711">#MacBookPro8.2.pkg</pkg-ref>
     <!--+==========================+
         |    JavaScript Scripts    |
         +==========================+-->
@@ -435,8 +435,7 @@
 	
 	function PrePostSelected()
 	{
-		var tSelect;
-		tSelect=(choices.installer_choice_2.selected 
+		return (choices.installer_choice_2.selected 
 			|| choices.installer_choice_3.selected 
 			|| choices.installer_choice_4.selected 
 			|| choices.installer_choice_5.selected 
@@ -445,23 +444,28 @@
 			|| choices.installer_choice_8.selected 
 			|| choices.installer_choice_9.selected 
 			|| choices.installer_choice_10.selected);
-		return (tSelect); 
 	}
 	
 	function CommonSelected()
 	{
-		var tSelect;
-		tSelect=choices.installer_choice_2.selected;
-		return (tSelect);
+		return (choices.installer_choice_2.selected);
 	}
 	
 	function DSDTSelected()
 	{
-		var tSelect;
-		tSelect=(choices.installer_choice_4_1.selected 
+		return (choices.installer_choice_4_1.selected 
 			&amp;&amp; choices.installer_choice_4_2.selected 
 			&amp;&amp; choices.installer_choice_4_3.selected);
-		return (tSelect);
+	}
+	
+	function SysDefSelected()
+	{
+		return (choices.installer_choice_6_1.selected 
+			|| choices.installer_choice_6_2.selected 
+			|| choices.installer_choice_6_3.selected 
+			|| choices.installer_choice_6_4.selected 
+			|| choices.installer_choice_6_5.selected 
+			|| choices.installer_choice_6_6.selected);
 	}
 
 	function installer_choice_8_1_requirement(inCheckVisibilityOnly,inShowFailedToolTip)

@@ -3,7 +3,7 @@
 # Script (ssdtPRGen.sh) to create ssdt-pr.dsl for Apple Power Management Support.
 #
 # Version 0.9 - Copyright (c) 2012 by RevoGirl <RevoGirl@rocketmail.com>
-# Version 6.0 - Copyright (c) 2013 by Pike <PikeRAlpha@yahoo.com>
+# Version 6.1 - Copyright (c) 2013 by Pike <PikeRAlpha@yahoo.com>
 # Modified for HP ProBook Installer by Philip Petev
 #
 # Updates:
@@ -67,6 +67,7 @@
 #			- Show warnings for Sandy Bridge systems as well (Jeroen, March 2013)
 #			- New Intel Haswell processors added (Jeroen, April 2013)
 #			- Improved Processor declaration detection (Jeroen/Pike, April 2013)
+#			- New path for Clover revision 1277 (Jeroen, April 2013)
 #
 # Contributors:
 #			- Thanks to Dave, toleda and Francis for their help (bug fixes and other improvements).
@@ -168,7 +169,7 @@ gScope="\_PR_"
 # Other global variables.
 #
 
-gScriptVersion=6.0
+gScriptVersion=6.1
 
 gRevision='0x0000'${gScriptVersion:0:1}${gScriptVersion:2:1}'00'
 
@@ -727,6 +728,18 @@ function _printMethodDSM()
 
 function _printScopeACST()
 {
+#
+# Intel values for Sandy / Ivy Bridge processors
+#
+# C-state : Power   : SB Latency : IB Latency
+#---------:---------:------------:------------
+#   C1    :  0x3e8  :    0x01    :    0x03
+#   C3    :  0x1f4  :    0x50    :    0xcd
+#   C6    :  0x15e  :    0x68    :    0xf5
+#   C7    :  0xc8   :    0x6d    :    0xf5
+#
+# Note: C-state latency in uS and C-state power in mW.
+
     let C1=0
     let C2=0
     let C3=0
@@ -1117,7 +1130,14 @@ function _setDestinationPath
     fi
 
     #
-    # Checking for Clover
+    # Checking for Clover rev 1277 (projectosx.com/forum/index.php?showtopic=2656&p=29129&#entry29129)
+    #
+    if [ -d /EFI/Clover/ACPI/patched ]; then
+        gDestinationPath="/EFI/Clover/ACPI/patched/"
+    fi
+
+    #
+    # Checking for Clover (older versions)
     #
     if [ -d /EFI/ACPI/patched ]; then
         gDestinationPath="/EFI/ACPI/patched/"
@@ -1258,7 +1278,10 @@ function _showLowPowerStates()
         local cStates=$1
 
         printf "Injected C-States for ${gProcessorNames[$2]} ("
-
+        #
+        # Haswell    : C0, C1, C1E, C2E, C3, C4, C6 and C7
+        # Haswell-ULT: C0, C1, C1E, C2E, C3, C4, C6, C7, C8, C9 and C10
+        #
         for state in C1 C2 C3 C6 C7
         do
             if (($cStates & $mask)); then
@@ -1597,9 +1620,17 @@ function main()
             let gBridgeType=4
         fi
 
-        if (($model==0x3C || $model==0x3F || $model==0x45)); then
+        # Haswell
+        if (($model==0x30)); then
             let assumedTDP=1
             let gTdp=84
+            let gBridgeType=8
+        fi
+
+        # Haswell ULT
+        if (($model==0x40)); then
+            let assumedTDP=1
+            let gTdp=15
             let gBridgeType=8
         fi
     fi
@@ -1871,11 +1902,11 @@ if (($gCallIasl)); then
     #
     if (($gAutoCopy)); then
         if [ -f ${gPath}/${gSsdtID}.aml ]; then
+            _setDestinationPath
             echo -e
             read -p "Do you want to copy ${gPath}/${gSsdtID}.aml to ${gDestinationPath}${gDestinationFile}? (y/n)?" choice
             case "$choice" in
-                y|Y ) _setDestinationPath
-                      sudo cp ${gPath}/${gSsdtID}.aml ${gDestinationPath}${gDestinationFile}
+                y|Y ) sudo cp ${gPath}/${gSsdtID}.aml ${gDestinationPath}${gDestinationFile}
                       ;;
             esac
         fi
