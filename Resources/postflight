@@ -3,7 +3,7 @@
 RebuildOn=`/usr/libexec/PlistBuddy -c "Print :KextCacheRebuild" /tmp/PBI.plist`
 if [ "$RebuildOn" == "yes" ]
 then
-	touch "${3}/System/Library/Extensions" && kextcache -update-volume "${3}"
+	touch "${3}/System/Library/Extensions"
 fi
 # setting the Installer Backups folder's owner to the current user
 if [ -e "$HOME/Desktop/Installer Backups" ]

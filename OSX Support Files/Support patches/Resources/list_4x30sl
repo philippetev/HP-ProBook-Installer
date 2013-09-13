@@ -1,0 +1,4 @@
+Extra/org.chameleon.Boot.plist<=>y<=>null
+System/Library/Extensions/IONetworkingFamily.kext/Contents/PlugIns/AppleRTL8169Ethernet.kext<=>y<=>null
+System/Library/Extensions/AppleIntelCPUPowerManagement.kext<=>n<=>aicpm
+System/Library/Extensions/AppleHDA.kext<=>n<=>hda3l

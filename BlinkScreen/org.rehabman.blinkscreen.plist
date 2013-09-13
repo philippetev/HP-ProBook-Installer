@@ -8,7 +8,11 @@
 	<true/>
 	<key>KeepAlive</key>
 	<false/>
-	<key>Program</key>
-	<string>/usr/bin/blinkscreen.sh</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/blinkscreen</string>
+		<string>1000</string>
+		<string>200</string>
+	</array>
 </dict>
 </plist>

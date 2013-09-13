@@ -1,0 +1,4 @@
+Extra/org.chameleon.Boot.plist<=>y<=>null
+System/Library/Extensions/AppleIntelCPUPowerManagement.kext<=>n<=>aicpm
+System/Library/Extensions/AppleHDA.kext<=>n<=>hda3l
+System/Library/Extensions/AppleIntelSNBGraphicsFB.kext<=>n<=>fbsnb

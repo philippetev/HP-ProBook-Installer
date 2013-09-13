@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>IOath3kfrmwr</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.1.5, Open Source 2012-2013 mac4mat, RehabMan</string>
+	<string>1.1.6, Open Source 2012-2013 mac4mat, RehabMan</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.rehabman.driver.IOath3kfrmwr</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>Mac OS X</string>
 	<key>CFBundleVersion</key>
-	<string>1.1.5</string>
+	<string>1.1.6</string>
 	<key>DTCompiler</key>
 	<string></string>
 	<key>DTPlatformBuild</key>
@@ -71,6 +71,38 @@
 			<integer>12573</integer>
 			<key>idVendor</key>
 			<integer>1008</integer>
+		</dict>
+		<key>IOath3kfrmwr-0489-e027</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>org.rehabman.driver.IOath3kfrmwr</string>
+			<key>CheckEndpoints</key>
+			<array>
+				<dict>
+					<key>EndpointNumber</key>
+					<integer>2</integer>
+					<key>TransferType</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>EndpointNumber</key>
+					<integer>1</integer>
+					<key>TransferType</key>
+					<integer>1</integer>
+				</dict>
+			</array>
+			<key>IOClass</key>
+			<string>local_IOath3kfrmwr</string>
+			<key>IOProviderClass</key>
+			<string>IOUSBDevice</string>
+			<key>PipeNumber</key>
+			<integer>2</integer>
+			<key>bcdDevice</key>
+			<integer>1</integer>
+			<key>idProduct</key>
+			<integer>57383</integer>
+			<key>idVendor</key>
+			<integer>1161</integer>
 		</dict>
 		<key>IOath3kfrmwr-0489-e02c</key>
 		<dict>
