@@ -22,6 +22,9 @@ case $1 in
 10.8.2)	/usr/bin/perl -pi -e 's|\x8b\x4a\x00\x00\xeb\x03|\x8b\x4a\x00\x00\xe8\x01|g' "$AHCIBlockStorage"
 		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\x72\x92\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' "$AHCIBlockStorage"
 		;;
+10.8.3)	/usr/bin/perl -pi -e 's|\xcb\x57\x00\x00\xee\x03|\xcb\x57\x00\x00\xea\x01|g' "$AHCIBlockStorage"
+		/usr/bin/perl -pi -e 's|\x74\x0e\x48\x8d\x3d\x72\x94\x00\x00|\xbf\xc8\x00\x00\x00\x90\x90\x90\x90|g' "$AHCIBlockStorage"
+		;;
 esac
 /usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
 }
@@ -31,6 +34,8 @@ case `md5 -q "$AHCIBlockStorage"` in
 "03d3a46c6d713b00980bc9be453755ff"|"14a91423c7e7160643475e9ca55666bf")	PatchThatKext 10.8.1
 																		;;
 "85390d06d5aad08b471cf9b7cd69aff4"|"ad93e1f62ae975e29d229645e11d1420")	PatchThatKext 10.8.2
+																		;;
+"8bbf5f3928d55dc9ec8017b37a6748f8"|"3fee322ea19ebf8493ef001c46358f5a")	PatchThatKext 10.8.3
 																		;;
 *)	echo "Unknown kext or the kext is already patched!"
 	exit

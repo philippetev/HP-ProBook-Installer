@@ -16,14 +16,6 @@ function PrePostSelected()
 function CommonSelected()
 {
 	var tSelect;
-	tSelect=(choices.installer_choice_2_1_1.selected 
-		|| choices.installer_choice_2_2_1.selected 
-		|| choices.installer_choice_2_2_2.selected 
-		|| choices.installer_choice_2_2_3.selected 
-		|| choices.installer_choice_2_2_4.selected 
-		|| choices.installer_choice_2_2_5.selected 
-		|| choices.installer_choice_2_3_1.selected 
-		|| choices.installer_choice_2_3_2.selected 
-		|| choices.installer_choice_2_3_3.selected);
-	return (tSelect); 
+	tSelect=choices.installer_choice_2.selected;
+	return (tSelect);
 }

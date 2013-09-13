@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>AppleSmartBatteryManager</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.29.1, Copyright 2011 Apple Inc., RehabMan 2012</string>
+	<string>1.31, Copyright 2011 Apple Inc., RehabMan 2012</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.apple.driver.AppleSmartBatteryManager</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,15 +19,15 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.30</string>
+	<string>1.31</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.30</string>
+	<string>1.31</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>4F1003</string>
+	<string>4G2008a</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
@@ -35,15 +35,17 @@
 	<key>DTSDKName</key>
 	<string>macosx10.7</string>
 	<key>DTXcode</key>
-	<string>0441</string>
+	<string>0452</string>
 	<key>DTXcodeBuild</key>
-	<string>4F1003</string>
+	<string>4G2008a</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>ACPI Battery Manager</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleSmartBatteryManager</string>
+			<key>EstimateCycleCountDivisor</key>
+			<integer>6</integer>
 			<key>IOClass</key>
 			<string>AppleSmartBatteryManager</string>
 			<key>IONameMatch</key>

@@ -3,77 +3,152 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>12C60</string>
+	<string>12D78</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>ACPISensors</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.slice.ACPISensors</string>
+	<string>org.hwsensors.driver.ACPISensors</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>5.1.41</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>243</string>
 	<key>DTCompiler</key>
 	<string></string>
 	<key>DTPlatformBuild</key>
-	<string>4G2008a</string>
+	<string>4H512</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12C37</string>
+	<string>11E52</string>
 	<key>DTSDKName</key>
-	<string>macosx10.8</string>
+	<string>macosx10.7</string>
 	<key>DTXcode</key>
-	<string>0452</string>
+	<string>0461</string>
 	<key>DTXcodeBuild</key>
-	<string>4G2008a</string>
+	<string>4H512</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>ACPI Monitoring Plugin</key>
+		<key>ACPI Customizable Monitoring Plugin</key>
 		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>org.slice.ACPISensors</string>
-			<key>FanNames</key>
-			<array>
-				<string>System Fan</string>
-				<string>Processor Fan</string>
-				<string>Power Fan</string>
-				<string>Intake Fan</string>
-				<string>Exhaust Fan</string>
-				<string>Fan 6</string>
-				<string>Fan 7</string>
-				<string>Fan 8</string>
-				<string>Fan 9</string>
-				<string>Fan 10</string>
-			</array>
 			<key>IOClass</key>
-			<string>ACPIMonitor</string>
+			<string>ACPISensors</string>
 			<key>IOMatchCategory</key>
 			<string>FakeSMCPlugin</string>
 			<key>IONameMatch</key>
 			<array>
+				<string>MONITOR</string>
+				<string>MON0000</string>
+				<string>FAN0000</string>
+				<string>MON00000</string>
 				<string>FAN00000</string>
 			</array>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
-			<key>keysToAdd</key>
+			<key>Platform Profile</key>
 			<dict>
-				<key>TCRK</key>
-				<string>TW0P</string>
+				<key>Default</key>
+				<dict>
+					<key>Fan Names</key>
+					<dict>
+						<key>FAN0</key>
+						<string>System Fan</string>
+						<key>FAN1</key>
+						<string>CPU Fan</string>
+						<key>FAN2</key>
+						<string>Power Fan</string>
+						<key>FAN3</key>
+						<string>Intake Fan</string>
+						<key>FAN4</key>
+						<string>Exhaust Fan</string>
+						<key>FAN5</key>
+						<string>Fan 6</string>
+						<key>FAN6</key>
+						<string>Fan 7</string>
+						<key>FAN7</key>
+						<string>Fan 8</string>
+						<key>FAN8</key>
+						<string>Fan 9</string>
+						<key>FAN9</key>
+						<string>Fan 10</string>
+						<key>FANA</key>
+						<string>Fan 11</string>
+					</dict>
+					<key>Tachometers</key>
+					<dict>
+						<key>FAN0</key>
+						<string>FAN0</string>
+						<key>FAN1</key>
+						<string>FAN1</string>
+						<key>FAN2</key>
+						<string>FAN2</string>
+						<key>FAN3</key>
+						<string>FAN3</string>
+						<key>FAN4</key>
+						<string>FAN4</string>
+						<key>FAN5</key>
+						<string>FAN5</string>
+						<key>FAN6</key>
+						<string>FAN6</string>
+						<key>FAN7</key>
+						<string>FAN7</string>
+						<key>FAN8</key>
+						<string>FAN8</string>
+						<key>FAN9</key>
+						<string>FAN9</string>
+						<key>FANA</key>
+						<string>FANA</string>
+					</dict>
+					<key>Temperatures</key>
+					<dict>
+						<key>Ambient</key>
+						<string>TAMB</string>
+						<key>CPU</key>
+						<string>TCPU</string>
+						<key>CPU Proximity</key>
+						<string>TCPP</string>
+						<key>System</key>
+						<string>TSYS</string>
+					</dict>
+					<key>Voltages</key>
+					<dict>
+						<key>CPU</key>
+						<string>VCPU</string>
+						<key>Memory</key>
+						<string>VMEM</string>
+					</dict>
+				</dict>
 			</dict>
 		</dict>
+		<key>PTID Device Monitoring Plugin</key>
+		<dict>
+			<key>IOClass</key>
+			<string>PTIDSensors</string>
+			<key>IOMatchCategory</key>
+			<string>FakeSMCPlugin</string>
+			<key>IONameMatch</key>
+			<array>
+				<string>PTID</string>
+			</array>
+			<key>IOProbeScore</key>
+			<integer>1000</integer>
+			<key>IOProviderClass</key>
+			<string>IOACPIPlatformDevice</string>
+		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2013 Slice. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOACPIFamily</key>
-		<string>1.2.0</string>
+		<string>1.0.0b1</string>
 		<key>com.apple.kpi.iokit</key>
 		<string>10.0.0</string>
 		<key>com.apple.kpi.libkern</key>
@@ -82,10 +157,12 @@
 		<string>10.0.0</string>
 		<key>com.apple.kpi.unsupported</key>
 		<string>10.0.0</string>
-		<key>org.netkas.FakeSMC</key>
-		<string>4.2.0</string>
+		<key>org.netkas.driver.FakeSMC</key>
+		<string>370</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>
+	<key>Source Code</key>
+	<string>"https://github.com/RehabMan/OS-X-FakeSMC-kozlek.git"</string>
 </dict>
 </plist>

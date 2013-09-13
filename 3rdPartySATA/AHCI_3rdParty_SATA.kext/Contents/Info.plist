@@ -13,31 +13,13 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>0.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>0.3</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>AppleAHCIDiskDriver</key>
-		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>com.apple.iokit.IOAHCIBlockStorage</string>
-			<key>IOClass</key>
-			<string>AppleAHCIDiskDriver</string>
-			<key>IOProbeScore</key>
-			<integer>25000</integer>
-			<key>IOProviderClass</key>
-			<string>IOAHCIDevice</string>
-			<key>Protocol Characteristics</key>
-			<dict>
-				<key>Physical Interconnect</key>
-				<string>SATA</string>
-				<key>Physical Interconnect Location</key>
-				<string>Internal</string>
-			</dict>
-		</dict>
 		<key>IOAHCISerialATAPI</key>
 		<dict>
 			<key>ATAPI</key>
@@ -47,7 +29,7 @@
 			<key>IOClass</key>
 			<string>IOAHCISerialATAPI</string>
 			<key>IOProbeScore</key>
-			<integer>25000</integer>
+			<integer>1000</integer>
 			<key>IOProviderClass</key>
 			<string>IOAHCIDevice</string>
 			<key>Protocol Characteristics</key>
@@ -58,12 +40,31 @@
 				<string>Internal</string>
 			</dict>
 		</dict>
+		<key>Intel7SeriesAHCI</key>
+                <dict>
+                        <key>CFBundleIdentifier</key>
+                        <string>com.apple.driver.AppleAHCIPort</string>
+                        <key>Chipset Name</key>
+                        <string>7 Series Chipset</string>
+                        <key>IOClass</key>
+                        <string>AppleIntelPchSeriesAHCI</string>
+                        <key>IONameMatch</key>
+                        <array>
+                                <string>pci8086,1e02</string>
+                        </array>
+                        <key>IOProbeScore</key>
+                        <integer>2000</integer>
+                        <key>IOProviderClass</key>
+                        <string>IOPCIDevice</string>
+                        <key>Vendor Name</key>
+                        <string>Intel</string>
+                </dict>
 		<key>ASMedia ASM1061</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleAHCIPort</string>
 			<key>Chipset Name</key>
-			<string>ASM1061 AHCI</string>
+			<string>ASM1061</string>
 			<key>IOClass</key>
 			<string>AppleAHCI</string>
 			<key>IOPCIClassMatch</key>
@@ -76,6 +77,24 @@
 			<string>IOPCIDevice</string>
 			<key>Vendor Name</key>
 			<string>ASMedia</string>
+		</dict>
+		<key>AppleAHCIDiskDriver</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.iokit.IOAHCIBlockStorage</string>
+			<key>IOClass</key>
+			<string>AppleAHCIDiskDriver</string>
+			<key>IOProbeScore</key>
+			<integer>1000</integer>
+			<key>IOProviderClass</key>
+			<string>IOAHCIDevice</string>
+			<key>Protocol Characteristics</key>
+			<dict>
+				<key>Physical Interconnect</key>
+				<string>SATA</string>
+				<key>Physical Interconnect Location</key>
+				<string>Internal</string>
+			</dict>
 		</dict>
 		<key>JMicron JMB360 AHCI</key>
 		<dict>
@@ -272,7 +291,7 @@
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleAHCIPort</string>
 			<key>Chipset Name</key>
-			<string>88SE9120 AHCI</string>
+			<string>88SE9120</string>
 			<key>IOClass</key>
 			<string>AppleAHCI</string>
 			<key>IOPCIClassMatch</key>
@@ -291,7 +310,7 @@
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleAHCIPort</string>
 			<key>Chipset Name</key>
-			<string>88SE9123 AHCI</string>
+			<string>88SE9123</string>
 			<key>IOClass</key>
 			<string>AppleAHCI</string>
 			<key>IOPCIClassMatch</key>
@@ -310,7 +329,7 @@
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleAHCIPort</string>
 			<key>Chipset Name</key>
-			<string>88SE9125 AHCI</string>
+			<string>88SE9125</string>
 			<key>IOClass</key>
 			<string>AppleAHCI</string>
 			<key>IOPCIClassMatch</key>
@@ -329,7 +348,7 @@
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleAHCIPort</string>
 			<key>Chipset Name</key>
-			<string>88SE9128 AHCI</string>
+			<string>88SE9128</string>
 			<key>IOClass</key>
 			<string>AppleAHCI</string>
 			<key>IOPCIClassMatch</key>
@@ -348,7 +367,7 @@
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleAHCIPort</string>
 			<key>Chipset Name</key>
-			<string>88SE9172 AHCI</string>
+			<string>88SE9172</string>
 			<key>IOClass</key>
 			<string>AppleAHCI</string>
 			<key>IOPCIClassMatch</key>

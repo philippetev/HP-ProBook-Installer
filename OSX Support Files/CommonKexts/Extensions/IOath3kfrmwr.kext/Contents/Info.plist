@@ -9,9 +9,9 @@
 	<key>CFBundleExecutable</key>
 	<string>IOath3kfrmwr</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.0.4, Open Source 2012 mac4mat, RehabMan</string>
+	<string>1.1.0, Open Source 2012-2013 mac4mat, RehabMan</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.rehabman.IOath3kfrmwr</string>
+	<string>org.rehabman.driver.IOath3kfrmwr</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleSignature</key>
 	<string>Mac OS X</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.4</string>
+	<string>1.1.0</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -40,14 +40,31 @@
 	<string>4G2008a</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>IOath3kfrmwr</key>
+		<key>IOath3kfrmwr-03f0-311d</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>org.rehabman.IOath3kfrmwr</string>
+			<string>org.rehabman.driver.IOath3kfrmwr</string>
+			<key>CheckEndpoints</key>
+			<array>
+				<dict>
+					<key>EndpointNumber</key>
+					<integer>2</integer>
+					<key>TransferType</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>EndpointNumber</key>
+					<integer>1</integer>
+					<key>TransferType</key>
+					<integer>1</integer>
+				</dict>
+			</array>
 			<key>IOClass</key>
 			<string>local_IOath3kfrmwr</string>
 			<key>IOProviderClass</key>
 			<string>IOUSBDevice</string>
+			<key>PipeNumber</key>
+			<integer>2</integer>
 			<key>bcdDevice</key>
 			<integer>1</integer>
 			<key>idProduct</key>
@@ -55,9 +72,60 @@
 			<key>idVendor</key>
 			<integer>1008</integer>
 		</dict>
+		<key>IOath3kfrmwr-0cf3-3000</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>org.rehabman.driver.IOath3kfrmwr</string>
+			<key>CheckEndpoints</key>
+			<array/>
+			<key>IOClass</key>
+			<string>local_IOath3kfrmwr</string>
+			<key>IOProviderClass</key>
+			<string>IOUSBDevice</string>
+			<key>PipeNumber</key>
+			<integer>0</integer>
+			<key>bcdDevice</key>
+			<integer>512</integer>
+			<key>idProduct</key>
+			<integer>12288</integer>
+			<key>idVendor</key>
+			<integer>3315</integer>
+		</dict>
+		<key>IOath3kfrmwr-0cf3-3002</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>org.rehabman.driver.IOath3kfrmwr</string>
+			<key>CheckEndpoints</key>
+			<array>
+				<dict>
+					<key>EndpointNumber</key>
+					<integer>2</integer>
+					<key>TransferType</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>EndpointNumber</key>
+					<integer>1</integer>
+					<key>TransferType</key>
+					<integer>1</integer>
+				</dict>
+			</array>
+			<key>IOClass</key>
+			<string>local_IOath3kfrmwr</string>
+			<key>IOProviderClass</key>
+			<string>IOUSBDevice</string>
+			<key>PipeNumber</key>
+			<integer>2</integer>
+			<key>bcdDevice</key>
+			<integer>1</integer>
+			<key>idProduct</key>
+			<integer>12290</integer>
+			<key>idVendor</key>
+			<integer>3315</integer>
+		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Open Source 2012 mac4mat</string>
+	<string>Open Source 2012-2013 mac4mat, RehabMan</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOUSBFamily</key>

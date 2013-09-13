@@ -1,5 +1,7 @@
 #!/bin/bash
+#
 # postinstall script for Chimera 1.5.0 or later with Dual Boot support
+#
 # Copyright (C) tonymacx86 LLC
 
 # Check to see if the old Boot.plist file exists, if so rename it
@@ -262,7 +264,7 @@ if ${diskupdate}; then
 	echo "Diskupdate = true, so yes"
 	#---------------------------------------------------------------------
 	# Check bytes 438-446 of the GPTdiskProtectiveMBR for a Windows Disk Signature
-	# If there’s no Windows disk signature then we can write boot0
+	# If there√ïs no Windows disk signature then we can write boot0
 	#---------------------------------------------------------------------
 
 	if [ ${disksignature} == "00000000" ]; then
