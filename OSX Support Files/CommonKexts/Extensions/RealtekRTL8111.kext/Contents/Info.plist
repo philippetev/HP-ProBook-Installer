@@ -61,7 +61,7 @@
 			<key>enableTSO4</key>
 			<true/>
 			<key>intrMitigate</key>
-			<integer>44884</integer>
+			<integer>24401</integer>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

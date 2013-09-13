@@ -15,11 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.2.804</string>
+	<string>5.2.938</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>804</string>
+	<string>938</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvmgcc42</string>
 	<key>DTPlatformBuild</key>
@@ -51,12 +51,16 @@
 				<string>MON00000</string>
 				<string>FAN00000</string>
 			</array>
+			<key>IOProbeScore</key>
+			<integer>1000</integer>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
 			<key>Platform Profile</key>
 			<dict>
 				<key>Default</key>
 				<dict>
+					<key>DisableDevice</key>
+					<false/>
 					<key>Fan Names</key>
 					<dict>
 						<key>FAN0</key>
@@ -142,6 +146,54 @@
 			<integer>1000</integer>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
+			<key>Platform Profile</key>
+			<dict>
+				<key>Default</key>
+				<dict>
+					<key>DisableDevice</key>
+					<false/>
+				</dict>
+				<key>HP</key>
+				<dict>
+					<key>Default</key>
+					<dict>
+						<key>DisableDevice</key>
+						<true/>
+					</dict>
+				</dict>
+			</dict>
+		</dict>
+		<key>Thermal Zone Monitoring Plugin</key>
+		<dict>
+			<key>IOClass</key>
+			<string>TZSensors</string>
+			<key>IOMatchCategory</key>
+			<string>FakeSMCPlugin</string>
+			<key>IOProbeScore</key>
+			<integer>1000</integer>
+			<key>IOPropertyMatch</key>
+			<dict>
+				<key>device_type</key>
+				<string>thermal-zone</string>
+			</dict>
+			<key>IOProviderClass</key>
+			<string>IOACPIPlatformDevice</string>
+			<key>Platform Profile</key>
+			<dict>
+				<key>Default</key>
+				<dict>
+					<key>DisableDevice</key>
+					<false/>
+				</dict>
+				<key>HP</key>
+				<dict>
+					<key>Default</key>
+					<dict>
+						<key>DisableDevice</key>
+						<true/>
+					</dict>
+				</dict>
+			</dict>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
@@ -159,7 +211,7 @@
 		<key>com.apple.kpi.unsupported</key>
 		<string>10.0.0</string>
 		<key>org.netkas.driver.FakeSMC</key>
-		<string>650</string>
+		<string>735</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>

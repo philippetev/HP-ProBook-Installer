@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.2.804</string>
+	<string>5.2.938</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>804</string>
+	<string>938</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvmgcc42</string>
 	<key>DTPlatformBuild</key>
@@ -72,6 +72,23 @@
 						<string>ch8*</string>
 					</array>
 				</dict>
+				<key>ExceptionKeys</key>
+				<dict>
+					<key>CLKH</key>
+					<integer>1</integer>
+					<key>CLKT</key>
+					<integer>1</integer>
+					<key>MSDW</key>
+					<integer>1</integer>
+					<key>NATJ</key>
+					<integer>1</integer>
+					<key>NATi</key>
+					<integer>1</integer>
+					<key>NTOK</key>
+					<integer>1</integer>
+					<key>WKTP</key>
+					<integer>0</integer>
+				</dict>
 				<key>Keys</key>
 				<dict>
 					<key>$Adr</key>
@@ -106,35 +123,7 @@
 					<array>
 						<string>si8</string>
 						<data>
-						BQ==
-						</data>
-					</array>
-					<key>MSSP</key>
-					<array>
-						<string>si8</string>
-						<data>
-						BQ==
-						</data>
-					</array>
-					<key>NATJ</key>
-					<array>
-						<string>ui8</string>
-						<data>
 						AA==
-						</data>
-					</array>
-					<key>NATi</key>
-					<array>
-						<string>ui16</string>
-						<data>
-						MDAwMA==
-						</data>
-					</array>
-					<key>NTOK</key>
-					<array>
-						<string>ui8</string>
-						<data>
-						AQ==
 						</data>
 					</array>
 					<key>OSK0</key>
@@ -220,7 +209,7 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2013 netkas. All rights reserved.</string>
 	<key>OSBundleCompatibleVersion</key>
-	<string>650</string>
+	<string>735</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOACPIFamily</key>
