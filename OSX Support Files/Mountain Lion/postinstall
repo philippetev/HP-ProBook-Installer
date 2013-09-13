@@ -2,14 +2,6 @@
 kextdir="$DSTVOLUME/System/Library/Extensions"
 # patching IO80211Family.kext.
 /usr/libexec/PlistBuddy -c "Delete :OSBundleRequired" "$kextdir/IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext/Contents/Info.plist"
-# removing some obsolete kexts.
-for oldkext in "AppleACPIPS2Nub.kext" "ApplePS2Controller.kext" "AppleACPIBatteryManager.kext"
-do
-   if [ -e  "$kextdir/$oldkext" ]
-   then
-      rm -rf "$kextdir/$oldkext"
-   fi
-done
 # rebuilding the kext cache.
 touch "$kextdir"
 # disabling Software Update schedule.

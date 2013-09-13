@@ -37781,11 +37781,11 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>com.MadMax.pkg.ChameleonWizzard</string>
+				<string>com.MadMax.pkg.ChameleonWizard</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
-				<string>Extra_ChameleonWizzard</string>
+				<string>Extra_ChameleonWizard</string>
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
@@ -38320,11 +38320,11 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>com.MadMax.pkg.KextWizzard</string>
+				<string>com.MadMax.pkg.KextWizard</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
-				<string>Extra_KextWizzard</string>
+				<string>Extra_KextWizard</string>
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
@@ -50894,7 +50894,14 @@
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>10.6.8</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -50998,7 +51005,14 @@ PLEASE, SELECT YOUR VERSION ONLY!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>10.7.2</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -51028,7 +51042,14 @@ PLEASE, SELECT YOUR VERSION ONLY!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>10.7.3</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -51058,7 +51079,14 @@ PLEASE, SELECT YOUR VERSION ONLY!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>10.7.4</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -51088,7 +51116,14 @@ PLEASE, SELECT YOUR VERSION ONLY!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>10.7.5</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -51192,7 +51227,14 @@ PLEASE, SELECT YOUR VERSION ONLY!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>10.8.1</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -51222,7 +51264,14 @@ PLEASE, SELECT YOUR VERSION ONLY!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>10.8.2</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -52821,7 +52870,14 @@ PLEASE, SELECT ONLY ONE DSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i3-2310M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -52851,7 +52907,14 @@ PLEASE, SELECT ONLY ONE DSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i3-2330M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -52881,7 +52944,14 @@ PLEASE, SELECT ONLY ONE DSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i3-2350M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -52911,7 +52981,14 @@ PLEASE, SELECT ONLY ONE DSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i3-2370M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -52978,7 +53055,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i5-2410M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53008,7 +53092,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i5-2430M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53038,7 +53129,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i5-2450M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53068,7 +53166,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i5-2520M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53098,7 +53203,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i5-2540M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53165,7 +53277,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2620M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53195,7 +53314,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2630QM</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53225,7 +53351,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2640M</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53255,7 +53388,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2670QM</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53285,7 +53425,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2720QM</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53315,7 +53462,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2760QM</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53345,7 +53499,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2820QM</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53375,7 +53536,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2860QM</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53405,7 +53573,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2920QM</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53435,7 +53610,14 @@ PLEASE, SELECT ONLY ONE SSDT OPTION!</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>i7-2960QM</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -53950,7 +54132,14 @@ Credits for philip_petev.</string>
 										<key>REQUIREMENTS</key>
 										<array/>
 										<key>TITLE</key>
-										<array/>
+										<array>
+											<dict>
+												<key>LANGUAGE</key>
+												<string>English</string>
+												<key>VALUE</key>
+												<string>EDID generator</string>
+											</dict>
+										</array>
 										<key>TOOLTIP</key>
 										<array/>
 										<key>TYPE</key>
@@ -54170,7 +54359,14 @@ NOTE: RESTART IS REQUIRED FOR THIS OPTION.</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>Sleep image fix</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -54201,7 +54397,14 @@ NOTE: RESTART IS REQUIRED FOR THIS OPTION.</string>
 												<key>REQUIREMENTS</key>
 												<array/>
 												<key>TITLE</key>
-												<array/>
+												<array>
+													<dict>
+														<key>LANGUAGE</key>
+														<string>English</string>
+														<key>VALUE</key>
+														<string>Sleep image restore</string>
+													</dict>
+												</array>
 												<key>TOOLTIP</key>
 												<array/>
 												<key>TYPE</key>
@@ -54526,7 +54729,7 @@ NOTE: RESTART IS REQUIRED FOR THIS OPTION.</string>
 												<key>LANGUAGE</key>
 												<string>English</string>
 												<key>VALUE</key>
-												<string>Chameleon Wizzard</string>
+												<string>Chameleon Wizard</string>
 											</dict>
 										</array>
 										<key>TOOLTIP</key>
@@ -54563,7 +54766,7 @@ NOTE: RESTART IS REQUIRED FOR THIS OPTION.</string>
 												<key>LANGUAGE</key>
 												<string>English</string>
 												<key>VALUE</key>
-												<string>Kext Wizzard</string>
+												<string>Kext Wizard</string>
 											</dict>
 										</array>
 										<key>TOOLTIP</key>
@@ -54930,7 +55133,7 @@ After their installation, you may find them in a folder on your desktop called "
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>HP ProBook Installer 6b6</string>
+						<string>HP ProBook Installer 6b7</string>
 					</dict>
 				</array>
 			</dict>

@@ -1,10 +1,30 @@
 #!/bin/bash
-# removing old kexts, if exist. If there are no old kext, the vanilla versions of these kexts will be removed.
+RightNowIs=`date "+%Y-%m-%d %H-%M"`
+BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
-for delkext in "ACPIPoller.kext" "ACPISensors.kext" "AppleHDA.kext" "AppleIntelCPUPowerManagement.kext" "AppleSmartBatteryManager.kext" "FakeSMC.kext" "HSSDBlockStorage.kext" "IntelCPUMonitor.kext" "JMB38X.kext" "PXHCD.kext" "VoodooPS2Controller.kext"
+# removing the old kexts.
+for delkext in "ACPIPoller.kext" \
+	"ACPISensors.kext" \
+	"AppleHDA.kext" \
+	"AppleIntelCPUPowerManagement.kext" \
+	"AppleSmartBatteryManager.kext" \
+	"FakeSMC.kext" \
+	"HSSDBlockStorage.kext" \
+	"IntelCPUMonitor.kext" \
+	"JMB38X.kext" \
+	"PXHCD.kext" \
+	"VoodooPS2Controller.kext" \
+	"AppleACPIPS2Nub.kext" \
+	"ApplePS2Controller.kext" \
+	"AppleACPIBatteryManager.kext"
 do
-   if [ -e  "$kextdir/$delkext" ]
+   if [ -e "$kextdir/$delkext" ]
    then
-      rm -rf "$kextdir/$delkext"
+   	 if [ ! -e "$BackupDir" ]
+   	 then
+   		mkdir -p "$BackupDir"
+   	 fi
+	 cp -Rf "$kextdir/$delkext" "$BackupDir"
+	 rm -rf "$kextdir/$delkext"
    fi
 done

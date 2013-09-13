@@ -1,7 +1,14 @@
 #!/bin/bash
-# removing old kext, if exist.
+RightNowIs=`date "+%Y-%m-%d %H-%M"`
+BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
-if [ -e  "$kextdir/AHCI_3rdParty_SATA.kext" ]
+# removing the old kext.
+if [ -e "$kextdir/AHCI_3rdParty_SATA.kext" ]
 then
+  if [ ! -e "$BackupDir" ]
+  then
+	mkdir -p "$BackupDir"
+  fi
+  cp -Rf "$kextdir/AHCI_3rdParty_SATA.kext" "$BackupDir"
   rm -rf "$kextdir/AHCI_3rdParty_SATA.kext"
 fi

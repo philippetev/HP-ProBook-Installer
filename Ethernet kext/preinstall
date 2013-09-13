@@ -1,7 +1,14 @@
 #!/bin/bash
-# removing old kext, if exist.
+RightNowIs=`date "+%Y-%m-%d %H-%M"`
+BackupDir="$HOME/Desktop/Installer Backups/Backup $RightNowIs"
 kextdir="$DSTVOLUME/System/Library/Extensions"
-if [ -e  "$kextdir/RealtekRTL81xx.kext" ]
+# removing the old kext.
+if [ -e "$kextdir/RealtekRTL81xx.kext" ]
 then
+  if [ ! -e "$BackupDir" ]
+  then
+	mkdir -p "$BackupDir"
+  fi
+  cp -Rf "$kextdir/RealtekRTL81xx.kext" "$BackupDir"
   rm -rf "$kextdir/RealtekRTL81xx.kext"
 fi
