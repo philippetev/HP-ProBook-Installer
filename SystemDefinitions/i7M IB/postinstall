@@ -2,6 +2,6 @@
 week=QRTVWXY12345678
 chars=ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890
 week_letter=`echo ${week:$(($RANDOM%${#week})):1}`
-random_chars=`echo ${chars:$(($RANDOM%${#chars})):1}${chars:$(($RANDOM%${#chars})):1}${chars:$(($RANDOM%${#chars})):1}`
-serial="C02H"$week_letter$random_chars"DTY4"
+function random_char { echo ${chars:$(($RANDOM%${#chars})):1}; }
+serial="C02H"$week_letter$(random_char)$(random_char)$(random_char)"DTY4"
 /usr/libexec/PlistBuddy -c "Set :SMserial $serial" ${3}/Extra/smbios.plist

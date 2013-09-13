@@ -27,10 +27,6 @@
 			</array>
 			<key>IntSpeaker</key>
 			<dict>
-				<key>AmpPostDelay</key>
-				<integer>150</integer>
-				<key>AmpPreDelay</key>
-				<integer>150</integer>
 				<key>MaximumBootBeepValue</key>
 				<integer>64</integer>
 				<key>MuteGPIO</key>
@@ -60,72 +56,11 @@
 								<key>1</key>
 								<integer>0</integer>
 								<key>2</key>
-								<integer>1</integer>
+								<integer>0</integer>
 								<key>3</key>
 								<integer>0</integer>
 								<key>4</key>
-								<integer>-1069072692</integer>
-								<key>5</key>
-								<data>
-								JumDwruLcsI7
-								L4DCWFOEwqmj
-								hsKRSoXCRa6I
-								wnegj8KmbJPC
-								IpOVwrVal8KG
-								sZjCQ3iZwnYz
-								msKDZZrCZXCa
-								wnjpmsIGrpvC
-								rRqdwmUsncI3
-								vJrCqBqXwh0x
-								kcJHR47CnnCN
-								wtxij8Ivl5fC
-								kmqdworKnsKE
-								7J/C8oWfwrU7
-								nsLv8ZzCOsqb
-								wm0ymMKappPC
-								W++Rwm1vksKr
-								/JDCFTCDwvi8
-								gsLx15DCKYia
-								wkzymcK7QJbC
-								qXaTwge8kMIV
-								JZLCtK6Wwn2T
-								msKp5Z3CvWmd
-								whkTm8Ida5rC
-								x1uWwsWWkcKM
-								rY/CaX6Owo2N
-								j8L7CZjCjBqh
-								wmvXnsL3U5jC
-								O9aWwrNVmMIl
-								H5vCVd+dwmV/
-								nsIRn5nCAO6P
-								wnEkjcJrJZHC
-								QMqSwmUjkcJX
-								r43C1U6Jwv+s
-								i8KJcJbC9+ie
-								wrUYocLRPKXC
-								h2qnwqahqML9
-								lanCAwOqwsdx
-								qsKbMKvCJ2Gr
-								wqnTq8JNo6zC
-								uU6twpPfrcK/
-								063CmbStwlF0
-								rsIBe6/Csyyw
-								wk2NsMIJybDC
-								2Uewwh1DrcJo
-								Pp3CNs2VwpCv
-								n8KyBrHCrza0
-								wj+JtcIf4bbC
-								MWK4wrO0ucIB
-								A7vCflq8wv8h
-								vsKtt7/C7VTB
-								wh3awsKqhMTC
-								k0/GwngMyMK5
-								BcrCSfDLwm3n
-								zcJhi8/CYdfQ
-								wona0cIN49LC
-								a/zTwiT+1MJR
-								HePC
-								</data>
+								<integer>0</integer>
 							</dict>
 							<key>PatchbayInfo</key>
 							<dict/>
@@ -137,7 +72,7 @@
 								<key>DspFuncInstance</key>
 								<integer>1</integer>
 								<key>DspFuncName</key>
-								<string>DspEqualization32</string>
+								<string>DspGainStage</string>
 								<key>DspFuncProcessingIndex</key>
 								<integer>1</integer>
 							</dict>
@@ -145,283 +80,10 @@
 							<dict>
 								<key>1</key>
 								<integer>0</integer>
-								<key>9</key>
-								<integer>0</integer>
-								<key>Filter</key>
-								<array>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>0</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>1</integer>
-										<key>6</key>
-										<integer>1117890422</integer>
-										<key>7</key>
-										<integer>1060439283</integer>
-										<key>8</key>
-										<integer>0</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>1</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1135209664</integer>
-										<key>7</key>
-										<integer>1081696531</integer>
-										<key>8</key>
-										<integer>-1065330965</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>2</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1150321570</integer>
-										<key>7</key>
-										<integer>1085492538</integer>
-										<key>8</key>
-										<integer>-1075032379</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>3</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1148935512</integer>
-										<key>7</key>
-										<integer>1091513693</integer>
-										<key>8</key>
-										<integer>-1065842737</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>4</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1147325731</integer>
-										<key>7</key>
-										<integer>1091283236</integer>
-										<key>8</key>
-										<integer>-1069580896</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>5</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1171817566</integer>
-										<key>7</key>
-										<integer>1096660645</integer>
-										<key>8</key>
-										<integer>-1064262919</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>6</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>3</integer>
-										<key>6</key>
-										<integer>1114715326</integer>
-										<key>7</key>
-										<integer>1088040584</integer>
-										<key>8</key>
-										<integer>0</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>7</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1137978314</integer>
-										<key>7</key>
-										<integer>1075606771</integer>
-										<key>8</key>
-										<integer>-1066910782</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>8</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1170512148</integer>
-										<key>7</key>
-										<integer>1092822672</integer>
-										<key>8</key>
-										<integer>-1073319056</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>9</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1175221032</integer>
-										<key>7</key>
-										<integer>1101523265</integer>
-										<key>8</key>
-										<integer>-1073319056</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>10</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1157848980</integer>
-										<key>7</key>
-										<integer>1092937535</integer>
-										<key>8</key>
-										<integer>-1078236516</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>13</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1142254919</integer>
-										<key>7</key>
-										<integer>1078723706</integer>
-										<key>8</key>
-										<integer>-1070648942</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>14</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1153623741</integer>
-										<key>7</key>
-										<integer>1094556066</integer>
-										<key>8</key>
-										<integer>-1077168470</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>28</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1178173326</integer>
-										<key>7</key>
-										<integer>1091315270</integer>
-										<key>8</key>
-										<integer>-1052336410</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>29</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>4</integer>
-										<key>6</key>
-										<integer>1178268743</integer>
-										<key>7</key>
-										<integer>1086906245</integer>
-										<key>8</key>
-										<integer>-1047051810</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>30</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>6</integer>
-										<key>6</key>
-										<integer>1181527155</integer>
-										<key>7</key>
-										<integer>1106401938</integer>
-										<key>8</key>
-										<integer>-1053270950</integer>
-									</dict>
-									<dict>
-										<key>2</key>
-										<integer>2</integer>
-										<key>3</key>
-										<integer>31</integer>
-										<key>4</key>
-										<integer>0</integer>
-										<key>5</key>
-										<integer>0</integer>
-										<key>6</key>
-										<integer>1183332523</integer>
-										<key>7</key>
-										<integer>1060439283</integer>
-										<key>8</key>
-										<integer>-1069504319</integer>
-									</dict>
-								</array>
+								<key>2</key>
+								<integer>1078616770</integer>
+								<key>3</key>
+								<integer>1078616770</integer>
 							</dict>
 							<key>PatchbayInfo</key>
 							<dict>
@@ -456,7 +118,7 @@
 								<key>DspFuncInstance</key>
 								<integer>2</integer>
 								<key>DspFuncName</key>
-								<string>DspGainStage</string>
+								<string>DspEqualization</string>
 								<key>DspFuncProcessingIndex</key>
 								<integer>2</integer>
 							</dict>
@@ -464,10 +126,73 @@
 							<dict>
 								<key>1</key>
 								<integer>0</integer>
-								<key>2</key>
-								<integer>1065353216</integer>
-								<key>3</key>
-								<integer>1065353216</integer>
+								<key>Filter</key>
+								<array>
+									<dict>
+										<key>2</key>
+										<integer>2</integer>
+										<key>3</key>
+										<integer>0</integer>
+										<key>4</key>
+										<integer>0</integer>
+										<key>5</key>
+										<integer>1</integer>
+										<key>6</key>
+										<integer>1118830697</integer>
+										<key>7</key>
+										<integer>1060439283</integer>
+										<key>8</key>
+										<integer>-1044468775</integer>
+									</dict>
+									<dict>
+										<key>2</key>
+										<integer>2</integer>
+										<key>3</key>
+										<integer>1</integer>
+										<key>4</key>
+										<integer>0</integer>
+										<key>5</key>
+										<integer>4</integer>
+										<key>6</key>
+										<integer>1137063621</integer>
+										<key>7</key>
+										<integer>1054939033</integer>
+										<key>8</key>
+										<integer>-1086368275</integer>
+									</dict>
+									<dict>
+										<key>2</key>
+										<integer>2</integer>
+										<key>3</key>
+										<integer>4</integer>
+										<key>4</key>
+										<integer>0</integer>
+										<key>5</key>
+										<integer>4</integer>
+										<key>6</key>
+										<integer>1162269254</integer>
+										<key>7</key>
+										<integer>1066566541</integer>
+										<key>8</key>
+										<integer>-1056209924</integer>
+									</dict>
+									<dict>
+										<key>2</key>
+										<integer>2</integer>
+										<key>3</key>
+										<integer>15</integer>
+										<key>4</key>
+										<integer>0</integer>
+										<key>5</key>
+										<integer>6</integer>
+										<key>6</key>
+										<integer>1180675529</integer>
+										<key>7</key>
+										<integer>1060439283</integer>
+										<key>8</key>
+										<integer>-1044381696</integer>
+									</dict>
+								</array>
 							</dict>
 							<key>PatchbayInfo</key>
 							<dict>
@@ -490,56 +215,6 @@
 									<integer>1</integer>
 									<key>SourceFuncInstance</key>
 									<integer>1</integer>
-									<key>SourcePortIndex</key>
-									<integer>1</integer>
-								</dict>
-							</dict>
-						</dict>
-						<key>DspFunction3</key>
-						<dict>
-							<key>FunctionInfo</key>
-							<dict>
-								<key>DspFuncInstance</key>
-								<integer>3</integer>
-								<key>DspFuncName</key>
-								<string>DspAECGainAdjustStage</string>
-								<key>DspFuncProcessingIndex</key>
-								<integer>3</integer>
-							</dict>
-							<key>ParameterInfo</key>
-							<dict>
-								<key>1</key>
-								<integer>1</integer>
-								<key>2</key>
-								<integer>0</integer>
-								<key>3</key>
-								<integer>1088421888</integer>
-								<key>4</key>
-								<integer>1103626240</integer>
-								<key>5</key>
-								<integer>1</integer>
-							</dict>
-							<key>PatchbayInfo</key>
-							<dict>
-								<key>InputPort0</key>
-								<dict>
-									<key>PortInstance</key>
-									<integer>0</integer>
-									<key>PortWidth</key>
-									<integer>1</integer>
-									<key>SourceFuncInstance</key>
-									<integer>2</integer>
-									<key>SourcePortIndex</key>
-									<integer>0</integer>
-								</dict>
-								<key>InputPort1</key>
-								<dict>
-									<key>PortInstance</key>
-									<integer>1</integer>
-									<key>PortWidth</key>
-									<integer>1</integer>
-									<key>SourceFuncInstance</key>
-									<integer>2</integer>
 									<key>SourcePortIndex</key>
 									<integer>1</integer>
 								</dict>
@@ -550,8 +225,8 @@
 			</dict>
 			<key>Outputs</key>
 			<array>
-				<string>Headphone</string>
 				<string>IntSpeaker</string>
+				<string>Headphone</string>
 			</array>
 			<key>PathMapID</key>
 			<integer>1</integer>
