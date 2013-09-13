@@ -104,7 +104,6 @@
             <line choice="installer_choice_10_8"/>
             <line choice="installer_choice_10_9"/>
             <line choice="installer_choice_10_10"/>
-            <line choice="installer_choice_10_11"/>
         </line>
         <line choice="installer_choice_11"/>
     </choices-outline>
@@ -282,15 +281,12 @@
         <pkg-ref id="com.MadMax.pkg.MaciASL"/>
     </choice>
     <choice id="installer_choice_10_8" start_selected="false" title="INSTALLER_CHOICE_10_8_TITLE" description="INSTALLER_CHOICE_10_8_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.MaciASL.Lion"/>
-    </choice>
-    <choice id="installer_choice_10_9" start_selected="false" title="INSTALLER_CHOICE_10_9_TITLE" description="INSTALLER_CHOICE_10_9_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.ShowAllFIles"/>
     </choice>
-    <choice id="installer_choice_10_10" start_selected="false" title="INSTALLER_CHOICE_10_10_TITLE" description="INSTALLER_CHOICE_10_10_DESCRIPTION">
+    <choice id="installer_choice_10_9" start_selected="false" title="INSTALLER_CHOICE_10_9_TITLE" description="INSTALLER_CHOICE_10_9_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.QuartzDebug"/>
     </choice>
-    <choice id="installer_choice_10_11" start_selected="false" title="INSTALLER_CHOICE_10_11_TITLE" description="INSTALLER_CHOICE_10_11_DESCRIPTION">
+    <choice id="installer_choice_10_10" start_selected="false" title="INSTALLER_CHOICE_10_10_TITLE" description="INSTALLER_CHOICE_10_10_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.TrimEnabler"/>
     </choice>
     <choice id="installer_choice_10" title="INSTALLER_CHOICE_10_TITLE" description="INSTALLER_CHOICE_10_DESCRIPTION"/>
@@ -349,14 +345,13 @@
     <pkg-ref id="com.MadMax.pkg.0.preinstall" version="1.0" auth="Root" installKBytes="0">#0.preinstall.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Patcher" version="1.0" auth="Root" installKBytes="1068">#Patcher.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="22">#Part1.4x40s.sb.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MaciASL.Lion" version="1.0" auth="Root" installKBytes="3812">#Extra_MaciASL_Lion.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MaciASL" version="1.0" auth="Root" installKBytes="3759">#Extra_MaciASL.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.MaciASL" version="1.0" auth="Root" installKBytes="4401">#Extra_MaciASL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.0.postinstall" version="1.0" auth="Root" installKBytes="0">#0.postinstall.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness25" version="1.0" auth="Root" installKBytes="14">#SetBrightness25.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="1212">#Extra_TrimEnabler.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i5.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i5.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ShowAllFIles" version="1.0" auth="Root" installKBytes="55">#Extra_ShowAllFIles.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="342">#Extra_HWMonitor.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="789">#Extra_HWMonitor.pkg</pkg-ref>
     <!--+==========================+
         |    JavaScript Scripts    |
         +==========================+-->

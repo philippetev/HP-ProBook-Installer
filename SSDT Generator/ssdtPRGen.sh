@@ -3,8 +3,7 @@
 # Script (ssdtPRGen.sh) to create ssdt-pr.dsl for Apple Power Management Support.
 #
 # Version 0.9 - Copyright (c) 2012 by RevoGirl <RevoGirl@rocketmail.com>
-# Version 6.1 - Copyright (c) 2013 by Pike <PikeRAlpha@yahoo.com>
-# Modified for HP ProBook Installer by Philip Petev
+# Version 6.5 - Copyright (c) 2013 by Pike <PikeRAlpha@yahoo.com>
 #
 # Updates:
 #			- Added support for Ivybridge (Pike, January 2013)
@@ -68,11 +67,19 @@
 #			- New Intel Haswell processors added (Jeroen, April 2013)
 #			- Improved Processor declaration detection (Jeroen/Pike, April 2013)
 #			- New path for Clover revision 1277 (Jeroen, April 2013)
+#			- Haswell's minimum core frequency is 800 MHz (Jeroen, April 2013)
+#			- CPU signature output added (Jeroen/Pike, April 2013)
+#			- Updating to v6.4 after Jeroen's accidental RM of my local RevoBoot directory (Pike, May 2013)
+#			- Updating to v6.5 with bugs fixes and EFI partition checking for Clover compatibility (Pike, May 2013)
 #
 # Contributors:
 #			- Thanks to Dave, toleda and Francis for their help (bug fixes and other improvements).
 #			- Thanks to 'stinga11' for Sandy Bridge (E5) data and processor list errors.
 #			- Many thanks to Jeroen for the CPU data, cleanups, renaming stuff and other improvements.
+#			- Thanks to 'philip_petev' for his help with Snow Leopard/egrep incompatibility.
+#			- Thanks to 'RehabMan' for his help with Snow Leopard/egrep incompatibility.
+#			- Thanks to 'BigDonkey' for his help with LFM (800 MHz) for Sandy Bridge mobility models.
+#			- Thanks to 'xpamamadeus' for the Clover boot.log tip.
 #
 # Usage (v1.0 - v4.9):
 #
@@ -131,7 +138,7 @@ gDestinationPath="/Extra/"
 #
 # This is the filename used for the copy process
 #
-gDestinationFile="ssdt.aml"
+gDestinationFile="ssdt_pr.aml"
 
 #
 # A value of 1 will make this script call iasl (compiles ssdt_pr.dsl)
@@ -148,7 +155,7 @@ let gCallOpen=0
 #
 # Change this to 0 to stop it from injecting debug data.
 #
-let gDebug=1
+let gDebug=0
 
 #
 # Lowest possible idle frequency (user configurable). Also known as Low Frequency Mode.
@@ -169,7 +176,7 @@ gScope="\_PR_"
 # Other global variables.
 #
 
-gScriptVersion=6.1
+gScriptVersion=6.5
 
 gRevision='0x0000'${gScriptVersion:0:1}${gScriptVersion:2:1}'00'
 
@@ -199,11 +206,13 @@ let SANDY_BRIDGE=2
 let gTypeCPU=0
 gProcessorData="Unknown CPU"
 gProcessorNumber=""
+gBusFrequency=100
+let gUnmountEFIPartition=0
 
 #
 # Maximum Turbo Clock Speed (user configurable)
 #
-let gMaxOCFrequency=5000
+let gMaxOCFrequency=6300
 
 let MAX_TURBO_FREQUENCY_ERROR=2
 let MAX_TDP_ERROR=3
@@ -240,6 +249,7 @@ E3-1220,80,0,3100,3400,4,4
 )
 
 gDesktopSandyBridgeCPUList=(
+i7-35355,120,1600,2666,2666,4,4
 # i7 Desktop Extreme Series
 i7-3970X,150,0,3500,4000,6,12
 i7-3960X,130,0,3300,3900,6,12
@@ -453,31 +463,31 @@ gServerHaswellCPUList=(
 
 gDesktopHaswellCPUList=(
 # Socket 2011 (Premium Power)
-i7-4960K,130,0,3600,4000,6,12
-i7-4930K,130,0,3400,3900,6,12
-i5-4820K,130,0,3700,3900,4,8
+i7-4960K,130,800,3600,4000,6,12
+i7-4930K,130,800,3400,3900,6,12
+i5-4820K,130,800,3700,3900,4,8
 # Socket 1150 (Standard Power)
-i7-4770K,84,00,3500,3900,4,8
-i7-4770,84,0,3400,3900,4,8
-i5-4670K,84,0,3400,3800,4,4
-i5-4670,84,0,3400,3800,4,4
-i5-4570,84,0,3200,3600,4,4
-i5-4430,84,0,3000,3200,4,4
+i7-4770K,84,800,3500,3900,4,8
+i7-4770,84,800,3400,3900,4,8
+i5-4670K,84,800,3400,3800,4,4
+i5-4670,84,800,3400,3800,4,4
+i5-4570,84,800,3200,3600,4,4
+i5-4430,84,800,3000,3200,4,4
 # Socket 1150 (Low Power)
-i7-4770S,65,0,3100,3900,4,8
-i7-4770T,45,0,2500,3700,4,8
-i7-4765T,35,0,2000,3000,4,8
-i5-4670S,65,0,3100,3800,4,4
-i5-4670T,45,0,2300,3300,4,4
-i5-4570S,65,0,2900,3600,4,4
-i5-4570T,35,0,2900,3600,2,4
-i5-4430S,65,0,2700,3200,4,4
+i7-4770S,65,800,3100,3900,4,8
+i7-4770T,45,800,2500,3700,4,8
+i7-4765T,35,800,2000,3000,4,8
+i5-4670S,65,800,3100,3800,4,4
+i5-4670T,45,800,2300,3300,4,4
+i5-4570S,65,800,2900,3600,4,4
+i5-4570T,35,800,2900,3600,2,4
+i5-4430S,65,800,2700,3200,4,4
 )
 
 gMobileHaswellCPUList=(
-i7-4930MX,57,0,3000,3900,4,8
-i7-4900MQ,47,0,2800,3800,4,8
-i7-4800MQ,47,0,2700,3700,4,8
+i7-4930MX,57,800,3000,3900,4,8
+i7-4900MQ,47,800,2800,3800,4,8
+i7-4800MQ,47,800,2700,3700,4,8
 )
 
 #--------------------------------------------------------------------------------
@@ -527,6 +537,7 @@ function _printDebugInfo()
         echo '    Store ("ssdtPRGen version: '$gScriptVersion'", Debug)'                >> $gSsdtPR
         echo '    Store ("baseFrequency    : '$gBaseFrequency'", Debug)'                >> $gSsdtPR
         echo '    Store ("frequency        : '$frequency'", Debug)'                     >> $gSsdtPR
+        echo '    Store ("busFrequency     : '$gBusFrequency'", Debug)'                 >> $gSsdtPR
         echo '    Store ("logicalCPUs      : '$gLogicalCPUs'", Debug)'                  >> $gSsdtPR
         echo '    Store ("tdp              : '$gTdp'", Debug)'                          >> $gSsdtPR
         echo '    Store ("packageLength    : '$packageLength'", Debug)'                 >> $gSsdtPR
@@ -630,9 +641,9 @@ function _printPackages()
     local maxNonTurboFrequency=$2
     local frequency=$3
 
-    let minRatio=($gBaseFrequency/100)
-    let p1Ratio=($maxNonTurboFrequency/100)
-    let ratio=($frequency/100)
+    let minRatio=($gBaseFrequency/$gBusFrequency)
+    let p1Ratio=($maxNonTurboFrequency/$gBusFrequency)
+    let ratio=($frequency/$gBusFrequency)
     let powerRatio=($p1Ratio-1)
 
     #
@@ -678,7 +689,7 @@ function _printPackages()
             printf "0x0A, 0x0A, 0x%02X00, 0x%02X00 }" $ratio $ratio                     >> $gSsdtPR
 
             let ratio-=1
-            let frequency-=100
+            let frequency-=$gBusFrequency
 
             if [ $ratio -ge $minRatio ];
                 then
@@ -1062,11 +1073,14 @@ function _updateProcessorNames()
 
 function _getProcessorScope()
 {
-    if [[ $(ioreg -c AppleACPIPlatformExpert -rd1 | egrep -o 'DSDT"=<[0-9a-f]+5b830b') ]]; then
+    #
+    # We run egrep twice here for Snow Leopard compatibility, otherwise it fails.
+    #
+    if [[ $(ioreg -c AppleACPIPlatformExpert -rd1 -w0 | egrep -o 'DSDT"=<[0-9a-f]+' | egrep -o '5b830b') ]]; then
         printf 'Processor Declaration(s) Found in DSDT'
     fi
 
-    if [[ $(ioreg -c AppleACPIPlatformExpert -rd1 | egrep -o 'DSDT"=<[0-9a-f]+5f50525f') ]];
+    if [[ $(ioreg -c AppleACPIPlatformExpert -rd1 -w0 | egrep -o 'DSDT"=<[0-9a-f]+' | egrep -o '5f50525f') ]];
         then
             gScope="\_PR_"
             echo ' (ACPI 1.0 compliant)'
@@ -1101,6 +1115,16 @@ function _getCPUModel()
 
 #--------------------------------------------------------------------------------
 
+function _getCPUSignature()
+{
+    #
+    # Returns the hexadecimal value of machdep.cpu.signature
+    #
+    echo 0x$(echo "obase=16; `sysctl machdep.cpu.signature | sed -e 's/^machdep.cpu.signature: //'`" | bc)
+}
+
+#--------------------------------------------------------------------------------
+
 function _getSystemType()
 {
     #
@@ -1122,18 +1146,59 @@ function _findIasl()
 
 function _setDestinationPath
 {
+	return
     #
     # Checking for RevoBoot
     #
     if [ -d /Extra/ACPI ]; then
         gDestinationPath="/Extra/ACPI/"
+        echo -e '\nACPI target directory changed to: '$gDestinationPath
+        return
     fi
 
     #
-    # Checking for Clover rev 1277 (projectosx.com/forum/index.php?showtopic=2656&p=29129&#entry29129)
+    # Checking for Clover rev 1277 and greater (projectosx.com/forum/index.php?showtopic=2656&p=29129&#entry29129)
     #
-    if [ -d /EFI/Clover/ACPI/patched ]; then
-        gDestinationPath="/EFI/Clover/ACPI/patched/"
+    if [ -d /EFI/Clover/ACPI/patched ];
+        then
+            gDestinationPath="/EFI/Clover/ACPI/patched/"
+            echo -e '\nACPI target directory changed to: $gDestinationPath'
+            return
+        else
+            if [ -d /Volumes/EFI ];
+                then
+                    if [ -d /Volumes/EFI/Clover/ACPI/patched ]; then
+                        gDestinationPath="/Volumes/EFI/Clover/ACPI/patched/"
+                        echo -e '\nACPI target directory changed to: $gDestinationPath'
+                        return
+                    fi
+                else
+                    #
+                    # http://www.tonymacx86.com/ssdt/86906-ssdt-generation-script-ivybridge-pm-40.html#post604496
+                    #
+                    if [ -f /Library/Logs/CloverEFI/boot.log ];
+                        then
+                            echo 'Clover boot.log found'
+                            return
+                        else
+                            echo -e '\nWarning: Failed to locate the Clover boot.log'
+                            echo 'Creating temporarily mount point: /Volumes/EFI'
+                            sudo mkdir /Volumes/EFI
+                            printf 'Mounting EFI partition...\n'
+                            #
+                            # TODO: Get target disk from diskutil list
+                            #
+                            sudo mount_hfs /dev/disk0s1 /Volumes/EFI
+                            let gUnmountEFIPartition=1
+
+                            if [ -f /Volumes/EFI/Clover/ACPI/patched ]; then
+                                gDestinationPath="/Volumes/EFI/Clover/ACPI/patched/"
+                                echo 'ACPI target directory changed to: $gDestinationPath'
+                                return
+                            fi
+                    fi
+
+            fi
     fi
 
     #
@@ -1141,6 +1206,8 @@ function _setDestinationPath
     #
     if [ -d /EFI/ACPI/patched ]; then
         gDestinationPath="/EFI/ACPI/patched/"
+        echo 'ACPI target directory changed to: $gDestinationPath'
+        return
     fi
 }
 
@@ -1282,7 +1349,7 @@ function _showLowPowerStates()
         # Haswell    : C0, C1, C1E, C2E, C3, C4, C6 and C7
         # Haswell-ULT: C0, C1, C1E, C2E, C3, C4, C6, C7, C8, C9 and C10
         #
-        for state in C1 C2 C3 C6 C7
+        for state in C1 C2 C3 C6 C7 C8 C9 C10
         do
             if (($cStates & $mask)); then
                if (($mask > 1)); then
@@ -1331,17 +1398,24 @@ function _checkPlatformSupport()
         return 0
     }
 
-    __searchList 'SupportedModelProperties' $1
+    #
+    # This check is required for Snow Leopard compatibility!
+    #
+    if [ -f /System/Library/CoreServices/PlatformSupport.plist ];
+        then
+            __searchList 'SupportedModelProperties' $1
 
-    if (($? == 0)); then
-        echo 'Warning: Model identifier ['$1'] is missing from: /S*/L*/CoreServices/PlatformSupport.plist'
-    fi
+            if (($? == 0)); then
+                echo 'Warning: Model identifier ['$1'] is missing from: /S*/L*/CoreServices/PlatformSupport.plist'
+            fi
 
-    __searchList 'SupportedBoardIds' $2
+            __searchList 'SupportedBoardIds' $2
 
-    if (($? == 0)); then
-        echo 'Warning: boardID ['$2'] is missing from: /S*/L*/CoreServices/PlatformSupport.plist'
-
+            if (($? == 0)); then
+                echo 'Warning: boardID ['$2'] is missing from: /S*/L*/CoreServices/PlatformSupport.plist'
+            fi
+        else
+            echo 'Warning: /S*/L*/C*/PlatformSupport.plist not found (normal for Snow Leopard)!'
     fi
 }
 
@@ -1460,70 +1534,147 @@ function _initIvyBridgeSetup()
 			gMacModelIdentifier="iMac13,1"
 			gACST_CPU0=13   # C1, C3 and C6
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
 
 		Mac-FC02E91DDD3FA6A4)
 			gSystemType=1
 			gMacModelIdentifier="iMac13,2"
 			gACST_CPU0=13   # C1, C3 and C6
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
 
 		Mac-031AEE4D24BFF0B1)
 			gSystemType=1
 			gMacModelIdentifier="Macmini6,1"
 			gACST_CPU0=13   # C1, C3 and C6
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
 
 		Mac-F65AE981FFA204ED)
 			gSystemType=1
 			gMacModelIdentifier="Macmini6,2"
 			gACST_CPU0=13   # C1, C3 and C6
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
 
 		Mac-4B7AC7E43945597E)
 			gSystemType=2
 			gMacModelIdentifier="MacBookPro9,1"
 			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
 
 		Mac-6F01561E16C75D06)
 			gSystemType=2
 			gMacModelIdentifier="MacBookPro9,2"
 			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
 
 		Mac-C3EC7CD22292981F)
 			gSystemType=2
 			gMacModelIdentifier="MacBookPro10,1"
 			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
 
 		Mac-AFD8A9D944EA4843)
 			gSystemType=2
 			gMacModelIdentifier="MacBookPro10,2"
 			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
 
 		Mac-66F35F19FE2A0D05)
 			gSystemType=2
 			gMacModelIdentifier="MacBookAir5,1"
 			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
 
 		Mac-2E6FAB96566FE58C)
 			gSystemType=2
 			gMacModelIdentifier="MacBookAir5,2"
 			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
-			;;
+		;;
+	esac
+}
+
+#--------------------------------------------------------------------------------
+
+function _initHaswellSetup()
+{
+	case $boardID in
+		Mac-)
+			gSystemType=1
+			gMacModelIdentifier="iMac14,1"
+			gACST_CPU0=13   # C1, C2, C3, C6
+			gACST_CPU1=7    # C1, C2 and C3
+		;;
+
+		Mac-)
+			gSystemType=1
+			gMacModelIdentifier="iMac14,2"
+			gACST_CPU0=13   # C1, C2, C3, C6
+			gACST_CPU1=7    # C1, C2 and C3
+		;;
+
+		Mac-)
+			gSystemType=1
+			gMacModelIdentifier="Macmini7,1"
+			gACST_CPU0=13   # C1, C2, C3, C6
+			gACST_CPU1=7    # C1, C2 and C3
+		;;
+
+		Mac-)
+			gSystemType=1
+			gMacModelIdentifier="Macmini7,2"
+			gACST_CPU0=13   # C1, C2, C3, C6
+			gACST_CPU1=7    # C1, C2 and C3
+		;;
+
+		Mac-)
+			gSystemType=2
+			gMacModelIdentifier="MacBookPro11,1"
+			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
+			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+		;;
+
+		Mac-)
+			gSystemType=2
+			gMacModelIdentifier="MacBookPro11,2"
+			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
+			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+		;;
+
+		Mac-)
+			gSystemType=2
+			gMacModelIdentifier="MacBookPro12,1"
+			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
+			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+		;;
+
+		Mac-)
+			gSystemType=2
+			gMacModelIdentifier="MacBookPro12,2"
+			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
+			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+		;;
+
+		Mac-)
+			gSystemType=2
+			gMacModelIdentifier="MacBookAir6,1"
+			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
+			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+		;;
+
+		Mac-)
+			gSystemType=2
+			gMacModelIdentifier="MacBookAir6,2"
+			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
+			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+		;;
 	esac
 }
 
@@ -1621,10 +1772,11 @@ function main()
         fi
 
         # Haswell
-        if (($model==0x30)); then
+        if (($model==0x3C)); then
             let assumedTDP=1
             let gTdp=84
             let gBridgeType=8
+            let gMaxOCFrequency=8000
         fi
 
         # Haswell ULT
@@ -1653,9 +1805,10 @@ function main()
     local modelID=$(_getModelName)
     local cpu_type=$(_getCPUtype)
     local currentSystemType=$(_getSystemType)
+    local cpuSignature=$(_getCPUSignature)
 
     echo "Generating ${gSsdtID}.dsl for a $modelID [$boardID]"
-    echo "$bridgeTypeString Core $gProcessorNumber processor [0x$cpu_type] setup"
+    echo "$bridgeTypeString Core $gProcessorNumber processor [$cpuSignature] setup [0x$cpu_type]"
 
     #
     # gTypeCPU is greater than 0 when the processor is found in one of the CPU lists
@@ -1909,6 +2062,13 @@ if (($gCallIasl)); then
                 y|Y ) sudo cp ${gPath}/${gSsdtID}.aml ${gDestinationPath}${gDestinationFile}
                       ;;
             esac
+
+            if (($gUnmountEFIPartition)); then
+                echo -e '\nUnmounting EFI partition...'
+                sudo umount -f /Volumes/EFI
+                echo 'Removing temporarily mount point...'
+                sudo rm -r /Volumes/EFI
+            fi
         fi
     fi
 
