@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.11</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.LaCie.driver.${PRODUCT_NAME:identifier}</string>
 	<key>OSBundleRequired</key>
@@ -19,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.10</string>
+	<string>1.0.11</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>PXHCD</key>

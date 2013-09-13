@@ -129,10 +129,6 @@
                 <line choice="installer_choice_10_5_1"/>
                 <line choice="installer_choice_10_5_2"/>
             </line>
-            <line choice="installer_choice_10_6">
-                <line choice="installer_choice_10_6_1"/>
-                <line choice="installer_choice_10_6_2"/>
-            </line>
         </line>
         <line choice="installer_choice_11">
             <line choice="installer_choice_11_1"/>
@@ -386,13 +382,6 @@
         <pkg-ref id="com.MadMax.pkg.FnCombosDisable"/>
     </choice>
     <choice id="installer_choice_10_5" title="INSTALLER_CHOICE_10_5_TITLE" description="INSTALLER_CHOICE_10_5_DESCRIPTION"/>
-    <choice id="installer_choice_10_6_1" start_selected="false" title="INSTALLER_CHOICE_10_6_1_TITLE" description="INSTALLER_CHOICE_10_6_1_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.ItalianFixOn"/>
-    </choice>
-    <choice id="installer_choice_10_6_2" start_selected="false" title="INSTALLER_CHOICE_10_6_2_TITLE" description="INSTALLER_CHOICE_10_6_2_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.ItalianFixOff"/>
-    </choice>
-    <choice id="installer_choice_10_6" title="INSTALLER_CHOICE_10_6_TITLE" description="INSTALLER_CHOICE_10_6_DESCRIPTION"/>
     <choice id="installer_choice_10" title="INSTALLER_CHOICE_10_TITLE" description="INSTALLER_CHOICE_10_DESCRIPTION"/>
     <choice id="installer_choice_11_1" start_selected="false" title="INSTALLER_CHOICE_11_1_TITLE" description="INSTALLER_CHOICE_11_1_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.ColorProfiles"/>
@@ -449,92 +438,90 @@
     <!--+==========================+
         |    Package References    |
         +==========================+-->
-    <pkg-ref id="com.MadMax.pkg.i3-2350M" version="1.0" auth="Root" installKBytes="0">#i3-2350M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.QuartzDebug" version="1.0" auth="Root" installKBytes="3183">#Extra_QuartzDebug.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i3-2330M" version="1.0" auth="Root" installKBytes="0">#i3-2330M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ML10.8.1" version="1.0" auth="Root" installKBytes="3841">#10.8.1.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ML10.8" version="1.0" auth="Root" installKBytes="3841">#10.8.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i7-2760QM" version="1.0" auth="Root" installKBytes="1">#i7-2760QM.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i7-2640M" version="1.0" auth="Root" installKBytes="1">#i7-2640M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.SleepImageRestore" version="1.0" auth="Root" installKBytes="0">#Sleep_Image_restore.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ItalianFixOn" version="1.0" auth="Root" installKBytes="0">#ItalianFixOn.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Chimera" version="1.11.1" auth="Root" installKBytes="2138">#Chimera.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i7-2670QM" version="1.0" auth="Root" installKBytes="1">#i7-2670QM.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="1936">#Extra_TrimEnabler.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F09" version="1.0" auth="Root" installKBytes="138">#DSDT.HD3K.F09.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.SetBrightness25" version="1.0" auth="Root" installKBytes="15">#SetBrightness25.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i5-2430M" version="1.0" auth="Root" installKBytes="1">#i5-2430M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i7-2630QM" version="1.0" auth="Root" installKBytes="1">#i7-2630QM.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.BluetoothKext" version="1.0" auth="Root" installKBytes="280">#Bluetooth_kext.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F20.newfan" version="1.0" auth="Root" installKBytes="142">#DSDT.4730.F20.newfan.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i5-2450M" version="1.0" auth="Root" installKBytes="1">#i5-2450M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.FnCombosDisable" version="1.0" auth="Root" installKBytes="0">#FnCombosDisable.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F09" version="1.0" auth="Root" installKBytes="138">#DSDT.4730.F09.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i3-2370M" version="1.0" auth="Root" installKBytes="0">#i3-2370M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.SetBrightness100" version="1.0" auth="Root" installKBytes="15">#SetBrightness100.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.0.preinstall" version="1.0" auth="Root" installKBytes="0">#0.preinstall.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.EthernetKext" version="0.0.90" auth="Root" installKBytes="648">#Ethernet_kext.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Lion10.7.4" version="1.0" auth="Root" installKBytes="5191">#10.7.4.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ML10.8.2" version="1.0" auth="Root" installKBytes="3022">#10.8.2.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.AHCIPatch" version="1.0" auth="Root" installKBytes="0">#AHCI.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i5-2520M" version="1.0" auth="Root" installKBytes="1">#i5-2520M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.OldKextRemover" version="1.0" auth="Root" installKBytes="0">#Extra_OldKextRemover.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F0A" version="1.0" auth="Root" installKBytes="139">#DSDT.4730.F0A.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F07" version="1.0" auth="Root" installKBytes="138">#DSDT.HD3K.F07.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="253">#Extra_HWMonitor.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Lion10.7.1" version="1.0" auth="Root" installKBytes="5893">#10.7_10.7.1.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.SetBrightness50" version="1.0" auth="Root" installKBytes="15">#SetBrightness50.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i3-2310M" version="1.0" auth="Root" installKBytes="0">#i3-2310M.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.MacBookPro8.2" version="1.0" auth="Root" installKBytes="1422">#MacBookPro8.2.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Common.LionML" version="1.0" auth="Root" installKBytes="2412">#Common.LionML.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i5-2540M" version="1.0" auth="Root" installKBytes="1">#i5-2540M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i7-2620M" version="1.0" auth="Root" installKBytes="1">#i7-2620M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F20.newfan" version="1.0" auth="Root" installKBytes="142">#DSDT.Radeon.F20.newfan.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i7-2720QM" version="1.0" auth="Root" installKBytes="1">#i7-2720QM.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.KextWizard" version="1.0" auth="Root" installKBytes="474">#Extra_KextWizard.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F20" version="1.0" auth="Root" installKBytes="141">#DSDT.4730.F20.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i7-2820QM" version="1.0" auth="Root" installKBytes="1">#i7-2820QM.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Lion10.7.2" version="1.0" auth="Root" installKBytes="5903">#10.7.2.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ShowAllFIles" version="1.0" auth="Root" installKBytes="179">#Extra_ShowAllFIles.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i5-2410M" version="1.0" auth="Root" installKBytes="1">#i5-2410M.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F20" version="1.0" auth="Root" installKBytes="141">#1080.HD3K.F20.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.SL10.6.8" version="1.0" auth="Root" installKBytes="27935">#10.6.8.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MacBookPro8.3" version="1.0" auth="Root" installKBytes="1422">#MacBookPro8.3.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.MacBookPro8.1" version="1.0" auth="Root" installKBytes="1423">#MacBookPro8.1.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F20.newfan" version="1.0" auth="Root" installKBytes="142">#DSDT.HD3K.F20.newfan.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.FnCombosEnable" version="1.0" auth="Root" installKBytes="0">#FnCombosEnable.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.0.postinstall" version="1.0" auth="Root" installKBytes="0">#0.postinstall.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i7-2920QM" version="1.0" auth="Root" installKBytes="1">#i7-2920QM.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F0A" version="1.0" auth="Root" installKBytes="139">#1080.Radeon.F0A.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.4730.F20.newfan" version="1.0" auth="Root" installKBytes="142">#1080.4730.F20.newfan.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1309">#Extra_ChameleonWizard.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F09" version="1.0" auth="Root" installKBytes="138">#DSDT.Radeon.F09.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.4730.F20" version="1.0" auth="Root" installKBytes="141">#1080.4730.F20.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F20" version="1.0" auth="Root" installKBytes="141">#1080.Radeon.F20.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.4730.F0A" version="1.0" auth="Root" installKBytes="139">#1080.4730.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2540M" version="1.0" auth="Root" installKBytes="1">#i5-2540M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F0A" version="1.0" auth="Root" installKBytes="139">#1080.Radeon.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SleepImageRestore" version="1.0" auth="Root" installKBytes="0">#Sleep_Image_restore.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.LocalTimeToggle" version="1.0" auth="Root" installKBytes="2">#Extra_LocalTimeToggle.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F09" version="1.0" auth="Root" installKBytes="138">#1080.HD3K.F09.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Lion10.7.3" version="1.0" auth="Root" installKBytes="5919">#10.7.3.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ItalianFixOff" version="1.0" auth="Root" installKBytes="0">#ItalianFixOff.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F20" version="1.0" auth="Root" installKBytes="141">#DSDT.Radeon.F20.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.SetBrightness75" version="1.0" auth="Root" installKBytes="15">#SetBrightness75.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.SleepImageFix" version="1.0" auth="Root" installKBytes="0">#Sleep_image_fix.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F0A" version="1.0" auth="Root" installKBytes="139">#1080.HD3K.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.QuartzDebug" version="1.0" auth="Root" installKBytes="3183">#Extra_QuartzDebug.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.i7-2960QM" version="1.0" auth="Root" installKBytes="1">#i7-2960QM.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F0A" version="1.0" auth="Root" installKBytes="139">#DSDT.HD3K.F0A.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.i7-2860QM" version="1.0" auth="Root" installKBytes="1">#i7-2860QM.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F20.newfan" version="1.0" auth="Root" installKBytes="142">#1080.HD3K.F20.newfan.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Lion10.7.5" version="1.0" auth="Root" installKBytes="5318">#10.7.5.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.4730.F09" version="1.0" auth="Root" installKBytes="138">#1080.4730.F09.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F09" version="1.0" auth="Root" installKBytes="138">#1080.Radeon.F09.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ColorProfiles" version="1.0" auth="Root" installKBytes="92">#ColorProfiles.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F0A" version="1.0" auth="Root" installKBytes="139">#DSDT.Radeon.F0A.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.SMCPing" version="1.0" auth="Root" installKBytes="15">#SMCPing.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F07" version="1.0" auth="Root" installKBytes="138">#1080.HD3K.F07.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F20" version="1.0" auth="Root" installKBytes="141">#DSDT.HD3K.F20.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.AHCI3rdParty" version="1.0" auth="Root" installKBytes="11">#AHCI3rdParty.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F20.newfan" version="1.0" auth="Root" installKBytes="142">#1080.Radeon.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.1" version="1.0" auth="Root" installKBytes="5893">#10.7_10.7.1.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SleepImageFix" version="1.0" auth="Root" installKBytes="0">#Sleep_image_fix.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F20" version="1.0" auth="Root" installKBytes="141">#1080.HD3K.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.3" version="1.0" auth="Root" installKBytes="5919">#10.7.3.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8.1" version="1.0" auth="Root" installKBytes="3841">#10.8.1.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F20" version="1.0" auth="Root" installKBytes="141">#DSDT.Radeon.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2640M" version="1.0" auth="Root" installKBytes="1">#i7-2640M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.4730.F0A" version="1.0" auth="Root" installKBytes="139">#1080.4730.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F20.newfan" version="1.0" auth="Root" installKBytes="142">#1080.HD3K.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SetBrightness50" version="1.0" auth="Root" installKBytes="15">#SetBrightness50.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.4" version="1.0" auth="Root" installKBytes="5191">#10.7.4.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SMCPing" version="1.0" auth="Root" installKBytes="15">#SMCPing.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2670QM" version="1.0" auth="Root" installKBytes="1">#i7-2670QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F20" version="1.0" auth="Root" installKBytes="141">#DSDT.HD3K.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i3-2350M" version="1.0" auth="Root" installKBytes="0">#i3-2350M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F20" version="1.0" auth="Root" installKBytes="141">#DSDT.4730.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F0A" version="1.0" auth="Root" installKBytes="139">#DSDT.HD3K.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.4730.F09" version="1.0" auth="Root" installKBytes="138">#1080.4730.F09.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.BluetoothKext" version="1.0" auth="Root" installKBytes="280">#Bluetooth_kext.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2620M" version="1.0" auth="Root" installKBytes="1">#i7-2620M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8.2" version="1.0" auth="Root" installKBytes="3022">#10.8.2.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2630QM" version="1.0" auth="Root" installKBytes="1">#i7-2630QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SetBrightness100" version="1.0" auth="Root" installKBytes="15">#SetBrightness100.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F09" version="1.0" auth="Root" installKBytes="138">#1080.Radeon.F09.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2760QM" version="1.0" auth="Root" installKBytes="1">#i7-2760QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SL10.6.8" version="1.0" auth="Root" installKBytes="28027">#10.6.8.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1309">#Extra_ChameleonWizard.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F07" version="1.0" auth="Root" installKBytes="138">#1080.HD3K.F07.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SetBrightness75" version="1.0" auth="Root" installKBytes="15">#SetBrightness75.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F20" version="1.0" auth="Root" installKBytes="141">#1080.Radeon.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.FnCombosEnable" version="1.0" auth="Root" installKBytes="0">#FnCombosEnable.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F07" version="1.0" auth="Root" installKBytes="138">#DSDT.HD3K.F07.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2410M" version="1.0" auth="Root" installKBytes="1">#i5-2410M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2450M" version="1.0" auth="Root" installKBytes="1">#i5-2450M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.AHCIPatch" version="1.0" auth="Root" installKBytes="0">#AHCI.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.MacBookPro8.1" version="1.0" auth="Root" installKBytes="1423">#MacBookPro8.1.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.FnCombosDisable" version="1.0" auth="Root" installKBytes="0">#FnCombosDisable.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Common.LionML" version="1.0" auth="Root" installKBytes="2504">#Common.LionML.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2520M" version="1.0" auth="Root" installKBytes="1">#i5-2520M.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.EDIDgenerator" version="6.1" auth="Root" installKBytes="0">#EDID_generator.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F20.newfan" version="1.0" auth="Root" installKBytes="142">#DSDT.Radeon.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i3-2330M" version="1.0" auth="Root" installKBytes="0">#i3-2330M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ML10.8" version="1.0" auth="Root" installKBytes="3841">#10.8.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i3-2370M" version="1.0" auth="Root" installKBytes="0">#i3-2370M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2720QM" version="1.0" auth="Root" installKBytes="1">#i7-2720QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F0A" version="1.0" auth="Root" installKBytes="139">#1080.HD3K.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.KextWizard" version="1.0" auth="Root" installKBytes="474">#Extra_KextWizard.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.4730.F20.newfan" version="1.0" auth="Root" installKBytes="142">#1080.4730.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2820QM" version="1.0" auth="Root" installKBytes="1">#i7-2820QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i5-2430M" version="1.0" auth="Root" installKBytes="1">#i5-2430M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Chimera" version="1.11.1" auth="Root" installKBytes="2138">#Chimera.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2860QM" version="1.0" auth="Root" installKBytes="1">#i7-2860QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.5" version="1.0" auth="Root" installKBytes="5318">#10.7.5.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ColorProfiles" version="1.0" auth="Root" installKBytes="92">#ColorProfiles.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Lion10.7.2" version="1.0" auth="Root" installKBytes="5903">#10.7.2.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.OldKextRemover" version="1.0" auth="Root" installKBytes="0">#Extra_OldKextRemover.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i3-2310M" version="1.0" auth="Root" installKBytes="0">#i3-2310M.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.4730.F20" version="1.0" auth="Root" installKBytes="141">#1080.4730.F20.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F20.newfan" version="1.0" auth="Root" installKBytes="142">#DSDT.HD3K.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.0.preinstall" version="1.0" auth="Root" installKBytes="0">#0.preinstall.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.MacBookPro8.3" version="1.0" auth="Root" installKBytes="1422">#MacBookPro8.3.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.Radeon.F20.newfan" version="1.0" auth="Root" installKBytes="142">#1080.Radeon.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F20.newfan" version="1.0" auth="Root" installKBytes="142">#DSDT.4730.F20.newfan.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F09" version="1.0" auth="Root" installKBytes="138">#DSDT.4730.F09.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.0.postinstall" version="1.0" auth="Root" installKBytes="0">#0.postinstall.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.SetBrightness25" version="1.0" auth="Root" installKBytes="15">#SetBrightness25.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.i7-2920QM" version="1.0" auth="Root" installKBytes="1">#i7-2920QM.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.1080.HD3K.F09" version="1.0" auth="Root" installKBytes="138">#1080.HD3K.F09.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="1936">#Extra_TrimEnabler.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.EthernetKext" version="0.0.90" auth="Root" installKBytes="648">#Ethernet_kext.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.Radeon.F0A" version="1.0" auth="Root" installKBytes="139">#DSDT.Radeon.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.4730.F0A" version="1.0" auth="Root" installKBytes="139">#DSDT.4730.F0A.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="253">#Extra_HWMonitor.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ShowAllFIles" version="1.0" auth="Root" installKBytes="179">#Extra_ShowAllFIles.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.DSDT.HD3K.F09" version="1.0" auth="Root" installKBytes="138">#DSDT.HD3K.F09.pkg</pkg-ref>
     <!--+==========================+
         |    JavaScript Scripts    |
         +==========================+-->
