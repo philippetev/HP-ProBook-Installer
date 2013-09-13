@@ -1,0 +1,61 @@
+#!/bin/bash
+if 
+[ -r "$DSTVOLUME/System/Library/Extensions/SleepEnabler.kext" ];
+then
+   rm -rf "$DSTVOLUME/System/Library/Extensions/SleepEnabler.kext" 
+fi
+if
+[ -r "$DSTVOLUME/System/Library/Extensions/NullCPUPowerManagement.kext" ];
+then 
+  rm -rf "$DSTVOLUME/System/Library/Extensions/NullCPUPowerManagement.kext" 
+fi
+if 
+[ -r "$DSTVOLUME/System/Library/Extensions/JMicronATAInjector.kext" ];
+then
+   rm -rf "$DSTVOLUME/System/Library/Extensions/JMicronATAInjector.kext" 
+fi
+if
+ [ -r "$DSTVOLUME/System/Library/Extensions/JMicron36xSATA.kext" ];
+  then
+ rm -rf "$DSTVOLUME/System/Library/Extensions/JMicron36xSATA.kext" 
+fi
+if
+ [ -r "$DSTVOLUME/System/Library/Extensions/JMicron36xATA.kext" ];
+then
+   rm -rf "$DSTVOLUME/System/Library/Extensions/JMicron36xATA.kext" 
+fi
+if
+ [ -r "$DSTVOLUME/System/Library/Extensions/EvOreboot.kext" ];
+then
+   rm -rf "$DSTVOLUME/System/Library/Extensions/EvOreboot.kext" 
+fi
+if 
+[ -r "$DSTVOLUME/System/Library/Extensions/Atherosx.kext" ];
+then  
+ rm -rf "$DSTVOLUME/System/Library/Extensions/Atherosx.kext" 
+fi
+if 
+[ -r "$DSTVOLUME/System/Library/Extensions/ATAPortInjector.kext" ];
+ then
+  rm -rf "$DSTVOLUME/System/Library/Extensions/ATAPortInjector.kext" 
+fi
+if
+ [ -r "$DSTVOLUME/System/Library/Extensions/AppleHDADisabler.kext" ];
+then
+   rm -rf "$DSTVOLUME/System/Library/Extensions/AppleHDADisabler.kext" 
+fi
+if
+ [ -r "$DSTVOLUME/System/Library/Extensions/AHCIPortInjector.kext" ];
+then
+   rm -rf "$DSTVOLUME/System/Library/Extensions/AHCIPortInjector.kext" 
+fi
+if
+ [ -r "$DSTVOLUME/System/Library/Extensions/RealtekRTL81xx.kext" ];
+then
+   rm -rf "$DSTVOLUME/System/Library/Extensions/RealtekRTL81xx.kext"  
+fi
+if
+[ -r "$DSTVOLUME/System/Library/Extensions/VoodooBattery.kext" ];
+then
+   rm -rf "$DSTVOLUME/System/Library/Extensions/VoodooBattery.kext"
+fi

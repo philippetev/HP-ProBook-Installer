@@ -1,0 +1,2 @@
+#!/bin/bash
+pmset -a hibernatemode 3

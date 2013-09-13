@@ -1,0 +1,37 @@
+#!/bin/sh
+kextdir="$DSTVOLUME/System/Library/Extensions"
+KBplist="$kextdir/VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Keyboard.kext/Contents/Info.plist"
+cond1=`/usr/libexec/PlistBuddy -c "Print ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:1'" "$KBplist"`
+cond2=";The following 12 items map Fn+fkeys to fkeys"
+if [ "$cond1" != "$cond2" ]; 
+then
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:1' string ';The following 12 items map Fn+fkeys to fkeys'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:2' string 'e05f=3b'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:3' string 'e012=3c'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:4' string 'e017=3d'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:5' string 'e06e=3e'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:6' string 'e00a=3f'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:7' string 'e009=40'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:8' string 'e020=41'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:9' string 'e02e=42'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:10' string 'e030=43'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:11' string 'e010=44'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:12' string 'e022=57'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:13' string 'e019=58'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:14' string ';The following 12 items map fkeys to Fn+fkeys'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:15' string '3b=e05f'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:16' string '3c=e012'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:17' string '3d=e017'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:18' string '3e=e06e'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:19' string '3f=e00a'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:20' string '40=e009'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:21' string '41=e020'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:22' string '42=e02e'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:23' string '43=e030'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:24' string '44=e010'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:25' string '57=e022'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:26' string '58=e019'" "$KBplist"
+	touch "$kextdir"
+else
+	echo "No patching is required!"
+fi	

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildMachineOSBuild</key>
+	<string>11D17a</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>AppleHDAHALPlugIn</string>
+	<key>CFBundleGetInfoString</key>
+	<string>2.1.7f9, Copyright Apple Inc. 2005-2011</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.audio.AppleHDAHALPlugIn</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Apple HDA HAL Plug-in</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.1.7</string>
+	<key>CFBundleSignature</key>
+	<string>aaud</string>
+	<key>CFBundleVersion</key>
+	<string>2.1.7f9</string>
+	<key>DTCompiler</key>
+	<string></string>
+	<key>DTPlatformBuild</key>
+	<string>11D17a</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>11D17a</string>
+	<key>DTSDKName</key>
+	<string></string>
+	<key>DTXcode</key>
+	<string>0410</string>
+	<key>DTXcodeBuild</key>
+	<string>11D17a</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2005-2011 Apple Inc. All rights reserved.</string>
+</dict>
+</plist>

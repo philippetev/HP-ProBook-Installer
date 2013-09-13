@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildMachineOSBuild</key>
+	<string>4D199</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>introspection</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>CG Introspection Trace</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSDocumentClass</key>
+			<string>IntrospectionClient</string>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>cglog</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>CG Trace Log</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSDocumentClass</key>
+			<string>QDLogClient</string>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>XML</string>
+		</dict>
+	</array>
+	<key>CFBundleExecutable</key>
+	<string>Quartz Debug</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Quartz Debug 4.2</string>
+	<key>CFBundleIconFile</key>
+	<string>QuartzDebugIcon.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.QuartzDebug</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Quartz Debug</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>4.2</string>
+	<key>CFBundleSignature</key>
+	<string>APPL</string>
+	<key>CFBundleVersion</key>
+	<string>157</string>
+	<key>DTCompiler</key>
+	<string></string>
+	<key>DTPlatformBuild</key>
+	<string></string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>4D199</string>
+	<key>DTSDKName</key>
+	<string></string>
+	<key>DTXcode</key>
+	<string>0430</string>
+	<key>DTXcodeBuild</key>
+	<string></string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>QuartzDebugApplication</string>
+	<key>QuartzGLEnable</key>
+	<false/>
+	<key>SourceVersion</key>
+	<string>100</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>CG Introspection Trace</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.apple.QuartzDebug.IntrospectionTrace</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>introspection</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

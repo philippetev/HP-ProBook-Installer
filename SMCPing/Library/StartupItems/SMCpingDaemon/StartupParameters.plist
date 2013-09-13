@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>SMC Ping Daemon</string>
+	<key>Messages</key>
+	<dict>
+		<key>start</key>
+		<string>Starting SMC Ping Daemon</string>
+		<key>stop</key>
+		<string>Stopping SMC Ping Daemon</string>
+	</dict>
+	<key>Preference</key>
+	<string>Late</string>
+	<key>Provides</key>
+	<array>
+		<string>SMCpingDaemon</string>
+	</array>
+	<key>Requires</key>
+	<array>
+		<string>Network</string>
+	</array>
+	<key>Uses</key>
+	<array>
+		<string>Disks</string>
+	</array>
+</dict>
+</plist>

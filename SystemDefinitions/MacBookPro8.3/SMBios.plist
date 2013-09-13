@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SMbiosdate</key>
+	<string>10/31/11</string>
+	<key>SMbiosvendor</key>
+	<string>Apple Inc.</string>
+	<key>SMbiosversion</key>
+	<string>MBP81.88Z.0047.B26.1110311252</string>
+	<key>SMboardproduct</key>
+	<string>Mac-942459F5819B171B</string>
+	<key>SMfamily</key>
+	<string>MacBook Pro</string>
+	<key>SMmanufacter</key>
+	<string>Apple Inc.</string>
+	<key>SMmanufacturer</key>
+	<string>Apple Inc.</string>
+	<key>SMproductname</key>
+	<string>MacBookPro8,3</string>
+	<key>SMserial</key>
+	<string>C02HM828DF92</string>
+	<key>SMsystemversion</key>
+	<string>1.0</string>
+</dict>
+</plist>

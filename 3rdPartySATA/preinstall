@@ -1,0 +1,7 @@
+#!/bin/bash
+# removing old kext, if exist.
+kextdir="$DSTVOLUME/System/Library/Extensions"
+if [ -e  "$kextdir/AHCI_3rdParty_SATA.kext" ]
+then
+  rm -rf "$kextdir/AHCI_3rdParty_SATA.kext"
+fi

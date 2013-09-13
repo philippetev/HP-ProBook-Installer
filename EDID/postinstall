@@ -1,0 +1,49 @@
+#!/bin/bash
+# v.6.1
+# OSX EDID generator by Philip Petev
+#
+if [ "$UID" -ne "0" ]
+then
+    echo "Must be root to run this script."
+    exit 1
+fi
+# Collecting the Vendor ID, Product ID and the EDID data
+if [ "`ioreg -n AppleBacklightDisplay -rxw0`" == "" ]
+then
+	origEDID=`ioreg -n AppleDisplay -rxw0 | grep IODisplayEDID | sed -e 's/\(^.*<\)\(.*\)\(>.*$\)/\2/'`
+	VenID=`ioreg -n AppleDisplay -rxw0 | grep DisplayVendorID | sed 's/.*0x//'`
+	ProdID=`ioreg -n AppleDisplay -rxw0 | grep DisplayProductID | sed 's/.*0x//'`
+else
+	origEDID=`ioreg -n AppleBacklightDisplay -rxw0 | grep IODisplayEDID | sed -e 's/\(^.*<\)\(.*\)\(>.*$\)/\2/'`
+	VenID=`ioreg -n AppleBacklightDisplay -rxw0 | grep DisplayVendorID | sed 's/.*0x//'`
+	ProdID=`ioreg -n AppleBacklightDisplay -rxw0 | grep DisplayProductID | sed 's/.*0x//'`
+fi
+# Converting display's EDID data to base64
+convEDID=`echo "$origEDID" | xxd -r -p | openssl base64`
+# Preparing the names of the output file and folder
+genFile=DisplayProductID-$ProdID
+genDir="$DSTVOLUME/System/Library/Displays/Overrides/DisplayVendorID-$VenID"
+# And finally, generating the output folder and file 
+mkdir "$genDir" &> /dev/null
+echo "<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>DisplayProductID</key>
+    <integer>$((0x$ProdID))</integer>
+    <key>DisplayProductName</key>
+    <string>ProBook 4x30s</string>
+    <key>DisplayVendorID</key>
+    <integer>$((0x$VenID))</integer>
+    <key>IODisplayEDID</key>
+    <data>
+    $convEDID
+    </data>
+</dict>
+</plist>" > "$genDir/$genFile"
+# This is some kind of error checking of the output file
+plutil -convert xml1 "$genDir/$genFile"
+# Repairing the permissions
+chown -R root:wheel "$genDir"
+chmod 755 "$genDir"
+chmod 644 "$genDir/$genFile"

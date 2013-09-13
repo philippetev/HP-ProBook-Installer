@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta name="Generator" content="Gutenberg">
+		<meta name="GeneratorVersion" content="v132">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="Copyright" content="Copyright 2008 AppleInc. All Rights Reserved.">
+		<meta name="IndexTitle" content="Quartz Debug 4.0 Help">
+		<meta name="xcode-display" content="render">
+		<title>
+			Quartz Debug 4.0 Help
+		</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body bgcolor="#FFFFFF">
+		<p>
+			<a name="//apple_ref/doc/uid/TempBookID-ReplacedWhenAssociatingWithMessierRevision" title="Quartz Debug 4.0 Help"></a> <a name="top" id="top"></a> <!-- start of header -->
+			 <!--#include virtual="/includes/framesetheader" -->
+			 <!-- end of header -->
+			 <!-- legacyStatement -->
+			 <a name="//apple_ref/doc/uid/TempBookID-ReplacedWhenAssociatingWithMessierRevision-SW1" title="Quartz Debug 4.0 Help" turn_anchor="no"></a>
+		</p>
+		<h1>
+			Quartz Debug 4.0 Help
+		</h1>
+		<p>
+			Quartz Debug provides a number of facilities to assist with the debugging of graphics related issues in your applications. This document discusses the features of Quartz Debug.
+		</p><!-- This template is being used for both PDF and HTML. -->
+		<!-- TopicBook.pm currently relies on the element name bmini_toc. -->
+		<p>
+			<br>
+			<a name="//apple_ref/doc/uid/TempBookID-ReplacedWhenAssociatingWithMessierRevision-SW2" title="WindowServer Settings"></a>
+		</p>
+		<h2>
+			Quartz Debug Settings
+		</h2>
+		<p>
+			Use this panel to toggle common acceleration and debugging options. The following options are provided:
+		</p>
+		<ul class="ul">
+			<li class="li">
+				<p>
+					Enable Quartz Debug
+				</p>
+				<p>
+					Enable/Disable all options.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					Enable Quartz Extreme
+				</p>
+				<p>
+					Toggle accelerated window compositing.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					Force QuartzGL
+				</p>
+				<p>
+					Force newly-launched applications to use QuartzGL if possible.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					Disable 2D Acceleration
+				</p>
+				<p>
+					Disable all 2D acceleration.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					Autoflush drawing
+				</p>
+				<p>
+					Flush contents after each drawing operation.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					Flash screen updates
+				</p>
+				<p>
+					Highlights regions of the screen before they update in yellow (normal) or green (QuartzGL accelerated.) Regions that are under a DisableUpdate are painted orange.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					Flash identical screen updates
+				</p>
+				<p>
+					Highlights redundant screen updates in red. Redundant updates are those where a redraw of unchanged pixels occurs.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					No delay after flash
+				</p>
+				<p>
+					Removes the delay after flashing screen updates.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					Show tracking rectangles
+				</p>
+				<p>
+					Tracking rectangles are outlined in green. The active tracking rectangle is outlined in red.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					Beam Sync
+				</p>
+				<p>
+					Toggle beam sync between automatic, disable, and force. “Automatic” is the default, where most applications are beam synced and all updates are coalesced to the next beam sync. “Disable” disables vertical beam sync and coalesced updates in the Window Server. “Force” forces beam sync for every operation.
+				</p>
+			</li>
+		</ul>
+		<p>
+			<a name="//apple_ref/doc/uid/TempBookID-ReplacedWhenAssociatingWithMessierRevision-SW3" title="Window List"></a>
+		</p>
+		<p>
+			<a name="//apple_ref/doc/uid/TempBookID-ReplacedWhenAssociatingWithMessierRevision-SW4" title="UI Resolution"></a>
+		</p>
+		<h2>
+			UI Resolution
+		</h2>
+		<p>
+			The UI Resolution window allows for control over the current scaling factor used for the user interface. When set, a new resolution is applied to the Dock immediately, but applications require a relaunch to pick up the new setting.
+		</p>
+		<p>
+			<a name="//apple_ref/doc/uid/TempBookID-ReplacedWhenAssociatingWithMessierRevision-SW5" title="Framemeter"></a>
+		</p>
+		<h2>
+			Framemeter
+		</h2>
+		<p>
+			The framemeter displays the number of screen updates per second. CPU usage is also shown. Framemeter output is also available in the Quartz Debug Dock icon.
+		</p>
+		<p>
+			<a name="//apple_ref/doc/uid/TempBookID-ReplacedWhenAssociatingWithMessierRevision-SW6" title="Window Info"></a>
+		</p>
+		<p>
+			<a name="//apple_ref/doc/uid/TempBookID-ReplacedWhenAssociatingWithMessierRevision-SW7" title="CG Tracing"></a>
+		</p>
+		<p>
+			<a name="//apple_ref/doc/uid/TempBookID-ReplacedWhenAssociatingWithMessierRevision-DontLinkElementID_1" title="Dock Icon"></a>
+		</p>
+		<h2>
+			Dock Icon
+		</h2>
+		<p>
+			The dock icon can be configured to display the framemeter and Quartz status. Right-click on the dock icon or choose Tools -&gt; Dock to configure these options.
+		</p>
+		<ul class="ul">
+			<li class="li">
+				<p>
+					Show Quartz Status
+				</p>
+				<p>
+					Status of Quartz Extreme and QuartzGL is displayed on the dock icon.
+				</p>
+			</li>
+			<li class="li">
+				<p>
+					Show Framemeter History
+				</p>
+				<p>
+					The frame rate is plotted on a graph that is updated 10 times per second and displayed in place of the application icon in the dock. The graph is colored by the most current FPS reading, with a red line representing an update rate of 0...30, a yellow line 31...60, and a green line 61...90 fps.
+				</p>
+			</li>
+		</ul>
+		<p>
+			<br>
+			<br>
+			<br>
+		</p>
+		<hr>
+		<div align="center">
+			<p class="content_text">
+				<!--#if expr="0=1" -->© 2009 Apple Inc. All Rights Reserved. (<!--#endif -->Last updated: 2009-05-06<!--#if expr="0=1" -->)<!--#endif -->
+			</p>
+		</div><!-- start of footer -->
+		<!--#include virtual="/includes/reflibfeedback" -->
+		<!--#include virtual="/includes/framesetfooter" -->
+		<!-- end of footer -->
+	</body>
+</html>

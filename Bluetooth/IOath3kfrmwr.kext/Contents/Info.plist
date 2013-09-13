@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildMachineOSBuild</key>
+	<string>12C60</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>IOath3kfrmwr</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.0.4, Open Source 2012 mac4mat, RehabMan</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.rehabman.IOath3kfrmwr</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>IOath3kfrmwr</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>Mac OS X</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.4</string>
+	<key>DTCompiler</key>
+	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<key>DTPlatformBuild</key>
+	<string>4G2008a</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>11E52</string>
+	<key>DTSDKName</key>
+	<string>macosx10.7</string>
+	<key>DTXcode</key>
+	<string>0452</string>
+	<key>DTXcodeBuild</key>
+	<string>4G2008a</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>IOath3kfrmwr</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>org.rehabman.IOath3kfrmwr</string>
+			<key>IOClass</key>
+			<string>local_IOath3kfrmwr</string>
+			<key>IOProviderClass</key>
+			<string>IOUSBDevice</string>
+			<key>bcdDevice</key>
+			<integer>1</integer>
+			<key>idProduct</key>
+			<integer>12573</integer>
+			<key>idVendor</key>
+			<integer>1008</integer>
+		</dict>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Open Source 2012 mac4mat</string>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.iokit.IOUSBFamily</key>
+		<string>3.7.8</string>
+		<key>com.apple.kpi.iokit</key>
+		<string>9.0.0</string>
+		<key>com.apple.kpi.libkern</key>
+		<string>9.0.0</string>
+	</dict>
+	<key>OSBundleRequired</key>
+	<string>Root</string>
+	<key>Source Code</key>
+	<string>https://github.com/RehabMan/OS-X-Atheros-3k-Firmware</string>
+</dict>
+</plist>

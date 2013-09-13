@@ -1,0 +1,14 @@
+#!/bin/sh
+kextdir="$DSTVOLUME/System/Library/Extensions"
+KBplist="$kextdir/VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Keyboard.kext/Contents/Info.plist"
+cond1=`/usr/libexec/PlistBuddy -c "Print ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:1'" "$KBplist"`
+cond2=";The following 12 items map Fn+fkeys to fkeys"
+if [ "$cond1" == "$cond2" ]; 
+then
+	/usr/libexec/PlistBuddy -c "Delete ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map'" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map' array" "$KBplist"
+	/usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:ApplePS2Keyboard:Custom PS2 Map:0' string ';Items must be strings in the form of scanfrom=scanto'" "$KBplist"
+	touch "$kextdir"
+else
+	echo "No patch is required!"
+fi	

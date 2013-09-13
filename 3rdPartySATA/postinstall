@@ -1,0 +1,3 @@
+#!/bin/sh
+#repairing the kext cache
+touch "$DSTVOLUME/System/Library/Extensions"

@@ -1,0 +1,7 @@
+#!/bin/bash
+# removing old kext, if exist.
+kextdir="$DSTVOLUME/System/Library/Extensions"
+if [ -e  "$kextdir/RealtekRTL81xx.kext" ]
+then
+  rm -rf "$kextdir/RealtekRTL81xx.kext"
+fi

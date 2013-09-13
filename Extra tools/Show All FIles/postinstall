@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ ! -r "$HOME/Desktop/Tools" ];
+then
+mkdir "$HOME/Desktop/Tools"
+chown "$USER" "$HOME/Desktop/Tools"
+fi
+cp -rf "$DSTVOLUME/tmp/apps/ShowAllFiles.app" "$HOME/Desktop/Tools/"
+chown -R "$USER" "$HOME/Desktop/Tools/ShowAllFiles.app"

@@ -1,0 +1,146 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green45\blue153;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21000\viewh10260\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 HP ProBook Installer is an all-in one OS X post installation tool designed to enable boot from hard drive, and install support for audio, ethernet, WiFi, graphics (including full resolution VGA and HDMI) and bluetooth on HP ProBook notebooks.\
+\
+Supported models:\
+\
+- 4230s\
+- 4330s\
+- 4430s\
+- 4530s\
+- 4730s\
+\
+
+\fs28 \cf2 Please note that this installer only supports the Sandy Bridge versions of these models!
+\fs24 \cf0 \
+\
+
+\b What's new
+\b0 :\
+\
+
+\b Version 6.0 ( November 2nd 2012):
+\b0 \
+- Added support for OS X Mountain Lion 10.8.2 and OS X Lion 10.7.5.\
+- The current keyboard kexts are replaced by the latest 
+\b VoodooPS2Controller.kext
+\b0  from RehabMan in all OS X options.\
+- The current battery kexts are replaced by the latest 
+\b AppleSmartBatteryManager.kext
+\b0  from RehabMan in all OS X options.\
+- The current 
+\b FakeSMC.kext
+\b0  and all its plugins are updated to the latest version (rev.625) in all Lion and Mountain Lion options.\
+- The new fan solution from RehabMan is integrated in the Installer (
+\b ACPIPoller.kext
+\b0 , 
+\b Fanreset.dylib
+\b0  in all OS X options and an additional NF DSDT options are added. 
+\b HWMonitor
+\b0  is updated with a version, modified by RehabMan).\
+- The Bluetooth kext option is updated with universal kext, compatible with all OS X versions in the Installer, and all other copies are removed from all OS X options.\
+- 
+\b IO80211Family.kext
+\b0  is removed from the Installer and replaced by a patch in every OS specific option, which performs the patch in-place.\
+- The 
+\b ACHI patch
+\b0  is updated to support all Mountain Lion versions, released so far.\
+- 
+\b Chimera
+\b0  is updated to 1.11.1.\
+- Added the 
+\b AHCI 3rd party kext
+\b0  from MacMan.\
+- Other small fixes.\
+\
+
+\b Version 5.0 (August 2nd, 2012):
+\b0 \
+-Added 10.8 ML support Kext\
+-Added Chimera 1.11.0\
+\
+
+\b Version 4.0 (June 19th, 2012):
+\b0 \
+-Added 10.7.4 support Kext\
+-Added all i3, i5, & i7 ssdts so you don't have to add Drop ssdt in your org.chameleon.Boot.plist\
+-Added much need apps to the tools folder\
+-Added Chimera 1.10.0\
+-Added update bluetooth fix\
+-Added 1920x1080 DSDTs for 1080p screens\
+-Added ethernet silent install\
+-Added SMCpingDaemon for graphical glitches\
+-Added System Definitions\
+\
+
+\b Version 3.3.0 (March 13th, 2012):
+\b0 \
+-Added 10.7.3 wifi kext for better stability with connection to 10.7.3\
+-Added DSDT's for Radeon F0A and F09\
+-Recompiled DSDT's so they compile without errors\
+-Updated FakeSMC and IntelCPUMonitor \
+-Added a note that when a DSDT is selected, a CPU needs to be picked or it is erased.\
+\
+
+\b Version 3.2.0 (February 5th, 2012):
+\b0 \
+-Fixed wifi in 10.7.3\
+\
+
+\b Version 3.2.0b (February 2nd, 2012):
+\b0 \
+-Updated IntelCPUMonitor.kext and added SMC Monitor to the Extra tools in place of SMC Fan Monitor\
+-Added support for 10.7.3\
+-Added support for i7 2630qm\
+-Removed 10.7.2 Alternate\
+\
+
+\b Version 3.1.1 (January 12th, 2012):
+\b0 \
+-Added AppleHDA with external mic support- but it is not fully functional, you have to yell for it to be heard\
+-Added 10.7.2 Alternate, to try to combat these glitches\
+\
+
+\b Version 3.1.0 (December 28th, 2011):
+\b0 \
+-Removed the functional but not perfect ethernet kext and added Lnx2Mac's ethernet installer to install his kext which works a lot better\
+-Added support for two i5 CPU's using DROP SSDT methods as well as new SSDT.aml's for them\
+-Changed installer to not say that installing system files erased DSDT, as it no longer does\
+-Changed permissions to /Extra folder so everyone can edit it without typing their password each time\
+\
+
+\b Version 3.0.5 (December 22th, 2011):
+\b0 \
+-Fixed 10.6.8 option so it installs the Extra folder correctly\
+\
+
+\b Version 3.0.4 (December 14th, 2011):
+\b0 \
+-Updated USB 3.0 kext\
+-Fixed a problem which still prevented i5 CPU kexts from possibly installing\
+\
+
+\b Version 3.0.3 (December 13th, 2011):
+\b0 \
+-Fixed a bug which caused the i5 or i7 CPU kexts to not install\
+\
+
+\b Version 3.0.2 (December 13th, 2011):
+\b0 \
+-Changed description for OS X version files so you know it doesn't erase your DSDT now.\
+-Changed to a 1 second timeout, since it lasts longer then actually 1 second.\
+-Updated Chimera to v1.7.0\
+\
+
+\b Version 3.0.1 (December 9th, 2011):
+\b0 \
+-Changed how DSDT is handled, so it now backs up your DSDT and restores it, unless you are installing a new one.\
+\
+
+\b Version 3.0.0 (December 8th, 2011):
+\b0 \
+-Initial release!}

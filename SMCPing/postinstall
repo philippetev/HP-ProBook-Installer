@@ -1,0 +1,4 @@
+#!/bin/sh
+/usr/bin/killall SMCpingDaemon
+sleep 3
+/sbin/SystemStarter start SMCpingDaemon

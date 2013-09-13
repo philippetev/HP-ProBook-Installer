@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!--
+=================================================================================
+
+	IMPORTANT:	DO NOT ADD NEW CPU ENTRIES INTO THIS LIST UNTIL GM CANDIDATE.
+	
+	This file containst the default volume settings, expressed in dB, to be 
+	set by applications needing to set the volume early in the boot process.  
+	The values encoded are derived from testing target hardware and applying 
+	a volume setting that will produce a specified Sound Pressure Level (SPL).
+	
+	The file is to contain a series of named arrays where the array name will
+	represent a given CPU by matching the CPU 'layout-id' property value as a
+	key to locate an array of default volume settings for the CPU.  Code using
+	this file should search the IOService plane of the registry for a 
+	'layout-id' property value (this should be located in the 'HDEF' node
+	for i386 architecture CPUs), then create a string with that represents
+	the decimal value of the 'layout-id' property and use that string as the
+	<key> to locate the dictionary holding the array of default volume levels
+	for the target CPU.
+	
+	Each named array will contain one or more dictionaries to describe the 
+	default volume setting for a given analog output port.  A dictionary entry 
+	will exist for each supported analog output port.  Each dictionary 
+	describing a volume setting will have a key to describe the output port 
+	and a real number to describe the volume setting expressed in dB.
+
+	<rdar://6179941> Added support for Headphone
+	
+	PLEASE MAINTAIN THE ENTRIES IN 'layout-id' ORDER AS THAT WILL STREAMLINE 
+	VERIFICATION PROCESSES
+	
+=================================================================================
+-->
+    <dict>
+		<key>1</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-19.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+		</array>
+        <key>2</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-18.0</real>
+            </dict>
+        </array>
+		<key>3</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-10.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>4</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-19.5</real>
+            </dict>
+        </array>
+        <key>5</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-13.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+		</array>
+        <key>6</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-18.0</real>
+            </dict>
+        </array>
+        <key>7</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-18.0</real>
+            </dict>
+        </array>
+        <key>8</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-9.0</real>
+            </dict>
+        </array>
+		<key>9</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-10.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-30.0</real>
+			</dict>
+		</array>
+        <key>10</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-12.75</real>
+            </dict>
+        </array>
+        <key>11</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-10.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>12</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-8.0</real>
+            </dict>
+        </array>
+        <key>13</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-14.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>14</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-18.0</real>
+            </dict>
+        </array>
+        <key>15</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-18.0</real>
+            </dict>
+        </array>
+		<key>16</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-19.0</real>
+            </dict>
+        </array>
+        <key>17</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-10.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-30.0</real>
+			</dict>
+		</array>
+		<key>18</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-10.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-30.0</real>
+			</dict>
+		</array>
+   		<key>19</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-18.5</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+		</array>
+		<key>22</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-18.0</real>
+            </dict>
+        </array>
+        <key>23</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-18.0</real>
+            </dict>
+        </array>
+		<key>24</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-10.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-30.0</real>
+			</dict>
+		</array>
+        <key>26</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-16.5</real>
+            </dict>
+        </array>
+        <key>27</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-10.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>28</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-12.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>29</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-10.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>30</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-13.5</real>
+            </dict>
+        </array>
+		<key>31</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-18.5</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+		</array>
+		<key>32</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-13.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-30.0</real>
+			</dict>
+		</array>
+        <key>34</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-12.0</real>
+            </dict>
+        </array>
+		<key>39</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-19.5</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>42</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-17.0</real>
+            </dict>
+        </array>
+		<key>44</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-13.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>46</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-22.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>48</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-15.0</real>
+            </dict>
+        </array>
+        <key>50</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-18.0</real>
+            </dict>
+        </array>
+		<key>52</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-8.0</real>
+            </dict>
+        </array>
+		<key>53</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-9.0</real>
+            </dict>
+        </array>
+        <key>54</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-13.0</real>
+            </dict>
+        </array>
+		<key>56</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-17.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>58</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-22.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>60</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-15.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>61</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-12.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>62</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-18.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>63</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-13.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>64</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-19.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>65</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-5.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>66</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-6.0</real>
+            </dict>
+        </array>
+		<key>67</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-15.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-21.0</real>
+			</dict>
+		</array>
+		<key>69</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-19.0</real>
+			</dict>
+		</array>
+		<key>70</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-20.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>71</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-19.5</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>		
+        <key>73</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-18.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-21.0</real>
+			</dict>
+		</array>
+		<key>74</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-13.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+		</array>
+		<key>75</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-10.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>76</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-10.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>77</key>	<!--	<rdar://6772639> duplicates M97 for now...	-->
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-14.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+		<key>78</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-10.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-30.0</real>
+			</dict>
+		</array>
+		<key>79</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-10.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-30.0</real>
+			</dict>
+		</array>
+		<key>80</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-13.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+		</array>
+		<key>81</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-10.0</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-30.0</real>
+			</dict>
+		</array>
+		<key>84</key>
+		<array>
+			<dict>
+				<key>Internal Speaker</key>
+				<real>-18.5</real>
+			</dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+		</array>
+        <key>91</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-12.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>98</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-5.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+        <key>99</key>
+        <array>
+            <dict>
+                <key>Internal Speaker</key>
+                <real>-5.0</real>
+            </dict>
+			<dict>
+				<key>Headphone</key>
+				<real>-32.0</real>
+			</dict>
+        </array>
+    </dict>
+</plist>
+

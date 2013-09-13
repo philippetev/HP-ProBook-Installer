@@ -1,0 +1,67 @@
+<dict>
+    <key>LayoutID</key>
+    <integer>16392</integer>
+	<key>PathMapRef</key>
+	<array>
+		<dict>
+			<key>CodecID</key>
+			<array>
+				<integer>269697542</integer>	<!--	Cirrus Logic CS4206:	0x10134206	-->
+			</array>
+			<key>Headphone</key>
+			<dict/>
+			<key>Inputs</key>
+			<array>
+                <string>LineIn</string>
+                <string>Mic</string>
+                <string>SPDIFIn</string>
+			</array>
+			<key>IntSpeaker</key>
+			<dict>
+				<key>MaximumBootBeepValue</key>
+				<integer>127</integer>
+				<key>MuteGPIO</key>
+                <integer>2</integer>
+			</dict>
+			<key>LineIn</key>
+			<dict/>
+			<key>LineOut</key>
+			<dict>
+				<key>MuteGPIO</key>
+                <integer>3</integer>
+			</dict>
+			<key>Mic</key>
+			<dict>
+                <key>MuteGPIO</key>
+                <integer>1342242829</integer>		<!-- 0x5001000D	-->
+			</dict>
+			<key>Outputs</key>
+			<array>
+                <string>Headphone</string>
+                <string>IntSpeaker</string>
+                <string>LineOut</string>
+                <string>SPDIFOut</string>
+			</array>
+			<key>PathMapID</key>
+            <integer>4206</integer>
+			<key>SPDIFIn</key>
+			<dict/>
+			<key>SPDIFOut</key>
+			<dict/>
+		</dict>
+		<dict>
+			<key>CodecID</key>
+			<array>
+				<integer>282984455</integer>	<!--	nVidia HDMI MCP79:	0x10DE0007	-->
+			</array>
+			<key>HDMI</key>
+			<dict/>
+			<key>Outputs</key>
+			<array>
+                <string>HDMI</string>
+			</array>
+			<key>PathMapID</key>
+			<integer>282984455</integer>		<!-- =0x10DE0007 -->
+		</dict>
+	</array>
+</dict>
