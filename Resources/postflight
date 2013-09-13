@@ -5,5 +5,6 @@ if [ "$RebuildOn" == "yes" ]
 then
 	touch "$DSTVOLUME/System/Library/Extensions"
 fi
-# deleting PBI.plist
+# deleting temporary files
 rm -rf /tmp/PBI.plist
+rm -rf /tmp/Apps

@@ -4,5 +4,6 @@ then
 mkdir "$HOME/Desktop/Tools"
 chown "$USER" "$HOME/Desktop/Tools"
 fi
-cp -rf "$DSTVOLUME/tmp/apps/Trim Enabler.app" "$HOME/Desktop/Tools/"
+unzip "$DSTVOLUME/tmp/apps/Trim Enabler.zip" -d "$DSTVOLUME/tmp/apps/"
+cp -Rf "$DSTVOLUME/tmp/apps/Trim Enabler.app" "$HOME/Desktop/Tools/"
 chown -R "$USER" "$HOME/Desktop/Tools/Trim Enabler.app"

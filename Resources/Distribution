@@ -458,7 +458,7 @@
     <pkg-ref id="com.MadMax.pkg.SetBrightness75" version="1.0" auth="Root" installKBytes="14">#SetBrightness75.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.MacBookPro10.1" version="1.0" auth="Root" installKBytes="711">#MacBookPro10.1.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.1080.Radeon.F20" version="1.0" auth="Root" installKBytes="141">#1080.Radeon.F20.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="387">#Extra_HWMonitor_SL.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="312">#Extra_HWMonitor_SL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ML10.8.3" version="1.0" auth="Root" installKBytes="2756">#10.8.3.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.i5-2410M" version="1.0" auth="Root" installKBytes="1">#i5-2410M.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Ivy.10.8.2" version="1.0" auth="Root" installKBytes="4513">#Ivy.10.8.2.pkg</pkg-ref>
@@ -496,9 +496,9 @@
     <pkg-ref id="com.MadMax.pkg.0.postinstall" version="1.0" auth="Root" installKBytes="0">#0.postinstall.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness25" version="1.0" auth="Root" installKBytes="14">#SetBrightness25.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.i7-2920QM" version="1.0" auth="Root" installKBytes="1">#i7-2920QM.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="1936">#Extra_TrimEnabler.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="1212">#Extra_TrimEnabler.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ShowAllFIles" version="1.0" auth="Root" installKBytes="55">#Extra_ShowAllFIles.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="565">#Extra_HWMonitor.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="298">#Extra_HWMonitor.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.MacBookPro8.2" version="1.0" auth="Root" installKBytes="711">#MacBookPro8.2.pkg</pkg-ref>
     <!--+==========================+
         |    JavaScript Scripts    |
@@ -607,7 +607,7 @@
 		tSelect=choices.installer_choice_2.selected;
 		return (tSelect);
 	}
-
+	
 	function installer_choice_8_1_requirement(inCheckVisibilityOnly,inShowFailedToolTip)
 	{
 		var tResult;

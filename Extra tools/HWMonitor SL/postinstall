@@ -4,5 +4,6 @@ then
 mkdir "$HOME/Desktop/Tools"
 chown "$USER" "$HOME/Desktop/Tools"
 fi
+unzip "$DSTVOLUME/tmp/apps/HWMonitor_SL.zip" -d "$DSTVOLUME/tmp/apps/"
 cp -rf "$DSTVOLUME/tmp/apps/HWMonitor.app" "$HOME/Desktop/Tools/"
 chown -R "$USER" "$HOME/Desktop/Tools/HWMonitor.app"
