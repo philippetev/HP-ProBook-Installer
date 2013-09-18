@@ -15,11 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.2.938</string>
+	<string>5.3.1031</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>938</string>
+	<string>1031</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvmgcc42</string>
 	<key>DTPlatformBuild</key>
@@ -78,7 +78,7 @@
 		<key>com.apple.kpi.unsupported</key>
 		<string>10.0.0</string>
 		<key>org.netkas.driver.FakeSMC</key>
-		<string>735</string>
+		<string>808</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>

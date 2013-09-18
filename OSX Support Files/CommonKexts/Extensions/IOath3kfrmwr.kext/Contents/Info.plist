@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>12E55</string>
+	<string>12F37</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>IOath3kfrmwr</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.1.6, Open Source 2012-2013 mac4mat, RehabMan</string>
+	<string>1.2.0, Open Source 2012-2013 mac4mat, RehabMan</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.rehabman.driver.IOath3kfrmwr</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2.0</string>
 	<key>CFBundleSignature</key>
 	<string>Mac OS X</string>
 	<key>CFBundleVersion</key>
-	<string>1.1.6</string>
+	<string>1.2.0</string>
 	<key>DTCompiler</key>
 	<string></string>
 	<key>DTPlatformBuild</key>
@@ -60,7 +60,7 @@
 				</dict>
 			</array>
 			<key>IOClass</key>
-			<string>local_IOath3kfrmwr</string>
+			<string>org_rehabman_IOath3kfrmwr</string>
 			<key>IOProviderClass</key>
 			<string>IOUSBDevice</string>
 			<key>PipeNumber</key>
@@ -92,7 +92,7 @@
 				</dict>
 			</array>
 			<key>IOClass</key>
-			<string>local_IOath3kfrmwr</string>
+			<string>org_rehabman_IOath3kfrmwr</string>
 			<key>IOProviderClass</key>
 			<string>IOUSBDevice</string>
 			<key>PipeNumber</key>
@@ -124,7 +124,7 @@
 				</dict>
 			</array>
 			<key>IOClass</key>
-			<string>local_IOath3kfrmwr</string>
+			<string>org_rehabman_IOath3kfrmwr</string>
 			<key>IOProviderClass</key>
 			<string>IOUSBDevice</string>
 			<key>PipeNumber</key>
@@ -156,7 +156,7 @@
 				</dict>
 			</array>
 			<key>IOClass</key>
-			<string>local_IOath3kfrmwr</string>
+			<string>org_rehabman_IOath3kfrmwr</string>
 			<key>IOProviderClass</key>
 			<string>IOUSBDevice</string>
 			<key>PipeNumber</key>
@@ -188,7 +188,7 @@
 				</dict>
 			</array>
 			<key>IOClass</key>
-			<string>local_IOath3kfrmwr</string>
+			<string>org_rehabman_IOath3kfrmwr</string>
 			<key>IOProviderClass</key>
 			<string>IOUSBDevice</string>
 			<key>PipeNumber</key>
@@ -207,7 +207,7 @@
 			<key>CheckEndpoints</key>
 			<array/>
 			<key>IOClass</key>
-			<string>local_IOath3kfrmwr</string>
+			<string>org_rehabman_IOath3kfrmwr</string>
 			<key>IOProviderClass</key>
 			<string>IOUSBDevice</string>
 			<key>PipeNumber</key>
@@ -239,7 +239,7 @@
 				</dict>
 			</array>
 			<key>IOClass</key>
-			<string>local_IOath3kfrmwr</string>
+			<string>org_rehabman_IOath3kfrmwr</string>
 			<key>IOProviderClass</key>
 			<string>IOUSBDevice</string>
 			<key>PipeNumber</key>
@@ -271,7 +271,7 @@
 				</dict>
 			</array>
 			<key>IOClass</key>
-			<string>local_IOath3kfrmwr</string>
+			<string>org_rehabman_IOath3kfrmwr</string>
 			<key>IOProviderClass</key>
 			<string>IOUSBDevice</string>
 			<key>PipeNumber</key>

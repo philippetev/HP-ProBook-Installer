@@ -10,8 +10,6 @@ into device label WMID remove_entry;
 # remove references to device WMID
 into_all all code_regex .*WMID.*\(.*\) removeall_matched;
 into method label _TMP parent_label PCHZ code_regex Store\s*\(DerefOf\s*\(Index\s*\(DerefOf\s*\(Index\s*\(\\_SB\.WMID\.TSTV,[\s\S]*\} remove_matched;
-
-
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 01_Compilation.txt
 
@@ -93,21 +91,22 @@ end;
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 02_DSDTPatch.txt
 
-#   Power fix - uses AppleACPIBatteryManager.kext  instead VoodooBattery
-into device label AC insert
-begin
-Name (_PRW, Package() { 0x18, 0x03 })
-end;
-
-
 #    Replace all instances of AC with ADP1
 into_all all code_regex \.AC, replaceall_matched begin .ADP1, end;
 into_all all code_regex \(AC, replaceall_matched begin (ADP1, end;
 into all label AC set_label begin ADP1 end;
 
 
+#   Power fix - uses AppleACPIBatteryManager.kext  instead VoodooBattery
+into device label ADP1 code_regex Name\s+\(_PRW,[\s\S]*\}\) remove_matched;
+into device label ADP1 insert
+begin
+Name (_PRW, Package() { 0x18, 0x03 })
+end;
+
+
 #     Enable functions keys
-#     Override DSDT oemId (for Clover, since it patches with "Apple "
+#     Override DSDT oemId (for Clover, since it patches with "Apple ")
 into method label _DSM parent_label PS2K remove_entry;
 into device label PS2K insert
 begin
@@ -141,7 +140,7 @@ Method (_DSM, 4, NotSerialized)\n
         "layout-id",\n
         Buffer() { 0x0C, 0x00, 0x00, 0x00 },\n
         "PinConfigurations",\n
-        Buffer() { }\n
+        Buffer() { },\n
     })\n
 }\n
 end;
@@ -230,7 +229,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c27",\n
     })\n
 }\n
 end;
@@ -244,7 +245,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c2c",\n
     })\n
 }\n
 end;
@@ -258,7 +261,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c27",\n
     })\n
 }\n
 end;
@@ -272,7 +277,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c2c",\n
     })\n
 }\n
 end;
@@ -286,7 +293,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return(Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c27",\n
     })\n
 }\n
 end;
@@ -300,7 +309,9 @@ Method (_DSM, 4, NotSerialized)\n
     Store (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c2c",\n
     })\n
 }\n
 end;
@@ -314,7 +325,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c27",\n
     })\n
 }\n
 end;
@@ -342,19 +355,27 @@ end;
 # patch _INI method in Scope(_SB)
 into method label _INI replace_content
 begin
-    // always store 0x2710 for "Darwin"\n
-    Store (0x2710, OSYS)\n
+    // always store 0x07D6 for "Darwin"\n
+    Store (0x07D6, OSYS)\n
     \_TZ.BOTT ()\n
     \_TZ.RETD ()\n
     Store (One, PFLV)\n      
 end;
 
-# patch OS checks
-into_all all code_regex If\s\(_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
-begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
+into method label WCOS replace_content
+begin
+    // assume "Windows 2006" values\n
+    Store (0x06, WOSI)\n
+    Store (WOSI, WHOS)\n
+    Return (WOSI)\n
+end;
 
-into_all all code_regex If\s\(\\_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
-begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
+# patch OS checks
+#into_all all code_regex If\s\(_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
+#begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
+
+#into_all all code_regex If\s\(\\_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
+#begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
 
 # Remove icons on menu bar for SD card
 into method label _RMV parent_label SMHC replace_content begin Return (Zero) end;
@@ -518,7 +539,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer() { 0x00 }\n
+        Buffer() { 0x00 },\n
     })\n
 }\n
 end;
@@ -546,7 +567,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer() { 0x00 }\n
+        Buffer() { 0x00 },\n
     })\n
 }\n
 end;
@@ -574,7 +595,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer() { 0x00 }\n
+        Buffer() { 0x00 },\n
     })\n
 }\n
 end;

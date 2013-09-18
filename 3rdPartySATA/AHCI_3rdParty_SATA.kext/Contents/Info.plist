@@ -13,52 +13,13 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.3</string>
+	<string>0.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.3</string>
+	<string>0.4</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>IOAHCISerialATAPI</key>
-		<dict>
-			<key>ATAPI</key>
-			<true/>
-			<key>CFBundleIdentifier</key>
-			<string>com.apple.iokit.IOAHCISerialATAPI</string>
-			<key>IOClass</key>
-			<string>IOAHCISerialATAPI</string>
-			<key>IOProbeScore</key>
-			<integer>1000</integer>
-			<key>IOProviderClass</key>
-			<string>IOAHCIDevice</string>
-			<key>Protocol Characteristics</key>
-			<dict>
-				<key>Physical Interconnect</key>
-				<string>SATA</string>
-				<key>Physical Interconnect Location</key>
-				<string>Internal</string>
-			</dict>
-		</dict>
-		<key>Intel7SeriesAHCI</key>
-                <dict>
-                        <key>CFBundleIdentifier</key>
-                        <string>com.apple.driver.AppleAHCIPort</string>
-                        <key>Chipset Name</key>
-                        <string>7 Series Chipset</string>
-                        <key>IOClass</key>
-                        <string>AppleIntelPchSeriesAHCI</string>
-                        <key>IONameMatch</key>
-                        <array>
-                                <string>pci8086,1e02</string>
-                        </array>
-                        <key>IOProbeScore</key>
-                        <integer>2000</integer>
-                        <key>IOProviderClass</key>
-                        <string>IOPCIDevice</string>
-                        <key>Vendor Name</key>
-                        <string>Intel</string>
-                </dict>
 		<key>ASMedia ASM1061</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
@@ -374,6 +335,25 @@
 			<string>0x01060100&amp;0xffffff00</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x91721b4b</string>
+			<key>IOProbeScore</key>
+			<integer>15000</integer>
+			<key>IOProviderClass</key>
+			<string>IOPCIDevice</string>
+			<key>Vendor Name</key>
+			<string>Marvell</string>
+		</dict>
+		<key>Marvell 88SE9230</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleAHCIPort</string>
+			<key>Chipset Name</key>
+			<string>88SE9230</string>
+			<key>IOClass</key>
+			<string>AppleAHCI</string>
+			<key>IOPCIClassMatch</key>
+			<string>0x01060100&amp;0xffffff00</string>
+			<key>IOPCIPrimaryMatch</key>
+			<string>0x92301b4b</string>
 			<key>IOProbeScore</key>
 			<integer>15000</integer>
 			<key>IOProviderClass</key>

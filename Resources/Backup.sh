@@ -16,6 +16,7 @@ then
 	y)	rm -rf "$2$kext"
 		;;
 	n)	echo "$2$kext will be patched."
+		./display_colors.py "$2$kext" red
 		;;
 	*)	part=`eval echo $flag`
 		rm -rf "$2$part"

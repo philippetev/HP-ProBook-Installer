@@ -10438,6 +10438,22 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/display_colors.py</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
 						<string>3rdPartySATA/list_3rdSATA</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
@@ -11891,7 +11907,7 @@
 													<key>GID</key>
 													<integer>0</integer>
 													<key>PATH</key>
-													<string>OSX Support Files/CommonKexts/Extensions/ACPIPoller.kext</string>
+													<string>OSX Support Files/CommonKexts/Extensions/ACPIBatteryManager.kext</string>
 													<key>PATH_TYPE</key>
 													<integer>1</integer>
 													<key>PERMISSIONS</key>
@@ -11909,7 +11925,7 @@
 													<key>GID</key>
 													<integer>0</integer>
 													<key>PATH</key>
-													<string>OSX Support Files/CommonKexts/Extensions/AppleSmartBatteryManager.kext</string>
+													<string>OSX Support Files/CommonKexts/Extensions/ACPIPoller.kext</string>
 													<key>PATH_TYPE</key>
 													<integer>1</integer>
 													<key>PERMISSIONS</key>
@@ -12214,6 +12230,22 @@
 						<integer>0</integer>
 						<key>PATH</key>
 						<string>Resources/Backup.sh</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/display_colors.py</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
@@ -13286,6 +13318,22 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/display_colors.py</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
 						<string>SSDT Generator/iaslpbi</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
@@ -13850,6 +13898,15 @@
 				<integer>0</integer>
 				<key>VERSION</key>
 				<integer>2</integer>
+			</dict>
+			<key>PACKAGE_SCRIPTS</key>
+			<dict>
+				<key>POSTINSTALL_PATH</key>
+				<dict/>
+				<key>PREINSTALL_PATH</key>
+				<dict/>
+				<key>RESOURCES</key>
+				<array/>
 			</dict>
 			<key>PACKAGE_SETTINGS</key>
 			<dict>
@@ -24181,6 +24238,22 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/display_colors.py</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
 						<string>OSX Support Files/Support patches/Resources/hdafiles.zip</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
@@ -24848,6 +24921,22 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/display_colors.py</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
 						<string>OSX Support Files/Support patches/Resources/hdafiles.zip</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
@@ -25452,6 +25541,22 @@
 						<integer>0</integer>
 						<key>PATH</key>
 						<string>Resources/Backup.sh</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/display_colors.py</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
@@ -27887,7 +27992,7 @@ After their installation, you may find them in a folder on your desktop called "
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>HP ProBook Installer 6.1.4</string>
+						<string>HP ProBook Installer 6.1.5</string>
 					</dict>
 				</array>
 			</dict>

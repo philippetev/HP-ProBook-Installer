@@ -15,11 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.2.938</string>
+	<string>5.3.1031</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>938</string>
+	<string>1031</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvmgcc42</string>
 	<key>DTPlatformBuild</key>
@@ -61,73 +61,92 @@
 				<dict>
 					<key>DisableDevice</key>
 					<false/>
-					<key>Fan Names</key>
-					<dict>
-						<key>FAN0</key>
-						<string>System Fan</string>
-						<key>FAN1</key>
-						<string>CPU Fan</string>
-						<key>FAN2</key>
-						<string>Power Fan</string>
-						<key>FAN3</key>
-						<string>Intake Fan</string>
-						<key>FAN4</key>
-						<string>Exhaust Fan</string>
-						<key>FAN5</key>
-						<string>Fan 6</string>
-						<key>FAN6</key>
-						<string>Fan 7</string>
-						<key>FAN7</key>
-						<string>Fan 8</string>
-						<key>FAN8</key>
-						<string>Fan 9</string>
-						<key>FAN9</key>
-						<string>Fan 10</string>
-						<key>FANA</key>
-						<string>Fan 11</string>
-					</dict>
 					<key>Tachometers</key>
 					<dict>
-						<key>FAN0</key>
-						<string>FAN0</string>
-						<key>FAN1</key>
+						<key>CPUFan</key>
 						<string>FAN1</string>
-						<key>FAN2</key>
-						<string>FAN2</string>
-						<key>FAN3</key>
-						<string>FAN3</string>
-						<key>FAN4</key>
+						<key>ExhaustFan</key>
 						<string>FAN4</string>
 						<key>FAN5</key>
 						<string>FAN5</string>
-						<key>FAN6</key>
-						<string>FAN6</string>
-						<key>FAN7</key>
-						<string>FAN7</string>
-						<key>FAN8</key>
-						<string>FAN8</string>
-						<key>FAN9</key>
-						<string>FAN9</string>
-						<key>FANA</key>
+						<key>Fan 10</key>
 						<string>FANA</string>
+						<key>Fan 6</key>
+						<string>FAN6</string>
+						<key>Fan 7</key>
+						<string>FAN7</string>
+						<key>Fan 8</key>
+						<string>FAN8</string>
+						<key>Fan 9</key>
+						<string>FAN9</string>
+						<key>IntakeFan</key>
+						<string>FAN3</string>
+						<key>PowerFan</key>
+						<string>FAN2</string>
+						<key>System Fan</key>
+						<string>FAN0</string>
 					</dict>
 					<key>Temperatures</key>
 					<dict>
 						<key>Ambient</key>
 						<string>TAMB</string>
-						<key>CPU</key>
+						<key>CPU Heatsink</key>
 						<string>TCPU</string>
 						<key>CPU Proximity</key>
 						<string>TCPP</string>
-						<key>System</key>
+						<key>Mainboard</key>
 						<string>TSYS</string>
+						<key>UseKelvins</key>
+						<false/>
 					</dict>
 					<key>Voltages</key>
 					<dict>
-						<key>CPU</key>
+						<key>CPU Core</key>
 						<string>VCPU</string>
 						<key>Memory</key>
 						<string>VMEM</string>
+					</dict>
+				</dict>
+			</dict>
+		</dict>
+		<key>ACPI Debugging Plugin</key>
+		<dict>
+			<key>IOClass</key>
+			<string>ACPIPoller2</string>
+			<key>IOMatchCategory</key>
+			<string>FakeSMCPlugin</string>
+			<key>IONameMatch</key>
+			<array>
+				<string>POLL0000</string>
+			</array>
+			<key>IOProbeScore</key>
+			<integer>1000</integer>
+			<key>IOProviderClass</key>
+			<string>IOACPIPlatformDevice</string>
+			<key>Platform Profile - DISABLED</key>
+			<dict>
+				<key>Default</key>
+				<dict>
+					<key>DisableDevice</key>
+					<false/>
+					<key>LoggingEnabled</key>
+					<true/>
+					<key>Methods</key>
+					<array>
+						<string>XCNT</string>
+						<string>OSYS</string>
+					</array>
+					<key>PollingInterval</key>
+					<integer>2000</integer>
+					<key>PollingTimeout</key>
+					<integer>5000</integer>
+				</dict>
+				<key>HP</key>
+				<dict>
+					<key>Default</key>
+					<dict>
+						<key>DisableDevice</key>
+						<true/>
 					</dict>
 				</dict>
 			</dict>
@@ -166,7 +185,7 @@
 		<key>Thermal Zone Monitoring Plugin</key>
 		<dict>
 			<key>IOClass</key>
-			<string>TZSensors</string>
+			<string>ACPISensors</string>
 			<key>IOMatchCategory</key>
 			<string>FakeSMCPlugin</string>
 			<key>IOProbeScore</key>
@@ -184,6 +203,13 @@
 				<dict>
 					<key>DisableDevice</key>
 					<false/>
+					<key>Temperatures</key>
+					<dict>
+						<key>Thermal Zone</key>
+						<string>_TMP</string>
+						<key>UseKelvins</key>
+						<true/>
+					</dict>
 				</dict>
 				<key>HP</key>
 				<dict>
@@ -211,7 +237,7 @@
 		<key>com.apple.kpi.unsupported</key>
 		<string>10.0.0</string>
 		<key>org.netkas.driver.FakeSMC</key>
-		<string>735</string>
+		<string>808</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>

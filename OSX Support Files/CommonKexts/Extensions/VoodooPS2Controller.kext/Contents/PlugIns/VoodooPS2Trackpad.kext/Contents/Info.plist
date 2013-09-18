@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>12E55</string>
+	<string>12F37</string>
 	<key>CFBundleExecutable</key>
 	<string>VoodooPS2Trackpad</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.8.7, Copyright Apple Computer, Inc. 2002-2003, mackerintel 2008, RehabMan 2012-2013</string>
+	<string>1.8.8, Copyright Apple Computer, Inc. 2002-2003, mackerintel 2008, RehabMan 2012-2013</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.rehabman.voodoo.driver.PS2Trackpad</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.8.7</string>
+	<string>1.8.8</string>
 	<key>DTCompiler</key>
 	<string></string>
 	<key>DTPlatformBuild</key>
@@ -246,6 +246,8 @@
 					<integer>100</integer>
 					<key>DoubleTapThresholdY</key>
 					<integer>100</integer>
+					<key>DragExitDelayTime</key>
+					<integer>1000000000</integer>
 					<key>DragLockTempMask</key>
 					<integer>1048592</integer>
 					<key>EdgeBottom</key>
@@ -312,6 +314,10 @@
 					<integer>99999</integer>
 					<key>RightClickZoneTop</key>
 					<integer>2000</integer>
+					<key>ScrollDeltaThreshX</key>
+					<integer>10</integer>
+					<key>ScrollDeltaThreshY</key>
+					<integer>10</integer>
 					<key>ScrollResolution</key>
 					<integer>2950</integer>
 					<key>SkipPassThrough</key>
@@ -407,7 +413,7 @@
 		<key>com.apple.kpi.mach</key>
 		<string>9.0.0</string>
 		<key>org.rehabman.voodoo.driver.PS2Controller</key>
-		<string>1.8.7</string>
+		<string>1.8.8</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Console</string>

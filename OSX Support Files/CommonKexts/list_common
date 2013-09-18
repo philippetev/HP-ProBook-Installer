@@ -1,5 +1,5 @@
 /System/Library/Extensions/ACPIPoller.kext<=>y
-/System/Library/Extensions/AppleSmartBatteryManager.kext<=>y
+/System/Library/Extensions/ACPIBatteryManager.kext<=>y
 /System/Library/Extensions/HSSDBlockStorage.kext<=>y
 /System/Library/Extensions/IOath3kfrmwr.kext<=>y
 /System/Library/Extensions/JMB38X.kext<=>y
