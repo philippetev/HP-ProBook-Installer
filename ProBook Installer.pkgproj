@@ -12280,11 +12280,11 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>com.MadMax.pkg.CommonKexts</string>
+				<string>com.MadMax.pkg.CommonFiles</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
-				<string>CommonKexts</string>
+				<string>CommonFiles</string>
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
@@ -25824,7 +25824,7 @@
 										<key>LANGUAGE</key>
 										<string>English</string>
 										<key>VALUE</key>
-										<string>Contains the common kexts, used in all OS X versions (FakeSMC, the battery kext, the keyboard kext, the Bluetooth kext, the Ethernet kext, PXHCD.kext, JMB38X.kext, HSSDBlockStorage.kext and ACPIPoller.kext)</string>
+										<string>Contains the common kexts, used in all OS X versions (FakeSMC, the battery kext, the keyboard kext, the Bluetooth kext, the Ethernet kext, JMB38X.kext, HSSDBlockStorage.kext, GenericUSBxHCI.kext and ACPIPoller.kext)</string>
 									</dict>
 								</array>
 								<key>OPTIONS</key>
@@ -25844,7 +25844,7 @@
 										<key>LANGUAGE</key>
 										<string>English</string>
 										<key>VALUE</key>
-										<string>Common kexts</string>
+										<string>Common files</string>
 									</dict>
 								</array>
 								<key>TOOLTIP</key>
@@ -27992,7 +27992,7 @@ After their installation, you may find them in a folder on your desktop called "
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>HP ProBook Installer 6.1.5</string>
+						<string>HP ProBook Installer 6.1.6</string>
 					</dict>
 				</array>
 			</dict>

@@ -96,7 +96,7 @@
     </choice>
     <choice id="installer_choice_2" title="INSTALLER_CHOICE_2_TITLE" description="INSTALLER_CHOICE_2_DESCRIPTION"/>
     <choice id="installer_choice_3" start_visible="false" start_selected="false" selected="CommonSelected()" title="INSTALLER_CHOICE_3_TITLE" description="INSTALLER_CHOICE_3_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.CommonKexts"/>
+        <pkg-ref id="com.MadMax.pkg.CommonFiles"/>
     </choice>
     <choice id="installer_choice_4_1_1" start_selected="false" selected="(my.choice.selected &amp;&amp; !choices.installer_choice_4_1_2.selected &amp;&amp; !choices.installer_choice_4_1_3.selected)" title="INSTALLER_CHOICE_4_1_1_TITLE" description="INSTALLER_CHOICE_4_1_1_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.Part1.4x30s"/>
@@ -261,7 +261,7 @@
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.std" version="1.0" auth="Root" installKBytes="2">#Part2.fan.std.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="22">#Part1.4x40s.sb.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.CommonKexts" version="1.0" auth="Root" installKBytes="2537">#CommonKexts.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.CommonFiles" version="1.0" auth="Root" installKBytes="2537">#CommonFiles.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Chameleon" version="2.2" auth="Root" installKBytes="4714">#Chameleon.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Opt.Atheros" version="1.0" auth="Root" installKBytes="1">#Opt.Atheros.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="312">#Extra_HWMonitor_SL.pkg</pkg-ref>
@@ -276,7 +276,7 @@
     <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="1093">#Extra_HWMonitor.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.0.preinstall" version="1.0" auth="Root" installKBytes="0">#0.preinstall.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.MaciASL" version="1.0" auth="Root" installKBytes="3505">#Extra_MaciASL.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="3365">#Extra_TrimEnabler.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="4097">#Extra_TrimEnabler.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Support.4x40" version="1.0" auth="Root" installKBytes="0">#Support.4x40.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.EDIDgenerator" version="6.3" auth="Root" installKBytes="0">#EDID_generator.pkg</pkg-ref>
