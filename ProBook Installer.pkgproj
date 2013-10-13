@@ -26761,7 +26761,7 @@ System definition: MacBookPro9,1 - Core i7 (3820QM) 2.70 GHz</string>
 										<key>LANGUAGE</key>
 										<string>English</string>
 										<key>VALUE</key>
-										<string>Installs Chameleon trunk r2255 bootloader. This allows you to boot your laptop without the assistance of a USB Flash Drive, or CD.
+										<string>Installs the Chameleon bootloader. This allows you to boot your laptop without the assistance of a USB Flash Drive, or CD.
 
 Credits for the Chameleon Team.</string>
 									</dict>
@@ -26783,7 +26783,7 @@ Credits for the Chameleon Team.</string>
 										<key>LANGUAGE</key>
 										<string>English</string>
 										<key>VALUE</key>
-										<string>Chameleon r2255</string>
+										<string>Chameleon r2266</string>
 									</dict>
 								</array>
 								<key>TOOLTIP</key>
