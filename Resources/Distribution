@@ -249,7 +249,7 @@
     <pkg-ref id="com.MadMax.pkg.Patcher" version="1.0" auth="Root" installKBytes="1068">#Patcher.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i7.sb.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1596">#Extra_ChameleonWizard.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1593">#Extra_ChameleonWizard.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.BlinkScreen" version="1.0" auth="Root" installKBytes="10">#BlinkScreen.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i5.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i5.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Support.4x30" version="1.0" auth="Root" installKBytes="0">#Support.4x30.pkg</pkg-ref>
@@ -261,8 +261,8 @@
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.std" version="1.0" auth="Root" installKBytes="2">#Part2.fan.std.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="22">#Part1.4x40s.sb.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.CommonFiles" version="1.0" auth="Root" installKBytes="2537">#CommonFiles.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Chameleon" version="2.2" auth="Root" installKBytes="4714">#Chameleon.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.CommonFiles" version="1.0" auth="Root" installKBytes="2536">#CommonFiles.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Chameleon" version="2.2" auth="Root" installKBytes="4726">#Chameleon.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Opt.Atheros" version="1.0" auth="Root" installKBytes="1">#Opt.Atheros.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="312">#Extra_HWMonitor_SL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.quiet" version="1.0" auth="Root" installKBytes="5">#Part2.fan.quiet.pkg</pkg-ref>
@@ -273,10 +273,10 @@
     <pkg-ref id="com.MadMax.pkg.OldKextRemover" version="1.0" auth="Root" installKBytes="0">#Extra_OldKextRemover.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SSDTGenerator" version="1.0" auth="Root" installKBytes="0">#SSDTGenerator.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SetBrightness50" version="1.0" auth="Root" installKBytes="14">#SetBrightness50.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="1093">#Extra_HWMonitor.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="2134">#Extra_HWMonitor.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.0.preinstall" version="1.0" auth="Root" installKBytes="0">#0.preinstall.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.MaciASL" version="1.0" auth="Root" installKBytes="3505">#Extra_MaciASL.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="4097">#Extra_TrimEnabler.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="4217">#Extra_TrimEnabler.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Support.4x40" version="1.0" auth="Root" installKBytes="0">#Support.4x40.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.EDIDgenerator" version="6.3" auth="Root" installKBytes="0">#EDID_generator.pkg</pkg-ref>
