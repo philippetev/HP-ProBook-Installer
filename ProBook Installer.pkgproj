@@ -10438,22 +10438,6 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/display_colors.py</string>
-						<key>PATH_TYPE</key>
-						<integer>1</integer>
-						<key>PERMISSIONS</key>
-						<integer>493</integer>
-						<key>TYPE</key>
-						<integer>3</integer>
-						<key>UID</key>
-						<integer>0</integer>
-					</dict>
-					<dict>
-						<key>CHILDREN</key>
-						<array/>
-						<key>GID</key>
-						<integer>0</integer>
-						<key>PATH</key>
 						<string>3rdPartySATA/list_3rdSATA</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
@@ -12263,22 +12247,6 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/display_colors.py</string>
-						<key>PATH_TYPE</key>
-						<integer>1</integer>
-						<key>PERMISSIONS</key>
-						<integer>493</integer>
-						<key>TYPE</key>
-						<integer>3</integer>
-						<key>UID</key>
-						<integer>0</integer>
-					</dict>
-					<dict>
-						<key>CHILDREN</key>
-						<array/>
-						<key>GID</key>
-						<integer>0</integer>
-						<key>PATH</key>
 						<string>OSX Support Files/CommonKexts/list_common</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
@@ -13321,22 +13289,6 @@
 						<integer>0</integer>
 						<key>PATH</key>
 						<string>OSX Support Files/Support patches/Resources/scripts/Backup.sh</string>
-						<key>PATH_TYPE</key>
-						<integer>1</integer>
-						<key>PERMISSIONS</key>
-						<integer>493</integer>
-						<key>TYPE</key>
-						<integer>3</integer>
-						<key>UID</key>
-						<integer>0</integer>
-					</dict>
-					<dict>
-						<key>CHILDREN</key>
-						<array/>
-						<key>GID</key>
-						<integer>0</integer>
-						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/display_colors.py</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
@@ -26815,11 +26767,47 @@
 			<key>PACKAGE_SCRIPTS</key>
 			<dict>
 				<key>POSTINSTALL_PATH</key>
-				<dict/>
-				<key>PREINSTALL_PATH</key>
-				<dict/>
+				<dict>
+					<key>PATH</key>
+					<string>DSDT Generator/postinstall_usb3</string>
+					<key>PATH_TYPE</key>
+					<integer>1</integer>
+				</dict>
 				<key>RESOURCES</key>
-				<array/>
+				<array>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/scripts/Backup.sh</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>DSDT Generator/list_usb3</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>420</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+				</array>
 			</dict>
 			<key>PACKAGE_SETTINGS</key>
 			<dict>
@@ -30271,7 +30259,7 @@ Mostly for the 4x40s ProBooks, but should work on every ProBook model without Wi
 														<string>English</string>
 														<key>VALUE</key>
 														<string>Select this, if you have Intel USB 3.0 controller on your board (the 4x40s models and all models with 7-series Intel USB3 controllers ).
-WARNING: GenericUSBXHCI.kext must be removed from /S/L/E, because these two solutions can't work together!!!</string>
+WARNING: This option will backup and then remove any version of GenericUSBXHCI.kext you may have!</string>
 													</dict>
 												</array>
 												<key>OPTIONS</key>
@@ -32028,7 +32016,7 @@ After their installation, you may find them in a folder on your desktop called "
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>HP ProBook Installer 6.1.8</string>
+						<string>HP ProBook Installer 6.1.8.1</string>
 					</dict>
 				</array>
 			</dict>

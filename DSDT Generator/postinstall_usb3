@@ -1,0 +1,4 @@
+#!/bin/bash
+./Backup.sh ./list_usb3 "${3}"
+# triggering kext cache rebuilding
+/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
