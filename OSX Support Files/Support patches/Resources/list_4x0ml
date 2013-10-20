@@ -1,4 +1,6 @@
 /Extra/org.chameleon.Boot.plist<=>y<=>null
 /System/Library/Extensions/AppleIntelCPUPowerManagement.kext<=>n<=>aicpm
-/System/Library/Extensions/AppleHDA.kext<=>n<=>hda_4x30_l
+/System/Library/Extensions/AppleHDA.kext<=>n<=>hda_4x0s_m
 /System/Library/Extensions/AppleIntelSNBGraphicsFB.kext<=>n<=>fbsnb
+/System/Library/Extensions/AppleIntelFramebufferCapri.kext<=>n<=>fbivy
+/System/Library/Extensions/AppleRTC.kext<=>n<=>aprtc

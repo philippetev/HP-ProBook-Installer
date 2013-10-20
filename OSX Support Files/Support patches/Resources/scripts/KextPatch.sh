@@ -7,42 +7,33 @@ AICPMbin="$kextdir/AppleIntelCPUPowerManagement.kext/Contents/MacOS/AppleIntelCP
 SNBbinary="$kextdir/AppleIntelSNBGraphicsFB.kext/Contents/MacOS/AppleIntelSNBGraphicsFB"
 IVYbinary="$kextdir/AppleIntelFramebufferCapri.kext/Contents/MacOS/AppleIntelFramebufferCapri"
 RTCBinary="$kextdir/AppleRTC.kext/Contents/MacOS/AppleRTC"
-PostHDA () {
-case $2 in
-old)	rm -f "$kextdir"/AppleHDA.kext/Contents/Resources/*.xml
-		install -m 644 -o root -g wheel ./Lion/*.xml "$kextdir"/AppleHDA.kext/Contents/Resources
-		;;
-new)	rm -f "$kextdir"/AppleHDA.kext/Contents/Resources/*.zlib
-		install -m 644 -o root -g wheel ./ML/*.zlib "$kextdir"/AppleHDA.kext/Contents/Resources
-		;;
-ivy)	rm -f "$kextdir"/AppleHDA.kext/Contents/Resources/*.zlib
-		install -m 644 -o root -g wheel ./Ivy/*.zlib "$kextdir"/AppleHDA.kext/Contents/Resources
-		;;
-esac
+PatchHDA () {
+unzip $1 -d .
+workdir=`echo $(basename $1) | awk -F. '{print $1}'`
+perl ./patch-hda.pl "`cat ./$workdir/codec`" -s "$kextdir"
+rm -f "$kextdir"/AppleHDA.kext/Contents/Resources/*.{xml,zlib}
+install -m 644 -o root -g wheel ./$workdir/layout/*.* "$kextdir"/AppleHDA.kext/Contents/Resources
 /usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:HDAConfigDefault'" "$HDAplist"
 /usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:PostConstructionInitialization'" "$HDAplist"
-case $1 in
-4x30)	/usr/libexec/plistbuddy -c "Merge ./4x30s.plist ':IOKitPersonalities:HDA Hardware Config Resource'" "$HDAplist"
-		;;
-4x40)	/usr/libexec/plistbuddy -c "Merge ./4x40s.plist ':IOKitPersonalities:HDA Hardware Config Resource'" "$HDAplist"
-		;;
-esac
+/usr/libexec/plistbuddy -c "Merge ./$workdir/ahhcd.plist ':IOKitPersonalities:HDA Hardware Config Resource'" "$HDAplist"
 }
-
 while read vanilla; do
 patch=`echo $vanilla | awk -F '<=>' '{print $3}'`
 case $patch in
 aicpm)	perl ./AICPMPatch.pl "$AICPMbin" --patch
 		;;
-hda3l)	perl ./patch-hda.pl 'IDT 76d1' -s "$kextdir"
-		PostHDA 4x30 old
-		;;
-hda3m)	perl ./patch-hda.pl 'IDT 76d1' -s "$kextdir"
-		PostHDA 4x30 new
-		;;
-hda4m)	perl ./patch-hda.pl 'IDT 76d9' -s "$kextdir"
-		PostHDA 4x40 ivy
-		;;
+hda_4x30_l)		PatchHDA ./4x30_lion.zip
+				;;
+hda_4x30_m)		PatchHDA ./4x30_ml.zip
+				;;
+hda_4x40_m)		PatchHDA ./4x40_ml.zip
+				;;
+hda_6xx0_l)		PatchHDA ./6xx0_lion.zip
+				;;
+hda_6xx0_m)		PatchHDA ./6xx0_ml.zip
+				;;
+hda_4x0s_m)		PatchHDA ./4x0s_ml.zip
+				;;
 fbsnb)	perl -pi -e 's|\x01\x02\x04\x00\x10\x07\x00\x00\x10\x07\x00\x00\x05\x03\x00\x00\x02\x00\x00\x00\x30\x00\x00\x00\x02\x05\x00\x00\x00\x04\x00\x00\x07\x00\x00\x00\x03\x04\x00\x00\x00\x04\x00\x00\x09\x00\x00\x00\x04\x06\x00\x00\x00\x04\x00\x00\x09\x00\x00\x00|\x01\x02\x03\x00\x10\x07\x00\x00\x10\x07\x00\x00\x06\x02\x00\x00\x00\x01\x00\x00\x09\x00\x00\x00\x05\x03\x00\x00\x02\x00\x00\x00\x30\x00\x00\x00\x04\x06\x00\x00\x00\x08\x00\x00\x09\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00|g' "$SNBbinary"
 		;;
 fbivy)	perl -pi -e 's|\x04\x00\x00\x81.{107}\x04\x00\x66\x01.{108}|\x08\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x11\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\x00\x66\x01\x01\x02\x04\x02\x00\x00\x00\x04\x00\x00\x00\x01\x00\x00\x00\x20\x10\x07\x00\x00\x10\x07\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x05\x03\x00\x00\x02\x00\x00\x00\x30\x02\x00\x00\x02\x05\x00\x00\x00\x04\x00\x00\x07\x01\x00\x00\x03\x04\x00\x00\x00\x04\x00\x00\x07\x01\x00\x00\x04\x06\x00\x00\x00\x08\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x11\x00\x00\x00\x00\x00\x00\x00\x00|' "$IVYbinary"

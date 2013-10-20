@@ -10,6 +10,9 @@ Supported models:\
 \
 - 4x30s series\
 - 4x40s series\
+- 6x60b/8x60p series (beta)\
+- 6x70b/8x70p series (beta)\
+- 4x0s G0 series (beta)\
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
 
@@ -17,7 +20,39 @@ Supported models:\
 \b0 :\
 \
 
-\b Version 6.1.7 ( October 11th 2013):\
+\b Version 6.1.8 ( October 20th 2013):\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b0 \cf0 \
+- Added initial support for the 6x60b/8x60p, 6x70b/8x70p and 4x0s G0 series ProBooks.\
+- Almost all DSDT patches are updated. Added two new options in the 
+\b Optional patches
+\b0  group: 
+\b Broadcom 4322x
+\b0  and 
+\b Intel USB 3.0
+\b0 .\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 WARNING
+\b0 : the USB 3.0 patch is \ul only for 4x40s and all models with 7-series Intel USB 3.0 controller\ulnone ! 
+\b Do not apply it on 4x30s!!!
+\b0  Also, in order to be used, the 
+\b GenericUSBXHCI.kext
+\b0  must be removed from /S/L/E, because these two solutions aren't playing well together.\
+- The modified 
+\b Fanreset.dylib
+\b0  is added in the 
+\b Optional hardware-specific fixes
+\b0  group.\
+- Some internal changes, regarding the kexts patching.
+\b \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b0 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 Version 6.1.7 ( October 11th 2013):\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
 
 \b0 \cf0 \

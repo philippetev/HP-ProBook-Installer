@@ -4,6 +4,6 @@ then
 	mkdir "$HOME/Desktop/Tools"
 	chown "$USER" "$HOME/Desktop/Tools"
 fi
-unzip "${3}/tmp/apps/Kext Wizard.app.zip" -d "${3}/tmp/apps/"
+unzip "${3}/tmp/apps/Kext Wizard.zip" -d "${3}/tmp/apps/"
 cp -Rf "${3}/tmp/apps/Kext Wizard.app" "$HOME/Desktop/Tools/"
 chown -R "$USER" "$HOME/Desktop/Tools/Kext Wizard.app"

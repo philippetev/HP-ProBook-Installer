@@ -12,7 +12,7 @@
 #  Match2 in AppleHDAWidgetFactory::createAppleHDAWidget()
 # Thus 2 patches are required per codec, or 4 for FAT binaries.
 
-# Version 2.0
+# Version 3.0
 # Copyright (c) 2011-2013 B.C. <bcc24x7@gmail.com> (bcc9 at insanelymac.com). 
 # All rights reserved.
 
@@ -223,6 +223,15 @@ sub supported()
     }
 }
 
+sub usage()
+{
+    printf "Usage: patch-hda.pl <codec-id>|<codec-name>\n" .
+	"Examples:\tpatch-hda.pl 111d7675\n" .
+	"\t\tpatch-hda.pl 'IDT 7675'\n" .
+	"\t\tpatch-hda.pl -c 2 'Realtek ALC892'\n";
+    supported();
+}
+
 # Try to find the OS version in 1 of 3 places:
 # First, if the working directory is not /S/L/E, check the kext version
 # Second, check /S/L/CoreServices/SystemVersion.plist on the target volume
@@ -263,10 +272,11 @@ sub main()
     my $root = "";
     my $sledir = "/System/Library/Extensions";
     my $testonly = 0;
+    my $interactive = 0;
     my $err;
     my $choice = 1;
     my $desired_codec;
-    my $patch_codec_name;
+    my $patch_codec_name, $target_codec_name, $codec_arg;
 
     if ($err = read_config("patch-hda-codecs.pl")) {
 	printf(STDERR "%s\n", $err);
@@ -274,6 +284,7 @@ sub main()
     }
     GetOptions (
         'v+' => \$verbose,
+	'y' => \$use_default,
 	't' => \$testonly,
         'c=i' => \$choice,
         's=s' => \$sledir,
@@ -287,29 +298,49 @@ sub main()
 	$osxvers = osvers($root, $sledir);
     }
     printf "OSX version %s detected\n", $osxvers;
+    chomp($default_codec = `ioreg -rxn IOHDACodecDevice | grep VendorID | awk '{print \$4}'`);
+    if ($default_codec) {
+	my($prefix, $val, $post) = split(/0x/, $default_codec, 3);
+	$default_codec = $val;
+	printf "Default target codec: %s detected.\n", $default_codec; 
+    }
     if ($debug) {
 #	$file = $kext;
 	$testonly = 1;
     }
-    if ($#ARGV > -1) {
-	$target_codec_name = $ARGV[0];
-	if (hex($target_codec_name)) {
-	    $target_id = hex($target_codec_name);
-	    %codec_nums_to_name = reverse %codec_names_to_num;
-	    $target_codec_name = $codec_nums_to_name{$target_id};
-	} else {
-	    $target_id = $codec_names_to_num{$target_codec_name};
+    if ($use_default && $default_codec) {
+	$codec_arg = $default_codec;
+    } elsif ($#ARGV == -1) {
+	$interactive = 1;
+retry:
+	printf "Enter codec-id or codec-name for AppleHDA patch.  Eg. 111d7675 or IDT 7675\n";
+	printf "Press enter for default, or ? for help ";
+	if ($default_codec) {
+	    $codec_arg = $default_codec;
+	    printf "(Default: %s)", $default_codec;
+	}
+	printf "\n";
+	my $term = Term::ReadLine->new('yes/no');
+	$_ = $term->readline("? ");
+	if (/\?/) {
+	    usage();
+	    goto retry;
+	}
+	if ($_) {
+	    $codec_arg = $_;
 	}
     } else {
-	printf "Usage: patch-hda.pl <codec-id>|<codec-name>\n" .
-	    "Examples:\tpatch-hda.pl 111d7675\n" .
-	    "\t\tpatch-hda.pl 'IDT 7675'\n" .
-	    "\t\tpatch-hda.pl -c 2 'Realtek ALC892'\n";
-	supported();
-	if (!$debug) {
-	    exit(1);
-	}
+	$codec_arg = $ARGV[0];
     }
+    if (hex($codec_arg)) {
+	$target_id = hex($codec_arg);
+	%codec_nums_to_name = reverse %codec_names_to_num;
+	$target_codec_name = $codec_nums_to_name{$target_id};
+    } else {
+	$target_codec_name = $codec_arg;
+	$target_id = $codec_names_to_num{$target_codec_name};
+    }
+
     $match_expect = 2;
     if ($osxvers < "10.8") {
 	# FAT binary with 2 architectures
@@ -332,8 +363,27 @@ sub main()
     if ($target_codec_name) {
 	$val = $codecs_map{$target_codec_name};
 	if (ref($val) eq 'ARRAY') {
-	    if ($choice > @$val) {
-		$choice_cnt = @$val;
+	    $choice_cnt = @$val;
+	    if ($interactive) {
+		printf "There are %d choices for target codec %s\n", $choice_cnt;
+		printf "Choose codec number to patch to (1 thru %d) (default %d)\n",
+		$choice_cnt, $choice;
+		for ($index = 0; $index < @$val; $index++) {
+		    $codec_name = $val->[$index];
+		    printf "Choice %d: %s\n", $index + 1, $codec_name;
+		}
+	      retry2:
+		my $term = Term::ReadLine->new('');
+		$_ = $term->readline("? ");
+		if ($_) {
+		    if ($_ > $choice_cnt || $_ < 1) {
+			printf "Choice %d out of bounds; must be between 1 and %d\n", $_, $choice_cnt;
+			goto retry2;
+		    }
+		    $choice = $_;
+		}
+	    }
+	    if ($choice > $choice_cnt) {
 		printf "Choice %d selected, but only %d choices for codec %s\n",
 		$choice, $choice_cnt, $target_codec_name;
 		exit(1);
@@ -348,7 +398,7 @@ sub main()
 	$patch_id = $codec_names_to_num{$patch_codec_name};
     }
     if (!$patch_id) {
-	printf "Couldn't find a codec map to apply for '%s'.\n", $ARGV[0];
+	printf "Couldn't find a codec map to apply for '%s'.\n", $codec_arg;
 	# Some basic sanity checking on the user-supplied codec-id
 	if ($target_id < 0x10000) {
 	    printf "This codec-id does not appear to be valid.  Aborting.\n";
@@ -394,13 +444,13 @@ sub main()
     my $uid=`id -u`;
 
     if (!$testonly) {
-#	if ($uid != 0) {
-#	    printf "This script requires superuser access to update $kext\n";
-#	}
-#	system("sudo mv $file $file.orig");
-#	if ($?) {
-#	    exit(1);
-#	}
+	if ($uid != 0) {
+	    printf "This script requires superuser access to update $kext\n";
+	}
+	system("sudo mv $file $file.orig");
+	if ($?) {
+	    exit(1);
+	}
 	system("sudo mv $outfile $file");
 	if ($?) {
 	    exit(1);
@@ -413,10 +463,10 @@ sub main()
 	if ($?) {
 	    exit(1);
 	}
-#	system("sudo touch $sledir");
-#	if ($?) {
-#	    exit(1);
-#	}
+	system("sudo touch $sledir");
+	if ($?) {
+	    exit(1);
+	}
     }
 
     printf "$file patched successfully.\n";
