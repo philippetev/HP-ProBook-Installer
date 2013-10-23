@@ -12,7 +12,7 @@
 #  Match2 in AppleHDAWidgetFactory::createAppleHDAWidget()
 # Thus 2 patches are required per codec, or 4 for FAT binaries.
 
-# Version 3.0
+# Version 3.1
 # Copyright (c) 2011-2013 B.C. <bcc24x7@gmail.com> (bcc9 at insanelymac.com). 
 # All rights reserved.
 
@@ -226,9 +226,17 @@ sub supported()
 sub usage()
 {
     printf "Usage: patch-hda.pl <codec-id>|<codec-name>\n" .
+	"Command line switches:\n" .
+	"  -y\t\tUse the auto-detected codec without running the script\n\t\tinteractively.\n" .
+	"  -c <choice>\tFor codecs with multiple known working choices for the\n\t\truntime AppleHDA codec (target codec) to use,\n\t\tthis option selects the choice.\n\t\t-c 1 lets you select choice #1 (the default),\n\t\t-c 2 the second choice, and so on.\n" .
+	"  -s <directory>\tkext directory to use instead of\n\t\t\t/System/Library/Extensions\n" .
+	"  -r <volume root>\tspecify an alternate disk volume to use\n\t\t\tas the root for everything\n" .
+	"  -o <os vers number>\toverride auto-detected OS version (10.7/10.8/10.9)\n" .
+	"  -t\t\trun the script in test-only mode,\n\t\twhere AppleHDA is not actually patched.\n" .
 	"Examples:\tpatch-hda.pl 111d7675\n" .
 	"\t\tpatch-hda.pl 'IDT 7675'\n" .
-	"\t\tpatch-hda.pl -c 2 'Realtek ALC892'\n";
+	"\t\tpatch-hda.pl -c 2 'Realtek ALC892'\n" .
+	"\t\tpatch-hda.pl -y\n";
     supported();
 }
 

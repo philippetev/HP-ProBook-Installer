@@ -24335,7 +24335,7 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/display_colors.py</string>
+						<string>OSX Support Files/Support patches/Resources/scripts/finder_colors.py</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
@@ -25034,7 +25034,7 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/display_colors.py</string>
+						<string>OSX Support Files/Support patches/Resources/scripts/finder_colors.py</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
@@ -25071,6 +25071,22 @@
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
 						<integer>365</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/list_4x40mav</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>420</integer>
 						<key>TYPE</key>
 						<integer>3</integer>
 						<key>UID</key>
@@ -25653,7 +25669,7 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/display_colors.py</string>
+						<string>OSX Support Files/Support patches/Resources/scripts/finder_colors.py</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
@@ -27384,7 +27400,7 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/display_colors.py</string>
+						<string>OSX Support Files/Support patches/Resources/scripts/finder_colors.py</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
@@ -28067,7 +28083,7 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/display_colors.py</string>
+						<string>OSX Support Files/Support patches/Resources/scripts/finder_colors.py</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
@@ -28104,6 +28120,22 @@
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
 						<integer>365</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/list_6x70mav</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>420</integer>
 						<key>TYPE</key>
 						<integer>3</integer>
 						<key>UID</key>
@@ -28734,7 +28766,7 @@
 						<key>GID</key>
 						<integer>0</integer>
 						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/display_colors.py</string>
+						<string>OSX Support Files/Support patches/Resources/scripts/finder_colors.py</string>
 						<key>PATH_TYPE</key>
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
@@ -28771,6 +28803,22 @@
 						<integer>1</integer>
 						<key>PERMISSIONS</key>
 						<integer>365</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/list_4x0mav</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>420</integer>
 						<key>TYPE</key>
 						<integer>3</integer>
 						<key>UID</key>
@@ -29461,7 +29509,7 @@
 				<key>BACKGROUND_PATH</key>
 				<dict>
 					<key>PATH</key>
-					<string>Resources/backgroud_probook_installer.png</string>
+					<string>Resources/background_probook_installer.png</string>
 					<key>PATH_TYPE</key>
 					<integer>1</integer>
 				</dict>
@@ -32016,7 +32064,7 @@ After their installation, you may find them in a folder on your desktop called "
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>HP ProBook Installer 6.1.8.1</string>
+						<string>HP ProBook Installer 6.1.9</string>
 					</dict>
 				</array>
 			</dict>

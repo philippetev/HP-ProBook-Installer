@@ -7,7 +7,7 @@ case $osxver in
 		cp ./boot_ml.plist "${3}"/Extra/org.chameleon.Boot.plist
 		;;
 10.9*)	echo "OS X Mavericks $osxver detected."
-		./KextPatch.sh ./list_4x40ml "${3}"
+		./KextPatch.sh ./list_4x40mav "${3}"
 		cp ./boot_ml.plist "${3}"/Extra/org.chameleon.Boot.plist
 		;;
 *)		echo "Unknown or unsupported OS X version, aborting."

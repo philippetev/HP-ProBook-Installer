@@ -140,10 +140,10 @@
         <pkg-ref id="com.MadMax.pkg.Part3.HDMI.1080"/>
     </choice>
     <choice id="installer_choice_4_3" title="INSTALLER_CHOICE_4_3_TITLE" description="INSTALLER_CHOICE_4_3_DESCRIPTION"/>
-    <choice id="installer_choice_4_4_1" start_selected="false" title="INSTALLER_CHOICE_4_4_1_TITLE" description="INSTALLER_CHOICE_4_4_1_DESCRIPTION">
+    <choice id="installer_choice_4_4_1" start_selected="false" selected="(my.choice.selected &amp;&amp; !choices.installer_choice_4_4_2.selected)" title="INSTALLER_CHOICE_4_4_1_TITLE" description="INSTALLER_CHOICE_4_4_1_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.Opt.Atheros"/>
     </choice>
-    <choice id="installer_choice_4_4_2" start_selected="false" title="INSTALLER_CHOICE_4_4_2_TITLE" description="INSTALLER_CHOICE_4_4_2_DESCRIPTION">
+    <choice id="installer_choice_4_4_2" start_selected="false" selected="(my.choice.selected &amp;&amp; !choices.installer_choice_4_4_1.selected)" title="INSTALLER_CHOICE_4_4_2_TITLE" description="INSTALLER_CHOICE_4_4_2_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.Opt.Broadcom"/>
     </choice>
     <choice id="installer_choice_4_4_3" start_selected="false" title="INSTALLER_CHOICE_4_4_3_TITLE" description="INSTALLER_CHOICE_4_4_3_DESCRIPTION">
@@ -289,7 +289,7 @@
     <pkg-ref id="com.MadMax.pkg.Part2.fan.std" version="1.0" auth="Root" installKBytes="2">#Part2.fan.std.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="22">#Part1.4x40s.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.CommonFiles" version="1.0" auth="Root" installKBytes="2939">#CommonFiles.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Chameleon" version="2.2" auth="Root" installKBytes="4726">#Chameleon.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Chameleon" version="2.2" auth="Root" installKBytes="4362">#Chameleon.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Opt.Atheros" version="1.0" auth="Root" installKBytes="1">#Opt.Atheros.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="312">#Extra_HWMonitor_SL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.quiet" version="1.0" auth="Root" installKBytes="5">#Part2.fan.quiet.pkg</pkg-ref>

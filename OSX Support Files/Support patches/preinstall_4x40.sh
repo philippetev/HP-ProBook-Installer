@@ -6,7 +6,7 @@ case $osxver in
 		./Backup.sh ./list_4x40ml "${3}"
 		;;
 10.9*)	echo "OS X Mavericks $osxver detected."
-		./Backup.sh ./list_4x40ml "${3}"
+		./Backup.sh ./list_4x40mav "${3}"
 		;;
 *)		echo "Unknown or unsupported OS X version, aborting."
 		;;

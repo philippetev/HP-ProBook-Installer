@@ -40,5 +40,7 @@ fbivy)	perl -pi -e 's|\x04\x00\x00\x81.{107}\x04\x00\x66\x01.{108}|\x08\x00\x00\
 		;;
 aprtc)	perl -pi -e 's|\x75\x30\x89\xd8|\xeb\x30\x89\xd8|' "$RTCBinary"
 		;;
+rtcmav)	perl -pi -e 's|\x75\x2e\x0f\xb6|\xeb\x2e\x0f\xb6|' "$RTCBinary"
+		;;
 esac	
 done < $1
