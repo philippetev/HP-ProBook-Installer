@@ -48,7 +48,7 @@ The AHCI patch, **patch-hda.pl** and **patch-hda-codecs.pl** are courtesy of **b
 The unified **AppleIntelFramebufferCapri.kext** patch is courtesy of **kpkp**.  
 [The original support thread](http://www.tonymacx86.com/hp-probook/99533-testers-ivy-probooks-needed.html)  
 
-The default Chameleon theme **LoginToLion** is courtesy of Enzo.  
+The default Chameleon theme **LoginToLion** is courtesy of **Enzo**.  
 [The original theme thread](http://forum.voodooprojects.org/index.php/topic,2125.0.html)  
 
 **ACPIPoller.kext**, the fan reset module for Chameleon/Chimera and the **blinkscreen** utility are courtesy of **RehabMan**.  
