@@ -13,3 +13,5 @@ fi
 # deleting temporary files
 rm -rf /tmp/PBI.plist
 rm -rf /tmp/Apps
+#Enabling AirDrop
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
