@@ -2,6 +2,9 @@
 set -x
 osxver=`/usr/libexec/PlistBuddy -c 'Print ProductVersion' "${3}"/System/Library/CoreServices/SystemVersion.plist`
 case $osxver in
+10.7.5)	echo "OS X Lion $osxver detected."
+		./Backup.sh ./list_4x40l "${3}"
+		;;
 10.8*)	echo "OS X Mountain Lion $osxver detected."
 		./Backup.sh ./list_4x40ml "${3}"
 		;;

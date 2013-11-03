@@ -26,6 +26,8 @@ hda_4x30_l)		PatchHDA ./4x30_lion.zip
 				;;
 hda_4x30_m)		PatchHDA ./4x30_ml.zip
 				;;
+hda_4x40_l)		PatchHDA ./4x40_lion.zip
+				;;
 hda_4x40_m)		PatchHDA ./4x40_ml.zip
 				;;
 hda_6xx0_l)		PatchHDA ./6xx0_lion.zip

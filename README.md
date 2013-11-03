@@ -61,6 +61,7 @@ The HP ProBook logos in **About This Mac** are courtesy of **riodoro1**.
 The Installer's HP logo icon is courtesy of **Pilartem**.  
 The colour profiles are courtesy of **metacollin** and several other sources.  
 The **display_color.py** script is courtesy of **Daniel Fairhead (danthedeckie)**.  
+**ProBookARPT.kext** is based on works, courtesy of **toleda** and **RehabMan**.  
 
 ###Special thanks to:
 
@@ -93,6 +94,7 @@ The **display_color.py** script is courtesy of **Daniel Fairhead (danthedeckie)*
 **ZAFFE**  
 **ElectronShaper**  
 **2MNY**  
+**ryman of InsanelyMac**  
 ###and the users of the HP ProBook forum.  
 
 **RegexKitLite** Copyright © 2008-2010, **John Engelhart**  

@@ -288,8 +288,8 @@
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.std" version="1.0" auth="Root" installKBytes="2">#Part2.fan.std.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="22">#Part1.4x40s.sb.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.CommonFiles" version="1.0" auth="Root" installKBytes="2939">#CommonFiles.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Chameleon" version="2.2" auth="Root" installKBytes="4362">#Chameleon.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.CommonFiles" version="1.0" auth="Root" installKBytes="2942">#CommonFiles.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Chameleon" version="2.2" auth="Root" installKBytes="5138">#Chameleon.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Opt.Atheros" version="1.0" auth="Root" installKBytes="1">#Opt.Atheros.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="312">#Extra_HWMonitor_SL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.quiet" version="1.0" auth="Root" installKBytes="5">#Part2.fan.quiet.pkg</pkg-ref>

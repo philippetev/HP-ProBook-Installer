@@ -2,8 +2,8 @@
 #
 # Script (ssdtPRGen.sh) to create ssdt-pr.dsl for Apple Power Management Support.
 #
-# Version 0.9 - Copyright (c) 2012 by RevoGirl <RevoGirl@rocketmail.com>
-# Version 6.6 - Copyright (c) 2013 by Pike <PikeRAlpha@yahoo.com>
+# Version 0.9 - Copyright (c) 2012 by † RevoGirl
+# Version 6.7 - Copyright (c) 2013 by Pike <PikeRAlpha@yahoo.com>
 #
 # Updates:
 #			- Added support for Ivybridge (Pike, January 2013)
@@ -74,11 +74,14 @@
 #			- Output of Clover ACPI directory detection fixed (Pike, June 2013)
 #			- Haswell CPUs added (Jeroen, June 2013)
 #			- board-id's for new MacBookAir6,[1/2] added (Pike, June 2013)
+#			- board-id's for new iMac14,[1/2/3] added (Pike, October 2013)
+#			- board-id's for new MacBookPro11,[1/2/3] added (Pike, October 2013)
+#			- Cleanups and board-id for new MacPro6,1 added (Pike, October 2013)
 #
 # Contributors:
 #			- Thanks to Dave, toleda and Francis for their help (bug fixes and other improvements).
 #			- Thanks to 'stinga11' for Sandy Bridge (E5) data and processor list errors.
-#			- Many thanks to Jeroen for the CPU data, cleanups, renaming stuff and other improvements.
+#			- Many thanks to Jeroen († 2013) for the CPU data, cleanups, renaming stuff and other improvements.
 #			- Thanks to 'philip_petev' for his help with Snow Leopard/egrep incompatibility.
 #			- Thanks to 'RehabMan' for his help with Snow Leopard/egrep incompatibility.
 #			- Thanks to 'BigDonkey' for his help with LFM (800 MHz) for Sandy Bridge mobility models.
@@ -179,7 +182,7 @@ gScope="\_PR_"
 # Other global variables.
 #
 
-gScriptVersion=6.6
+gScriptVersion=6.7
 
 gRevision='0x0000'${gScriptVersion:0:1}${gScriptVersion:2:1}'00'
 
@@ -501,12 +504,19 @@ i5-4570T,35,800,2900,3600,2,4
 i5-4430S,65,800,2700,3200,4,4
 # BGA
 i7-4770R,65,800,3200,3900,4,8
+i5-4670R,65,800,3000,3700,4,4
 # Haswell ULT
 i5-4288U,28,800,2600,3100,2,4
 i5-4258U,28,800,2400,2900,2,4
 i5-4250U,15,800,1300,2600,2,4
 i5-4200Y,12,800,1400,1900,2,4
 i5-4200U,15,800,1600,2600,2,4
+#
+i3-4130T,35,800,2900,2900,2,4
+i3-4330T,35,800,3000,3000,2,4
+i3-4130,54,800,3400,3400,2,4
+i3-4330,54,800,3500,3500,2,4
+i3-4340,54,800,3600,3600,2,4
 )
 
 gMobileHaswellCPUList=(
@@ -523,6 +533,18 @@ i7-4700MQ,47,800,2400,3600,4,8
 # Socket FCBGA1364
 i7-4700HQ,47,800,2400,3600,4,8
 i7-4702HQ,37,800,2200,3200,4,8
+# Socket FCBGA1168
+i5-4350U,15,800,1400,2900,2,4
+i5-4288U,28,800,2600,3100,2,4
+i5-4258U,28,800,2400,2900,2,4
+i5-4250U,15,800,1300,2600,2,4
+i5-4200U,15,800,1600,2600,2,4
+i5-4200Y,12,800,1400,1900,2,4
+# Socket FCBGA1168
+i3-4158U,28,800,2000,2000,2,4
+i3-4100U,15,800,1800,1800,2,4
+i3-4010U,15,800,1700,1700,2,4
+i3-4010Y,12,800,1300,1300,2,4
 )
 
 #--------------------------------------------------------------------------------
@@ -1181,7 +1203,6 @@ function _findIasl()
 
 function _setDestinationPath
 {
-	return
     #
     # Checking for RevoBoot
     #
@@ -1648,58 +1669,44 @@ function _initIvyBridgeSetup()
 function _initHaswellSetup()
 {
 	case $boardID in
-		Mac-)
+		Mac-031B6874CF7F642A)
 			gSystemType=1
 			gMacModelIdentifier="iMac14,1"
 			gACST_CPU0=13   # C1, C2, C3, C6
 			gACST_CPU1=7    # C1, C2 and C3
 		;;
 
-		Mac-)
+		Mac-27ADBB7B4CEE8E61)
 			gSystemType=1
 			gMacModelIdentifier="iMac14,2"
 			gACST_CPU0=13   # C1, C2, C3, C6
 			gACST_CPU1=7    # C1, C2 and C3
 		;;
 
-		Mac-)
+		Mac-77EB7D7DAF985301)
 			gSystemType=1
-			gMacModelIdentifier="Macmini7,1"
+			gMacModelIdentifier="iMac14,3"
 			gACST_CPU0=13   # C1, C2, C3, C6
 			gACST_CPU1=7    # C1, C2 and C3
 		;;
 
-		Mac-)
-			gSystemType=1
-			gMacModelIdentifier="Macmini7,2"
-			gACST_CPU0=13   # C1, C2, C3, C6
-			gACST_CPU1=7    # C1, C2 and C3
-		;;
-
-		Mac-)
+		Mac-189A3D4F975D5FFC)
 			gSystemType=2
 			gMacModelIdentifier="MacBookPro11,1"
 			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
 			gACST_CPU1=31   # C1, C2, C3, C6 and C7
 		;;
 
-		Mac-)
+		Mac-3CBD00234E554E41)
 			gSystemType=2
 			gMacModelIdentifier="MacBookPro11,2"
 			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
 			gACST_CPU1=31   # C1, C2, C3, C6 and C7
 		;;
 
-		Mac-)
+		Mac-2BD1B31983FE1663)
 			gSystemType=2
-			gMacModelIdentifier="MacBookPro12,1"
-			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
-			gACST_CPU1=31   # C1, C2, C3, C6 and C7
-		;;
-
-		Mac-)
-			gSystemType=2
-			gMacModelIdentifier="MacBookPro12,2"
+			gMacModelIdentifier="MacBookPro11,3"
 			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
 			gACST_CPU1=31   # C1, C2, C3, C6 and C7
 		;;
@@ -1714,6 +1721,13 @@ function _initHaswellSetup()
 		Mac-7DF21CB3ED6977E5)
 			gSystemType=2
 			gMacModelIdentifier="MacBookAir6,2"
+			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
+			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+		;;
+
+		Mac-F60DEB81FF30ACF6)
+			gSystemType=1
+			gMacModelIdentifier="MacPro6,1"
 			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
 			gACST_CPU1=31   # C1, C2, C3, C6 and C7
 		;;
