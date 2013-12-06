@@ -2,5 +2,5 @@
 /System/Library/Extensions/AppleIntelCPUPowerManagement.kext<=>n<=>aicpm
 /System/Library/Extensions/AppleHDA.kext<=>n<=>hda_6xx0_m
 /System/Library/Extensions/AppleIntelSNBGraphicsFB.kext<=>n<=>fbsnb
-/System/Library/Extensions/AppleIntelFramebufferCapri.kext<=>n<=>fbivy
+/System/Library/Extensions/AppleIntelFramebufferCapri.kext<=>n<=>fbivy_mav
 /System/Library/Extensions/AppleRTC.kext<=>n<=>rtcmav

@@ -1,0 +1,5 @@
+/Extra/org.chameleon.Boot.plist<=>y<=>null
+/System/Library/Extensions/IONetworkingFamily.kext<=>$kext/Contents/PlugIns/AppleRTL8169Ethernet.kext<=>null
+/System/Library/Extensions/AppleIntelCPUPowerManagement.kext<=>n<=>aicpm
+/System/Library/Extensions/AppleHDA.kext<=>n<=>hda_4x40_l
+/System/Library/Extensions/AppleRTC.kext<=>n<=>aprtc

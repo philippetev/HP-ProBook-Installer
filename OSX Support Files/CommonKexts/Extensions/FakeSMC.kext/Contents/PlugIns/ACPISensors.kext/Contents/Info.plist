@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>12F37</string>
+	<string>13A603</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -15,25 +15,25 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.3.1100</string>
+	<string>6.0.1245</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1100</string>
+	<string>1245</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>5A1413</string>
+	<string>5A3005</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12D75</string>
+	<string>12F37</string>
 	<key>DTSDKName</key>
 	<string>macosx10.8</string>
 	<key>DTXcode</key>
-	<string>0500</string>
+	<string>0502</string>
 	<key>DTXcodeBuild</key>
-	<string>5A1413</string>
+	<string>5A3005</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>ACPI Customizable Monitoring Plugin</key>
@@ -55,6 +55,8 @@
 			<integer>1000</integer>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
+			<key>IOResourceMatch</key>
+			<string>FakeSMCKeyStore</string>
 			<key>Platform Profile</key>
 			<dict>
 				<key>Default</key>
@@ -124,6 +126,8 @@
 			<integer>1000</integer>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
+			<key>IOResourceMatch</key>
+			<string>FakeSMCKeyStore</string>
 			<key>Platform Profile - DISABLED</key>
 			<dict>
 				<key>Default</key>
@@ -166,6 +170,8 @@
 			<integer>1000</integer>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
+			<key>IOResourceMatch</key>
+			<string>FakeSMCKeyStore</string>
 			<key>Platform Profile</key>
 			<dict>
 				<key>Default</key>
@@ -198,6 +204,8 @@
 			</dict>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
+			<key>IOResourceMatch</key>
+			<string>FakeSMCKeyStore</string>
 			<key>Platform Profile</key>
 			<dict>
 				<key>Default</key>
@@ -230,15 +238,15 @@
 		<key>com.apple.iokit.IOACPIFamily</key>
 		<string>1.0.0b1</string>
 		<key>com.apple.kpi.iokit</key>
-		<string>10.0.0</string>
+		<string>10.6</string>
 		<key>com.apple.kpi.libkern</key>
-		<string>10.0.0</string>
+		<string>10.6</string>
 		<key>com.apple.kpi.mach</key>
-		<string>10.0.0</string>
+		<string>10.6</string>
 		<key>com.apple.kpi.unsupported</key>
-		<string>10.0.0</string>
-		<key>org.netkas.driver.FakeSMC</key>
-		<string>808</string>
+		<string>10.6</string>
+		<key>org.hwsensors.driver.FakeSMCKeyStore</key>
+		<string>949</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>
