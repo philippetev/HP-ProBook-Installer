@@ -30698,7 +30698,7 @@
 												<string>English</string>
 												<key>VALUE</key>
 												<string>Automatically detects and installs the support files for your 4x30s and the OS X version you have installed.
-Supported OS X versions: SL, Lion and ML</string>
+Supported OS X versions: Snow Leopard 10.6.8, Lion, Mountain Lion and Mavericks.</string>
 											</dict>
 										</array>
 										<key>OPTIONS</key>
@@ -30736,7 +30736,7 @@ Supported OS X versions: SL, Lion and ML</string>
 												<string>English</string>
 												<key>VALUE</key>
 												<string>Automatically detects and installs the support files for your 4x40s and the OS X version you have installed.
-Supported OS X versions: ML</string>
+Supported OS X versions: Snow Leopard 10.6.8 (Sandy CPU only), Lion 10.7.5, Mountain Lion and Mavericks.</string>
 											</dict>
 										</array>
 										<key>OPTIONS</key>
@@ -30774,7 +30774,7 @@ Supported OS X versions: ML</string>
 												<string>English</string>
 												<key>VALUE</key>
 												<string>Automatically detects and installs the support files for your 6x60b/8x60p and the OS X version you have installed.
-Supported OS X versions: Lion and ML</string>
+Supported OS X versions: Lion, Mountain Lion and Mavericks.</string>
 											</dict>
 										</array>
 										<key>OPTIONS</key>
@@ -30812,7 +30812,7 @@ Supported OS X versions: Lion and ML</string>
 												<string>English</string>
 												<key>VALUE</key>
 												<string>Automatically detects and installs the support files for your 6x70b/8x70p and the OS X version you have installed.
-Supported OS X versions: ML</string>
+Supported OS X versions: Mountain Lion and Mavericks.</string>
 											</dict>
 										</array>
 										<key>OPTIONS</key>
@@ -30850,7 +30850,7 @@ Supported OS X versions: ML</string>
 												<string>English</string>
 												<key>VALUE</key>
 												<string>Automatically detects and installs the support files for your 4x0 G0 and the OS X version you have installed.
-Supported OS X versions: ML</string>
+Supported OS X versions: Mountain Lion and Mavericks.</string>
 											</dict>
 										</array>
 										<key>OPTIONS</key>
