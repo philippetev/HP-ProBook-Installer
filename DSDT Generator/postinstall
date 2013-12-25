@@ -4,7 +4,7 @@ ioreg -c AppleACPIPlatformExpert -k 'ACPI Tables' -d 1 -rw0 | egrep 'ACPI Tables
 ./iaslpbi -d ./dsdt_extract.aml
 sleep 1
 VanillaCheck=`cat ./dsdt_extract.dsl | grep 'If (CondRefOf (FPED))'`
-if [ "$VanillaCheck" == "" -a ! -f ./4x*.txt ] || [ "$VanillaCheck" != "" -a -f ./4x*.txt ]
+if [ "$VanillaCheck" == "" -a -f ./4x*.txt ] || [ "$VanillaCheck" != "" -a ! -f ./4x*.txt ]
 then
 	cp ./warning.txt "$HOME/Desktop/DSDT Warning.txt"
 	cp ./Mini-SSDT-DualLink.aml "$HOME/Desktop/"
