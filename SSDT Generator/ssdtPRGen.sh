@@ -2,8 +2,8 @@
 #
 # Script (ssdtPRGen.sh) to create ssdt-pr.dsl for Apple Power Management Support.
 #
-# Version 0.9 - Copyright (c) 2012 by † RevoGirl
-# Version 7.0 - Copyright (c) 2013 by Pike <PikeRAlpha@yahoo.com>
+# Version 0.9 - Copyright (c) 2012 by RevoGirl
+# Version 7.7 - Copyright (c) 2014 by Pike <PikeRAlpha@yahoo.com>
 #
 # Updates:
 #			- Added support for Ivybridge (Pike, January 2013)
@@ -77,9 +77,14 @@
 #			- board-id's for new iMac14,[1/2/3] added (Pike, October 2013)
 #			- board-id's for new MacBookPro11,[1/2/3] added (Pike, October 2013)
 #			- Cleanups and board-id for new MacPro6,1 added (Pike, October 2013)
-#			- Frequency error in i7-4700MQ data fixed, thanks to RehabMan (Pike, November 2013)
+#			– Frequency error in i7-4700MQ data fixed, thanks to RehabMan (Pike, November 2013)
 #			- Intel i5-4200M added (Pike, December 2013)
 #			- LFM fixed in the Intel i7-3930K data (Pike, December 2013)
+#			- Intel E5-2695 V2 added (Pike, December 2013)
+#			- Intel i3-3250 added (Pike, December 2013)
+#			- Sed RegEx error fixed in _getCPUtype (Pike, January 2014)
+#			- Fixed a typo 's/i7-26740M/i7-2674M/' (Pike, January 2014)
+#			- Fixed a typo 's/gHaswellCPUList/gServerHaswellCPUList/' (Pike, January 2014)
 #
 # Contributors:
 #			- Thanks to Dave, toleda and Francis for their help (bug fixes and other improvements).
@@ -90,6 +95,8 @@
 #			- Thanks to 'BigDonkey' for his help with LFM (800 MHz) for Sandy Bridge mobility models.
 #			- Thanks to 'xpamamadeus' for the Clover boot.log tip.
 #			- Thanks to 'rileyfreeman' for the Intel i7-3930K LFM value.
+#			- Thanks to 'Klonkrieger2' aka Mark for the tip about the sed RegEx error in _getCPUtype.
+#			- Thanks to 'dhnguyen92' on Github issues for the tip about a typo in the i7-2674M data.
 #
 # Usage (v1.0 - v4.9):
 #
@@ -162,8 +169,9 @@ let gCallIasl=1
 #
 let gCallOpen=0
 
-#
-# Change this to 0 to stop it from injecting debug data.
+# 0 = no debug injection/debug statements executed.
+# 1 = inject debug data.
+# 3 = inject debug data and execute _debugPrint statements.
 #
 let gDebug=0
 
@@ -186,7 +194,7 @@ gScope="\_PR_"
 # Other global variables.
 #
 
-gScriptVersion=7.0
+gScriptVersion=7.7
 
 gRevision='0x0000'${gScriptVersion:0:1}${gScriptVersion:2:1}'00'
 
@@ -218,6 +226,10 @@ gProcessorData="Unknown CPU"
 gProcessorNumber=""
 gBusFrequency=100
 let gUnmountEFIPartition=0
+
+gProductName=$(sw_vers -productName)
+gProductVersion="$(sw_vers -productVersion)"
+gBuildVersion=$(sw_vers -buildVersion)
 
 #
 # Maximum Turbo Clock Speed (user configurable)
@@ -261,8 +273,8 @@ E3-1220,80,0,3100,3400,4,4
 gDesktopSandyBridgeCPUList=(
 i7-35355,120,1600,2666,2666,4,4
 # i7 Desktop Extreme Series
-i7-3970X,150,0,3500,4000,6,12
-i7-3960X,130,0,3300,3900,6,12
+i7-3970X,150,1200,3500,4000,6,12
+i7-3960X,130,1200,3300,3900,6,12
 i7-3930K,130,1200,3200,3800,6,12
 i7-3820,130,0,3600,3800,4,8
 # i7 Desktop series
@@ -314,7 +326,7 @@ i7-2670QM,45,800,2200,3100,4,8
 i7-2675M,17,800,1600,2700,2,4
 i7-2655LE,25,800,2200,2900,2,4
 i7-2649M,25,800,2300,3200,2,4
-i7-26740M,32,800,2800,3500,2,4
+i7-2674M,32,800,2800,3500,2,4
 i7-2637M,17,800,1700,2800,2,4
 i7-2635QM,45,800,2000,2900,4,8
 i7-2630QM,45,800,2000,2900,4,8
@@ -371,6 +383,7 @@ gServerIvyBridgeCPUList=(
 'E3-1225 V2',77,0,3200,3600,4,4
 'E3-1220 V2',69,0,3100,3500,4,4
 'E3-1220L V2',17,0,2300,3500,2,4
+'E5-2695 V2',115,1200,2400,3200,12,24
 )
 
 gDesktopIvyBridgeCPUList=(
@@ -400,6 +413,7 @@ i5-3333S,65,1600,2700,3200,4,4
 i5-3330S,65,1600,3700,3200,4,4
 i5-3330,77,1600,3000,3200,4,4
 # i3-3200 Desktop Processor Series
+i3-3250,55,1600,3500,0,2,4
 i3-3240,55,1600,3400,0,2,4
 i3-3240T,35,1600,2900,0,2,4
 i3-3225,55,1600,3300,0,2,4
@@ -539,6 +553,7 @@ i5-4200M,37,800,2500,3100,2,4
 i7-4700HQ,47,800,2400,3600,4,8
 i7-4702HQ,37,800,2200,3200,4,8
 # Socket FCBGA1168
+i7-4558U,28,800,2800,3300,2,4
 i5-4350U,15,800,1400,2900,2,4
 i5-4288U,28,800,2600,3100,2,4
 i5-4258U,28,800,2400,2900,2,4
@@ -593,20 +608,31 @@ function _printExternals()
 
 #--------------------------------------------------------------------------------
 
-function _printDebugInfo()
+function _injectDebugInfo()
 {
-    if ((gDebug)); then
-        echo '    Store ("ssdtPRGen version: '$gScriptVersion'", Debug)'                >> $gSsdtPR
-        echo '    Store ("baseFrequency    : '$gBaseFrequency'", Debug)'                >> $gSsdtPR
-        echo '    Store ("frequency        : '$frequency'", Debug)'                     >> $gSsdtPR
-        echo '    Store ("busFrequency     : '$gBusFrequency'", Debug)'                 >> $gSsdtPR
-        echo '    Store ("logicalCPUs      : '$gLogicalCPUs'", Debug)'                  >> $gSsdtPR
-        echo '    Store ("tdp              : '$gTdp'", Debug)'                          >> $gSsdtPR
-        echo '    Store ("packageLength    : '$packageLength'", Debug)'                 >> $gSsdtPR
-        echo '    Store ("turboStates      : '$turboStates'", Debug)'                   >> $gSsdtPR
-        echo '    Store ("maxTurboFrequency: '$maxTurboFrequency'", Debug)'             >> $gSsdtPR
-        echo ''                                                                         >> $gSsdtPR
+    xcpm=0
+
+    #
+    # 'machdep.xcpm' is introduced in 10.8.5
+    #
+    if [[ $gProductVersion > "10.8.4" ]]; then
+      xcpm=$(/usr/sbin/sysctl -n machdep.xcpm.mode)
     fi
+
+    echo '        Method (_INI, 0, NotSerialized)'                                      >> $gSsdtPR
+    echo '        {'                                                                    >> $gSsdtPR
+    echo '            Store ("ssdtPRGen version: '$gScriptVersion' / '$gProductName' '$gProductVersion' ('$gBuildVersion')", Debug)'  >> $gSsdtPR
+    echo '            Store ("baseFrequency    : '$gBaseFrequency'", Debug)'            >> $gSsdtPR
+    echo '            Store ("frequency        : '$frequency'", Debug)'                 >> $gSsdtPR
+    echo '            Store ("busFrequency     : '$gBusFrequency'", Debug)'             >> $gSsdtPR
+    echo '            Store ("logicalCPUs      : '$gLogicalCPUs'", Debug)'              >> $gSsdtPR
+    echo '            Store ("tdp              : '$gTdp'", Debug)'                      >> $gSsdtPR
+    echo '            Store ("packageLength    : '$packageLength'", Debug)'             >> $gSsdtPR
+    echo '            Store ("turboStates      : '$turboStates'", Debug)'               >> $gSsdtPR
+    echo '            Store ("maxTurboFrequency: '$maxTurboFrequency'", Debug)'         >> $gSsdtPR
+    echo '            Store ("machdep.xcpm.mode: '$xcpm'", Debug)'                      >> $gSsdtPR
+    echo '        }'                                                                    >> $gSsdtPR
+    echo ''                                                                             >> $gSsdtPR
 }
 
 #--------------------------------------------------------------------------------
@@ -636,20 +662,29 @@ function _printScopeStart()
     echo '    Scope ('${gScope}'.'${gProcessorNames[0]}')'                              >> $gSsdtPR
     echo '    {'                                                                        >> $gSsdtPR
 
+    if (( gDebug & 1 )); then
+        _injectDebugInfo
+    fi
+
     #
     # Do we need to create additional (Low Frequency) P-States?
     #
 
-    if [ $gBridgeType -eq $IVY_BRIDGE ];
+    if [ $gBridgeType -ne $SANDY_BRIDGE ];
         then
             let lowFrequencyPStates=($gBaseFrequency/100)-8
             let packageLength=($2+$lowFrequencyPStates)
 
-            printf "        Name (APLF, 0x%02x" $lowFrequencyPStates                    >> $gSsdtPR
-            echo ')'                                                                    >> $gSsdtPR
+            if [[ lowFrequencyPStates -gt 0 ]];
+                then
+                    printf "        Name (APLF, 0x%02x)\n" $lowFrequencyPStates         >> $gSsdtPR
+                else
+                    # Prevent optimization warning.
+                    echo "        Name (APLF, Zero)"                                    >> $gSsdtPR
+            fi
 
             # TODO: Remove this when CPUPM for IB works properly!
-            if ((gIvyWorkAround)); then
+            if [[ gIvyWorkAround && $gBridgeType -eq $IVY_BRIDGE ]]; then
                 let useWorkArounds=1
             fi
     fi
@@ -763,7 +798,6 @@ function _printPackages()
         done
 
     echo '        })'                                                                   >> $gSsdtPR
-    echo ''                                                                             >> $gSsdtPR
 }
 
 
@@ -777,6 +811,15 @@ function _printMethodDSM()
     echo ''                                                                             >> $gSsdtPR
     echo '        Method (_DSM, 4, NotSerialized)'                                      >> $gSsdtPR
     echo '        {'                                                                    >> $gSsdtPR
+
+    if ((gDebug)); then
+        #
+        # Note: This will be called twice!
+        #
+        echo '            Store ("Method '${gProcessorNames[0]}'._DSM Called", Debug)'  >> $gSsdtPR
+        echo ''                                                                         >> $gSsdtPR
+    fi
+
     echo '            If (LEqual (Arg2, Zero))'                                         >> $gSsdtPR
     echo '            {'                                                                >> $gSsdtPR
     echo '                Return (Buffer (One)'                                         >> $gSsdtPR
@@ -795,6 +838,15 @@ function _printMethodDSM()
     echo '            })'                                                               >> $gSsdtPR
     echo '        }'                                                                    >> $gSsdtPR
     echo '    }'                                                                        >> $gSsdtPR
+}
+
+#--------------------------------------------------------------------------------
+
+function _debugPrint()
+{
+    if (( gDebug & 2 )); then
+        echo "$1"
+    fi
 }
 
 #--------------------------------------------------------------------------------
@@ -821,74 +873,92 @@ function _printScopeACST()
     local pkgLength=2
     local numberOfCStates=0
 
-#   echo ''                                                                             >> $gSsdtPR
-    echo '        Method (ACST, 0, NotSerialized)'                                      >> $gSsdtPR
-    echo '        {'                                                                    >> $gSsdtPR
-
     #
     # Are we injecting C-States for CPU1?
     #
     if [ $1 -eq 1 ];
+      then
+        let targetCPU=1
+      else
+        let targetCPU=0
+    fi
+
+    echo ''                                                                             >> $gSsdtPR
+    echo '        Method (ACST, 0, NotSerialized)'                                      >> $gSsdtPR
+    echo '        {'                                                                    >> $gSsdtPR
+
+    if ((gDebug)); then
+        echo '            Store ("Method '${gProcessorNames[$targetCPU]}'.ACST Called", Debug)'  >> $gSsdtPR
+    fi
+
+    #
+    # Are we injecting C-States for CPU1?
+    #
+    if [ $targetCPU -eq 1 ];
         then
             # Yes (also used by CPU2, CPU3 and greater).
             let targetCStates=$gACST_CPU1
             latency_C1=0x03E8
             latency_C2=0x94
             latency_C3=0xC6
-
-            if ((gDebug)); then
-                echo '            Store ("'${gProcessorNames[1]}' C-States    : '$targetCStates'", Debug)' >> $gSsdtPR
-                echo ''                                                                 >> $gSsdtPR
-            fi
         else
             #
             # C-States override for Mobile processors (CPU0 only)
             #
             if (($gTypeCPU == $gMobileCPU)); then
                 echo 'Adjusting C-States for detected (mobile) processor'
-                gACST_CPU0=29
+                let gACST_CPU0=29
             fi
 
             let targetCStates=$gACST_CPU0
             latency_C1=Zero
+            latency_C2=0x43
             latency_C3=0xCD
             latency_C6=0xF5
             latency_C7=0xF5
-
-            if ((gDebug)); then
-                echo '            Store ("'${gProcessorNames[0]}' C-States    : '$targetCStates'", Debug)' >> $gSsdtPR
-                echo ''                                                                 >> $gSsdtPR
-            fi
     fi
+
+    if ((gDebug)); then
+        echo '            Store ("'${gProcessorNames[$targetCPU]}' C-States    : '$targetCStates'", Debug)' >> $gSsdtPR
+        echo ''                                                                         >> $gSsdtPR
+    fi
+
+
+    _debugPrint "targetCStates: $targetCStates"
 
     #
     # Checks to determine which C-State(s) we should inject.
     #
     if (($targetCStates & 1)); then
+        _debugPrint "Adding C1"
         let C1=1
         let numberOfCStates+=1
         let pkgLength+=1
     fi
 
     if (($targetCStates & 2)); then
+        _debugPrint "Adding C2"
         let C2=1
         let numberOfCStates+=1
         let pkgLength+=1
     fi
 
     if (($targetCStates & 4)); then
+        _debugPrint "Adding C3"
         let C3=1
         let numberOfCStates+=1
         let pkgLength+=1
     fi
 
     if (($targetCStates & 8)); then
+        _debugPrint "Adding C6"
         let C6=1
         let numberOfCStates+=1
         let pkgLength+=1
     fi
 
-    if (($targetCStates & 16)); then
+    if ((($targetCStates & 16) == 16)); then
+        _debugPrint "Adding C7"
         let C7=1
         let numberOfCStates+=1
         let pkgLength+=1
@@ -1043,7 +1113,16 @@ function _printScopeCPUn()
         echo ''                                                                         >> $gSsdtPR
         echo '    Scope ('${gScope}'.'${gProcessorNames[$currentCPU]}')'                >> $gSsdtPR
         echo '    {'                                                                    >> $gSsdtPR
-        echo '        Method (APSS, 0, NotSerialized) { Return ('${gScope}'.'${gProcessorNames[0]}'.APSS) }' >> $gSsdtPR
+        echo '        Method (APSS, 0, NotSerialized)'                                  >> $gSsdtPR
+        echo '        {'                                                                >> $gSsdtPR
+
+        if ((gDebug)); then
+            echo '            Store ("Method '${gProcessorNames[$currentCPU]}'.APSS Called", Debug)'  >> $gSsdtPR
+            echo ''                                                                     >> $gSsdtPR
+        fi
+
+        echo '            Return ('${gScope}'.'${gProcessorNames[0]}'.APSS)'            >> $gSsdtPR
+        echo '        }'                                                                >> $gSsdtPR
 
         #
         # IB CPUPM tries to parse/execute CPUn.ACST (see debug data) and thus we add
@@ -1054,6 +1133,7 @@ function _printScopeCPUn()
                 then
                     _printScopeACST 1
                 else
+                    echo ''                                                             >> $gSsdtPR
                     echo '        Method (ACST, 0, NotSerialized) { Return ('${gScope}'.'${gProcessorNames[1]}'.ACST ()) }' >> $gSsdtPR
             fi
         fi
@@ -1146,8 +1226,18 @@ function _getProcessorScope()
         then
             gScope="\_PR_"
             echo ' (ACPI 1.0 compliant)'
+            return
         else
             gScope="\_SB_"
+            return
+    fi
+    #
+    # Additional/experimental code for support of broken ACPI tables.
+    #
+    if [[ $(ioreg -c AppleACPIPlatformExpert -rd1 -w0 | egrep -o 'DSDT"=<[0-9a-f]+' | egrep -o '5f5052') ]];
+        then
+            gScope="\_PR_"
+            echo ' (ACPI 1.0 compliant)'
     fi
 }
 
@@ -1158,7 +1248,7 @@ function _getCPUtype()
     #
     # Grab 'cpu-type' property from ioreg (stripped with sed / RegEX magic).
     #
-    local grepStr=$(ioreg -p IODeviceTree -n "${gProcessorNames[0]}"@0 -k cpu-type | grep cpu-type | sed -e 's/ *[-|="<a-z>]//g')
+    local grepStr=$(ioreg -p IODeviceTree -n "${gProcessorNames[0]}"@0 -k cpu-type | grep cpu-type | sed -e 's/["cputype" ,<>|=-]//g')
 
     # Swap bytes with help of ${str:pos:num}
     #
@@ -1359,7 +1449,7 @@ function _getCPUDataByProcessorNumber
                ;;
             4) local cpuSpecLists=("gDesktopIvyBridgeCPUList[@]" "gMobileIvyBridgeCPUList[@]" "gServerIvyBridgeCPUList[@]")
                ;;
-            8) local cpuSpecLists=("gDesktopHaswellCPUList[@]" "gMobileHaswellCPUList[@]" "gHaswellCPUList[@]")
+            8) local cpuSpecLists=("gDesktopHaswellCPUList[@]" "gMobileHaswellCPUList[@]" "gServerHaswellCPUList[@]")
                ;;
         esac
 
@@ -1457,10 +1547,9 @@ function _checkPlatformSupport()
 
         for item in "${targetList[@]}"
         do
-
-            if [ "$item" == "$2" ]; then
-                return 1
-            fi
+          if [ "$item" == "$2" ]; then
+              return 1
+          fi
         done
 
         return 0
@@ -1474,13 +1563,11 @@ function _checkPlatformSupport()
             __searchList 'SupportedModelProperties' $1
 
             if (($? == 0)); then
-                echo 'Warning: Model identifier ['$1'] is missing from: /S*/L*/CoreServices/PlatformSupport.plist'
-            fi
+              __searchList 'SupportedBoardIds' $2
 
-            __searchList 'SupportedBoardIds' $2
-
-            if (($? == 0)); then
-                echo 'Warning: boardID ['$2'] is missing from: /S*/L*/CoreServices/PlatformSupport.plist'
+              if (($? == 0)); then
+                echo 'Warning: Model identifier ['$1'] and board-id ['$2'] missing in: /S*/L*/CoreServices/PlatformSupport.plist'
+              fi
             fi
         else
             echo 'Warning: /S*/L*/C*/PlatformSupport.plist not found (normal for Snow Leopard)!'
@@ -1666,7 +1753,14 @@ function _initIvyBridgeSetup()
 			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
 		;;
-	esac
+
+		Mac-F60DEB81FF30ACF6)
+			gSystemType=3
+			gMacModelIdentifier="MacPro6,1"
+			gACST_CPU0=13   # C1, C3, C6
+			gACST_CPU1=13   # C1, C3, C6
+		;;
+esac
 }
 
 #--------------------------------------------------------------------------------
@@ -1677,21 +1771,21 @@ function _initHaswellSetup()
 		Mac-031B6874CF7F642A)
 			gSystemType=1
 			gMacModelIdentifier="iMac14,1"
-			gACST_CPU0=13   # C1, C2, C3, C6
+			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
 		;;
 
 		Mac-27ADBB7B4CEE8E61)
 			gSystemType=1
 			gMacModelIdentifier="iMac14,2"
-			gACST_CPU0=13   # C1, C2, C3, C6
+			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
 		;;
 
 		Mac-77EB7D7DAF985301)
 			gSystemType=1
 			gMacModelIdentifier="iMac14,3"
-			gACST_CPU0=13   # C1, C2, C3, C6
+			gACST_CPU0=29   # C1, C3, C6 and C7
 			gACST_CPU1=7    # C1, C2 and C3
 		;;
 
@@ -1719,24 +1813,24 @@ function _initHaswellSetup()
 		Mac-35C1E88140C3E6CF)
 			gSystemType=2
 			gMacModelIdentifier="MacBookAir6,1"
-			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
-			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+			gACST_CPU0=29   # C1, C3, C6, C7
+			gACST_CPU1=7    # C1, C2, C3
 		;;
 
 		Mac-7DF21CB3ED6977E5)
 			gSystemType=2
 			gMacModelIdentifier="MacBookAir6,2"
-			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
-			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+			gACST_CPU0=29   # C1, C3, C6, C7
+			gACST_CPU1=7    # C1, C2, C3
 		;;
 
 		Mac-F60DEB81FF30ACF6)
-			gSystemType=1
+			gSystemType=3
 			gMacModelIdentifier="MacPro6,1"
-			gACST_CPU0=253  # C1, C3, C6, C7, C8, C9 and C10
-			gACST_CPU1=31   # C1, C2, C3, C6 and C7
+			gACST_CPU0=13   # C1, C3, C6
+			gACST_CPU1=13   # C1, C3, C6
 		;;
-	esac
+    esac
 }
 
 #--------------------------------------------------------------------------------
@@ -1774,8 +1868,11 @@ function _exitWithError()
 
 function main()
 {
-    printf "\nsdtPRGen.sh v$gScriptVersion Copyright (c) 2013 by Pike R. Alpha\n"
+    printf "\nssdtPRGen.sh v0.9 Copyright (c) 2011-2012 by † RevoGirl\n"
+    echo   '             v6.6 Copyright (c) 2013 by † Jeroen'
+    printf "             v$gScriptVersion Copyright (c) 2013-$(date "+%Y") by Pike R. Alpha\n"
     echo   '----------------------------------------------------------------'
+    printf "System information: $gProductName $gProductVersion ($gBuildVersion)\n"
 
     let assumedTDP=0
     let modelSpecified=0
@@ -1840,8 +1937,15 @@ function main()
             let gMaxOCFrequency=8000
         fi
 
+        # Haswell SVR
+        if (($model==0x3F)); then
+            let assumedTDP=1
+            let gTdp=130
+            let gBridgeType=8
+        fi
+
         # Haswell ULT
-        if (($model==0x40)); then
+        if (($model==0x45)); then
             let assumedTDP=1
             let gTdp=15
             let gBridgeType=8
@@ -1855,7 +1959,7 @@ function main()
            ;;
         8) local bridgeTypeString="Haswell"
            ;;
-	    *) local bridgeTypeString="Unknown"
+        *) local bridgeTypeString="Unknown"
            ;;
     esac
 
@@ -1901,7 +2005,7 @@ function main()
                 then
                     let gBaseFrequency=$lfm
                 else
-                    echo -e "\nWarning: Low Frequency Mode is 0 (unknown)"
+                    echo -e "\nWarning: Low Frequency Mode is 0 (unknown/unconfirmed)"
 
                     if (($gTypeCPU == gMobileCPU));
                         then
@@ -2038,52 +2142,55 @@ function main()
 
     _printHeader
     _printExternals
-    _printDebugInfo
     _printScopeStart $turboStates $packageLength
     _printPackages $gTdp $frequency $maxTurboFrequency
 
-    if [ $gBridgeType -eq $SANDY_BRIDGE ];
-        then
+    case "$gBridgeType" in
+        $SANDY_BRIDGE)
             local cpuTypeString="06"
-
             _initSandyBridgeSetup
-
             _printScopeACST 0
             _printScopeCPUn
-        else
+            ;;
+        $IVY_BRIDGE)
             local cpuTypeString="07"
-
             _initIvyBridgeSetup
-
             _printScopeACST 0
             _printMethodDSM
             _printScopeCPUn
-    fi
+            ;;
+        $HASWELL)
+            local cpuTypeString="08"
+            _initHaswellSetup
+            _printScopeACST 0
+            _printMethodDSM
+            _printScopeCPUn
+           ;;
+    esac
 
     _showLowPowerStates
     _checkPlatformSupport $modelID $boardID
 
     #
-    # Some IB CPUPM specific configuration checks
+    # Some Sandy Bridge/Ivy Bridge CPUPM specific configuration checks
     #
-    if [ $gBridgeType -ne $HASWELL ];
-        then
-            if [ ${cpu_type:0:2} -ne $cpuTypeString ]; then
-                echo -e "\nWarning: 'cpu-type' may be set improperly (0x$cpu_type instead of 0x$cpuTypeString${cpu_type:2:2})"
-            fi
+    if [ $gBridgeType -ne $HASWELL ]; then
+        if [ ${cpu_type:0:2} -ne $cpuTypeString ]; then
+            echo -e "\nWarning: 'cpu-type' may be set improperly (0x$cpu_type instead of 0x$cpuTypeString${cpu_type:2:2})"
+        fi
 
-            if [ $gSystemType -eq 0 ];
-                then
-                    echo -e "\nWarning: 'board-id' [$boardID] is not supported by $bridgeTypeString PM"
-                else
-                    if [ "$gMacModelIdentifier" != "$modelID" ]; then
-                        echo "Error: board-id [$boardID] and model [$modelID] mismatch"
-                    fi
+        if [ $gSystemType -eq 0 ];
+            then
+                echo -e "\nWarning: 'board-id' [$boardID] is not supported by $bridgeTypeString PM"
+            else
+                if [ "$gMacModelIdentifier" != "$modelID" ]; then
+                    echo "Error: board-id [$boardID] and model [$modelID] mismatch"
+                fi
+        fi
+    fi
 
-                    if [ $currentSystemType -ne $gSystemType ]; then
-                        echo -e "\nWarning: 'system-type' may be set improperly ($currentSystemType instead of $gSystemType)"
-                    fi
-            fi
+    if [ $currentSystemType -ne $gSystemType ]; then
+        echo -e "\nWarning: 'system-type' may be set improperly ($currentSystemType instead of $gSystemType)"
     fi
 }
 
@@ -2109,7 +2216,7 @@ if (($gCallIasl)); then
     #
     # Compile ssdt.dsl
     #
-    "$iasl" $gSsdtPR
+    sudo "$iasl" $gSsdtPR
 
     #
     # Copy ssdt_pr.aml to /Extra/ssdt.aml (example)
