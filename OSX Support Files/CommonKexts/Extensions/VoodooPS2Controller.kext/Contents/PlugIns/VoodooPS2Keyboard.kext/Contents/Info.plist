@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>13A603</string>
+	<string>13B42</string>
 	<key>CFBundleExecutable</key>
 	<string>VoodooPS2Keyboard</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.8.9, Copyright Apple Computer, Inc. 2000-2003, RehabMan 2012-2013</string>
+	<string>1.8.10, Copyright Apple Computer, Inc. 2000-2003, RehabMan 2012-2013</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.rehabman.voodoo.driver.PS2Keyboard</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.8.9</string>
+	<string>1.8.10</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -29,7 +29,7 @@
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12D75</string>
+	<string>12F37</string>
 	<key>DTSDKName</key>
 	<string>macosx10.8</string>
 	<key>DTXcode</key>
@@ -213,6 +213,25 @@
 					<string>ProBook-102;ProBook 4440s</string>
 					<key>17F6</key>
 					<string>ProBook-102;ProBook 4540s</string>
+					<key>1962</key>
+					<string>HaswellEnvy;HP Envy 15-j063cl</string>
+					<key>1966</key>
+					<string>HaswellEnvy;HP Envy 17t-j000</string>
+					<key>HaswellEnvy</key>
+					<dict>
+						<key>BrightnessHack</key>
+						<true/>
+						<key>Custom ADB Map</key>
+						<array>
+							<string>e019=42;next</string>
+							<string>e010=4d;previous</string>
+						</array>
+						<key>Custom PS2 Map</key>
+						<array>
+							<string>e045=e037</string>
+							<string>e0ab=0;bogus Fn+F2/F3</string>
+						</array>
+					</dict>
 					<key>ProBook-102</key>
 					<dict>
 						<key>Function Keys Special</key>
@@ -434,7 +453,7 @@
 		<key>com.apple.kpi.unsupported</key>
 		<string>8.0.0</string>
 		<key>org.rehabman.voodoo.driver.PS2Controller</key>
-		<string>1.8.9</string>
+		<string>1.8.10</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Console</string>

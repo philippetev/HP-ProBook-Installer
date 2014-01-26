@@ -20,6 +20,42 @@ Supported models:\
 \b0 :\
 \
 
+\b Version 6.1.12 (January 26th 2014):
+\b0 \
+\
+- The new brightness method, based on DSDT/
+\b ACPIBacklight.kext
+\b0 , is added to the Installer. Now all the DSDT will be patched for use with 
+\b ACPIBacklight.kext
+\b0  with the default ProBook data (the 12c patch). If you want to use other brightness data or the native brightness method, you should patch your vanilla DSDT manually with 
+\b MaciASL
+\b0  and the patches from the 
+\b RehabMan
+\b0 \'92s repository. The old 
+\b SetBrightness
+\b0 /
+\b blinkscreen
+\b0  stuff is removed.\
+- 
+\b Chameleon
+\b0  is updated to r2344.\
+- Some updates:\
+\
+
+\b the main DSDT patches
+\b0 \
+
+\b VoodooPS2Controller.kext\
+FakeSMC.kext
+\b0  (along with 
+\b HWMonitor
+\b0 )\
+
+\b ACPIBatteryManager.kext\
+ssdtPRGen 9.0
+\b0 \
+\
+
 \b Version 6.1.11 (December 6th 2013):
 \b0 \
 \

@@ -1,2 +1,0 @@
-#!/bin/bash
-/usr/libexec/PlistBuddy -c "Set :ProgramArguments:1 0.50" "${3}/Library/LaunchAgents/setBrightness.plist"

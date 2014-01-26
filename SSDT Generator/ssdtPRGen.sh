@@ -3,10 +3,10 @@
 # Script (ssdtPRGen.sh) to create ssdt-pr.dsl for Apple Power Management Support.
 #
 # Version 0.9 - Copyright (c) 2012 by RevoGirl
-# Version 7.7 - Copyright (c) 2014 by Pike <PikeRAlpha@yahoo.com>
+# Version 9.0 - Copyright (c) 2014 by Pike <PikeRAlpha@yahoo.com>
 #
 # Updates:
-#			- Added support for Ivybridge (Pike, January 2013)
+#			- Added support for Ivy Bridge (Pike, January 2013)
 #			- Filename error fixed (Pike, January 2013)
 #			- Namespace error fixed in _printScopeStart (Pike, January 2013)
 #			- Model and board-id checks added (Pike, January 2013)
@@ -83,8 +83,18 @@
 #			- Intel E5-2695 V2 added (Pike, December 2013)
 #			- Intel i3-3250 added (Pike, December 2013)
 #			- Sed RegEx error fixed in _getCPUtype (Pike, January 2014)
-#			- Fixed a typo 's/i7-26740M/i7-2674M/' (Pike, January 2014)
+#			- Fixed a typo 's/i7-2640M/i7-2674M/' (Pike, January 2014)
 #			- Fixed a typo 's/gHaswellCPUList/gServerHaswellCPUList/' (Pike, January 2014)
+#			- Intel E5-26nn v2 Xeon Processors added (Pike, January 2014)
+#			- Show the CPU brandstring at all times (Pike, January 2014)
+#			- Fixed cpu-type suggestion for MacPro6,1 (Pike, January 2014)
+#			- Intel i7-4771 added (Pike, January 2014)
+#			- A couple Intel Haswell/Crystal Well processor models added (Pike, January 2014)
+#			- Moved a couple of Ivy Bridge desktop model processors to the right spot (Pike, January 2014)
+#			- Experimental code added for Gringo Vermelho (Pike, January 2014)
+#			- Fixed a typo so that checking gIvyWorkAround really works (Pike, January 2014)
+#			- Added extra OS checks (as a test) to filter out possibly unwanted LFM P-States (Pike, January 2014)
+#			- Let gIvyWorkAround control the additional LFM P-States (Pike, January 2014)
 #
 # Contributors:
 #			- Thanks to Dave, toleda and Francis for their help (bug fixes and other improvements).
@@ -93,10 +103,13 @@
 #			- Thanks to 'philip_petev' for his help with Snow Leopard/egrep incompatibility.
 #			- Thanks to 'RehabMan' for his help with Snow Leopard/egrep incompatibility.
 #			- Thanks to 'BigDonkey' for his help with LFM (800 MHz) for Sandy Bridge mobility models.
+#			- Thanks to 'rtcl777' on Github issues for the tip about a typo in the iMac12 board-id's.
 #			- Thanks to 'xpamamadeus' for the Clover boot.log tip.
 #			- Thanks to 'rileyfreeman' for the Intel i7-3930K LFM value.
 #			- Thanks to 'Klonkrieger2' aka Mark for the tip about the sed RegEx error in _getCPUtype.
-#			- Thanks to 'dhnguyen92' on Github issues for the tip about a typo in the i7-2674M data.
+#			- Thanks to 'dhnguyen92' on Github issues for the tip about a typo in the i7-2640M model data.
+#			- Thanks to 'fabiosun' on Github issues for the tip about a typo in the cpu-type check.
+#			- Thanks to 'Hackmodford ' on Github issues for testing/confirming that PM in Mavericks was changed.
 #
 # Usage (v1.0 - v4.9):
 #
@@ -113,10 +126,10 @@
 #
 #           - ./ssdtPRGen.sh E5-1650
 #
-#           - ./ssdtPRGen.sh 'E3-1220 V2'
-#           - ./ssdtPRGen.sh 'E3-1220 V2' 3600
-#           - ./ssdtPRGen.sh 'E3-1220 V2' 3600 70
-#           - ./ssdtPRGen.sh 'E3-1220 V2' 3600 70 1
+#           - ./ssdtPRGen.sh 'E3-1220 v2'
+#           - ./ssdtPRGen.sh 'E3-1220 v2' 3600
+#           - ./ssdtPRGen.sh 'E3-1220 v2' 3600 70
+#           - ./ssdtPRGen.sh 'E3-1220 v2' 3600 70 1
 #
 # Usage (v5.5 and greater):
 #
@@ -124,11 +137,11 @@
 #
 #           - ./ssdtPRGen.sh E5-1650
 #
-#           - ./ssdtPRGen.sh 'E3-1220 V2'
-#           - ./ssdtPRGen.sh 'E3-1220 V2' 3600
-#           - ./ssdtPRGen.sh 'E3-1220 V2' 3600 70
-#           - ./ssdtPRGen.sh 'E3-1220 V2' 3600 70 1
-#           - ./ssdtPRGen.sh 'E3-1220 V2' 3600 70 1 CPU
+#           - ./ssdtPRGen.sh 'E3-1220 v2'
+#           - ./ssdtPRGen.sh 'E3-1220 v2' 3600
+#           - ./ssdtPRGen.sh 'E3-1220 v2' 3600 70
+#           - ./ssdtPRGen.sh 'E3-1220 v2' 3600 70 1
+#           - ./ssdtPRGen.sh 'E3-1220 v2' 3600 70 1 CPU
 #
 
 # set -x # Used for tracing errors (can be used anywhere in the script).
@@ -136,9 +149,18 @@
 #================================= GLOBAL VARS ==================================
 
 #
-# Change this to 0 when your CPU isn't stuck in Low Frequency Mode!
+# Script version info.
 #
-let gIvyWorkAround=1
+gScriptVersion=9.0
+
+#
+# Change this to 1 when your CPU is stuck in Low Frequency Mode!
+#
+# 1 - Injects one extra Turbo P-State at he top with max-Turbo frequency + 1 MHz.
+# 2 - Injects N extra Turbo P-States at the bottom.
+# 3 - Injects both of them.
+#
+let gIvyWorkAround=3
 
 #
 # Asks for your confirmation to copy ssdt_pr.aml to /Extra/ssdt.aml (example)
@@ -194,8 +216,6 @@ gScope="\_PR_"
 # Other global variables.
 #
 
-gScriptVersion=7.7
-
 gRevision='0x0000'${gScriptVersion:0:1}${gScriptVersion:2:1}'00'
 
 #
@@ -230,6 +250,7 @@ let gUnmountEFIPartition=0
 gProductName=$(sw_vers -productName)
 gProductVersion="$(sw_vers -productVersion)"
 gBuildVersion=$(sw_vers -buildVersion)
+let gOSVersion=$(echo $gProductVersion | tr -d '.')
 
 #
 # Maximum Turbo Clock Speed (user configurable)
@@ -243,6 +264,13 @@ let PROCESSOR_NUMBER_ERROR=5
 let PROCESSOR_LABEL_LENGTH_ERROR=6
 let PROCESSOR_NAMES_ERROR=7
 let PROCESSOR_DECLARATION_ERROR=8
+
+#
+# First OS version number that no longer requires extra Low Frequency Mode P-States.
+#
+# Note: For future use (when we figured out what we need).
+#
+let LFM_REQUIRED_OS=1091
 
 #
 # Processor Number, Max TDP, Low Frequency Mode, Clock Speed, Max Turbo Frequency, Cores, Threads
@@ -276,7 +304,7 @@ i7-35355,120,1600,2666,2666,4,4
 i7-3970X,150,1200,3500,4000,6,12
 i7-3960X,130,1200,3300,3900,6,12
 i7-3930K,130,1200,3200,3800,6,12
-i7-3820,130,0,3600,3800,4,8
+i7-3820,130,1200,3600,3800,4,8
 # i7 Desktop series
 i7-2600S,65,1600,2800,3800,4,8
 i7-2600,95,1600,3400,3800,4,8
@@ -326,7 +354,7 @@ i7-2670QM,45,800,2200,3100,4,8
 i7-2675M,17,800,1600,2700,2,4
 i7-2655LE,25,800,2200,2900,2,4
 i7-2649M,25,800,2300,3200,2,4
-i7-2674M,32,800,2800,3500,2,4
+i7-2640M,35,800,2800,3500,2,4
 i7-2637M,17,800,1700,2800,2,4
 i7-2635QM,45,800,2000,2900,4,8
 i7-2630QM,45,800,2000,2900,4,8
@@ -370,23 +398,47 @@ i3-2310E,35,800,2100,0,2,4
 
 gServerIvyBridgeCPUList=(
 # E3-1200 Xeon Processor Series
-'E3-1290 V2',87,0,3700,4100,4,8
-'E3-1285 V2',65,0,3600,4000,
-'E3-1285L V2',0,0,3200,3900,
-'E3-1280 V2',69,0,3600,4000,4,8
-'E3-1275 V2',77,0,3500,3900,4,8
-'E3-1270 V2',69,0,3500,3900,4,8
-'E3-1265L V2',45,0,2500,3500,4,8
-'E3-1245 V2',77,0,3400,3800,4,8
-'E3-1240 V2',69,0,3400,3800,4,8
-'E3-1230 V2',69,0,3300,3700,4,8
-'E3-1225 V2',77,0,3200,3600,4,4
-'E3-1220 V2',69,0,3100,3500,4,4
-'E3-1220L V2',17,0,2300,3500,2,4
-'E5-2695 V2',115,1200,2400,3200,12,24
+'E3-1290 v2',87,1200,3700,4100,4,8
+'E3-1280 v2',69,1200,3600,4000,4,8
+'E3-1275 v2',77,1200,3500,3900,4,8
+'E3-1270 v2',69,1200,3500,3900,4,8
+'E3-1265L v2',45,1200,2500,3500,4,8
+'E3-1245 v2',77,1200,3400,3800,4,8
+'E3-1240 v2',69,1200,3400,3800,4,8
+'E3-1230 v2',69,1200,3300,3700,4,8
+'E3-1225 v2',77,1200,3200,3600,4,4
+'E3-1220 v2',69,1200,3100,3500,4,4
+'E3-1220L v2',17,1200,2300,3500,2,4
+# E5-2600 Xeon Processor Series
+'E5-2687W v2',150,1200,3400,4000,8,16
+'E5-2658 v2 ',95,1200,2400,3000,10,20
+'E5-2648L v2',70,1200,1900,2500,10,20
+'E5-2628L v2',70,1200,1900,2400,8,16
+'E5-2603 v2',80,1200,1800,1800,4,4
+'E5-2637 v2',130,1200,3500,3800,4,8
+'E5-2630L v2',60,1200,2400,2800,6,12
+'E5-2630 v2',80,1200,2600,3100,6,12
+'E5-2620 v2',80,1200,2100,2600,6,12
+'E5-2618L v2',50,1200,2000,2000,6,12
+'E5-2609 v2',80,1200,2500,2500,4,4
+'E5-2697 v2',130,1200,2700,3500,12,24
+'E5-2695 v2',115,1200,2400,3200,12,24
+'E5-2690 v2',130,1200,3000,3600,10,20
+'E5-2680 v2',115,1200,2800,3600,10,20
+'E5-2670 v2',115,1200,2500,3300,10,20
+'E5-2667 v2',130,1200,3300,4000,6,16
+'E5-2660 v2',95,1200,2200,3000,10,20
+'E5-2650L v2',70,1200,1700,2100,10,20
+'E5-2650 v2',95,1200,2600,3400,8,16
+'E5-2643 v2',130,1200,3500,3800,6,12
+'E5-2640 v2',95,1200,2000,2500,8,16
 )
 
 gDesktopIvyBridgeCPUList=(
+# Socket 2011 (Premium Power)
+i7-4960K,130,1200,3600,4000,6,12
+i7-4930K,130,1200,3400,3900,6,12
+i7-4820K,130,1200,3700,3900,4,8
 # i7-3700 Desktop Processor Series
 i7-3770T,45,1600,2500,3700,4,8
 i7-3770S,65,1600,3100,3900,4,8
@@ -483,33 +535,32 @@ i3-3110M,35,0,2400,0,2,4
 # New Haswell processors (with HD-4600 graphics)
 #
 gServerHaswellCPUList=(
-# E3-1200 V3 Xeon Processor Series
-'E3-1285L V3',65,800,3100,3900,4,8
-'E3-1285 V3',84,800,3600,4000,4,8
-'E3-1280 V3',82,800,3600,4000,4,8
-'E3-1275 V3',84,800,3500,3900,4,8
-'E3-1270 V3',80,800,3500,3900,4,8
-'E3-1268L V3',45,800,2300,3300,4,8
-'E3-1265L V3',45,800,2500,3700,4,8
-'E3-1245 V3',84,800,3400,3800,4,8
-'E3-1240 V3',80,800,3400,3800,4,8
-'E3-1230L V3',25,800,1800,2800,4,8
-'E3-1230 V3',80,800,3300,3700,4,8
-'E3-1225 V3',80,800,3200,3600,4,4
-'E3-1220 V3',80,800,3100,3500,4,4
+# E3-1200 v3 Xeon Processor Series
+'E3-1285L v3',65,800,3100,3900,4,8
+'E3-1285 v3',84,800,3600,4000,4,8
+'E3-1280 v3',82,800,3600,4000,4,8
+'E3-1275 v3',84,800,3500,3900,4,8
+'E3-1270 v3',80,800,3500,3900,4,8
+'E3-1268L v3',45,800,2300,3300,4,8
+'E3-1265L v3',45,800,2500,3700,4,8
+'E3-1245 v3',84,800,3400,3800,4,8
+'E3-1240 v3',80,800,3400,3800,4,8
+'E3-1230L v3',25,800,1800,2800,4,8
+'E3-1230 v3',80,800,3300,3700,4,8
+'E3-1225 v3',80,800,3200,3600,4,4
+'E3-1220 v3',80,800,3100,3500,4,4
+'E3-1220L v3',13,800,1100,1500,2,4
 )
 
 gDesktopHaswellCPUList=(
-# Socket 2011 (Premium Power)
-i7-4960K,130,800,3600,4000,6,12
-i7-4930K,130,800,3400,3900,6,12
-i5-4820K,130,800,3700,3900,4,8
 # Socket 1150 (Standard Power)
 i7-4770K,84,800,3500,3900,4,8
+i7-4771,84,800,3500,3900,4,8
 i7-4770,84,800,3400,3900,4,8
 i5-4670K,84,800,3400,3800,4,4
 i5-4670,84,800,3400,3800,4,4
 i5-4570,84,800,3200,3600,4,4
+i5-4440,84,800,3100,3300,4,4
 i5-4430,84,800,3000,3200,4,4
 # Socket 1150 (Low Power)
 i7-4770S,65,800,3100,3900,4,8
@@ -538,9 +589,13 @@ i3-4340,54,800,3600,3600,2,4
 )
 
 gMobileHaswellCPUList=(
+# Socket FCBGA1364
+i7-4960HQ,47,800,2600,3800,4,8
 i7-4950HQ,47,800,2400,3600,4,8
 i7-4850HQ,47,800,2300,3500,4,8
 i7-4750HQ,47,800,2000,3200,4,8
+i7-4702HQ,37,800,2200,3200,4,8
+i7-4700HQ,47,800,2400,3600,4,8
 # Extreme Edition Series - socket FCPGA946
 i7-4930MX,57,800,3000,3900,4,8
 # Socket FCPGA946
@@ -549,11 +604,13 @@ i7-4800MQ,47,800,2700,3700,4,8
 i7-4702MQ,37,800,2200,3200,4,8
 i7-4700MQ,47,800,2400,3400,4,8
 i5-4200M,37,800,2500,3100,2,4
-# Socket FCBGA1364
-i7-4700HQ,47,800,2400,3600,4,8
-i7-4702HQ,37,800,2200,3200,4,8
 # Socket FCBGA1168
+i7-4650U,15,800,1700,3300,2,4
+i7-4650U,15,800,1700,3300,2,4
+i7-4600U,15,800,2100,3300,2,4
 i7-4558U,28,800,2800,3300,2,4
+i7-4550U,15,800,1500,3000,2,4
+i7-4500U,15,800,1800,3000,2,4
 i5-4350U,15,800,1400,2900,2,4
 i5-4288U,28,800,2600,3100,2,4
 i5-4258U,28,800,2400,2900,2,4
@@ -613,15 +670,17 @@ function _injectDebugInfo()
     xcpm=0
 
     #
-    # 'machdep.xcpm' is introduced in 10.8.5
+    # Check OS version ('machdep.xcpm' is introduced in 10.8.5)
     #
-    if [[ $gProductVersion > "10.8.4" ]]; then
-      xcpm=$(/usr/sbin/sysctl -n machdep.xcpm.mode)
+    if [[ $gOSVersion > 1084 ]]; then
+        xcpm=$(/usr/sbin/sysctl -n machdep.xcpm.mode)
     fi
 
     echo '        Method (_INI, 0, NotSerialized)'                                      >> $gSsdtPR
     echo '        {'                                                                    >> $gSsdtPR
     echo '            Store ("ssdtPRGen version: '$gScriptVersion' / '$gProductName' '$gProductVersion' ('$gBuildVersion')", Debug)'  >> $gSsdtPR
+    echo '            Store ("target processor : '$gProcessorNumber'", Debug)'          >> $gSsdtPR
+    echo '            Store ("running processor: '$gBrandString'", Debug)'              >> $gSsdtPR
     echo '            Store ("baseFrequency    : '$gBaseFrequency'", Debug)'            >> $gSsdtPR
     echo '            Store ("frequency        : '$frequency'", Debug)'                 >> $gSsdtPR
     echo '            Store ("busFrequency     : '$gBusFrequency'", Debug)'             >> $gSsdtPR
@@ -630,6 +689,7 @@ function _injectDebugInfo()
     echo '            Store ("packageLength    : '$packageLength'", Debug)'             >> $gSsdtPR
     echo '            Store ("turboStates      : '$turboStates'", Debug)'               >> $gSsdtPR
     echo '            Store ("maxTurboFrequency: '$maxTurboFrequency'", Debug)'         >> $gSsdtPR
+    echo '            Store ("gIvyWorkAround   : '$gIvyWorkAround'", Debug)'            >> $gSsdtPR
     echo '            Store ("machdep.xcpm.mode: '$xcpm'", Debug)'                      >> $gSsdtPR
     echo '        }'                                                                    >> $gSsdtPR
     echo ''                                                                             >> $gSsdtPR
@@ -669,10 +729,17 @@ function _printScopeStart()
     #
     # Do we need to create additional (Low Frequency) P-States?
     #
-
     if [ $gBridgeType -ne $SANDY_BRIDGE ];
         then
-            let lowFrequencyPStates=($gBaseFrequency/100)-8
+            let lowFrequencyPStates=0
+
+            #
+            # Do we need to add additional (Low Frequency) P-States for Ivy Bridge?
+            #
+            if (( $gBridgeType == $IVY_BRIDGE && $gIvyWorkAround & 2 )); then
+                let lowFrequencyPStates=($gBaseFrequency/100)-8
+            fi
+
             let packageLength=($2+$lowFrequencyPStates)
 
             if [[ lowFrequencyPStates -gt 0 ]];
@@ -684,7 +751,7 @@ function _printScopeStart()
             fi
 
             # TODO: Remove this when CPUPM for IB works properly!
-            if [[ gIvyWorkAround && $gBridgeType -eq $IVY_BRIDGE ]]; then
+            if (( $gBridgeType == $IVY_BRIDGE && $gIvyWorkAround & 1 )); then
                 let useWorkArounds=1
             fi
     fi
@@ -692,7 +759,6 @@ function _printScopeStart()
     #
     # Check number of Turbo states (for IASL optimization).
     #
-
     if [ $turboStates -eq 0 ];
         then
             # TODO: Remove this when CPUPM for IB works properly!
@@ -744,9 +810,9 @@ function _printPackages()
     let powerRatio=($p1Ratio-1)
 
     #
-    # Do we need to create additional (Low Frequency) P-States for Ivy bridge?
+    # Do we need to add additional (Low Frequency) P-States for Ivy Bridge?
     #
-    if [ $gBridgeType -eq $IVY_BRIDGE ]; then
+    if (( $gBridgeType == $IVY_BRIDGE && $gIvyWorkAround & 2 )); then
         let minRatio=8
     fi
 
@@ -845,7 +911,7 @@ function _printMethodDSM()
 function _debugPrint()
 {
     if (( gDebug & 2 )); then
-        echo "$1"
+        printf "$1"
     fi
 }
 
@@ -924,41 +990,41 @@ function _printScopeACST()
     fi
 
 
-    _debugPrint "targetCStates: $targetCStates"
+    _debugPrint "targetCStates: $targetCStates\n"
 
     #
     # Checks to determine which C-State(s) we should inject.
     #
     if (($targetCStates & 1)); then
-        _debugPrint "Adding C1"
+        _debugPrint "Adding C1\n"
         let C1=1
         let numberOfCStates+=1
         let pkgLength+=1
     fi
 
     if (($targetCStates & 2)); then
-        _debugPrint "Adding C2"
+        _debugPrint "Adding C2\n"
         let C2=1
         let numberOfCStates+=1
         let pkgLength+=1
     fi
 
     if (($targetCStates & 4)); then
-        _debugPrint "Adding C3"
+        _debugPrint "Adding C3\n"
         let C3=1
         let numberOfCStates+=1
         let pkgLength+=1
     fi
 
     if (($targetCStates & 8)); then
-        _debugPrint "Adding C6"
+        _debugPrint "Adding C6\n"
         let C6=1
         let numberOfCStates+=1
         let pkgLength+=1
     fi
 
     if ((($targetCStates & 16) == 16)); then
-        _debugPrint "Adding C7"
+        _debugPrint "Adding C7\n"
         let C7=1
         let numberOfCStates+=1
         let pkgLength+=1
@@ -1220,6 +1286,7 @@ function _getProcessorScope()
     #
     if [[ $(ioreg -c AppleACPIPlatformExpert -rd1 -w0 | egrep -o 'DSDT"=<[0-9a-f]+' | egrep -o '5b830b') ]]; then
         printf 'Processor Declaration(s) Found in DSDT'
+        return
     fi
 
     if [[ $(ioreg -c AppleACPIPlatformExpert -rd1 -w0 | egrep -o 'DSDT"=<[0-9a-f]+' | egrep -o '5f50525f') ]];
@@ -1376,7 +1443,11 @@ function _getCPUNumberFromBrandString
     #
     # Get CPU brandstring
     #
-    local brandString=$(echo `sysctl machdep.cpu.brand_string` | sed -e 's/machdep.cpu.brand_string: //')
+    gBrandString=$(echo `sysctl machdep.cpu.brand_string` | sed -e 's/machdep.cpu.brand_string: //')
+    #
+    # Show brandstring (this helps me to debug stuff).
+    #
+    printf "Brandstring '${gBrandString}'\n"
     #
     # Save default (0) delimiter
     #
@@ -1388,9 +1459,16 @@ function _getCPUNumberFromBrandString
     #
     # Split brandstring into array (data)
     #
-    local data=($brandString)
-#   local data=("Intel(R)" "Xeon(R)" "CPU" "E3-1220" "V2" "@" "2.5GHz")
-#   local data=("Intel(R)" "Xeon(R)" "CPU" "E3-1220" "@" "2.5GHz")
+    local data=($gBrandString)
+    #
+    # Teststrings
+    #
+    # local data=("Intel(R)" "Xeon(R)" "CPU" "E3-1220" "@" "2.5GHz")
+    # local data=("Intel(R)" "Xeon(R)" "CPU" "E3-1220" "v2" "@" "2.5GHz")
+    # local data=("Intel(R)" "Xeon(R)" "CPU" "E3-1220" "v3" "@" "2.5GHz")
+    # local data=("Intel(R)" "Xeon(R)" "CPU" "E3-1220" "0" "@" "2.5GHz")
+    # local data=("Intel(R)" "Core(TM)" "i5-4670K" "CPU" "@" "3.40GHz")
+
     #
     # Example from a MacBookPro10,2
     #
@@ -1418,18 +1496,38 @@ function _getCPUNumberFromBrandString
 
     let length=${#data[@]}
 
-    if ((length > 6)); then
-        echo 'Warning: Unexpected brandstring > "'${data[@]}'"'
+    if ((length > 7)); then
+        echo 'Warning: The brandstring has an unexpected length!'
     fi
 
-    if [[ ${data[1]} == "Xeon(R)" && ${data[4]} == "V2" ]];
-        then
-            gProcessorNumber="${data[3]} ${data[4]}"
-        else
-            gProcessorNumber="${data[2]}"
+    #
+    # Is this a Xeon processor model?
+    #
+    if [[ "${data[1]}" == "Xeon(R)" ]];
+      then
+        #
+        # Yes. Check for lower/upper case 'v' or '0' for OEM processors. 
+        #
+        if [[ "${data[4]}" =~ "v" || "${data[4]}" =~ "V" ]];
+          then
+              #
+              # Use a lowercase 'v' because that is what we use in our data.
+              #
+              gProcessorNumber="${data[3]} v${data[4]:1:1}"
+          elif [[ "${data[4]}" == "0" ]];
+              then
+                #
+                # OEM CPU's have been reported to use a "0" instead of "v2"
+                # and thus let's use that to make our data match the CPU.
+                #
+                gProcessorNumber="${data[3]} v2"
+        fi
+      else
+        #
+        # All other non-Xeon processor models.
+        #
+        gProcessorNumber="${data[2]}"
     fi
-
-#   echo $gProcessorNumber
 }
 
 #--------------------------------------------------------------------------------
@@ -1880,6 +1978,8 @@ function main()
 
     _getCPUNumberFromBrandString
 
+    _debugPrint "\ngProcessorNumber: $gProcessorNumber\n"
+
     if [[ "$1" != "" ]]; then
         # Sandy Bridge checks
         if [[ ${1:0:4} == "i3-2" || ${1:0:4} == "i5-2" || ${1:0:4} == "i7-2" ]]; then
@@ -2022,7 +2122,7 @@ function main()
             let frequency=($frequency / 1000000)
 
             if [[ $assumedTDP -eq 1 ]]; then
-                echo 'With a maximum TDP of '$gTdp' Watt - assumed, may require override value!'
+              echo "With a maximum TDP of ${gTdp} Watt - assumed/undetected CPU may require override value!"
             fi
     fi
 
@@ -2167,6 +2267,16 @@ function main()
             _printScopeCPUn
            ;;
     esac
+    #
+    # Is this a MacPro6,1 model?
+    #
+    if [[ $modelID == 'MacPro6,1' ]];
+      then
+        #
+        # Yes. Use the correct string/value for the cpu-type suggestion.
+        #
+        local cpuTypeString="0a"
+    fi
 
     _showLowPowerStates
     _checkPlatformSupport $modelID $boardID
@@ -2174,12 +2284,12 @@ function main()
     #
     # Some Sandy Bridge/Ivy Bridge CPUPM specific configuration checks
     #
-    if [ $gBridgeType -ne $HASWELL ]; then
-        if [ ${cpu_type:0:2} -ne $cpuTypeString ]; then
+    if [ $gBridgeType -ne $HASWELL ];
+      then
+        if [ ${cpu_type:0:2} != $cpuTypeString ];
+          then
             echo -e "\nWarning: 'cpu-type' may be set improperly (0x$cpu_type instead of 0x$cpuTypeString${cpu_type:2:2})"
-        fi
-
-        if [ $gSystemType -eq 0 ];
+          elif [[ $gSystemType -eq 0 ]];
             then
                 echo -e "\nWarning: 'board-id' [$boardID] is not supported by $bridgeTypeString PM"
             else
