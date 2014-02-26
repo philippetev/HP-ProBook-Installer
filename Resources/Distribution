@@ -42,7 +42,6 @@
                 <line choice="installer_choice_4_4_1"/>
                 <line choice="installer_choice_4_4_2"/>
                 <line choice="installer_choice_4_4_3"/>
-                <line choice="installer_choice_4_4_4"/>
             </line>
             <line choice="installer_choice_4_5"/>
         </line>
@@ -142,9 +141,6 @@
         <pkg-ref id="com.MadMax.pkg.Opt.Broadcom"/>
     </choice>
     <choice id="installer_choice_4_4_3" start_selected="false" title="INSTALLER_CHOICE_4_4_3_TITLE" description="INSTALLER_CHOICE_4_4_3_DESCRIPTION">
-        <pkg-ref id="com.MadMax.pkg.Opt.USB3"/>
-    </choice>
-    <choice id="installer_choice_4_4_4" start_selected="false" title="INSTALLER_CHOICE_4_4_4_TITLE" description="INSTALLER_CHOICE_4_4_4_DESCRIPTION">
         <pkg-ref id="com.MadMax.pkg.Opt.LPC"/>
     </choice>
     <choice id="installer_choice_4_4" title="INSTALLER_CHOICE_4_4_TITLE" description="INSTALLER_CHOICE_4_4_DESCRIPTION"/>
@@ -251,16 +247,15 @@
     <pkg-ref id="com.MadMax.pkg.SleepImageFix" version="1.0" auth="Root" installKBytes="0">#Sleep_image_fix.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part3.HDMI.1080" version="1.0" auth="Root" installKBytes="1">#Part3.HDMI.1080.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.logos" version="1.0" auth="Root" installKBytes="710">#SysDef.logos.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Part1.4x30s" version="1.0" auth="Root" installKBytes="27">#Part1.4x30s.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Part1.4x30s" version="1.0" auth="Root" installKBytes="28">#Part1.4x30s.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.AHCIfix" version="1.0" auth="Root" installKBytes="0">#AHCIfix.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Opt.USB3" version="1.0" auth="Root" installKBytes="7">#Opt.USB3.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.ib" version="1.0" auth="Root" installKBytes="27">#Part1.4x40s.ib.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.ib" version="1.0" auth="Root" installKBytes="36">#Part1.4x40s.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Patcher" version="1.0" auth="Root" installKBytes="1068">#Patcher.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i7.sb.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.ChameleonWizard" version="1.0" auth="Root" installKBytes="1609">#Extra_ChameleonWizard.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i5.sb" version="1.0" auth="Root" installKBytes="0">#SysDef.i5.sb.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Support.4x30" version="1.0" auth="Root" installKBytes="0">#Support.4x30.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Support.4x30" version="1.0" auth="Root" installKBytes="135">#Support.4x30.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.AHCI3rdParty" version="1.0" auth="Root" installKBytes="11">#AHCI3rdParty.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SleepImageRestore" version="1.0" auth="Root" installKBytes="0">#Sleep_Image_restore.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Opt.Broadcom" version="1.0" auth="Root" installKBytes="1">#Opt.Broadcom.pkg</pkg-ref>
@@ -269,12 +264,12 @@
     <pkg-ref id="com.MadMax.pkg.SysDef.i5.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i5.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7qm.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7qm.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part2.fan.std" version="1.0" auth="Root" installKBytes="2">#Part2.fan.std.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="27">#Part1.4x40s.sb.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.CommonFiles" version="1.0" auth="Root" installKBytes="3131">#CommonFiles.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Part1.4x40s.sb" version="1.0" auth="Root" installKBytes="36">#Part1.4x40s.sb.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.CommonFiles" version="1.0" auth="Root" installKBytes="2998">#CommonFiles.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Chameleon" version="2.2" auth="Root" installKBytes="5151">#Chameleon.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Opt.Atheros" version="1.0" auth="Root" installKBytes="1">#Opt.Atheros.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.HWMonitor.SL" version="1.0" auth="Root" installKBytes="312">#Extra_HWMonitor_SL.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Part2.fan.quiet" version="1.0" auth="Root" installKBytes="5">#Part2.fan.quiet.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Part2.fan.quiet" version="1.0" auth="Root" installKBytes="6">#Part2.fan.quiet.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.CameraControl" version="1.0" auth="Root" installKBytes="22">#Extra_CameraControl.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.QuartzDebug" version="1.0" auth="Root" installKBytes="1798">#Extra_QuartzDebug.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Part3.HDMI.stock" version="1.0" auth="Root" installKBytes="1">#Part3.HDMI.stock.pkg</pkg-ref>
@@ -286,7 +281,7 @@
     <pkg-ref id="com.MadMax.pkg.HWMonitor" version="1.0" auth="Root" installKBytes="2261">#Extra_HWMonitor.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.MaciASL" version="1.0" auth="Root" installKBytes="3505">#Extra_MaciASL.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.0.preinstall" version="1.0" auth="Root" installKBytes="0">#0.preinstall.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="4153">#Extra_TrimEnabler.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.TrimEnabler" version="1.0" auth="Root" installKBytes="5560">#Extra_TrimEnabler.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.SysDef.i7.ib" version="1.0" auth="Root" installKBytes="0">#SysDef.i7.ib.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Support.4x40" version="1.0" auth="Root" installKBytes="0">#Support.4x40.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Support.6x70" version="1.0" auth="Root" installKBytes="0">#Support.6x70.pkg</pkg-ref>
@@ -294,7 +289,7 @@
     <pkg-ref id="com.MadMax.pkg.ColorProfiles" version="1.0" auth="Root" installKBytes="102">#ColorProfiles.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.Opt.LPC" version="1.0" auth="Root" installKBytes="1">#Opt.LPC.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.KextWizard" version="1.0" auth="Root" installKBytes="368">#Extra_KextWizard.pkg</pkg-ref>
-    <pkg-ref id="com.MadMax.pkg.Support.6x60" version="1.0" auth="Root" installKBytes="0">#Support.6x60.pkg</pkg-ref>
+    <pkg-ref id="com.MadMax.pkg.Support.6x60" version="1.0" auth="Root" installKBytes="135">#Support.6x60.pkg</pkg-ref>
     <pkg-ref id="com.MadMax.pkg.LocalTimeToggle" version="1.0" auth="Root" installKBytes="2">#Extra_LocalTimeToggle.pkg</pkg-ref>
     <!--+==========================+
         |    JavaScript Scripts    |

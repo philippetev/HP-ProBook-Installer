@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>ACPIBatteryManager</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.51, Copyright 2011 Apple Inc., RehabMan 2012</string>
+	<string>1.52, Copyright 2011 Apple Inc., RehabMan 2012</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.rehabman.driver.AppleSmartBatteryManager</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.51</string>
+	<string>1.52</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.51</string>
+	<string>1.52</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>

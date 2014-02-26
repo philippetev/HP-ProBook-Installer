@@ -8176,13 +8176,6 @@
 			</dict>
 			<key>PACKAGE_SCRIPTS</key>
 			<dict>
-				<key>POSTINSTALL_PATH</key>
-				<dict>
-					<key>PATH</key>
-					<string>3rdPartySATA/postinstall</string>
-					<key>PATH_TYPE</key>
-					<integer>1</integer>
-				</dict>
 				<key>PREINSTALL_PATH</key>
 				<dict>
 					<key>PATH</key>
@@ -9757,24 +9750,6 @@
 													<key>GID</key>
 													<integer>0</integer>
 													<key>PATH</key>
-													<string>OSX Support Files/CommonKexts/Extensions/GenericUSBXHCI.kext</string>
-													<key>PATH_TYPE</key>
-													<integer>1</integer>
-													<key>PERMISSIONS</key>
-													<integer>493</integer>
-													<key>TYPE</key>
-													<integer>3</integer>
-													<key>UID</key>
-													<integer>0</integer>
-												</dict>
-												<dict>
-													<key>BUNDLE_CAN_DOWNGRADE</key>
-													<true/>
-													<key>CHILDREN</key>
-													<array/>
-													<key>GID</key>
-													<integer>0</integer>
-													<key>PATH</key>
 													<string>OSX Support Files/CommonKexts/Extensions/HSSDBlockStorage.kext</string>
 													<key>PATH_TYPE</key>
 													<integer>1</integer>
@@ -10021,13 +9996,6 @@
 			</dict>
 			<key>PACKAGE_SCRIPTS</key>
 			<dict>
-				<key>POSTINSTALL_PATH</key>
-				<dict>
-					<key>PATH</key>
-					<string>OSX Support Files/CommonKexts/postinstall</string>
-					<key>PATH_TYPE</key>
-					<integer>1</integer>
-				</dict>
 				<key>PREINSTALL_PATH</key>
 				<dict>
 					<key>PATH</key>
@@ -12679,6 +12647,22 @@
 											<key>GID</key>
 											<integer>0</integer>
 											<key>PATH</key>
+											<string>DSDT Generator/09_USB3_4x40s_Mieze.txt</string>
+											<key>PATH_TYPE</key>
+											<integer>1</integer>
+											<key>PERMISSIONS</key>
+											<integer>420</integer>
+											<key>TYPE</key>
+											<integer>3</integer>
+											<key>UID</key>
+											<integer>0</integer>
+										</dict>
+										<dict>
+											<key>CHILDREN</key>
+											<array/>
+											<key>GID</key>
+											<integer>0</integer>
+											<key>PATH</key>
 											<string>DSDT Generator/12_Brightness.txt</string>
 											<key>PATH_TYPE</key>
 											<integer>1</integer>
@@ -12804,11 +12788,49 @@
 			<key>PACKAGE_SCRIPTS</key>
 			<dict>
 				<key>POSTINSTALL_PATH</key>
-				<dict/>
+				<dict>
+					<key>PATH</key>
+					<string>DSDT Generator/postinstall_usb3</string>
+					<key>PATH_TYPE</key>
+					<integer>1</integer>
+				</dict>
 				<key>PREINSTALL_PATH</key>
 				<dict/>
 				<key>RESOURCES</key>
-				<array/>
+				<array>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/scripts/Backup.sh</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>DSDT Generator/list_usb3</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>420</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+				</array>
 			</dict>
 			<key>PACKAGE_SETTINGS</key>
 			<dict>
@@ -13241,6 +13263,22 @@
 											<key>GID</key>
 											<integer>0</integer>
 											<key>PATH</key>
+											<string>DSDT Generator/09_USB3_4x40s_Mieze.txt</string>
+											<key>PATH_TYPE</key>
+											<integer>1</integer>
+											<key>PERMISSIONS</key>
+											<integer>420</integer>
+											<key>TYPE</key>
+											<integer>3</integer>
+											<key>UID</key>
+											<integer>0</integer>
+										</dict>
+										<dict>
+											<key>CHILDREN</key>
+											<array/>
+											<key>GID</key>
+											<integer>0</integer>
+											<key>PATH</key>
 											<string>DSDT Generator/12_Brightness.txt</string>
 											<key>PATH_TYPE</key>
 											<integer>1</integer>
@@ -13366,11 +13404,49 @@
 			<key>PACKAGE_SCRIPTS</key>
 			<dict>
 				<key>POSTINSTALL_PATH</key>
-				<dict/>
+				<dict>
+					<key>PATH</key>
+					<string>DSDT Generator/postinstall_usb3</string>
+					<key>PATH_TYPE</key>
+					<integer>1</integer>
+				</dict>
 				<key>PREINSTALL_PATH</key>
 				<dict/>
 				<key>RESOURCES</key>
-				<array/>
+				<array>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>OSX Support Files/Support patches/Resources/scripts/Backup.sh</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>DSDT Generator/list_usb3</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>420</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+				</array>
 			</dict>
 			<key>PACKAGE_SETTINGS</key>
 			<dict>
@@ -21477,7 +21553,26 @@
 									<array>
 										<dict>
 											<key>CHILDREN</key>
-											<array/>
+											<array>
+												<dict>
+													<key>BUNDLE_CAN_DOWNGRADE</key>
+													<true/>
+													<key>CHILDREN</key>
+													<array/>
+													<key>GID</key>
+													<integer>0</integer>
+													<key>PATH</key>
+													<string>OSX Support Files/CommonKexts/Extensions/GenericUSBXHCI.kext</string>
+													<key>PATH_TYPE</key>
+													<integer>1</integer>
+													<key>PERMISSIONS</key>
+													<integer>493</integer>
+													<key>TYPE</key>
+													<integer>3</integer>
+													<key>UID</key>
+													<integer>0</integer>
+												</dict>
+											</array>
 											<key>GID</key>
 											<integer>0</integer>
 											<key>PATH</key>
@@ -24056,573 +24151,26 @@
 									<array>
 										<dict>
 											<key>CHILDREN</key>
-											<array/>
-											<key>GID</key>
-											<integer>0</integer>
-											<key>PATH</key>
-											<string>Extensions</string>
-											<key>PATH_TYPE</key>
-											<integer>0</integer>
-											<key>PERMISSIONS</key>
-											<integer>493</integer>
-											<key>TYPE</key>
-											<integer>1</integer>
-											<key>UID</key>
-											<integer>0</integer>
-										</dict>
-									</array>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Library</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-							</array>
-							<key>GID</key>
-							<integer>0</integer>
-							<key>PATH</key>
-							<string>System</string>
-							<key>PATH_TYPE</key>
-							<integer>0</integer>
-							<key>PERMISSIONS</key>
-							<integer>493</integer>
-							<key>TYPE</key>
-							<integer>1</integer>
-							<key>UID</key>
-							<integer>0</integer>
-						</dict>
-						<dict>
-							<key>CHILDREN</key>
-							<array>
-								<dict>
-									<key>CHILDREN</key>
-									<array>
-										<dict>
-											<key>CHILDREN</key>
-											<array/>
-											<key>GID</key>
-											<integer>0</integer>
-											<key>PATH</key>
-											<string>DSDT Generator/09_USB3_4x40s_Mieze.txt</string>
-											<key>PATH_TYPE</key>
-											<integer>1</integer>
-											<key>PERMISSIONS</key>
-											<integer>420</integer>
-											<key>TYPE</key>
-											<integer>3</integer>
-											<key>UID</key>
-											<integer>0</integer>
-										</dict>
-									</array>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>tempDSDT</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>2</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-							</array>
-							<key>GID</key>
-							<integer>0</integer>
-							<key>PATH</key>
-							<string>tmp</string>
-							<key>PATH_TYPE</key>
-							<integer>0</integer>
-							<key>PERMISSIONS</key>
-							<integer>493</integer>
-							<key>TYPE</key>
-							<integer>2</integer>
-							<key>UID</key>
-							<integer>0</integer>
-						</dict>
-						<dict>
-							<key>CHILDREN</key>
-							<array>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Shared</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>1023</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-							</array>
-							<key>GID</key>
-							<integer>80</integer>
-							<key>PATH</key>
-							<string>Users</string>
-							<key>PATH_TYPE</key>
-							<integer>0</integer>
-							<key>PERMISSIONS</key>
-							<integer>493</integer>
-							<key>TYPE</key>
-							<integer>1</integer>
-							<key>UID</key>
-							<integer>0</integer>
-						</dict>
-					</array>
-					<key>GID</key>
-					<integer>0</integer>
-					<key>PATH</key>
-					<string>/</string>
-					<key>PATH_TYPE</key>
-					<integer>0</integer>
-					<key>PERMISSIONS</key>
-					<integer>493</integer>
-					<key>TYPE</key>
-					<integer>1</integer>
-					<key>UID</key>
-					<integer>0</integer>
-				</dict>
-				<key>PAYLOAD_TYPE</key>
-				<integer>0</integer>
-				<key>VERSION</key>
-				<integer>2</integer>
-			</dict>
-			<key>PACKAGE_SCRIPTS</key>
-			<dict>
-				<key>POSTINSTALL_PATH</key>
-				<dict>
-					<key>PATH</key>
-					<string>DSDT Generator/postinstall_usb3</string>
-					<key>PATH_TYPE</key>
-					<integer>1</integer>
-				</dict>
-				<key>RESOURCES</key>
-				<array>
-					<dict>
-						<key>CHILDREN</key>
-						<array/>
-						<key>GID</key>
-						<integer>0</integer>
-						<key>PATH</key>
-						<string>OSX Support Files/Support patches/Resources/scripts/Backup.sh</string>
-						<key>PATH_TYPE</key>
-						<integer>1</integer>
-						<key>PERMISSIONS</key>
-						<integer>493</integer>
-						<key>TYPE</key>
-						<integer>3</integer>
-						<key>UID</key>
-						<integer>0</integer>
-					</dict>
-					<dict>
-						<key>CHILDREN</key>
-						<array/>
-						<key>GID</key>
-						<integer>0</integer>
-						<key>PATH</key>
-						<string>DSDT Generator/list_usb3</string>
-						<key>PATH_TYPE</key>
-						<integer>1</integer>
-						<key>PERMISSIONS</key>
-						<integer>420</integer>
-						<key>TYPE</key>
-						<integer>3</integer>
-						<key>UID</key>
-						<integer>0</integer>
-					</dict>
-				</array>
-			</dict>
-			<key>PACKAGE_SETTINGS</key>
-			<dict>
-				<key>AUTHENTICATION</key>
-				<integer>1</integer>
-				<key>CONCLUSION_ACTION</key>
-				<integer>0</integer>
-				<key>IDENTIFIER</key>
-				<string>com.MadMax.pkg.Opt.USB3</string>
-				<key>LOCATION</key>
-				<integer>0</integer>
-				<key>NAME</key>
-				<string>Opt.USB3</string>
-				<key>OVERWRITE_PERMISSIONS</key>
-				<false/>
-				<key>VERSION</key>
-				<string>1.0</string>
-			</dict>
-			<key>TYPE</key>
-			<integer>0</integer>
-			<key>UUID</key>
-			<string>54A97512-3667-4353-8AB3-A4B2FD749B23</string>
-		</dict>
-		<dict>
-			<key>PACKAGE_FILES</key>
-			<dict>
-				<key>DEFAULT_INSTALL_LOCATION</key>
-				<string>/</string>
-				<key>HIERARCHY</key>
-				<dict>
-					<key>CHILDREN</key>
-					<array>
-						<dict>
-							<key>CHILDREN</key>
-							<array>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>80</integer>
-									<key>PATH</key>
-									<string>Utilities</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-							</array>
-							<key>GID</key>
-							<integer>80</integer>
-							<key>PATH</key>
-							<string>Applications</string>
-							<key>PATH_TYPE</key>
-							<integer>0</integer>
-							<key>PERMISSIONS</key>
-							<integer>509</integer>
-							<key>TYPE</key>
-							<integer>1</integer>
-							<key>UID</key>
-							<integer>0</integer>
-						</dict>
-						<dict>
-							<key>CHILDREN</key>
-							<array>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>80</integer>
-									<key>PATH</key>
-									<string>Application Support</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Documentation</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Filesystems</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Frameworks</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Input Methods</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Internet Plug-Ins</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>LaunchAgents</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>LaunchDaemons</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>PreferencePanes</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Preferences</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>80</integer>
-									<key>PATH</key>
-									<string>Printers</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>PrivilegedHelperTools</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>QuickLook</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>QuickTime</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Screen Savers</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Scripts</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Services</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Widgets</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>1</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-							</array>
-							<key>GID</key>
-							<integer>0</integer>
-							<key>PATH</key>
-							<string>Library</string>
-							<key>PATH_TYPE</key>
-							<integer>0</integer>
-							<key>PERMISSIONS</key>
-							<integer>493</integer>
-							<key>TYPE</key>
-							<integer>1</integer>
-							<key>UID</key>
-							<integer>0</integer>
-						</dict>
-						<dict>
-							<key>CHILDREN</key>
-							<array>
-								<dict>
-									<key>CHILDREN</key>
-									<array>
-										<dict>
-											<key>CHILDREN</key>
-											<array/>
+											<array>
+												<dict>
+													<key>BUNDLE_CAN_DOWNGRADE</key>
+													<true/>
+													<key>CHILDREN</key>
+													<array/>
+													<key>GID</key>
+													<integer>0</integer>
+													<key>PATH</key>
+													<string>OSX Support Files/CommonKexts/Extensions/GenericUSBXHCI.kext</string>
+													<key>PATH_TYPE</key>
+													<integer>1</integer>
+													<key>PERMISSIONS</key>
+													<integer>493</integer>
+													<key>TYPE</key>
+													<integer>3</integer>
+													<key>UID</key>
+													<integer>0</integer>
+												</dict>
+											</array>
 											<key>GID</key>
 											<integer>0</integer>
 											<key>PATH</key>
@@ -28782,44 +28330,6 @@ Mostly for the 4x40s ProBooks, but should work on every ProBook model without Wi
 														<key>LANGUAGE</key>
 														<string>English</string>
 														<key>VALUE</key>
-														<string>Select this, if you have Intel USB 3.0 controller on your board (the 4x40s models and all models with 7-series Intel USB3 controllers ).
-WARNING: This option will backup and then remove any version of GenericUSBXHCI.kext you may have!</string>
-													</dict>
-												</array>
-												<key>OPTIONS</key>
-												<dict>
-													<key>HIDDEN</key>
-													<false/>
-													<key>STATE</key>
-													<integer>2</integer>
-												</dict>
-												<key>PACKAGE_UUID</key>
-												<string>54A97512-3667-4353-8AB3-A4B2FD749B23</string>
-												<key>REQUIREMENTS</key>
-												<array/>
-												<key>TITLE</key>
-												<array>
-													<dict>
-														<key>LANGUAGE</key>
-														<string>English</string>
-														<key>VALUE</key>
-														<string>Intel USB 3.0 patch</string>
-													</dict>
-												</array>
-												<key>TOOLTIP</key>
-												<array/>
-												<key>TYPE</key>
-												<integer>0</integer>
-												<key>UUID</key>
-												<string>AD6EA664-4F85-4558-9FED-46AAB752E434</string>
-											</dict>
-											<dict>
-												<key>DESCRIPTION</key>
-												<array>
-													<dict>
-														<key>LANGUAGE</key>
-														<string>English</string>
-														<key>VALUE</key>
 														<string>This patch is required only for running Snow Leopard on 4x40s with Sandy Bridge CPU.
 NOTE: SL CANNOT BE INSTALLED ON 4x40s WITH IVY BRIDGE CPU !!! DO NOT USE THIS PATCH ON SUCH PROBOOKS !!!</string>
 													</dict>
@@ -29331,7 +28841,7 @@ Credits for the Chameleon Team.</string>
 										<key>LANGUAGE</key>
 										<string>English</string>
 										<key>VALUE</key>
-										<string>Chameleon r2344</string>
+										<string>Chameleon r2377</string>
 									</dict>
 								</array>
 								<key>TOOLTIP</key>
@@ -30394,7 +29904,7 @@ After their installation, you may find them in a folder on your desktop called "
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>HP ProBook Installer 6.1.12</string>
+						<string>HP ProBook Installer 6.1.13</string>
 					</dict>
 				</array>
 			</dict>

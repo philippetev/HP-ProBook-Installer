@@ -24,3 +24,4 @@ then
 	esac	
 fi
 done < $1
+/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist

@@ -1,3 +1,0 @@
-#!/bin/sh
-# triggering kext cache rebuilding
-/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist

@@ -48,3 +48,4 @@ rtcmav)	perl -pi -e 's|\x75\x2e\x0f\xb6|\xeb\x2e\x0f\xb6|' "$RTCBinary"
 		;;
 esac	
 done < $1
+/usr/libexec/PlistBuddy -c "Set :KextCacheRebuild yes" /tmp/PBI.plist
