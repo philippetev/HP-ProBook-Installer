@@ -1,5 +1,5 @@
 #!/bin/bash
 ./Backup.sh ./list_SSDT "${3}"
 ./ssdtPRGen.sh
-cp -f "./SSDT_PR.aml" "${3}/Extra/SSDT.aml"
+cp -f "./SSDT.aml" "${3}/Extra/SSDT.aml"
 chown "$USER" "${3}/Extra/SSDT.aml"
