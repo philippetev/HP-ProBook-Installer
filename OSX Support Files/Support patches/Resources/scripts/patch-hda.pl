@@ -12,8 +12,8 @@
 #  Match2 in AppleHDAWidgetFactory::createAppleHDAWidget()
 # Thus 2 patches are required per codec, or 4 for FAT binaries.
 
-# Version 3.1
-# Copyright (c) 2011-2013 B.C. <bcc24x7@gmail.com> (bcc9 at insanelymac.com). 
+# Version 3.4
+# Copyright (c) 2011-2014 B.C. <bcc24x7@gmail.com> (bcc9 at insanelymac.com). 
 # All rights reserved.
 
 use Getopt::Long;
@@ -162,6 +162,45 @@ sub find_codec_ranges
     }
 }
 
+#Convert number in network byte order to 4 byte hex string, little-endian
+sub hexstr
+{
+    my $num, $str, $byte;
+
+    $str = "";
+    $num = $_[0];
+    for ($i = 0; $i < 4; $i++) {
+	$byte = sprintf("%.2x", $num & 0xff);
+	$str = $str . $byte;
+	$num = $num >> 8;
+    }
+    return $str;
+}
+
+
+sub output_xml_patch
+{
+    my $find, $replace, $count;
+    my $pretty_indent;
+
+    $find = hexstr($_[0]);
+    $replace = hexstr($_[1]);
+    $count = $_[2];
+    $pretty_indent = "\t\t\t";
+    printf "%s<dict>\n", $pretty_indent;
+    $pretty_indent = "\t\t\t\t";
+    printf "%s<key>Name</key>\n", $pretty_indent;
+    printf "%s<string>AppleHDA</string>\n", $pretty_indent;
+    printf "%s<key>Comment</key>\n", $pretty_indent;
+    printf "%s<string>Expect %d matches</string>\n", $pretty_indent, $count;
+    printf "%s<key>Find</key>\n", $pretty_indent;
+    printf "%s<string>%s</string>\n", $pretty_indent, $find;
+    printf "%s<key>Replace</key>\n", $pretty_indent;
+    printf "%s<string>%s</string>\n", $pretty_indent, $replace;
+    $pretty_indent = "\t\t\t";
+    printf "%s</dict>\n", $pretty_indent;
+}
+
 sub patch_codec
 {
     my $codec_to_patch, $target_codec;
@@ -233,6 +272,7 @@ sub usage()
 	"  -r <volume root>\tspecify an alternate disk volume to use\n\t\t\tas the root for everything\n" .
 	"  -o <os vers number>\toverride auto-detected OS version (10.7/10.8/10.9)\n" .
 	"  -t\t\trun the script in test-only mode,\n\t\twhere AppleHDA is not actually patched.\n" .
+	"  -x\t\tOutput clover compatible XML patch configuration\n" .
 	"Examples:\tpatch-hda.pl 111d7675\n" .
 	"\t\tpatch-hda.pl 'IDT 7675'\n" .
 	"\t\tpatch-hda.pl -c 2 'Realtek ALC892'\n" .
@@ -273,6 +313,24 @@ sub osvers
     return($vers);
 }
 
+#Ugh, standard hex() function doesn't error check its input,
+#so we have to do so here
+sub is_hex
+{
+    my $hexstr = $_[0];
+
+    $hexstr =~ s/^0x//i;
+    if (!length($hexstr)) {
+	# No chars after leading 0x
+	return(0);
+    }
+    if ($hexstr !~ /[^0-9a-f]/i ) {
+	# no invalid characters
+	return(1);
+    }
+    return(0);
+}
+
 sub main()
 {
     my $target_id, $patch_id;
@@ -285,6 +343,7 @@ sub main()
     my $choice = 1;
     my $desired_codec;
     my $patch_codec_name, $target_codec_name, $codec_arg;
+    my $output_xml = 0;
 
     if ($err = read_config("patch-hda-codecs.pl")) {
 	printf(STDERR "%s\n", $err);
@@ -294,6 +353,7 @@ sub main()
         'v+' => \$verbose,
 	'y' => \$use_default,
 	't' => \$testonly,
+	'x' => \$output_xml,
         'c=i' => \$choice,
         's=s' => \$sledir,
         'r=s' => \$root,	#Volume root
@@ -340,7 +400,7 @@ retry:
     } else {
 	$codec_arg = $ARGV[0];
     }
-    if (hex($codec_arg)) {
+    if (is_hex($codec_arg)) {
 	$target_id = hex($codec_arg);
 	%codec_nums_to_name = reverse %codec_names_to_num;
 	$target_codec_name = $codec_nums_to_name{$target_id};
@@ -428,6 +488,13 @@ retry:
 	printf "Patching range comparison %x\n", $range_comparison;
     }
 
+    if ($output_xml) {
+	for ($index = 0; $index <= $#ranges; $index++) {
+	    output_xml_patch($ranges[$index], 0x0, $match_expect);
+	}
+	output_xml_patch($patch_id, $target_id, $match_expect);
+	exit(1);
+    }
     patch_codec($target_id, $patch_id);
 
     if ($matches != $match_expect) {
