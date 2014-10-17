@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>13B42</string>
+	<string>14A389</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -17,25 +17,25 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.2</string>
+	<string>2.0.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.0.2</string>
+	<string>2.0.3</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>5A3005</string>
+	<string>6A1046a</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12F37</string>
+	<string>12D75</string>
 	<key>DTSDKName</key>
 	<string>macosx10.8</string>
 	<key>DTXcode</key>
-	<string>0502</string>
+	<string>0610</string>
 	<key>DTXcodeBuild</key>
-	<string>5A3005</string>
+	<string>6A1046a</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>ACPIBacklight</key>
@@ -69,6 +69,10 @@
 			<integer>3000</integer>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
+			<key>RM,Build</key>
+			<string>Release-RehabMan</string>
+			<key>RM,Version</key>
+			<string>ACPIBacklight 2.0.3d1</string>
 		</dict>
 	</dict>
 	<key>OSBundleLibraries</key>
