@@ -182,9 +182,15 @@ sub output_xml_patch
 {
     my $find, $replace, $count;
     my $pretty_indent;
+    
+    my $find_b64, $replace_b64;
 
     $find = hexstr($_[0]);
     $replace = hexstr($_[1]);
+    
+    $find_b64 = `echo -n "$find"|xxd -r -p|base64|tr -d '\n'`;#rehabman
+    $replace_b64 = `echo -n "$replace"|xxd -r -p|base64|tr -d '\n'`;#rehabman
+    
     $count = $_[2];
     $pretty_indent = "\t\t\t";
     printf "%s<dict>\n", $pretty_indent;
@@ -194,9 +200,9 @@ sub output_xml_patch
     printf "%s<key>Comment</key>\n", $pretty_indent;
     printf "%s<string>Expect %d matches</string>\n", $pretty_indent, $count;
     printf "%s<key>Find</key>\n", $pretty_indent;
-    printf "%s<string>%s</string>\n", $pretty_indent, $find;
+    printf "%s<data>%s</data>\n", $pretty_indent, $find_b64;#rehabman
     printf "%s<key>Replace</key>\n", $pretty_indent;
-    printf "%s<string>%s</string>\n", $pretty_indent, $replace;
+    printf "%s<data>%s</data>\n", $pretty_indent, $replace_b64;#rehabman
     $pretty_indent = "\t\t\t";
     printf "%s</dict>\n", $pretty_indent;
 }
@@ -366,7 +372,7 @@ sub main()
 	$osxvers = osvers($root, $sledir);
     }
     printf "OSX version %s detected\n", $osxvers;
-    chomp($default_codec = `ioreg -rxn IOHDACodecDevice | grep VendorID | awk '{print \$4}'`);
+    chomp($default_codec = `ioreg -rxn IOHDACodecDevice | grep VendorID | awk '{print \$4}' | tr -d '\040\011\012\015'`);
     if ($default_codec) {
 	my($prefix, $val, $post) = split(/0x/, $default_codec, 3);
 	$default_codec = $val;
@@ -410,11 +416,14 @@ retry:
     }
 
     $match_expect = 2;
-    if ($osxvers < "10.8") {
+    if ($osxvers < "10.8" && $osxvers !~ m/10.10*/) {
 	# FAT binary with 2 architectures
 	$match_expect *= 2;
     }
-    if ($osxvers < "10.7.5") {
+    if ($osxvers =~ m/10.10*/ ){
+    @codec_compares = @codec_compares_osx109;
+    }
+    elsif ($osxvers < "10.7.5") {
 	@codec_compares = @codec_compares_osx107;
     } elsif ($osxvers < "10.9") {
 	@codec_compares = @codec_compares_osx108;
