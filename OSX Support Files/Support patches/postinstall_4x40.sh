@@ -20,7 +20,8 @@ then
 	10.6.8)	cp ./boot_sl.plist "${3}"/Extra/org.chameleon.Boot.plist;;
 	10.7.5|10.8*|10.9*) cp ./boot_ml.plist "${3}"/Extra/org.chameleon.Boot.plist;;
 	10.10*) cp ./boot_ml.plist "${3}"/Extra/org.chameleon.Boot.plist
-			/usr/libexec/PlistBuddy -c "Set ':Kernel Flags' kext-dev-mode=1" "${3}"/Extra/org.chameleon.Boot.plist;;
+			/usr/libexec/PlistBuddy -c "Set ':Kernel Flags' kext-dev-mode=1" "${3}"/Extra/org.chameleon.Boot.plist
+			/usr/libexec/PlistBuddy -c "Set :Kernel /System/Library/Kernels/kernel" "${3}"/Extra/org.chameleon.Boot.plist;;
 	*)	echo "Unknown or unsupported OS X version, aborting.";;
 	esac
 fi
