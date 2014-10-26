@@ -27485,7 +27485,7 @@
 				<key>BACKGROUND_PATH</key>
 				<dict>
 					<key>PATH</key>
-					<string>Resources/background_probook_installer.png</string>
+					<string>Resources/background.png</string>
 					<key>PATH_TYPE</key>
 					<integer>1</integer>
 				</dict>
@@ -29856,7 +29856,7 @@ After their installation, you may find them in a folder on your desktop called "
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>HP ProBook Installer 6.1.13r3</string>
+						<string>HP ProBook Installer 6.1.14</string>
 					</dict>
 				</array>
 			</dict>
