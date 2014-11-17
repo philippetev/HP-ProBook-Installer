@@ -25,17 +25,17 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>6A1046a</string>
+	<string>6A1052d</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12D75</string>
+	<string>12F37</string>
 	<key>DTSDKName</key>
 	<string>macosx10.8</string>
 	<key>DTXcode</key>
 	<string>0610</string>
 	<key>DTXcodeBuild</key>
-	<string>6A1046a</string>
+	<string>6A1052d</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>ApplePS2Keyboard</key>
@@ -127,7 +127,7 @@
 						<key>Breakless PS2</key>
 						<array>
 							<string>e01e;Touchpad Fn+f3 is breakless</string>
-							<string>e06e;REVIEW: temporary for case that macro inversion doesn't work...</string>
+							<string>e06e;REVIEW: temporary for case that macro inversion does not work...</string>
 						</array>
 						<key>Custom ADB Map</key>
 						<array>

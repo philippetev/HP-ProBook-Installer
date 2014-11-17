@@ -25,17 +25,17 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>6A1046a</string>
+	<string>6A1052d</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12D75</string>
+	<string>12F37</string>
 	<key>DTSDKName</key>
 	<string>macosx10.8</string>
 	<key>DTXcode</key>
 	<string>0610</string>
 	<key>DTXcodeBuild</key>
-	<string>6A1046a</string>
+	<string>6A1052d</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>ApplePS2Mouse</key>
