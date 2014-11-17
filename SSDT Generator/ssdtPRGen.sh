@@ -3,7 +3,7 @@
 # Script (ssdtPRGen.sh) to create ssdt-pr.dsl for Apple Power Management Support.
 #
 # Version 0.9 - Copyright (c) 2012 by RevoGirl
-# Version 14.1 - Copyright (c) 2014 by Pike <PikeRAlpha@yahoo.com>
+# Version 14.5 - Copyright (c) 2014 by Pike <PikeRAlpha@yahoo.com>
 #
 # Updates:
 #			- 		Added support for Ivy Bridge (Pike, January 2013)
@@ -172,6 +172,15 @@
 #			-		Support for Yosemite added (no longer using ioreg to get ACPI table data).
 #			-		Commit text/version information copied from Github (partly/too much work).
 #			- v14.1	low frequency mode fixed for the Intel i5-3317U (Pike, October 2014).
+#			- v14.2 low frequency mode changed for some of the Intel E3-1200 series (Pike, November 2014).
+#			-		Ivy Bridge workarounds (default value) now set based on the version of OS X.
+#			-		Typo fixed (tr -d -> tr -D).
+#			- v14.3	Error fixed, thanks to 'ginsbu' for reporting it on Github issues (Pike, November 2014).
+#			-		Ivy Bridge workaround detection scheme changed.
+#			- v14.4	Errors in processor data for the Intel i5-4690 fixed (Pike, November 2014).
+#			- v14.5	Argument -bclk allows you to specify a custom BCLK frequency (Pike, November 2014).
+#			-		Help text for -bclk option added.
+#			-		Basic support for pre-Jaketown/Sandy Bridge models added (power/control/status fields).
 #
 # Contributors:
 #			- Thanks to Dave, toleda and Francis for their help (bug fixes and other improvements).
@@ -194,6 +203,8 @@
 #			- Thanks to 't2m' for (blog) for reporting the omision of the Intel E5-1600 product family.
 #			- Thanks to 'arkanisman' for reporting the missing data of the Intel E5-2650.
 #			- Thanks to 'dsaltos' on Github issues for reporting the omision of the Intel i5-4400S.
+#			- Thanks to 'open1010' on Github issues for reporting the Ivy Bridge LFM frequency errors.
+#			- Thanks to 'ginsbu' on Github issues for reporting the Intel i5-4690 problems.
 #
 # Bugs:
 #			- Bug reports can be filed at https://github.com/Piker-Alpha/RevoBoot/issues
@@ -212,7 +223,7 @@
 #
 # Script version info.
 #
-gScriptVersion=14.1
+gScriptVersion=14.5
 
 #
 # Initial xcpm mode. Default value is -1 (uninitialised).
@@ -638,17 +649,17 @@ i3-2310E,35,800,2100,0,2,4
 
 gServerIvyBridgeCPUList=(
 # E3-1200 Xeon Processor Series
-'E3-1290 v2',87,1200,3700,4100,4,8
-'E3-1280 v2',69,1200,3600,4000,4,8
-'E3-1275 v2',77,1200,3500,3900,4,8
-'E3-1270 v2',69,1200,3500,3900,4,8
-'E3-1265L v2',45,1200,2500,3500,4,8
-'E3-1245 v2',77,1200,3400,3800,4,8
-'E3-1240 v2',69,1200,3400,3800,4,8
-'E3-1230 v2',69,1200,3300,3700,4,8
-'E3-1225 v2',77,1200,3200,3600,4,4
-'E3-1220 v2',69,1200,3100,3500,4,4
-'E3-1220L v2',17,1200,2300,3500,2,4
+'E3-1290 v2',87,1600,3700,4100,4,8
+'E3-1280 v2',69,1600,3600,4000,4,8
+'E3-1275 v2',77,1600,3500,3900,4,8
+'E3-1270 v2',69,1600,3500,3900,4,8
+'E3-1265L v2',45,1600,2500,3500,4,8
+'E3-1245 v2',77,1600,3400,3800,4,8
+'E3-1240 v2',69,1600,3400,3800,4,8
+'E3-1230 v2',69,1600,3300,3700,4,8
+'E3-1225 v2',77,1600,3200,3600,4,4
+'E3-1220 v2',69,1600,3100,3500,4,4
+'E3-1220L v2',17,1600,2300,3500,2,4
 # E5-1600 Xeon Processor Series
 'E5-1620 v2',130,1200,3700,3900,4,8
 'E5-1650 v2',130,1200,3500,3900,6,12
@@ -871,7 +882,7 @@ i7-4785T,35,800,2200,3200,4,8
 i7-4770S,65,800,3100,3900,4,8
 i7-4770T,45,800,2500,3700,4,8
 i7-4765T,35,800,2000,3000,4,8
-i5-4690,65,800,3300,3900,4,4
+i5-4690,84,800,3500,3900,4,4
 i5-4690S,65,800,3200,3900,4,4
 i5-4690T,45,800,2500,3500,4,4
 i5-4670S,65,800,3100,3800,4,4
@@ -1590,8 +1601,15 @@ function _printPackages()
 
     if [ $frequency -lt $maxNonTurboFrequency ];
       then
-        power=$(echo "scale=6;m=((1.1-(($p0Ratio-$powerRatio)*0.00625))/1.1);(($powerRatio/$p0Ratio)*(m*m)*$maxTDP);" | bc | sed -e 's/.[0-9A-F]*$//')
-        let powerRatio-=1
+        if [ $gBusFrequency -eq 100 ];
+          then
+            power=$(echo "scale=6;m=((1.1-(($p0Ratio-$powerRatio)*0.00625))/1.1);(($powerRatio/$p0Ratio)*(m*m)*$maxTDP);" | bc | sed -e 's/.[0-9A-F]*$//')
+            let powerRatio-=1
+          else
+            let ratioFactor=($ratio*30)/$p0Ratio;
+            power=$(echo "scale=6;(($ratioFactor*$ratioFactor*$ratioFactor*$maxTDP)/27000);" | bc | sed -e 's/.[0-9A-F]*$//')
+            let powerRatio-=1
+        fi
       else
         power=$maxTDP
     fi
@@ -1603,7 +1621,12 @@ function _printPackages()
         printf '    Zero, '                                                           >> $gSsdtPR
     fi
 
-    printf "0x0A, 0x0A, 0x%02X00, 0x%02X00 }" $ratio $ratio                           >> $gSsdtPR
+    if [ $gBusFrequency -eq 100 ];
+      then
+        printf "0x0A, 0x0A, 0x%02X00, 0x%02X00 }" $ratio $ratio                       >> $gSsdtPR
+      else
+        printf "0x0A, 0x0A, 0x00%02X, 0x00%02X }" $ratio $ratio                       >> $gSsdtPR
+    fi
 
     let ratio-=1
     let frequency-=$gBusFrequency
@@ -3511,7 +3534,7 @@ function _checkForXCPM()
       #
       # Check OS version (the 'machdep.xcpm' class is introduced in 10.8.5)
       #
-      if [[ $gOSVersion > 1084 ]];
+      if [[ $gOSVersion -gt 1084 ]];
         then
           #
           # Yes. Update global variable.
@@ -3894,6 +3917,7 @@ function _getScriptArguments()
         then
           printf "${STYLE_BOLD}Usage:${STYLE_RESET} ./ssdtPRGen.sh [-abcdfhlmptwx]\n"
           printf "       -${STYLE_BOLD}a${STYLE_RESET}cpi Processor name (example: CPU0, C000)\n"
+          printf "       -${STYLE_BOLD}bclk${STYLE_RESET} frequency (base clock frequency)\n"
           printf "       -${STYLE_BOLD}b${STYLE_RESET}oard-id (example: Mac-F60DEB81FF30ACF6)\n"
           printf "       -${STYLE_BOLD}c${STYLE_RESET}pu type [0/1/2/3]\n"
           printf "          0 = Sandy Bridge\n"
@@ -3944,7 +3968,7 @@ function _getScriptArguments()
             #
             # Note 'uro' was only added to support '-turbo'
             #
-            if [[ "${flag}" =~ ^[-abcdfhlmpsturowx]+$ ]];
+            if [[ "${flag}" =~ ^[-abcdfhklmpsturowx]+$ ]];
               then
                 #
                 # Yes. Figure out what flag it is.
@@ -3966,6 +3990,17 @@ function _getScriptArguments()
                           _invalidArgumentError "-a $1"
                       fi
                       ;;
+
+                  -bclk) shift
+
+                         if [[ "$1" =~ ^[0-9]+$ ]];
+                           then
+                             _PRINT_MSG "Override value: (-bclk) frequency, now using: ${1} MHz!"
+                             let gBusFrequency=$1
+                           else
+                             _invalidArgumentError "-bclk $1"
+                         fi
+                         ;;
 
                   -b) shift
 
@@ -4484,6 +4519,18 @@ function main()
              else
                echo -e "         Now using 1600 MHz for Server/Desktop processors\n"
                let gBaseFrequency=1600
+          fi
+      fi
+      #
+      # Check Ivy Bridge, XCPM mode and if -w argument is used.
+      #
+      if [[ $gBridgeType -eq $IVY_BRIDGE && $gXcpm -eq -1 && $gIvyWorkAround -eq 0 ]];
+        then
+          if [[ $gOSVersion -gt 10100 ]];
+            then
+              let gIvyWorkAround=3;
+            else
+              let gIvyWorkAround=2;
           fi
       fi
     else
