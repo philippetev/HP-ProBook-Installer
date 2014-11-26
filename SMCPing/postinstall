@@ -1,4 +1,18 @@
 #!/bin/sh
-/usr/bin/killall SMCpingDaemon
-sleep 3
-/sbin/SystemStarter start SMCpingDaemon
+tmppath="/tmp/smcpbi"
+sipath="/Library/StartupItems/SMCpingDaemon"
+ldpath="/Library/LaunchDaemons"
+if [ -f "/sbin/SystemStarter" ]
+then
+	if [ ! -d "$sipath" ]; then	mkdir -p "$sipath"; fi
+	cp -f "$tmppath"/SMCpingDaemon "$sipath"
+	cp -f "$tmppath"/StartupParameters.plist "$sipath"
+	killall SMCpingDaemon
+	sleep 3
+	/sbin/SystemStarter start SMCpingDaemon
+else
+	cp -f "$tmppath"/SMCpingDaemon /usr/bin/
+	cp -f "$tmppath"/org.pbi.SMCPing.plist "$ldpath"
+	launchctl load "$ldpath"/org.pbi.SMCPing.plist
+fi
+rm -Rf "$tmppath"
