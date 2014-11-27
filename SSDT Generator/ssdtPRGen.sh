@@ -4,7 +4,7 @@
 #
 # Version 0.9 - Copyright (c) 2012 by RevoGirl
 #
-# Version 15.1 - Copyright (c) 2014 by Pike <PikeRAlpha@yahoo.com>
+# Version 15.2 - Copyright (c) 2014 by Pike <PikeRAlpha@yahoo.com>
 #
 # Readme......: https://github.com/Piker-Alpha/ssdtPRGen.sh/blob/master/README.md
 #
@@ -25,7 +25,7 @@
 #
 # Script version info.
 #
-gScriptVersion=15.1
+gScriptVersion=15.2
 
 #
 # Initial xcpm mode. Default value is -1 (uninitialised).
